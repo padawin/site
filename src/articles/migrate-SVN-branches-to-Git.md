@@ -27,7 +27,7 @@ First, I had to find the branch's first commit:
 
 	BRANCH_FIRST_COMMIT=`git rev-list $BRANCH | tail -n 1`
 
-### Find the commit where BRANCH_FIRST_COMMIT comes from
+### Find the commit where BRANCH\_FIRST\_COMMIT comes from
 
 
 Then, I had to find in the parent, when the branch has been created. For that, I
