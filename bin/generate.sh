@@ -8,6 +8,6 @@ do
 	DESTTMP="$DEST.tmp"
 	mkdir -p `dirname "$DEST"`
 	markdown "$f" > "$DESTTMP"
-	cat src/header.part "$DESTTMP" src/footer.part > "$DEST"
+	cat src/header.inc.html "$DESTTMP" src/footer.inc.html > "$DEST"
 	rm "$DESTTMP"
 done
