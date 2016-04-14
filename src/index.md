@@ -4,7 +4,7 @@ You can find most of my projects on <a target="_blank" href="https://github.com/
 You can also find me on <a target="_blank" href="https://uk.linkedin.com/pub/ghislain-rodrigues/45/68a/322">Linkedin</a>.<br />
 When I am not coding, I like (among other things) to <a target="_blank" href="http://travels.ghislain-rodrigues.fr">travel and take pictures</a>.
 
-Tips and stuff
+## Tips and stuff
 
 - [Migrate SVN branches to Git](./articles/migrate-SVN-branches-to-Git.html)
 - [Double ssh tunnel](./articles/double-ssh-tunnel.html)
@@ -24,3 +24,13 @@ Tips and stuff
 - [Format json output](./articles/format-json-output.html)
 - [A way to write a method in a class](./articles/a-way-to-write-a-method-in-a-class.html)
 - [Search and replace](./articles/search-and-replace.html)
+
+## Game programming related
+
+Most of those projects are proofs of concept, ideas, or partly finished games.
+
+- My main game, [rRPG](https://github.com/rrpg/engine). Randomly generated role playing game. Still work in progress and used as my sandbox
+- [Conqueror](https://github.com/padawin/conqueror), a command line strategy game where the players have to conquer as many spaces on a boards as possible
+- [AD](https://github.com/padawin/ad), a color shifting game
+- [adVenture](https://github.com/padawin/adVenture), a "you are the hero" kind of game
+- A Javascript [game framework](https://github.com/padawin/game-framework-js) with 3 demos made during a Udemy lesson
