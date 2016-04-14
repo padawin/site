@@ -34,3 +34,4 @@ Most of those projects are proofs of concept, ideas, or partly finished games.
 - [AD](https://github.com/padawin/ad), a color shifting game
 - [adVenture](https://github.com/padawin/adVenture), a "you are the hero" kind of game
 - A Javascript [game framework](https://github.com/padawin/game-framework-js) with 3 demos made during a Udemy lesson
+- A [ray tracing test](https://github.com/padawin/raytracing-test)
