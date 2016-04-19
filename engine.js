@@ -10,7 +10,13 @@
 		],
 		camera = {x:0, y:0},
 		spriteBoard,
-		spriteBoardUrl = 'sprite.png';
+		spriteBoardUrl = 'sprite.png',
+		tileDimensions = {w: 64, h: 36},
+		mapSize = {
+			// assumes square map
+			w: map.length * tileDimensions.w,
+			h: map.length * tileDimensions.h
+		};
 
 	function Map (m) {
 		this.map = m;
