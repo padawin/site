@@ -28,7 +28,7 @@
 			level = 0,
 			startX = 0,
 			max = this.map.length - 1;
-		do {
+		while (x <= max && y <= max) {
 			// end of a row
 			if (x == level) {
 				// top half of the map
@@ -46,7 +46,9 @@
 				y--;
 				x++;
 			}
-		} while (x != max || y != max);
+		}
+
+
 	};
 
 	function loadResources (callback) {
