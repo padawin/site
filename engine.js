@@ -23,12 +23,27 @@
 	}
 
 	Map.prototype.draw = function (camera) {
-		var x = 0,
-			y = 0,
+		var x = 0, coordX,
+			y = 0, coordY,
 			level = 0,
 			startX = 0,
-			max = this.map.length - 1;
+			max = this.map.length - 1,
+			relativeTopCornerTile = {
+				x: tileDimensions.w / 2,
+				y: tileDimensions.h / 2
+			};
+
 		while (x <= max && y <= max) {
+			// where to print the tiles
+			coordX = (mapSize.w - (x - y) * tileDimensions.w) / 2;
+			coordY = (x + y + 1) *  tileDimensions.h / 2;
+			canvasContext.drawImage(spriteBoard,
+				this.map[y][x] * tileDimensions.w, 0,
+				tileDimensions.w, tileDimensions.h,
+				coordX - relativeTopCornerTile.x, coordY - relativeTopCornerTile.y,
+				tileDimensions.w, tileDimensions.h
+			);
+
 			// end of a row
 			if (x == level) {
 				// top half of the map
