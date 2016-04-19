@@ -35,7 +35,7 @@
 
 		while (x <= max && y <= max) {
 			// where to print the tiles
-			coordX = (mapSize.w - (x - y) * tileDimensions.w) / 2;
+			coordX = (mapSize.w - (y - x) * tileDimensions.w) / 2;
 			coordY = (x + y + 1) *  tileDimensions.h / 2;
 			canvasContext.drawImage(spriteBoard,
 				this.map[y][x] * tileDimensions.w, 0,
