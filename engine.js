@@ -11,7 +11,7 @@
 		camera = {x:0, y:0},
 		spriteBoard,
 		spriteBoardUrl = 'sprite.png',
-		tileDimensions = {w: 64, h: 36},
+		tileDimensions = {w: 64, h: 36, d: 73},
 		mapSize = {
 			// assumes square map
 			w: map.length * tileDimensions.w,
@@ -40,7 +40,7 @@
 			if (this.map[y][x] !== null) {
 				canvasContext.drawImage(spriteBoard,
 					this.map[y][x] * tileDimensions.w, 0,
-					tileDimensions.w, tileDimensions.h,
+					tileDimensions.w, tileDimensions.d,
 					coordX - relativeTopCornerTile.x, coordY - relativeTopCornerTile.y,
 					tileDimensions.w, tileDimensions.d
 				);
