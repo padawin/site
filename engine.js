@@ -62,8 +62,6 @@
 				x++;
 			}
 		}
-
-
 	};
 
 	function loadResources (callback) {
