@@ -37,12 +37,14 @@
 			// where to print the tiles
 			coordX = (mapSize.w - (y - x) * tileDimensions.w) / 2;
 			coordY = (x + y + 1) *  tileDimensions.h / 2;
-			canvasContext.drawImage(spriteBoard,
-				this.map[y][x] * tileDimensions.w, 0,
-				tileDimensions.w, tileDimensions.h,
-				coordX - relativeTopCornerTile.x, coordY - relativeTopCornerTile.y,
-				tileDimensions.w, tileDimensions.h
-			);
+			if (this.map[y][x] !== null) {
+				canvasContext.drawImage(spriteBoard,
+					this.map[y][x] * tileDimensions.w, 0,
+					tileDimensions.w, tileDimensions.h,
+					coordX - relativeTopCornerTile.x, coordY - relativeTopCornerTile.y,
+					tileDimensions.w, tileDimensions.d
+				);
+			}
 
 			// end of a row
 			if (x == level) {
