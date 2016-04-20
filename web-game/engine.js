@@ -47,7 +47,7 @@ loader.executeModule('main', 'B', function (B) {
 		while (x <= max && y <= max) {
 			// where to print the tiles
 			coordX = (mapSize.w - (y - x) * tileDimensions.w) / 2;
-			coordY = (x + y + 1) *  tileDimensions.h / 2;
+			coordY = (x + y + 1) * tileDimensions.h / 2;
 			if (this.map[y][x] !== null) {
 				canvasContext.drawImage(spriteBoard,
 					this.map[y][x] * tileDimensions.w, 0,
