@@ -1,63 +1,6 @@
 <html>
 	<head>
-		<style type="text/css">
-			body, canvas {
-				margin: 0;
-				padding: 0;
-			}
-
-			@media (max-width: 380px) or (max-height: 200px) {
-				#id-tag {
-					display: none;
-				}
-			}
-
-			@media (min-width: 381px) and (min-height: 201px) {
-				#id-tag {
-					position: absolute;
-					left: 30px;
-					bottom: 30px;
-				}
-
-				#id-tag > div {
-					position: relative;
-				}
-
-
-				#id-tag img, #id-tag section {
-					vertical-align: bottom;
-				}
-
-				#id-tag img {
-					position: absolute;
-					bottom: 0;
-					left: 0;
-					background-color: #0069B1;
-					border-radius: 50px;
-					z-index: 4;
-				}
-
-				#id-tag section {
-					background-color: #0069B1;
-					margin-left: 50px;
-					padding: 14px 14px 14px 50px;
-					border-top-right-radius: 14px;
-					border-bottom-right-radius: 14px;
-					z-index: 3;
-				}
-
-				#max-health {
-					width: 200px;
-					border: 1px #121212 solid;
-				}
-
-				#max-health div {
-					width: 200px;
-					height: 10px;
-					background-color: #E60C02;
-				}
-			}
-		</style>
+		<link rel="stylesheet" href="style.css" />
 	</head>
 	<body>
 		<canvas id="myCanvas"></canvas>
