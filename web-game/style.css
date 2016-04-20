@@ -1,0 +1,96 @@
+body, canvas {
+	margin: 0;
+	padding: 0;
+}
+
+#screen-size-warning {
+	display: none;
+}
+
+@media (max-width: 380px), (max-height: 300px) {
+	#id-tag {
+		display: none;
+	}
+
+	#screen-size-warning {
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 75%;
+		background-color: white;
+		padding: 25% 20px 0 20px;
+		text-align: center;
+	}
+}
+
+@media (min-width: 381px) and (max-width: 700px), (min-height: 301px) and (max-height: 450px) {
+	#id-tag {
+		left: 15px;
+		bottom: 15px;
+	}
+
+	#id-tag img {
+		width: 50px;
+	}
+
+	#id-tag section {
+		margin-left: 25px;
+		padding: 10px 14px 9px 50px;
+	}
+}
+
+@media (min-width: 701px) and (min-height: 451px) {
+	#id-tag {
+		left: 30px;
+		bottom: 30px;
+	}
+
+	#id-tag img {
+		width: 100px;
+	}
+
+	#id-tag section {
+		margin-left: 50px;
+		padding: 14px 14px 14px 50px;
+	}
+}
+
+#id-tag {
+	position: absolute;
+}
+
+#id-tag > div {
+	position: relative;
+}
+
+#id-tag img, #id-tag section {
+	vertical-align: bottom;
+}
+
+#id-tag img {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	background-color: #0069B1;
+	border-radius: 50px;
+	z-index: 4;
+}
+
+#id-tag section {
+	background-color: #0069B1;
+	border-top-right-radius: 14px;
+	border-bottom-right-radius: 14px;
+	z-index: 3;
+}
+
+#max-health {
+	width: 200px;
+	border: 1px #121212 solid;
+}
+
+#max-health div {
+	width: 200px;
+	height: 10px;
+	background-color: #E60C02;
+}

@@ -1,4 +1,7 @@
-(function () {
+
+loader.executeModule('main', 'B', function (B) {
+	"use strict";
+
 	var canvas = document.getElementById('myCanvas'),
 		canvasContext = canvas.getContext('2d'),
 		debug = false,
@@ -44,7 +47,7 @@
 		while (x <= max && y <= max) {
 			// where to print the tiles
 			coordX = (mapSize.w - (y - x) * tileDimensions.w) / 2;
-			coordY = (x + y + 1) *  tileDimensions.h / 2;
+			coordY = (x + y + 1) * tileDimensions.h / 2;
 			if (this.map[y][x] !== null) {
 				canvasContext.drawImage(spriteBoard,
 					this.map[y][x] * tileDimensions.w, 0,
@@ -99,11 +102,11 @@
 		resizeCanvas();
 	})
 
-	window.addEventListener('resize', resizeCanvas, false);
+	B.Events.on('resize', null, resizeCanvas);
 
 	function resizeCanvas() {
 		canvas.width = window.innerWidth;
 		canvas.height = window.innerHeight;
 		m.draw(camera);
 	}
-})();
+});
