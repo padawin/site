@@ -1,4 +1,7 @@
-(function () {
+
+loader.executeModule('main', 'B', function (B) {
+	"use strict";
+
 	var canvas = document.getElementById('myCanvas'),
 		canvasContext = canvas.getContext('2d'),
 		debug = false,
@@ -106,4 +109,4 @@
 		canvas.height = window.innerHeight;
 		m.draw(camera);
 	}
-})();
+});
