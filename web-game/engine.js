@@ -3,6 +3,7 @@
 		canvasContext = canvas.getContext('2d'),
 		debug = false,
 		n = null,
+		m,
 		map = [
 			[0, 0, n, n, n, n, n, n, n, n],
 			[0, 2, n, 0, 0, 0, n, n, n, n],
