@@ -3,9 +3,24 @@ body, canvas {
 	padding: 0;
 }
 
+#screen-size-warning {
+	display: none;
+}
+
 @media (max-width: 380px), (max-height: 300px) {
 	#id-tag {
 		display: none;
+	}
+
+	#screen-size-warning {
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 75%;
+		background-color: white;
+		padding: 25% 20px 0 20px;
+		text-align: center;
 	}
 }
 
