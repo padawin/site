@@ -95,7 +95,7 @@
 
 	loadResources(function () {
 		m = new Map(map);
-		m.draw(camera);
+		resizeCanvas();
 	})
 
 	window.addEventListener('resize', resizeCanvas, false);
@@ -103,6 +103,6 @@
 	function resizeCanvas() {
 		canvas.width = window.innerWidth;
 		canvas.height = window.innerHeight;
+		m.draw(camera);
 	}
-	resizeCanvas();
 })();
