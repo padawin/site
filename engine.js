@@ -1,6 +1,7 @@
 (function () {
 	var canvas = document.getElementById('myCanvas'),
 		canvasContext = canvas.getContext('2d'),
+		debug = false,
 		n = null,
 		map = [
 			[0, 0, n, n, n, n, n, n, n, n],
@@ -50,6 +51,18 @@
 					coordX - relativeTopCornerTile.x, coordY - relativeTopCornerTile.y,
 					tileDimensions.w, tileDimensions.d
 				);
+
+				if (debug) {
+					canvasContext.beginPath();
+					canvasContext.moveTo(coordX - relativeTopCornerTile.x, coordY);
+					canvasContext.lineTo(coordX, coordY - relativeTopCornerTile.y);
+					canvasContext.lineTo(coordX + relativeTopCornerTile.x, coordY);
+					canvasContext.lineTo(coordX, coordY + relativeTopCornerTile.y);
+					canvasContext.fillStyle = 'rgba(246, 44, 197, 0.5)';
+					canvasContext.strokeStyle = 'black';
+					canvasContext.fill();
+					canvasContext.stroke();
+				}
 			}
 
 			// end of a row
