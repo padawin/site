@@ -102,7 +102,7 @@ loader.executeModule('main', 'B', function (B) {
 		resizeCanvas();
 	})
 
-	window.addEventListener('resize', resizeCanvas, false);
+	B.Events.on('resize', null, resizeCanvas);
 
 	function resizeCanvas() {
 		canvas.width = window.innerWidth;
