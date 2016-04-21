@@ -42,9 +42,16 @@ loader.executeModule('main', 'B', function (B) {
 		return {x: coordX, y: coordY};
 	};
 
+	Map.prototype.coordsToPixels = function (x, y) {
+		return {
+			x: (mapSize.w - (y - x) * tileDimensions.w) / 2,
+			y: (x + y + 1) * tileDimensions.h / 2
+		};
+	};
+
 	Map.prototype.draw = function (camera) {
-		var x = 0, coordX,
-			y = 0, coordY,
+		var x = 0,
+			y = 0, coord,
 			level = 0,
 			startX = 0,
 			max = this.map.length - 1,
@@ -55,22 +62,21 @@ loader.executeModule('main', 'B', function (B) {
 
 		while (x <= max && y <= max) {
 			// where to print the tiles
-			coordX = (mapSize.w - (y - x) * tileDimensions.w) / 2;
-			coordY = (x + y + 1) * tileDimensions.h / 2;
+			coord = this.coordsToPixels(x, y);
 			if (this.map[y][x] !== null) {
 				canvasContext.drawImage(spriteBoard,
 					this.map[y][x] * tileDimensions.w, 0,
 					tileDimensions.w, tileDimensions.d,
-					coordX - relativeTopCornerTile.x, coordY - relativeTopCornerTile.y,
+					coord.x - relativeTopCornerTile.x, coord.y - relativeTopCornerTile.y,
 					tileDimensions.w, tileDimensions.d
 				);
 
 				if (debug) {
 					canvasContext.beginPath();
-					canvasContext.moveTo(coordX - relativeTopCornerTile.x, coordY);
-					canvasContext.lineTo(coordX, coordY - relativeTopCornerTile.y);
-					canvasContext.lineTo(coordX + relativeTopCornerTile.x, coordY);
-					canvasContext.lineTo(coordX, coordY + relativeTopCornerTile.y);
+					canvasContext.moveTo(coord.x - relativeTopCornerTile.x, coord.y);
+					canvasContext.lineTo(coord.x, coord.y - relativeTopCornerTile.y);
+					canvasContext.lineTo(coord.x + relativeTopCornerTile.x, coord.y);
+					canvasContext.lineTo(coord.x, coord.y + relativeTopCornerTile.y);
 					canvasContext.fillStyle = 'rgba(246, 44, 197, 0.5)';
 					canvasContext.strokeStyle = 'black';
 					canvasContext.fill();
