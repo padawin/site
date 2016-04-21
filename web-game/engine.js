@@ -148,21 +148,21 @@ loader.executeModule('main', 'B', function (B) {
 	};
 
 	function Me () {
-		this.x = 0;
-		this.y = 2;
+		var start = m.coordsToPixels(0, 0);
+		this.x = start.x;
+		this.y = start.y;
 		this.tileDimensions = {w: 64, h: 64};
 		this.relativeTopCornerTile = {x: 32, y: 44};
 		this.spritePosition = {x: 0, y: tileDimensions.d};
 	}
 
 	Me.prototype.draw = function () {
-		var coordX = (mapSize.w - (this.y - this.x) * tileDimensions.w) / 2,
-			coordY = (this.x + this.y + 1) *  tileDimensions.h / 2;
+		var coord = this;
 
 		canvasContext.drawImage(spriteBoard,
 			this.spritePosition.x, this.spritePosition.y,
 			this.tileDimensions.w, this.tileDimensions.h,
-			coordX - this.relativeTopCornerTile.x, coordY - this.relativeTopCornerTile.y,
+			coord.x - this.relativeTopCornerTile.x, coord.y - this.relativeTopCornerTile.y,
 			this.tileDimensions.w, this.tileDimensions.h
 		);
 	}
@@ -202,6 +202,6 @@ loader.executeModule('main', 'B', function (B) {
 		canvas.width = window.innerWidth;
 		canvas.height = window.innerHeight;
 		m.draw(camera);
-		me.draw();
+		me.draw(camera);
 	}
 });
