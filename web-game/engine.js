@@ -105,7 +105,7 @@ loader.executeModule('main', 'B', function (B) {
 
 		while (x <= max && y <= max) {
 			// where to print the tiles
-			coord = this.coordsToPixels(x, y);
+			coord = camera.adapt(this.coordsToPixels(x, y));
 			if (this.map[y][x] !== null) {
 				canvasContext.drawImage(spriteBoard,
 					this.map[y][x] * tileDimensions.w, 0,
@@ -156,8 +156,8 @@ loader.executeModule('main', 'B', function (B) {
 		this.spritePosition = {x: 0, y: tileDimensions.d};
 	}
 
-	Me.prototype.draw = function () {
-		var coord = this;
+	Me.prototype.draw = function (camera) {
+		var coord = camera.adapt(this);
 
 		canvasContext.drawImage(spriteBoard,
 			this.spritePosition.x, this.spritePosition.y,
@@ -188,14 +188,15 @@ loader.executeModule('main', 'B', function (B) {
 			root = document.documentElement,
 			mouseX = event.clientX - rect.left - root.scrollLeft,
 			mouseY = event.clientY - rect.top - root.scrollTop,
-			dest = m.pixelsToCoords(mouseX, mouseY);
+			mouseInWorld = camera.toWorldCoords({x: mouseX, y: mouseY}),
+			dest = m.pixelsToCoords(mouseInWorld.x, mouseInWorld.y);
 
 		if (m.map[dest.y] === undefined || m.map[dest.y][dest.x] === undefined || m.map[dest.y][dest.x] === null) {
 			return;
 		}
 
-		me.x = dest.x;
-		me.y = dest.y;
+		me.x = mouseInWorld.x;
+		me.y = mouseInWorld.y;
 	}, false);
 
 	function resizeCanvas() {
