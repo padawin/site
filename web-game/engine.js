@@ -203,6 +203,8 @@ loader.executeModule('main', 'B', function (B) {
 	function resizeCanvas() {
 		canvas.width = window.innerWidth;
 		canvas.height = window.innerHeight;
+		camera.w = canvas.width;
+		camera.h = canvas.height;
 		m.draw(camera);
 		me.draw(camera);
 	}
