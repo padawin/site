@@ -1,4 +1,4 @@
-all: html css
+all: html css images
 
 html:
 	./bin/generate.sh
