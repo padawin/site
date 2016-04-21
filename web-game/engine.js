@@ -207,5 +207,9 @@ loader.executeModule('main', 'B', function (B) {
 		camera.h = canvas.height;
 		m.draw(camera);
 		me.draw(camera);
+
+		if (debug) {
+			camera.draw();
+		}
 	}
 });
