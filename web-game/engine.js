@@ -188,16 +188,21 @@ loader.executeModule('main', 'B', function (B) {
 			root = document.documentElement,
 			mouseX = event.clientX - rect.left - root.scrollLeft,
 			mouseY = event.clientY - rect.top - root.scrollTop,
+			// get the coordinates in the world
 			mouseInWorld = camera.toWorldCoords({x: mouseX, y: mouseY}),
-			dest = m.pixelsToCoords(mouseInWorld.x, mouseInWorld.y);
+			// convert them in the coordinates of the clicked cell
+			dest = m.pixelsToCoords(mouseInWorld.x, mouseInWorld.y),
+			// get the center of the clicked cell, this is the player's
+			// destination
+			cellCoords = m.coordsToPixels(dest.x, dest.y);
 
 		if (m.map[dest.y] === undefined || m.map[dest.y][dest.x] === undefined || m.map[dest.y][dest.x] === null) {
 			return;
 		}
 
-		me.x = mouseInWorld.x;
-		me.y = mouseInWorld.y;
-		camera.setPosition(mouseInWorld);
+		me.x = cellCoords.x;
+		me.y = cellCoords.y;
+		camera.setPosition(cellCoords);
 	}, false);
 
 	function resizeCanvas() {
