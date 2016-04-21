@@ -60,7 +60,7 @@ Most of those projects are proofs of concept, ideas, or partly finished games.
 	</li>
 	<li>
 		<a class="block button large" href="https://github.com/padawin/ad" target="_blank">
-			<img src="images/AD.png" width="160" height="160" alt="AD" />
+			<img src="images/A-D.png" width="160" height="160" alt="AD" />
 			<span>AD</span>
 		</a>
 	</li>
