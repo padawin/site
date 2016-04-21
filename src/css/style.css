@@ -24,3 +24,47 @@ h1 {
 p {
 	text-align: justify;
 }
+
+.thumbs {
+	list-style: none;
+}
+
+.thumbs li {
+	display: inline-block;
+	margin: 17px;
+	position: relative;
+}
+
+.thumbs .button {
+	background-color: #CCCCCC;
+}
+
+.thumbs a.block {
+	outline: none;
+	text-decoration: none;
+	border: 1px #ddd solid;
+	color: #333;
+}
+
+.thumbs .block,
+.thumbs .block img {
+	display: inline-block;
+	border-radius: 7px;
+}
+
+.thumbs .block span {
+	position: absolute;
+	display: inline-block;
+	bottom: 0px;
+	left: 0px;
+	width: 100%;
+	background-color: rgb(221, 221, 221);
+	text-align: center;
+	border-bottom-left-radius: 7px;
+	border-bottom-right-radius: 7px;
+	display: none;
+}
+
+.thumbs .block:hover span {
+	display: inline;
+}
