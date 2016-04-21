@@ -197,6 +197,7 @@ loader.executeModule('main', 'B', function (B) {
 
 		me.x = mouseInWorld.x;
 		me.y = mouseInWorld.y;
+		camera.setPosition(mouseInWorld);
 	}, false);
 
 	function resizeCanvas() {
