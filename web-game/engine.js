@@ -6,7 +6,7 @@ loader.executeModule('main', 'B', function (B) {
 		canvasContext = canvas.getContext('2d'),
 		debug = false,
 		n = null,
-		m,
+		m, me,
 		map = [
 			[0, 0, n, n, n, n, n, n, n, n],
 			[0, 2, n, 0, 0, 0, n, n, n, n],
@@ -32,6 +32,15 @@ loader.executeModule('main', 'B', function (B) {
 	function Map (m) {
 		this.map = m;
 	}
+
+	Map.prototype.pixelsToCoords = function (x, y) {
+		var midTileW = tileDimensions.w/2,
+			midTileH = tileDimensions.h/2,
+			coordX = parseInt((x*midTileH + y*midTileW - (288+midTileW)*midTileH)/1296),
+			coordY = parseInt((-x*midTileH + y*midTileW + (288+midTileW)*midTileH)/1296);
+
+		return {x: coordX, y: coordY};
+	};
 
 	Map.prototype.draw = function (camera) {
 		var x = 0, coordX,
@@ -89,6 +98,26 @@ loader.executeModule('main', 'B', function (B) {
 		}
 	};
 
+	function Me () {
+		this.x = 0;
+		this.y = 2;
+		this.tileDimensions = {w: 64, h: 64};
+		this.relativeTopCornerTile = {x: 32, y: 44};
+		this.spritePosition = {x: 0, y: tileDimensions.d},
+	}
+
+	Me.prototype.draw = function () {
+		var coordX = (mapSize.w - (this.y - this.x) * tileDimensions.w) / 2,
+			coordY = (this.x + this.y + 1) *  tileDimensions.h / 2;
+
+		canvasContext.drawImage(spriteBoard,
+			this.spritePosition.x, this.spritePosition.y,
+			this.tileDimensions.w, this.tileDimensions.h,
+			coordX - this.relativeTopCornerTile.x, coordY - this.relativeTopCornerTile.y,
+			this.tileDimensions.w, this.tileDimensions.h
+		);
+	}
+
 	function loadResources (callback) {
 		spriteBoard = new Image();
 		spriteBoard.onload = function () {
@@ -99,14 +128,31 @@ loader.executeModule('main', 'B', function (B) {
 
 	loadResources(function () {
 		m = new Map(map);
+		me = new Me();
 		resizeCanvas();
 	})
 
 	B.Events.on('resize', null, resizeCanvas);
 
+	canvas.addEventListener('click', function (event) {
+		var rect = canvas.getBoundingClientRect(),
+			root = document.documentElement,
+			mouseX = event.clientX - rect.left - root.scrollLeft,
+			mouseY = event.clientY - rect.top - root.scrollTop,
+			dest = m.pixelsToCoords(mouseX, mouseY);
+
+		if (m.map[dest.y] === undefined || m.map[dest.y][dest.x] === undefined || m.map[dest.y][dest.x] === null) {
+			return;
+		}
+
+		me.x = dest.x;
+		me.y = dest.y;
+	}, false);
+
 	function resizeCanvas() {
 		canvas.width = window.innerWidth;
 		canvas.height = window.innerHeight;
 		m.draw(camera);
+		me.draw();
 	}
 });
