@@ -19,7 +19,7 @@ loader.executeModule('main', 'B', function (B) {
 			[n, 0, 0, 1, 0, n, n, n, n, 0],
 			[n, 0, 0, 1, 0, 0, 0, 0, 0, 0]
 		],
-		camera = {x:0, y:0},
+		camera,
 		spriteBoard,
 		spriteBoardUrl = 'sprite.png',
 		tileDimensions = {w: 64, h: 36, d: 73},
@@ -28,6 +28,49 @@ loader.executeModule('main', 'B', function (B) {
 			w: map.length * tileDimensions.w,
 			h: map.length * tileDimensions.h
 		};
+
+	camera = {
+		x: 320,
+		y: 18,
+		w: 0,
+		h: 0,
+		/**
+		 * Convert some world coordinates to coordinates in the camera
+		 */
+		adapt: function (coord) {
+			var ret = {
+				x: coord.x - (this.x - this.w / 2),
+				y: coord.y - (this.y - this.h / 2),
+			};
+			return ret;
+		},
+		/**
+		 * Convert some camera coordinates to coordinates in the world
+		 */
+		toWorldCoords: function (coord) {
+			var ret = {
+				x: coord.x + (this.x - this.w / 2),
+				y: coord.y + (this.y - this.h / 2),
+			};
+			return ret;
+		},
+		setPosition (coordinates) {
+			this.x = coordinates.x;
+			this.y = coordinates.y;
+		},
+		draw: function () {
+			canvasContext.strokeStyle = 'black';
+			canvasContext.beginPath();
+			canvasContext.moveTo(this.w / 2, 0);
+			canvasContext.lineTo(this.w / 2, this.h);
+			canvasContext.stroke();
+
+			canvasContext.beginPath();
+			canvasContext.moveTo(0, this.h / 2);
+			canvasContext.lineTo(this.w, this.h / 2);
+			canvasContext.stroke();
+		}
+	};
 
 	function Map (m) {
 		this.map = m;
@@ -42,9 +85,16 @@ loader.executeModule('main', 'B', function (B) {
 		return {x: coordX, y: coordY};
 	};
 
+	Map.prototype.coordsToPixels = function (x, y) {
+		return {
+			x: (mapSize.w - (y - x) * tileDimensions.w) / 2,
+			y: (x + y + 1) * tileDimensions.h / 2
+		};
+	};
+
 	Map.prototype.draw = function (camera) {
-		var x = 0, coordX,
-			y = 0, coordY,
+		var x = 0,
+			y = 0, coord,
 			level = 0,
 			startX = 0,
 			max = this.map.length - 1,
@@ -55,22 +105,21 @@ loader.executeModule('main', 'B', function (B) {
 
 		while (x <= max && y <= max) {
 			// where to print the tiles
-			coordX = (mapSize.w - (y - x) * tileDimensions.w) / 2;
-			coordY = (x + y + 1) * tileDimensions.h / 2;
+			coord = camera.adapt(this.coordsToPixels(x, y));
 			if (this.map[y][x] !== null) {
 				canvasContext.drawImage(spriteBoard,
 					this.map[y][x] * tileDimensions.w, 0,
 					tileDimensions.w, tileDimensions.d,
-					coordX - relativeTopCornerTile.x, coordY - relativeTopCornerTile.y,
+					coord.x - relativeTopCornerTile.x, coord.y - relativeTopCornerTile.y,
 					tileDimensions.w, tileDimensions.d
 				);
 
 				if (debug) {
 					canvasContext.beginPath();
-					canvasContext.moveTo(coordX - relativeTopCornerTile.x, coordY);
-					canvasContext.lineTo(coordX, coordY - relativeTopCornerTile.y);
-					canvasContext.lineTo(coordX + relativeTopCornerTile.x, coordY);
-					canvasContext.lineTo(coordX, coordY + relativeTopCornerTile.y);
+					canvasContext.moveTo(coord.x - relativeTopCornerTile.x, coord.y);
+					canvasContext.lineTo(coord.x, coord.y - relativeTopCornerTile.y);
+					canvasContext.lineTo(coord.x + relativeTopCornerTile.x, coord.y);
+					canvasContext.lineTo(coord.x, coord.y + relativeTopCornerTile.y);
 					canvasContext.fillStyle = 'rgba(246, 44, 197, 0.5)';
 					canvasContext.strokeStyle = 'black';
 					canvasContext.fill();
@@ -99,21 +148,21 @@ loader.executeModule('main', 'B', function (B) {
 	};
 
 	function Me () {
-		this.x = 0;
-		this.y = 2;
+		var start = m.coordsToPixels(0, 0);
+		this.x = start.x;
+		this.y = start.y;
 		this.tileDimensions = {w: 64, h: 64};
 		this.relativeTopCornerTile = {x: 32, y: 44};
 		this.spritePosition = {x: 0, y: tileDimensions.d};
 	}
 
-	Me.prototype.draw = function () {
-		var coordX = (mapSize.w - (this.y - this.x) * tileDimensions.w) / 2,
-			coordY = (this.x + this.y + 1) *  tileDimensions.h / 2;
+	Me.prototype.draw = function (camera) {
+		var coord = camera.adapt(this);
 
 		canvasContext.drawImage(spriteBoard,
 			this.spritePosition.x, this.spritePosition.y,
 			this.tileDimensions.w, this.tileDimensions.h,
-			coordX - this.relativeTopCornerTile.x, coordY - this.relativeTopCornerTile.y,
+			coord.x - this.relativeTopCornerTile.x, coord.y - this.relativeTopCornerTile.y,
 			this.tileDimensions.w, this.tileDimensions.h
 		);
 	}
@@ -139,20 +188,28 @@ loader.executeModule('main', 'B', function (B) {
 			root = document.documentElement,
 			mouseX = event.clientX - rect.left - root.scrollLeft,
 			mouseY = event.clientY - rect.top - root.scrollTop,
-			dest = m.pixelsToCoords(mouseX, mouseY);
+			mouseInWorld = camera.toWorldCoords({x: mouseX, y: mouseY}),
+			dest = m.pixelsToCoords(mouseInWorld.x, mouseInWorld.y);
 
 		if (m.map[dest.y] === undefined || m.map[dest.y][dest.x] === undefined || m.map[dest.y][dest.x] === null) {
 			return;
 		}
 
-		me.x = dest.x;
-		me.y = dest.y;
+		me.x = mouseInWorld.x;
+		me.y = mouseInWorld.y;
+		camera.setPosition(mouseInWorld);
 	}, false);
 
 	function resizeCanvas() {
 		canvas.width = window.innerWidth;
 		canvas.height = window.innerHeight;
+		camera.w = canvas.width;
+		camera.h = canvas.height;
 		m.draw(camera);
-		me.draw();
+		me.draw(camera);
+
+		if (debug) {
+			camera.draw();
+		}
 	}
 });

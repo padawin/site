@@ -17,10 +17,14 @@ body, canvas {
 		position: absolute;
 		top: 0;
 		left: 0;
-		height: 75%;
+		min-height: 100%;
+		width: 100%;
 		background-color: white;
-		padding: 25% 20px 0 20px;
 		text-align: center;
+	}
+
+	#screen-size-warning .content {
+		padding: 50px 20px 0 20px;
 	}
 }
 
