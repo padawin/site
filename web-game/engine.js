@@ -19,7 +19,7 @@ loader.executeModule('main', 'B', function (B) {
 			[n, 0, 0, 1, 0, n, n, n, n, 0],
 			[n, 0, 0, 1, 0, 0, 0, 0, 0, 0]
 		],
-		camera = {x:0, y:0},
+		camera,
 		spriteBoard,
 		spriteBoardUrl = 'sprite.png',
 		tileDimensions = {w: 64, h: 36, d: 73},
@@ -28,6 +28,49 @@ loader.executeModule('main', 'B', function (B) {
 			w: map.length * tileDimensions.w,
 			h: map.length * tileDimensions.h
 		};
+
+	camera = {
+		x: 320,
+		y: 18,
+		w: 0,
+		h: 0,
+		/**
+		 * Convert some world coordinates to coordinates in the camera
+		 */
+		adapt: function (coord) {
+			var ret = {
+				x: coord.x - (this.x - this.w / 2),
+				y: coord.y - (this.y - this.h / 2),
+			};
+			return ret;
+		},
+		/**
+		 * Convert some camera coordinates to coordinates in the world
+		 */
+		toWorldCoords: function (coord) {
+			var ret = {
+				x: coord.x + (this.x - this.w / 2),
+				y: coord.y + (this.y - this.h / 2),
+			};
+			return ret;
+		},
+		setPosition (coordinates) {
+			this.x = coordinates.x;
+			this.y = coordinates.y;
+		},
+		draw: function () {
+			canvasContext.strokeStyle = 'black';
+			canvasContext.beginPath();
+			canvasContext.moveTo(this.w / 2, 0);
+			canvasContext.lineTo(this.w / 2, this.h);
+			canvasContext.stroke();
+
+			canvasContext.beginPath();
+			canvasContext.moveTo(0, this.h / 2);
+			canvasContext.lineTo(this.w, this.h / 2);
+			canvasContext.stroke();
+		}
+	};
 
 	function Map (m) {
 		this.map = m;
