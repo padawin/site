@@ -33,6 +33,15 @@ loader.executeModule('main', 'B', function (B) {
 		this.map = m;
 	}
 
+	Map.prototype.pixelsToCoords = function (x, y) {
+		var midTileW = tileDimensions.w/2,
+			midTileH = tileDimensions.h/2,
+			coordX = parseInt((x*midTileH + y*midTileW - (288+midTileW)*midTileH)/1296),
+			coordY = parseInt((-x*midTileH + y*midTileW + (288+midTileW)*midTileH)/1296);
+
+		return {x: coordX, y: coordY};
+	};
+
 	Map.prototype.draw = function (camera) {
 		var x = 0, coordX,
 			y = 0, coordY,
