@@ -128,14 +128,31 @@ loader.executeModule('main', 'B', function (B) {
 
 	loadResources(function () {
 		m = new Map(map);
+		me = new Me();
 		resizeCanvas();
 	})
 
 	B.Events.on('resize', null, resizeCanvas);
 
+	canvas.addEventListener('click', function (event) {
+		var rect = canvas.getBoundingClientRect(),
+			root = document.documentElement,
+			mouseX = event.clientX - rect.left - root.scrollLeft,
+			mouseY = event.clientY - rect.top - root.scrollTop,
+			dest = m.pixelsToCoords(mouseX, mouseY);
+
+		if (m.map[dest.y] === undefined || m.map[dest.y][dest.x] === undefined || m.map[dest.y][dest.x] === null) {
+			return;
+		}
+
+		me.x = dest.x;
+		me.y = dest.y;
+	}, false);
+
 	function resizeCanvas() {
 		canvas.width = window.innerWidth;
 		canvas.height = window.innerHeight;
 		m.draw(camera);
+		me.draw();
 	}
 });
