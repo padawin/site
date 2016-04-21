@@ -189,15 +189,16 @@ loader.executeModule('main', 'B', function (B) {
 			mouseX = event.clientX - rect.left - root.scrollLeft,
 			mouseY = event.clientY - rect.top - root.scrollTop,
 			mouseInWorld = camera.toWorldCoords({x: mouseX, y: mouseY}),
-			dest = m.pixelsToCoords(mouseInWorld.x, mouseInWorld.y);
+			dest = m.pixelsToCoords(mouseInWorld.x, mouseInWorld.y),
+			cellCoords = m.coordsToPixels(dest.x, dest.y);
 
 		if (m.map[dest.y] === undefined || m.map[dest.y][dest.x] === undefined || m.map[dest.y][dest.x] === null) {
 			return;
 		}
 
-		me.x = mouseInWorld.x;
-		me.y = mouseInWorld.y;
-		camera.setPosition(mouseInWorld);
+		me.x = cellCoords.x;
+		me.y = cellCoords.y;
+		camera.setPosition(cellCoords);
 	}, false);
 
 	function resizeCanvas() {
