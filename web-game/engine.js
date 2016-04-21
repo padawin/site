@@ -6,7 +6,7 @@ loader.executeModule('main', 'B', function (B) {
 		canvasContext = canvas.getContext('2d'),
 		debug = false,
 		n = null,
-		m,
+		m, me,
 		map = [
 			[0, 0, n, n, n, n, n, n, n, n],
 			[0, 2, n, 0, 0, 0, n, n, n, n],
@@ -88,6 +88,26 @@ loader.executeModule('main', 'B', function (B) {
 			}
 		}
 	};
+
+	function Me () {
+		this.x = 0;
+		this.y = 2;
+		this.tileDimensions = {w: 64, h: 64};
+		this.relativeTopCornerTile = {x: 32, y: 44};
+		this.spritePosition = {x: 0, y: tileDimensions.d},
+	}
+
+	Me.prototype.draw = function () {
+		var coordX = (mapSize.w - (this.y - this.x) * tileDimensions.w) / 2,
+			coordY = (this.x + this.y + 1) *  tileDimensions.h / 2;
+
+		canvasContext.drawImage(spriteBoard,
+			this.spritePosition.x, this.spritePosition.y,
+			this.tileDimensions.w, this.tileDimensions.h,
+			coordX - this.relativeTopCornerTile.x, coordY - this.relativeTopCornerTile.y,
+			this.tileDimensions.w, this.tileDimensions.h
+		);
+	}
 
 	function loadResources (callback) {
 		spriteBoard = new Image();
