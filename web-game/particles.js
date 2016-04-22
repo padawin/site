@@ -10,8 +10,7 @@ loader.addModule('particles', function () {
 
 	const PARTICLES_NUMBER = 1000;
 
-	particlesModule.Particle = function (position, speed, draw) {
-		this.draw = draw;
+	particlesModule.Particle = function (position, speed) {
 		this.maxLife = parseInt(Math.random() * 100);
 		this.life = this.maxLife;
 		this.position = position;
@@ -55,7 +54,7 @@ loader.addModule('particles', function () {
 		this.nbParticles++;
 	};
 
-	ParticlesManager.prototype.updateAndDrawParticles = function () {
+	particlesModule.ParticlesManager.prototype.updateAndDrawParticles = function (drawCallback) {
 		var that = this;
 		function swapParticles (i, j) {
 			var tmp = that.particlesCollection[i];
@@ -72,7 +71,7 @@ loader.addModule('particles', function () {
 				swapParticles(i, this.nbParticles);
 			}
 			else {
-				this.particlesCollection[i].draw();
+				drawCallback(this.particlesCollection[i]);
 				i++;
 			}
 		}
