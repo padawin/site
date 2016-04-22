@@ -175,7 +175,7 @@ loader.executeModule('main', 'B', function (B) {
 		spriteBoard.src = spriteBoardUrl;
 	}
 
-	function resizeCanvas() {
+	function resizeCanvas () {
 		canvas.width = window.innerWidth;
 		canvas.height = window.innerHeight;
 		camera.w = canvas.width;
