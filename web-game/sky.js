@@ -1,6 +1,15 @@
 loader.addModule('sky', function () {
 	"use strict";
-	var sky = {};
+	var sky = {
+			nbResources: 1
+		},
+		cloudResource;
+
+	sky.loadResources = function (loaded) {
+		cloudResource = new Image();
+		cloudResource.onload = loaded;
+		cloudResource.src = 'cloud.png';
+	}
 
 	sky.update = function () {
 

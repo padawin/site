@@ -168,11 +168,22 @@ loader.executeModule('main', 'B', 'sky', function (B, sky) {
 	}
 
 	function loadResources (callback) {
+		// sprite + sky, will evolve
+		var nbResources = 1 + sky.nbResources,
+			loaded = 0;
+
+		function onLoadResource () {
+			loaded++;
+
+			if (loaded == nbResources) {
+				callback();
+			}
+		}
+
 		spriteBoard = new Image();
-		spriteBoard.onload = function () {
-			callback();
-		};
+		spriteBoard.onload = onLoadResource;
 		spriteBoard.src = spriteBoardUrl;
+		sky.loadResources(onLoadResource);
 	}
 
 	function resizeCanvas () {
