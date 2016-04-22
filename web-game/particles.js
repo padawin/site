@@ -10,8 +10,8 @@ loader.addModule('particles', function () {
 
 	const PARTICLES_NUMBER = 1000;
 
-	particlesModule.Particle = function (position, speed) {
-		this.maxLife = parseInt(Math.random() * 100);
+	particlesModule.Particle = function (position, speed, maxLife) {
+		this.maxLife = maxLife;
 		this.life = this.maxLife;
 		this.position = position;
 		this.speed = speed;
