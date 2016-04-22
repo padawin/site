@@ -39,14 +39,18 @@ loader.addModule('particles', function () {
 	};
 
 
-	function ParticlesManager (size) {
+	particlesModule.ParticlesManager = function (size) {
 		this.maxSize = size;
 		this.particlesCollection = Array(size);
 		this.nbParticles = 0;
 	}
 
-	ParticlesManager.prototype.addParticle = function (particle) {
-		if (this.nbParticles == this.maxSize) {
+	particlesModule.ParticlesManager.prototype.isFull = function () {
+		return this.nbParticles == this.maxSize;
+	};
+
+	particlesModule.ParticlesManager.prototype.addParticle = function (particle) {
+		if (this.isFull()) {
 			return;
 		}
 
@@ -75,10 +79,6 @@ loader.addModule('particles', function () {
 				i++;
 			}
 		}
-	};
-
-	particlesModule.createManager = function (size) {
-		return new ParticlesManager(size);
 	};
 
 	return particlesModule;
