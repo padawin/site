@@ -78,7 +78,9 @@ loader.addModule('particles', function () {
 		}
 	};
 
-	particlesModule.manager = new ParticlesManager(1000);
+	particlesModule.createManager = function (size) {
+		return new ParticlesManager(size);
+	};
 
 	return particlesModule;
 });
