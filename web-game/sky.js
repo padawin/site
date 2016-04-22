@@ -28,9 +28,17 @@ loader.addModule('sky', 'particles', function (particlesModule) {
 		}
 	};
 
-	sky.draw = function (canvasContext, camera) {
+	sky.draw = function (canvas, canvasContext, camera) {
 		canvasContext.fillStyle = '#AEE8FB';
 		canvasContext.fillRect(0, 0, camera.w, camera.h);
+		clouds.updateAndDrawParticles(function (cloud) {
+			canvasContext.drawImage(cloudResource,
+				0, 0,
+				cloudResource.width, cloudResource.height,
+				cloud.position.x, canvas.height * cloud.position.y,
+				cloudResource.width * cloud.ratio, cloudResource.height * cloud.ratio
+			);
+		});
 	};
 
 	return sky;
