@@ -1,5 +1,5 @@
 
-loader.executeModule('main', 'B', function (B) {
+loader.executeModule('main', 'B', 'sky', function (B, sky) {
 	"use strict";
 
 	var canvas = document.getElementById('myCanvas'),
@@ -182,11 +182,6 @@ loader.executeModule('main', 'B', function (B) {
 		camera.h = canvas.height;
 	}
 
-	function refreshScreen () {
-		canvasContext.fillStyle = '#AEE8FB';
-		canvasContext.fillRect(0, 0, camera.w, camera.h);
-	}
-
 	function draw () {
 		m.draw(camera);
 		me.draw(camera);
@@ -198,7 +193,8 @@ loader.executeModule('main', 'B', function (B) {
 
 	function mainLoop () {
 		requestAnimationFrame(mainLoop);
-		refreshScreen();
+		sky.update();
+		sky.draw(canvasContext, camera);
 		draw();
 	}
 
