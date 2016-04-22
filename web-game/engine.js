@@ -175,11 +175,39 @@ loader.executeModule('main', 'B', function (B) {
 		spriteBoard.src = spriteBoardUrl;
 	}
 
+	function resizeCanvas () {
+		canvas.width = window.innerWidth;
+		canvas.height = window.innerHeight;
+		camera.w = canvas.width;
+		camera.h = canvas.height;
+	}
+
+	function refreshScreen () {
+		canvasContext.fillStyle = 'white';
+		canvasContext.fillRect(0, 0, camera.w, camera.h);
+	}
+
+	function draw () {
+		m.draw(camera);
+		me.draw(camera);
+
+		if (debug) {
+			camera.draw();
+		}
+	}
+
+	function mainLoop () {
+		requestAnimationFrame(mainLoop);
+		refreshScreen();
+		draw();
+	}
+
 	loadResources(function () {
 		m = new Map(map);
 		me = new Me();
 		resizeCanvas();
-	})
+		mainLoop();
+	});
 
 	B.Events.on('resize', null, resizeCanvas);
 
@@ -204,17 +232,4 @@ loader.executeModule('main', 'B', function (B) {
 		me.y = cellCoords.y;
 		camera.setPosition(cellCoords);
 	}, false);
-
-	function resizeCanvas() {
-		canvas.width = window.innerWidth;
-		canvas.height = window.innerHeight;
-		camera.w = canvas.width;
-		camera.h = canvas.height;
-		m.draw(camera);
-		me.draw(camera);
-
-		if (debug) {
-			camera.draw();
-		}
-	}
 });
