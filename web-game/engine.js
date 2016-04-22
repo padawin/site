@@ -180,6 +180,14 @@ loader.executeModule('main', 'B', function (B) {
 		canvas.height = window.innerHeight;
 		camera.w = canvas.width;
 		camera.h = canvas.height;
+	}
+
+	function refreshScreen () {
+		canvasContext.fillStyle = 'white';
+		canvasContext.fillRect(0, 0, camera.w, camera.h);
+	}
+
+	function draw () {
 		m.draw(camera);
 		me.draw(camera);
 
@@ -188,10 +196,17 @@ loader.executeModule('main', 'B', function (B) {
 		}
 	}
 
+	function mainLoop () {
+		requestAnimationFrame(mainLoop);
+		refreshScreen();
+		draw();
+	}
+
 	loadResources(function () {
 		m = new Map(map);
 		me = new Me();
 		resizeCanvas();
+		mainLoop();
 	});
 
 	B.Events.on('resize', null, resizeCanvas);
