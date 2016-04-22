@@ -192,7 +192,7 @@ loader.executeModule('main', 'B', function (B) {
 		m = new Map(map);
 		me = new Me();
 		resizeCanvas();
-	})
+	});
 
 	B.Events.on('resize', null, resizeCanvas);
 
