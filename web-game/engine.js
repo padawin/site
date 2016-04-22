@@ -183,7 +183,7 @@ loader.executeModule('main', 'B', function (B) {
 	}
 
 	function refreshScreen () {
-		canvasContext.fillStyle = 'white';
+		canvasContext.fillStyle = '#AEE8FB';
 		canvasContext.fillRect(0, 0, camera.w, camera.h);
 	}
 
