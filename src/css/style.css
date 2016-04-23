@@ -93,6 +93,12 @@ ul {
 	text-align: center;
 }
 
+@media (max-width: 715px) {
+	.links {
+		text-align: left;
+	}
+}
+
 .links li {
 	display: inline-block;
 	margin: 17px;
