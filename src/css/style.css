@@ -3,6 +3,21 @@ body {
 	background-color: #FCFCFC;
 }
 
+h1 {
+	height: 80px;
+	background-color: #252525;
+	margin: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 18pt;
+}
+
+h1 a, h1 a:hover, h1 a:visited {
+	color: #FCFCFC;
+	text-decoration: none;
+}
+
 .content {
 	padding: 0;
 	color: #222;
@@ -17,18 +32,8 @@ body {
 	}
 }
 
-h1 a, h1 a:hover, h1 a:visited {
-	color: #222;
-	text-decoration: none;
-}
-
 pre {
 	margin-left: 14px;
-}
-
-h1 {
-	text-align: right;
-	font-size: 18pt;
 }
 
 p {
