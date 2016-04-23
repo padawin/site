@@ -1,13 +1,16 @@
 body {
-	padding: 0;
 	background-color: #FCFCFC;
+}
+
+.content {
+	padding: 0;
 	color: #222;
 	font-family: Georgia;
 	margin: 30px 150px 30px 150px;
 }
 
 @media (max-width: 979px) {
-	body {
+	.content {
 		margin-left: 40px;
 		margin-right: 40px;
 	}
