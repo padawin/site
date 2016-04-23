@@ -3,7 +3,14 @@ body {
 	background-color: #FAFAFA;
 	color: #222;
 	font-family: Georgia;
-	margin: 30px 40px 30px 40px;
+	margin: 30px 150px 30px 150px;
+}
+
+@media (max-width: 979px) {
+	body {
+		margin-left: 40px;
+		margin-right: 40px;
+	}
 }
 
 h1 a, h1 a:hover, h1 a:visited {
