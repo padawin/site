@@ -1,9 +1,8 @@
 
-loader.executeModule('main', 'B', 'sky', function (B, sky) {
+loader.executeModule('main', 'B', 'sky', 'canvas', function (B, sky, canvas) {
 	"use strict";
 
-	var canvas = document.getElementById('myCanvas'),
-		canvasContext = canvas.getContext('2d'),
+	var canvasContext = canvas.getContext(),
 		debug = false,
 		n = null,
 		m, me,
@@ -186,11 +185,10 @@ loader.executeModule('main', 'B', 'sky', function (B, sky) {
 		sky.loadResources(onLoadResource);
 	}
 
-	function resizeCanvas () {
-		canvas.width = window.innerWidth;
-		canvas.height = window.innerHeight;
-		camera.w = canvas.width;
-		camera.h = canvas.height;
+	function resize () {
+		canvas.resize();
+		camera.w = canvas.getWidth();
+		camera.h = canvas.getHeight();
 	}
 
 	function draw () {
@@ -205,21 +203,21 @@ loader.executeModule('main', 'B', 'sky', function (B, sky) {
 	function mainLoop () {
 		requestAnimationFrame(mainLoop);
 		sky.update();
-		sky.draw(canvas, canvasContext, camera);
+		sky.draw(canvas.canvas, canvasContext, camera);
 		draw();
 	}
 
 	loadResources(function () {
 		m = new Map(map);
 		me = new Me();
-		resizeCanvas();
+		resize();
 		mainLoop();
 	});
 
-	B.Events.on('resize', null, resizeCanvas);
+	B.Events.on('resize', null, resize);
 
-	canvas.addEventListener('click', function (event) {
-		var rect = canvas.getBoundingClientRect(),
+	canvas.canvas.addEventListener('click', function (event) {
+		var rect = canvas.canvas.getBoundingClientRect(),
 			root = document.documentElement,
 			mouseX = event.clientX - rect.left - root.scrollLeft,
 			mouseY = event.clientY - rect.top - root.scrollTop,
