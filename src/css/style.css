@@ -106,6 +106,33 @@ ul {
 	position: relative;
 }
 
+@media (max-width: 331px) {
+	.links li {
+		margin: 10px;
+	}
+}
+
+@media (max-width: 303px) {
+	.links li {
+		margin: 3px 0;
+	}
+}
+
+@media (max-width: 275px) {
+	.links {
+		text-align: center;
+	}
+
+	.links li, .links li a {
+		width: 100%;
+		min-width: 80px;
+	}
+
+	.links li a.block {
+		padding: 4px 0;
+	}
+}
+
 .links .button {
 	background-image: -webkit-gradient(linear, left top, left bottom, from(#F5F5F5), to(#CCCCCC));
 	background-image: -o-linear-gradient(top,  #F5F5F5,  #CCCCCC);
