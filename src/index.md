@@ -1,6 +1,6 @@
 <ul class="links">
 	<li>
-		<a class="block button" href="./about.html" target="_blank">
+		<a class="block button" href="./about.html">
 			<img src="images/about.png" alt="About me" />
 		</a>
 	</li>
