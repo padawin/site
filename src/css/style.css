@@ -40,13 +40,15 @@ ul {
 }
 
 .tips li {
-	margin: 4px 0;
+	margin: 4px;
 	display: inline-block;
-	width: 49%;
+	width: 48%;
+	vertical-align: top;
 }
 
 @media (max-width: 979px) {
 	.tips li {
+		margin: 0;
 		width: auto;
 		display: block;
 	}
@@ -66,7 +68,7 @@ ul {
 	padding: 5px;
 	color: #222;
 	text-decoration: none;
-	display: inline-block;
+	display: block;
 }
 
 .tips li a:hover {
