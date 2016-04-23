@@ -4,7 +4,6 @@ You can read more <a href="./about.html">about me</a>.
 	<li>
 		<a class="block button" href="http://ghislain-rodrigues.fr/CV-Ghislain-Rodrigues.pdf" target="_blank">
 			<img src="images/CV.png" alt="Download CV" />
-			<span>CV</span>
 		</a>
 	</li>
 	<li>
