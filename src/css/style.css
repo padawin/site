@@ -31,6 +31,10 @@ p {
 	text-align: justify;
 }
 
+ul {
+	padding: 0;
+}
+
 .thumbs {
 	list-style: none;
 }
