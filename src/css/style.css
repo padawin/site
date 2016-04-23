@@ -35,6 +35,49 @@ ul {
 	padding: 0;
 }
 
+.tips {
+	list-style: none;
+}
+
+.tips li {
+	margin: 4px 0;
+	display: inline-block;
+	width: 49%;
+}
+
+@media (max-width: 979px) {
+	.tips li {
+		width: auto;
+		display: block;
+	}
+}
+
+.tips li:first-child {
+	margin-top: 4px;
+}
+
+.tips li:last-child {
+	margin-bottom: 7px;
+}
+
+.tips li a {
+	border: 1px rgb(221, 221, 221) solid;
+	border-radius: 5px;
+	padding: 5px;
+	color: #222;
+	text-decoration: none;
+	display: inline-block;
+}
+
+.tips li a:hover {
+	background-color: rgb(221, 221, 221);
+}
+
+.links {
+	list-style: none;
+	text-align: center;
+}
+
 .thumbs {
 	list-style: none;
 }
