@@ -1,29 +1,133 @@
 body {
 	margin: 0;
-	padding: 0;
-	background-color: #FAFAFA;
-	color: #222;
-	font-family: Georgia;
-	margin: 30px 40px 30px 40px;
+	background-color: #FCFCFC;
+}
+
+h1 {
+	height: 80px;
+	background-color: #252525;
+	margin: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 24pt;
 }
 
 h1 a, h1 a:hover, h1 a:visited {
-	color: #222;
+	color: #FCFCFC;
 	text-decoration: none;
+}
+
+.content {
+	padding: 0;
+	color: #222;
+	font-family: Georgia;
+	margin: 30px 150px 30px 150px;
+}
+
+@media (max-width: 979px) {
+	.content {
+		margin-left: 40px;
+		margin-right: 40px;
+	}
+}
+
+h1, h2 {
+	font-family: "Lucida Console", Monaco, monospace;
 }
 
 pre {
 	margin-left: 14px;
 }
 
-h1 {
-	text-align: right;
-	font-size: 18pt;
-}
-
 p {
 	text-align: justify;
 }
+
+ul {
+	padding: 0;
+}
+
+.tips {
+	list-style: none;
+}
+
+.tips li {
+	margin: 4px;
+	display: inline-block;
+	width: 48%;
+	vertical-align: top;
+}
+
+@media (max-width: 979px) {
+	.tips li {
+		margin: 4px 0;
+		width: auto;
+		display: block;
+	}
+}
+
+.tips li:first-child {
+	margin-top: 4px;
+}
+
+.tips li:last-child {
+	margin-bottom: 7px;
+}
+
+.tips li a {
+	border: 1px rgb(221, 221, 221) solid;
+	border-radius: 5px;
+	padding: 5px;
+	color: #222;
+	text-decoration: none;
+	display: block;
+}
+
+.tips li a:hover {
+	background-color: rgb(221, 221, 221);
+}
+
+.links {
+	list-style: none;
+	text-align: center;
+}
+
+@media (max-width: 715px) {
+	.links {
+		text-align: left;
+	}
+}
+
+.links li {
+	display: inline-block;
+	margin: 17px;
+	position: relative;
+}
+
+.links .button {
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#F5F5F5), to(#CCCCCC));
+	background-image: -o-linear-gradient(top,  #F5F5F5,  #CCCCCC);
+	background-image: -moz-linear-gradient(top,  #F5F5F5,  #CCCCCC);
+	background-image: linear-gradient(top,  #F5F5F5,  #CCCCCC);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#F5F5F5', endColorstr='#CCCCCC');
+	background-color: #CCCCCC;
+}
+
+.links a.block {
+	outline: none;
+	text-decoration: none;
+	border: 1px #ddd solid;
+	color: #333;
+	padding: 4px;
+}
+
+.links .block,
+.links .block img {
+	display: inline-block;
+	border-radius: 7px;
+}
+
 
 .thumbs {
 	list-style: none;
@@ -33,10 +137,6 @@ p {
 	display: inline-block;
 	margin: 17px;
 	position: relative;
-}
-
-.thumbs .button {
-	background-color: #CCCCCC;
 }
 
 .thumbs a.block {
@@ -53,6 +153,8 @@ p {
 }
 
 .thumbs .block span {
+	font-family: "Lucida Console", Monaco, monospace;
+	font-weight: bold;
 	position: absolute;
 	display: inline-block;
 	bottom: 0px;

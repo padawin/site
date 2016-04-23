@@ -1,3 +1,7 @@
+## About me
+
+My name is Ghislain Rodrigues, programmer based in London. I love to code, it is my job, but a hobby too.
+
 When I code, I enjoy facing challenges, understanding algorithms, making things do stuffs.
 I am very interested in game programming and try to spend as much time as possible
 different concepts to eventually see my own game be created.
