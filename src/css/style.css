@@ -78,6 +78,48 @@ ul {
 	text-align: center;
 }
 
+.links li {
+	display: inline-block;
+	margin: 17px;
+	position: relative;
+}
+
+.links .button {
+	background-color: #CCCCCC;
+}
+
+.links a.block {
+	outline: none;
+	text-decoration: none;
+	border: 1px #ddd solid;
+	color: #333;
+	padding: 4px;
+}
+
+.links .block,
+.links .block img {
+	display: inline-block;
+	border-radius: 7px;
+}
+
+.links .block span {
+	position: absolute;
+	display: inline-block;
+	bottom: 0px;
+	left: 0px;
+	width: 100%;
+	background-color: rgb(221, 221, 221);
+	text-align: center;
+	border-bottom-left-radius: 7px;
+	border-bottom-right-radius: 7px;
+	display: none;
+}
+
+.links .block:hover span {
+	display: inline;
+}
+
+
 .thumbs {
 	list-style: none;
 }

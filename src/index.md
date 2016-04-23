@@ -1,9 +1,23 @@
-Welcome here,<br />
-My name is Ghislain Rodrigues, programmer based in London. I love to code, it is my job, but a hobby too.<br />
-My CV is downloadable <a target="_blank" href="http://ghislain-rodrigues.fr/CV-Ghislain-Rodrigues.pdf">here</a>.<br />
-You can find most of my projects on <a target="_blank" href="https://github.com/padawin">Github</a>.<br />
-You can also find me on <a target="_blank" href="https://uk.linkedin.com/pub/ghislain-rodrigues/45/68a/322">Linkedin</a>.<br />
-If you want to read a bit more about me, you can do it <a href="./about.html">there</a>
+Welcome, my name is Ghislain Rodrigues, programmer based in London. I love to code, it is my job, but a hobby too.<br />
+You can read more <a href="./about.html">about me</a>.
+<ul class="links">
+	<li>
+		<a class="block button" href="http://ghislain-rodrigues.fr/CV-Ghislain-Rodrigues.pdf" target="_blank">
+			<img src="images/CV.png" alt="Download CV" />
+			<span>CV</span>
+		</a>
+	</li>
+	<li>
+		<a class="block button" href="https://github.com/padawin" target="_blank">
+			<img src="images/github.png" alt="Github" />
+		</a>
+	</li>
+	<li>
+		<a class="block button" href="https://uk.linkedin.com/pub/ghislain-rodrigues/45/68a/322" target="_blank">
+			<img src="images/linkedin.png" alt="Linkedin" />
+		</a>
+	</li>
+</ul>
 
 ## Game programming related
 
