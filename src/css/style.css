@@ -10,7 +10,7 @@ h1 {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	font-size: 18pt;
+	font-size: 24pt;
 }
 
 h1 a, h1 a:hover, h1 a:visited {
@@ -30,6 +30,10 @@ h1 a, h1 a:hover, h1 a:visited {
 		margin-left: 40px;
 		margin-right: 40px;
 	}
+}
+
+h1, h2 {
+	font-family: "Lucida Console", Monaco, monospace;
 }
 
 pre {
@@ -143,6 +147,8 @@ ul {
 }
 
 .thumbs .block span {
+	font-family: "Lucida Console", Monaco, monospace;
+	font-weight: bold;
 	position: absolute;
 	display: inline-block;
 	bottom: 0px;
