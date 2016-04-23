@@ -1,8 +1,9 @@
-loader.addModule('sky', 'particles', function (particlesModule) {
+loader.addModule('sky', 'particles', 'canvas', function (particlesModule, canvas) {
 	"use strict";
 	var sky = {
 			nbResources: 1
 		},
+		canvasContext = canvas.getContext(),
 		cloudResource,
 		clouds = new particlesModule.ParticlesManager(20);
 
@@ -28,14 +29,14 @@ loader.addModule('sky', 'particles', function (particlesModule) {
 		}
 	};
 
-	sky.draw = function (canvas, canvasContext, camera) {
+	sky.draw = function (camera) {
 		canvasContext.fillStyle = '#AEE8FB';
 		canvasContext.fillRect(0, 0, camera.w, camera.h);
 		clouds.updateAndDrawParticles(function (cloud) {
 			canvasContext.drawImage(cloudResource,
 				0, 0,
 				cloudResource.width, cloudResource.height,
-				cloud.position.x, canvas.height * cloud.position.y,
+				cloud.position.x, canvas.canvas.height * cloud.position.y,
 				cloudResource.width * cloud.ratio, cloudResource.height * cloud.ratio
 			);
 		});

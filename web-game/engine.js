@@ -203,7 +203,7 @@ loader.executeModule('main', 'B', 'sky', 'canvas', function (B, sky, canvas) {
 	function mainLoop () {
 		requestAnimationFrame(mainLoop);
 		sky.update();
-		sky.draw(canvas.canvas, canvasContext, camera);
+		sky.draw(camera);
 		draw();
 	}
 
