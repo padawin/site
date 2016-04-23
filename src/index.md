@@ -1,6 +1,9 @@
-Welcome, my name is Ghislain Rodrigues, programmer based in London. I love to code, it is my job, but a hobby too.<br />
-You can read more <a href="./about.html">about me</a>.
 <ul class="links">
+	<li>
+		<a class="block button" href="./about.html" target="_blank">
+			<img src="images/about.png" alt="About me" />
+		</a>
+	</li>
 	<li>
 		<a class="block button" href="http://ghislain-rodrigues.fr/CV-Ghislain-Rodrigues.pdf" target="_blank">
 			<img src="images/CV.png" alt="Download CV" />
