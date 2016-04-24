@@ -1,9 +1,8 @@
 
-loader.executeModule('main', 'B', function (B) {
+loader.executeModule('main', 'B', 'sky', 'canvas', function (B, sky, canvas) {
 	"use strict";
 
-	var canvas = document.getElementById('myCanvas'),
-		canvasContext = canvas.getContext('2d'),
+	var canvasContext = canvas.getContext(),
 		debug = false,
 		n = null,
 		m, me,
@@ -168,23 +167,28 @@ loader.executeModule('main', 'B', function (B) {
 	}
 
 	function loadResources (callback) {
+		// sprite + sky, will evolve
+		var nbResources = 1 + sky.nbResources,
+			loaded = 0;
+
+		function onLoadResource () {
+			loaded++;
+
+			if (loaded == nbResources) {
+				callback();
+			}
+		}
+
 		spriteBoard = new Image();
-		spriteBoard.onload = function () {
-			callback();
-		};
+		spriteBoard.onload = onLoadResource;
 		spriteBoard.src = spriteBoardUrl;
+		sky.loadResources(onLoadResource);
 	}
 
-	function resizeCanvas () {
-		canvas.width = window.innerWidth;
-		canvas.height = window.innerHeight;
-		camera.w = canvas.width;
-		camera.h = canvas.height;
-	}
-
-	function refreshScreen () {
-		canvasContext.fillStyle = 'white';
-		canvasContext.fillRect(0, 0, camera.w, camera.h);
+	function resize () {
+		canvas.resize();
+		camera.w = canvas.getWidth();
+		camera.h = canvas.getHeight();
 	}
 
 	function draw () {
@@ -198,21 +202,22 @@ loader.executeModule('main', 'B', function (B) {
 
 	function mainLoop () {
 		requestAnimationFrame(mainLoop);
-		refreshScreen();
+		sky.update();
+		sky.draw(camera);
 		draw();
 	}
 
 	loadResources(function () {
 		m = new Map(map);
 		me = new Me();
-		resizeCanvas();
+		resize();
 		mainLoop();
 	});
 
-	B.Events.on('resize', null, resizeCanvas);
+	B.Events.on('resize', null, resize);
 
-	canvas.addEventListener('click', function (event) {
-		var rect = canvas.getBoundingClientRect(),
+	canvas.canvas.addEventListener('click', function (event) {
+		var rect = canvas.canvas.getBoundingClientRect(),
 			root = document.documentElement,
 			mouseX = event.clientX - rect.left - root.scrollLeft,
 			mouseY = event.clientY - rect.top - root.scrollTop,
