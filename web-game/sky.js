@@ -44,6 +44,10 @@ loader.addModule('sky', 'particles', 'canvas', function (particlesModule, canvas
 		canvasContext.fillStyle = '#AEE8FB';
 		canvasContext.fillRect(0, 0, camera.w, camera.h);
 		clouds.updateAndDrawParticles(function (cloud) {
+			if (cloud.position.x > camera.w || cloud.position.y > camera.h) {
+				return;
+			}
+
 			canvasContext.drawImage(cloudResource,
 				0, 0,
 				cloudResource.width, cloudResource.height,
