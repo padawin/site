@@ -97,6 +97,29 @@ function (B, sky, canvas, sprites) {
 		};
 	};
 
+	Map.prototype.getNeighbours = function (start) {
+		var nUp = this.neighbourAt(start, 'up'),
+			nRight = this.neighbourAt(start, 'right'),
+			nDown = this.neighbourAt(start, 'down'),
+			nLeft = this.neighbourAt(start, 'left'),
+			neighbours = [];
+
+		if (nUp) {
+			neighbours.push(nUp);
+		}
+		if (nRight) {
+			neighbours.push(nRight);
+		}
+		if (nDown) {
+			neighbours.push(nDown);
+		}
+		if (nLeft) {
+			neighbours.push(nLeft);
+		}
+
+		return neighbours;
+	};
+
 	Map.prototype.neighbourAt = function (start, direction) {
 		function neighbourAtCoord (start, directionVector) {
 			var nX = start.x + directionVector.x,
