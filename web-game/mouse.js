@@ -2,6 +2,15 @@ loader.addModule('mouse', 'B', 'canvas', function (B, canvas) {
 	var isMouseDown = false,
 		isMouseMoving = false;
 
+	function eventToCanvasCoordinates (event) {
+		var rect = canvas.canvas.getBoundingClientRect(),
+			root = document.documentElement,
+			mouseX = event.clientX - rect.left - root.scrollLeft,
+			mouseY = event.clientY - rect.top - root.scrollTop;
+
+		return [mouseX, mouseY];
+	}
+
 	canvas.canvas.addEventListener('mousedown', function (event) {
 		isMouseDown = true;
 	});
@@ -20,11 +29,6 @@ loader.addModule('mouse', 'B', 'canvas', function (B, canvas) {
 			return;
 		}
 
-		var rect = canvas.canvas.getBoundingClientRect(),
-			root = document.documentElement,
-			mouseX = event.clientX - rect.left - root.scrollLeft,
-			mouseY = event.clientY - rect.top - root.scrollTop;
-
-		B.Events.fire('click', [mouseX, mouseY]);
+		B.Events.fire('click', eventToCanvasCoordinates(event));
 	}, false);
 });
