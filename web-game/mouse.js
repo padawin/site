@@ -1,6 +1,5 @@
 loader.addModule('mouse', 'B', 'canvas', function (B, canvas) {
-	var coordinates,
-		isMouseDown = false;
+	var isMouseDown = false;
 
 	canvas.canvas.addEventListener('click', function (event) {
 		var rect = canvas.canvas.getBoundingClientRect(),
