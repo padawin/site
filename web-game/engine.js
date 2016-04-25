@@ -157,7 +157,7 @@ function (B, sky, canvas) {
 		this.y = start.y;
 		this.tileDimensions = {w: 64, h: 64};
 		this.relativeTopCornerTile = {x: 32, y: 44};
-		this.spritePosition = {x: 0, y: tileDimensions.d};
+		this.spritePosition = {x: 0, y: 73};
 	}
 
 	Me.prototype.draw = function (camera) {
