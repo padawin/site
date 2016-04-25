@@ -158,16 +158,17 @@ function (B, sky, canvas, sprites) {
 		this.tileDimensions = {w: 64, h: 64};
 		this.relativeTopCornerTile = {x: 32, y: 44};
 		this.spritePosition = {x: 0, y: 73};
+		this.sprite = sprites.sprites[sprites.SPRITES_ACCESS.PLAYER];
 	}
 
 	Me.prototype.draw = function (camera) {
 		var coord = camera.adapt(this);
 
 		canvasContext.drawImage(sprites.spriteResource,
-			this.spritePosition.x, this.spritePosition.y,
-			this.tileDimensions.w, this.tileDimensions.h,
-			coord.x - this.relativeTopCornerTile.x, coord.y - this.relativeTopCornerTile.y,
-			this.tileDimensions.w, this.tileDimensions.h
+			this.sprite.x, this.sprite.y,
+			this.sprite.w, this.sprite.h,
+			coord.x - this.sprite.posInCell.x, coord.y - this.sprite.posInCell.y,
+			this.sprite.w, this.sprite.h
 		);
 	}
 
