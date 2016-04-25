@@ -147,7 +147,8 @@ loader.executeModule('main', 'B', 'sky', 'canvas', function (B, sky, canvas) {
 	};
 
 	function Me () {
-		var start = m.coordsToPixels(0, 0);
+		this.cell = {x: 0, y: 0};
+		var start = m.coordsToPixels(this.cell.y, this.cell.y);
 		this.x = start.x;
 		this.y = start.y;
 		this.tileDimensions = {w: 64, h: 64};
@@ -234,6 +235,7 @@ loader.executeModule('main', 'B', 'sky', 'canvas', function (B, sky, canvas) {
 			return;
 		}
 
+		me.cell = dest;
 		me.x = cellCoords.x;
 		me.y = cellCoords.y;
 	}, false);
