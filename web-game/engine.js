@@ -123,7 +123,8 @@ function (B, sky, canvas, sprites) {
 	Map.prototype.neighbourAt = function (start, direction) {
 		function neighbourAtCoord (start, directionVector) {
 			var nX = start.x + directionVector.x,
-				nY = start.y + directionVector.y;
+				nY = start.y + directionVector.y,
+				neighbour;
 
 			if (nY >= 0 && nY < that.map.length && nX >= 0 && nX < that.map[nY].length) {
 				neighbour = that.map[nY][nX];
