@@ -24,10 +24,11 @@ function (B, sky, canvas) {
 		spriteBoard,
 		spriteBoardUrl = 'sprite.png',
 		tileDimensions = {w: 64, h: 36, d: 73},
+		gridCellsDimensions = {w: 64, h: 36},
 		mapSize = {
 			// assumes square map
-			w: map.length * tileDimensions.w,
-			h: map.length * tileDimensions.h
+			w: map.length * gridCellsDimensions.w,
+			h: map.length * gridCellsDimensions.h
 		};
 
 	camera = {
@@ -78,8 +79,8 @@ function (B, sky, canvas) {
 	}
 
 	Map.prototype.pixelsToCoords = function (x, y) {
-		var midTileW = tileDimensions.w/2,
-			midTileH = tileDimensions.h/2,
+		var midTileW = gridCellsDimensions.w/2,
+			midTileH = gridCellsDimensions.h/2,
 			coordX = parseInt((x*midTileH + y*midTileW - (288+midTileW)*midTileH)/1296),
 			coordY = parseInt((-x*midTileH + y*midTileW + (288+midTileW)*midTileH)/1296);
 
@@ -88,8 +89,8 @@ function (B, sky, canvas) {
 
 	Map.prototype.coordsToPixels = function (x, y) {
 		return {
-			x: (mapSize.w - (y - x) * tileDimensions.w) / 2,
-			y: (x + y + 1) * tileDimensions.h / 2
+			x: (mapSize.w - (y - x) * gridCellsDimensions.w) / 2,
+			y: (x + y + 1) * gridCellsDimensions.h / 2
 		};
 	};
 
