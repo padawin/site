@@ -25,6 +25,11 @@ function (B, sky, canvas) {
 		spriteBoardUrl = 'sprite.png',
 		tileDimensions = {w: 64, h: 36, d: 73},
 		gridCellsDimensions = {w: 64, h: 36},
+		relativeTopCornerTile = {
+			x: gridCellsDimensions.w / 2,
+			y: gridCellsDimensions.h / 2
+		},
+
 		mapSize = {
 			// assumes square map
 			w: map.length * gridCellsDimensions.w,
@@ -99,11 +104,7 @@ function (B, sky, canvas) {
 			y = 0, coord,
 			level = 0,
 			startX = 0,
-			max = this.map.length - 1,
-			relativeTopCornerTile = {
-				x: tileDimensions.w / 2,
-				y: tileDimensions.h / 2
-			};
+			max = this.map.length - 1;
 
 		while (x <= max && y <= max) {
 			// where to print the tiles
