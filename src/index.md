@@ -1,26 +1,26 @@
 <ul class="links">
 	<li>
-		<a class="block button" href="./about.html">
+		<a class="block button" href="./about.html" title="About me">
 			<img src="images/about.png" alt="About me" />
 		</a>
 	</li>
 	<li>
-		<a class="block button" href="tips.html">
+		<a class="block button" href="tips.html" title="Different code articles">
 			<img src="images/code.png" alt="Different code articles" />
 		</a>
 	</li>
 	<li>
-		<a class="block button" href="http://ghislain-rodrigues.fr/CV-Ghislain-Rodrigues.pdf" target="_blank">
+		<a class="block button" href="http://ghislain-rodrigues.fr/CV-Ghislain-Rodrigues.pdf" target="_blank" title="Download CV">
 			<img src="images/CV.png" alt="Download CV" />
 		</a>
 	</li>
 	<li>
-		<a class="block button" href="https://github.com/padawin" target="_blank">
+		<a class="block button" href="https://github.com/padawin" target="_blank" title="Github">
 			<img src="images/github.png" alt="Github" />
 		</a>
 	</li>
 	<li>
-		<a class="block button" href="https://uk.linkedin.com/pub/ghislain-rodrigues/45/68a/322" target="_blank">
+		<a class="block button" href="https://uk.linkedin.com/pub/ghislain-rodrigues/45/68a/322" target="_blank" title="Linkedin">
 			<img src="images/linkedin.png" alt="Linkedin" />
 		</a>
 	</li>
