@@ -241,38 +241,28 @@ function (B, sky, canvas, sprites) {
 	}, false);
 
 	document.addEventListener('keydown', function (event) {
-		var cellCoords;
-		switch (event.keyCode) {
+		var cellCoords, neighbours;
+		if (~[37, 38, 39, 40].indexOf(event.keyCode)) {
 			// up
-			case 38:
+			if (event.keyCode === 38) {
 				me.cell.y--;
-				cellCoords = m.coordsToPixels(me.cell.x, me.cell.y);
-				me.x = cellCoords.x;
-				me.y = cellCoords.y;
-				break;
+			}
 			// right
-			case 39:
+			else if (event.keyCode === 39) {
 				me.cell.x++;
-				cellCoords = m.coordsToPixels(me.cell.x, me.cell.y);
-				me.x = cellCoords.x;
-				me.y = cellCoords.y;
-				break;
+			}
 			// down
-			case 40:
+			else if (event.keyCode === 40) {
 				me.cell.y++;
-				cellCoords = m.coordsToPixels(me.cell.x, me.cell.y);
-				me.x = cellCoords.x;
-				me.y = cellCoords.y;
-				break;
+			}
 			// left
-			case 37:
+			else if (event.keyCode === 37) {
 				me.cell.x--;
-				cellCoords = m.coordsToPixels(me.cell.x, me.cell.y);
-				me.x = cellCoords.x;
-				me.y = cellCoords.y;
-				break;
-			default:
-				break;
+			}
+
+			cellCoords = m.coordsToPixels(me.cell.x, me.cell.y);
+			me.x = cellCoords.x;
+			me.y = cellCoords.y;
 		}
 	});
 });
