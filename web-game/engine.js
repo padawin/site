@@ -97,6 +97,43 @@ function (B, sky, canvas, sprites) {
 		};
 	};
 
+	Map.prototype.neighbourDirectionAt = function (start, direction) {
+		function neighbourAtCoord (start, directionVector) {
+			var nX = start.x + directionVector.x,
+				nY = start.y + directionVector.y;
+
+			if (nY >= 0 && nY < that.map.length && nX >= 0 && nX < that.map[nY].length) {
+				neighbour = that.map[nY][nX];
+				if (neighbour !== null && sprites.sprites[neighbour].walkable) {
+					return neighbour;
+				}
+			}
+
+			return null;
+		}
+
+		var startValue = this.map[start.y][start.x],
+			neighbourDirection = sprites.sprites[startValue].neighbours[direction],
+			stairSpriteNeighbours, neighbour, vectorToTopStair,
+			that = this;
+
+		neighbour = neighbourAtCoord(start, neighbourDirection);
+		if (neighbour !== null) {
+			return neighbourDirection;
+		}
+		// special case if there is a stair where requested
+		else if (neighbour === null && direction == 'left') {
+			stairSpriteNeighbours = sprites.sprites[sprites.SPRITES_ACCESS.STAIR].neighbours;
+			vectorToTopStair = {x: -stairSpriteNeighbours.right.x, y: -stairSpriteNeighbours.right.y};
+			// we are at the bottom of a stair, bring the player there
+			if (neighbourAtCoord(start, vectorToTopStair) == sprites.SPRITES_ACCESS.STAIR) {
+				return vectorToTopStair;
+			}
+		}
+
+		return null;
+	};
+
 	Map.prototype.draw = function (camera) {
 		var x = 0,
 			y = 0, coord,
@@ -241,28 +278,32 @@ function (B, sky, canvas, sprites) {
 	}, false);
 
 	document.addEventListener('keydown', function (event) {
-		var cellCoords, neighbours;
+		var cellCoords, neighbour;
 		if (~[37, 38, 39, 40].indexOf(event.keyCode)) {
 			// up
 			if (event.keyCode === 38) {
-				me.cell.y--;
+				neighbour = m.neighbourDirectionAt(me.cell, 'up');
 			}
 			// right
 			else if (event.keyCode === 39) {
-				me.cell.x++;
+				neighbour = m.neighbourDirectionAt(me.cell, 'right');
 			}
 			// down
 			else if (event.keyCode === 40) {
-				me.cell.y++;
+				neighbour = m.neighbourDirectionAt(me.cell, 'down');
 			}
 			// left
 			else if (event.keyCode === 37) {
-				me.cell.x--;
+				neighbour = m.neighbourDirectionAt(me.cell, 'left');
 			}
 
-			cellCoords = m.coordsToPixels(me.cell.x, me.cell.y);
-			me.x = cellCoords.x;
-			me.y = cellCoords.y;
+			if (neighbour !== null) {
+				me.cell.x += neighbour.x;
+				me.cell.y += neighbour.y;
+				cellCoords = m.coordsToPixels(me.cell.x, me.cell.y);
+				me.x = cellCoords.x;
+				me.y = cellCoords.y;
+			}
 		}
 	});
 });
