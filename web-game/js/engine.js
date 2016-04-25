@@ -218,10 +218,30 @@ function (B, sky, canvas, sprites, pathFinding) {
 	}
 
 	Me.prototype.setCell = function (x, y) {
+		var start,
+			cameraPosition;
+
 		this.cell = {x: x, y: y};
-		var start = m.coordsToPixels(this.cell.x, this.cell.y);
+		start = m.coordsToPixels(this.cell.x, this.cell.y);
 		this.x = start.x;
 		this.y = start.y;
+
+		cameraPosition = {x: camera.x, y: camera.y};
+		if (camera.w / 2 - (this.x - camera.x) < 190) {
+			cameraPosition.x = this.x - (camera.w / 2 - 190);
+		}
+		else if (camera.w / 2 - (camera.x - this.x) < 190) {
+			cameraPosition.x = this.x + (camera.w / 2 - 190);
+		}
+
+		if (camera.h / 2 - (this.y - camera.y) < 100) {
+			cameraPosition.y = this.y - (camera.h / 2 - 100);
+		}
+		else if (camera.h / 2 - (camera.y - this.y) < 100) {
+			cameraPosition.y = this.y + (camera.h / 2 - 100);
+		}
+
+		camera.setPosition(cameraPosition);
 	};
 
 	Me.prototype.setPath = function (path) {
