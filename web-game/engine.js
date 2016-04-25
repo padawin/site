@@ -239,4 +239,40 @@ function (B, sky, canvas, sprites) {
 		me.x = cellCoords.x;
 		me.y = cellCoords.y;
 	}, false);
+
+	document.addEventListener('keydown', function (event) {
+		var cellCoords;
+		switch (event.keyCode) {
+			// up
+			case 38:
+				me.cell.y--;
+				cellCoords = m.coordsToPixels(me.cell.x, me.cell.y);
+				me.x = cellCoords.x;
+				me.y = cellCoords.y;
+				break;
+			// right
+			case 39:
+				me.cell.x++;
+				cellCoords = m.coordsToPixels(me.cell.x, me.cell.y);
+				me.x = cellCoords.x;
+				me.y = cellCoords.y;
+				break;
+			// down
+			case 40:
+				me.cell.y++;
+				cellCoords = m.coordsToPixels(me.cell.x, me.cell.y);
+				me.x = cellCoords.x;
+				me.y = cellCoords.y;
+				break;
+			// left
+			case 37:
+				me.cell.x--;
+				cellCoords = m.coordsToPixels(me.cell.x, me.cell.y);
+				me.x = cellCoords.x;
+				me.y = cellCoords.y;
+				break;
+			default:
+				break;
+		}
+	});
 });
