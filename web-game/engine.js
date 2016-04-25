@@ -1,7 +1,7 @@
 
 loader.executeModule('main',
-'B', 'sky', 'canvas',
-function (B, sky, canvas) {
+'B', 'sky', 'canvas', 'sprites',
+function (B, sky, canvas, sprites) {
 	"use strict";
 
 	var canvasContext = canvas.getContext(),
@@ -21,9 +21,7 @@ function (B, sky, canvas) {
 			[n, 0, 0, 1, 0, 0, 0, 0, 0, 0]
 		],
 		camera,
-		spriteBoard,
-		spriteBoardUrl = 'sprite.png',
-		tileDimensions = {w: 64, h: 36, d: 73},
+
 		gridCellsDimensions = {w: 64, h: 36},
 		relativeTopCornerTile = {
 			x: gridCellsDimensions.w / 2,
@@ -104,17 +102,19 @@ function (B, sky, canvas) {
 			y = 0, coord,
 			level = 0,
 			startX = 0,
-			max = this.map.length - 1;
+			max = this.map.length - 1,
+			spriteInfo;
 
 		while (x <= max && y <= max) {
 			// where to print the tiles
 			coord = camera.adapt(this.coordsToPixels(x, y));
 			if (this.map[y][x] !== null) {
-				canvasContext.drawImage(spriteBoard,
-					this.map[y][x] * tileDimensions.w, 0,
-					tileDimensions.w, tileDimensions.d,
+				spriteInfo = sprites.sprites[this.map[y][x]];
+				canvasContext.drawImage(sprites.spriteResource,
+					spriteInfo.x, spriteInfo.y,
+					spriteInfo.w, spriteInfo.d,
 					coord.x - relativeTopCornerTile.x, coord.y - relativeTopCornerTile.y,
-					tileDimensions.w, tileDimensions.d
+					spriteInfo.w, spriteInfo.d
 				);
 
 				if (debug) {
@@ -163,7 +163,7 @@ function (B, sky, canvas) {
 	Me.prototype.draw = function (camera) {
 		var coord = camera.adapt(this);
 
-		canvasContext.drawImage(spriteBoard,
+		canvasContext.drawImage(sprites.spriteResource,
 			this.spritePosition.x, this.spritePosition.y,
 			this.tileDimensions.w, this.tileDimensions.h,
 			coord.x - this.relativeTopCornerTile.x, coord.y - this.relativeTopCornerTile.y,
@@ -173,7 +173,7 @@ function (B, sky, canvas) {
 
 	function loadResources (callback) {
 		// sprite + sky, will evolve
-		var nbResources = 1 + sky.nbResources,
+		var nbResources = sprites.nbResources + sky.nbResources,
 			loaded = 0;
 
 		function onLoadResource () {
@@ -184,9 +184,7 @@ function (B, sky, canvas) {
 			}
 		}
 
-		spriteBoard = new Image();
-		spriteBoard.onload = onLoadResource;
-		spriteBoard.src = spriteBoardUrl;
+		sprites.loadResources(onLoadResource);
 		sky.loadResources(onLoadResource);
 	}
 
