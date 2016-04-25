@@ -155,9 +155,6 @@ function (B, sky, canvas, sprites) {
 		var start = m.coordsToPixels(this.cell.y, this.cell.y);
 		this.x = start.x;
 		this.y = start.y;
-		this.tileDimensions = {w: 64, h: 64};
-		this.relativeTopCornerTile = {x: 32, y: 44};
-		this.spritePosition = {x: 0, y: 73};
 		this.sprite = sprites.sprites[sprites.SPRITES_ACCESS.PLAYER];
 	}
 
