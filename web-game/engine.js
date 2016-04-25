@@ -105,7 +105,7 @@ function (B, sky, canvas, sprites) {
 			if (nY >= 0 && nY < that.map.length && nX >= 0 && nX < that.map[nY].length) {
 				neighbour = that.map[nY][nX];
 				if (neighbour !== null && sprites.sprites[neighbour].walkable) {
-					return neighbour;
+					return {x: nX, y: nY, value: neighbour};
 				}
 			}
 
@@ -114,7 +114,7 @@ function (B, sky, canvas, sprites) {
 
 		var startValue = this.map[start.y][start.x],
 			neighbourDirection = sprites.sprites[startValue].neighbours[direction],
-			stairSpriteNeighbours, neighbour, vectorToTopStair,
+			bottomStairVector, neighbour, vectorToTopStair, topStairneighbour,
 			that = this;
 
 		neighbour = neighbourAtCoord(start, neighbourDirection);
@@ -123,10 +123,13 @@ function (B, sky, canvas, sprites) {
 		}
 		// special case if there is a stair where requested
 		else if (neighbour === null && direction == 'left') {
-			stairSpriteNeighbours = sprites.sprites[sprites.SPRITES_ACCESS.STAIR].neighbours;
-			vectorToTopStair = {x: -stairSpriteNeighbours.right.x, y: -stairSpriteNeighbours.right.y};
+			bottomStairVector = sprites
+				.sprites[sprites.SPRITES_ACCESS.STAIR]
+				.neighbours.right;
+			vectorToTopStair = {x: -bottomStairVector.x, y: -bottomStairVector.y};
+			topStairneighbour = neighbourAtCoord(start, vectorToTopStair);
 			// we are at the bottom of a stair, bring the player there
-			if (neighbourAtCoord(start, vectorToTopStair) == sprites.SPRITES_ACCESS.STAIR) {
+			if (topStairneighbour && topStairneighbour.value == sprites.SPRITES_ACCESS.STAIR) {
 				return vectorToTopStair;
 			}
 		}
