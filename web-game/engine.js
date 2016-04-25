@@ -216,6 +216,11 @@ loader.executeModule('main', 'B', 'sky', 'canvas', function (B, sky, canvas) {
 
 	B.Events.on('resize', null, resize);
 
+	B.Events.on('mousemove', null, function (vectorX, vectorY) {
+		camera.setPosition({x: camera.x - vectorX, y: camera.y - vectorY});
+
+	});
+
 	B.Events.on('click', null, function (mouseX, mouseY) {
 		var // get the coordinates in the world
 			mouseInWorld = camera.toWorldCoords({x: mouseX, y: mouseY}),
@@ -231,6 +236,5 @@ loader.executeModule('main', 'B', 'sky', 'canvas', function (B, sky, canvas) {
 
 		me.x = cellCoords.x;
 		me.y = cellCoords.y;
-		camera.setPosition(cellCoords);
 	}, false);
 });
