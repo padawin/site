@@ -1,6 +1,7 @@
 loader.addModule('mouse', 'B', 'canvas', function (B, canvas) {
 	var isMouseDown = false,
-		isMouseMoving = false;
+		isMouseMoving = false,
+		mouseMoveOldPosition;
 
 	function eventToCanvasCoordinates (event) {
 		var rect = canvas.canvas.getBoundingClientRect(),
@@ -22,6 +23,13 @@ loader.addModule('mouse', 'B', 'canvas', function (B, canvas) {
 		}
 
 		isMouseMoving = true;
+		var newPosition = eventToCanvasCoordinates(event),
+			vector = [
+				newPosition[0] - mouseMoveOldPosition[0],
+				newPosition[1] - mouseMoveOldPosition[1]
+			]
+		mouseMoveOldPosition = newPosition;
+		B.Events.fire('mousemove', vector);
 	});
 
 	canvas.canvas.addEventListener('click', function (event) {
