@@ -13,12 +13,15 @@ loader.addModule('mouse', 'B', 'canvas', function (B, canvas) {
 
 	canvas.canvas.addEventListener('mousedown', function (event) {
 		isMouseDown = true;
+		mouseMoveOldPosition = eventToCanvasCoordinates(event);
 	});
 
 	canvas.canvas.addEventListener('mousemove', function (event) {
-		if (isMouseDown) {
-			isMouseMoving = true;
+		if (!isMouseDown) {
+			return;
 		}
+
+		isMouseMoving = true;
 	});
 
 	canvas.canvas.addEventListener('click', function (event) {
