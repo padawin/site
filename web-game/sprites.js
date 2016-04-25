@@ -9,11 +9,17 @@ loader.addModule('sprites', function () {
 			},
 			sprites: [
 				// grass
-				{x: 0, y: 0, w: 64, h: 36, d: 73, walkable: true, neighbours: [{x: -1, y: 0}, {x: 0, y: -1}, {x: 1, y: 0}, {x: 0, y: 1}]},
+				{x: 0, y: 0, w: 64, h: 36, d: 73, walkable: true,
+					neighbours: {left: {x: -1, y: 0}, up: {x: 0, y: -1}, right: {x: 1, y: 0}, down: {x: 0, y: 1}}
+				},
 				// stone
-				{x: 64, y: 0, w: 64, h: 36, d: 73, walkable: true, neighbours: [{x: -1, y: 0}, {x: 0, y: -1}, {x: 1, y: 0}, {x: 0, y: 1}]},
+				{x: 64, y: 0, w: 64, h: 36, d: 73, walkable: true,
+					neighbours: {left: {x: -1, y: 0}, up: {x: 0, y: -1}, right: {x: 1, y: 0}, down: {x: 0, y: 1}}
+				},
 				// stairs
-				{x: 128, y: 0, w: 64, h: 36, d: 73, walkable: true, neighbours: [{x: -1, y: 0}, {x: 0, y: -1}, {x: 2, y: 1}, {x: 0, y: 1}]},
+				{x: 128, y: 0, w: 64, h: 36, d: 73, walkable: true,
+					neighbours: {left: {x: -1, y: 0}, up: {x: 0, y: -1}, right: {x: 2, y: 1}, down: {x: 0, y: 1}}
+				},
 				// player
 				{x: 0, y: 73, w: 64, h: 64, posInCell: {x: 32, y: 44}},
 			],
