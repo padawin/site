@@ -1,7 +1,7 @@
 
 loader.executeModule('main',
-'B', 'sky', 'canvas',
-function (B, sky, canvas) {
+'B', 'sky', 'canvas', 'sprites',
+function (B, sky, canvas, sprites) {
 	"use strict";
 
 	var canvasContext = canvas.getContext(),
@@ -21,13 +21,17 @@ function (B, sky, canvas) {
 			[n, 0, 0, 1, 0, 0, 0, 0, 0, 0]
 		],
 		camera,
-		spriteBoard,
-		spriteBoardUrl = 'sprite.png',
-		tileDimensions = {w: 64, h: 36, d: 73},
+
+		gridCellsDimensions = {w: 64, h: 36},
+		relativeTopCornerTile = {
+			x: gridCellsDimensions.w / 2,
+			y: gridCellsDimensions.h / 2
+		},
+
 		mapSize = {
 			// assumes square map
-			w: map.length * tileDimensions.w,
-			h: map.length * tileDimensions.h
+			w: map.length * gridCellsDimensions.w,
+			h: map.length * gridCellsDimensions.h
 		};
 
 	camera = {
@@ -78,8 +82,8 @@ function (B, sky, canvas) {
 	}
 
 	Map.prototype.pixelsToCoords = function (x, y) {
-		var midTileW = tileDimensions.w/2,
-			midTileH = tileDimensions.h/2,
+		var midTileW = gridCellsDimensions.w/2,
+			midTileH = gridCellsDimensions.h/2,
 			coordX = parseInt((x*midTileH + y*midTileW - (288+midTileW)*midTileH)/1296),
 			coordY = parseInt((-x*midTileH + y*midTileW + (288+midTileW)*midTileH)/1296);
 
@@ -88,8 +92,8 @@ function (B, sky, canvas) {
 
 	Map.prototype.coordsToPixels = function (x, y) {
 		return {
-			x: (mapSize.w - (y - x) * tileDimensions.w) / 2,
-			y: (x + y + 1) * tileDimensions.h / 2
+			x: (mapSize.w - (y - x) * gridCellsDimensions.w) / 2,
+			y: (x + y + 1) * gridCellsDimensions.h / 2
 		};
 	};
 
@@ -99,20 +103,18 @@ function (B, sky, canvas) {
 			level = 0,
 			startX = 0,
 			max = this.map.length - 1,
-			relativeTopCornerTile = {
-				x: tileDimensions.w / 2,
-				y: tileDimensions.h / 2
-			};
+			spriteInfo;
 
 		while (x <= max && y <= max) {
 			// where to print the tiles
 			coord = camera.adapt(this.coordsToPixels(x, y));
 			if (this.map[y][x] !== null) {
-				canvasContext.drawImage(spriteBoard,
-					this.map[y][x] * tileDimensions.w, 0,
-					tileDimensions.w, tileDimensions.d,
+				spriteInfo = sprites.sprites[this.map[y][x]];
+				canvasContext.drawImage(sprites.spriteResource,
+					spriteInfo.x, spriteInfo.y,
+					spriteInfo.w, spriteInfo.d,
 					coord.x - relativeTopCornerTile.x, coord.y - relativeTopCornerTile.y,
-					tileDimensions.w, tileDimensions.d
+					spriteInfo.w, spriteInfo.d
 				);
 
 				if (debug) {
@@ -153,25 +155,23 @@ function (B, sky, canvas) {
 		var start = m.coordsToPixels(this.cell.y, this.cell.y);
 		this.x = start.x;
 		this.y = start.y;
-		this.tileDimensions = {w: 64, h: 64};
-		this.relativeTopCornerTile = {x: 32, y: 44};
-		this.spritePosition = {x: 0, y: tileDimensions.d};
+		this.sprite = sprites.sprites[sprites.SPRITES_ACCESS.PLAYER];
 	}
 
 	Me.prototype.draw = function (camera) {
 		var coord = camera.adapt(this);
 
-		canvasContext.drawImage(spriteBoard,
-			this.spritePosition.x, this.spritePosition.y,
-			this.tileDimensions.w, this.tileDimensions.h,
-			coord.x - this.relativeTopCornerTile.x, coord.y - this.relativeTopCornerTile.y,
-			this.tileDimensions.w, this.tileDimensions.h
+		canvasContext.drawImage(sprites.spriteResource,
+			this.sprite.x, this.sprite.y,
+			this.sprite.w, this.sprite.h,
+			coord.x - this.sprite.posInCell.x, coord.y - this.sprite.posInCell.y,
+			this.sprite.w, this.sprite.h
 		);
 	}
 
 	function loadResources (callback) {
 		// sprite + sky, will evolve
-		var nbResources = 1 + sky.nbResources,
+		var nbResources = sprites.nbResources + sky.nbResources,
 			loaded = 0;
 
 		function onLoadResource () {
@@ -182,9 +182,7 @@ function (B, sky, canvas) {
 			}
 		}
 
-		spriteBoard = new Image();
-		spriteBoard.onload = onLoadResource;
-		spriteBoard.src = spriteBoardUrl;
+		sprites.loadResources(onLoadResource);
 		sky.loadResources(onLoadResource);
 	}
 
