@@ -4,6 +4,7 @@ loader.addModule('sprites', function () {
 			nbResources: 1,
 			spriteResource: null,
 			SPRITES_ACCESS: {
+				STAIR: 2,
 				PLAYER: 3
 			},
 			sprites: [
