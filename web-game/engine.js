@@ -97,7 +97,7 @@ function (B, sky, canvas, sprites) {
 		};
 	};
 
-	Map.prototype.neighbourDirectionAt = function (start, direction) {
+	Map.prototype.neighbourAt = function (start, direction) {
 		function neighbourAtCoord (start, directionVector) {
 			var nX = start.x + directionVector.x,
 				nY = start.y + directionVector.y;
@@ -118,11 +118,8 @@ function (B, sky, canvas, sprites) {
 			that = this;
 
 		neighbour = neighbourAtCoord(start, neighbourDirection);
-		if (neighbour !== null) {
-			return neighbourDirection;
-		}
 		// special case if there is a stair where requested
-		else if (neighbour === null && direction == 'left') {
+		if (neighbour === null && direction == 'left') {
 			bottomStairVector = sprites
 				.sprites[sprites.SPRITES_ACCESS.STAIR]
 				.neighbours.right;
@@ -130,11 +127,11 @@ function (B, sky, canvas, sprites) {
 			topStairneighbour = neighbourAtCoord(start, vectorToTopStair);
 			// we are at the bottom of a stair, bring the player there
 			if (topStairneighbour && topStairneighbour.value == sprites.SPRITES_ACCESS.STAIR) {
-				return vectorToTopStair;
+				neighbour = topStairneighbour;
 			}
 		}
 
-		return null;
+		return neighbour;
 	};
 
 	Map.prototype.draw = function (camera) {
@@ -285,24 +282,24 @@ function (B, sky, canvas, sprites) {
 		if (~[37, 38, 39, 40].indexOf(event.keyCode)) {
 			// up
 			if (event.keyCode === 38) {
-				neighbour = m.neighbourDirectionAt(me.cell, 'up');
+				neighbour = m.neighbourAt(me.cell, 'up');
 			}
 			// right
 			else if (event.keyCode === 39) {
-				neighbour = m.neighbourDirectionAt(me.cell, 'right');
+				neighbour = m.neighbourAt(me.cell, 'right');
 			}
 			// down
 			else if (event.keyCode === 40) {
-				neighbour = m.neighbourDirectionAt(me.cell, 'down');
+				neighbour = m.neighbourAt(me.cell, 'down');
 			}
 			// left
 			else if (event.keyCode === 37) {
-				neighbour = m.neighbourDirectionAt(me.cell, 'left');
+				neighbour = m.neighbourAt(me.cell, 'left');
 			}
 
 			if (neighbour !== null) {
-				me.cell.x += neighbour.x;
-				me.cell.y += neighbour.y;
+				me.cell.x = neighbour.x;
+				me.cell.y = neighbour.y;
 				cellCoords = m.coordsToPixels(me.cell.x, me.cell.y);
 				me.x = cellCoords.x;
 				me.y = cellCoords.y;
