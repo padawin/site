@@ -216,12 +216,13 @@ loader.executeModule('main', 'B', 'sky', 'canvas', function (B, sky, canvas) {
 
 	B.Events.on('resize', null, resize);
 
-	canvas.canvas.addEventListener('click', function (event) {
-		var rect = canvas.canvas.getBoundingClientRect(),
-			root = document.documentElement,
-			mouseX = event.clientX - rect.left - root.scrollLeft,
-			mouseY = event.clientY - rect.top - root.scrollTop,
-			// get the coordinates in the world
+	B.Events.on('mousemove', null, function (vectorX, vectorY) {
+		camera.setPosition({x: camera.x - vectorX, y: camera.y - vectorY});
+
+	});
+
+	B.Events.on('click', null, function (mouseX, mouseY) {
+		var // get the coordinates in the world
 			mouseInWorld = camera.toWorldCoords({x: mouseX, y: mouseY}),
 			// convert them in the coordinates of the clicked cell
 			dest = m.pixelsToCoords(mouseInWorld.x, mouseInWorld.y),
@@ -235,6 +236,5 @@ loader.executeModule('main', 'B', 'sky', 'canvas', function (B, sky, canvas) {
 
 		me.x = cellCoords.x;
 		me.y = cellCoords.y;
-		camera.setPosition(cellCoords);
 	}, false);
 });
