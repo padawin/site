@@ -1,5 +1,7 @@
 
-loader.executeModule('main', 'B', 'sky', 'canvas', function (B, sky, canvas) {
+loader.executeModule('main',
+'B', 'sky', 'canvas',
+function (B, sky, canvas) {
 	"use strict";
 
 	var canvasContext = canvas.getContext(),
