@@ -1,7 +1,7 @@
 
 loader.executeModule('main',
-'B', 'sky', 'canvas', 'sprites',
-function (B, sky, canvas, sprites) {
+'B', 'sky', 'canvas', 'sprites', 'pathFinding',
+function (B, sky, canvas, sprites, pathFinding) {
 	"use strict";
 
 	var canvasContext = canvas.getContext(),
@@ -213,6 +213,7 @@ function (B, sky, canvas, sprites) {
 
 	function Me () {
 		this.setCell(0, 0);
+		this.path = [];
 		this.sprite = sprites.sprites[sprites.SPRITES_ACCESS.PLAYER];
 	}
 
@@ -221,6 +222,24 @@ function (B, sky, canvas, sprites) {
 		var start = m.coordsToPixels(this.cell.x, this.cell.y);
 		this.x = start.x;
 		this.y = start.y;
+	};
+
+	Me.prototype.setPath = function (path) {
+		this.path = path;
+	};
+
+	Me.prototype.update = function () {
+		if (!this.path.length) {
+			return;
+		}
+
+		if (this.cell.x == this.path[0].x && this.cell.y == this.path[0].y) {
+			this.path.shift();
+		}
+
+		if (this.path.length) {
+			this.setCell(this.path[0].x, this.path[0].y);
+		}
 	};
 
 	Me.prototype.draw = function (camera) {
@@ -269,6 +288,7 @@ function (B, sky, canvas, sprites) {
 
 	function mainLoop () {
 		requestAnimationFrame(mainLoop);
+		me.update();
 		sky.update();
 		draw();
 	}
@@ -296,7 +316,7 @@ function (B, sky, canvas, sprites) {
 			return;
 		}
 
-		me.setCell(dest.x, dest.y);
+		me.setPath(pathFinding.astar(m, me.cell, dest));
 	}, false);
 
 	document.addEventListener('keydown', function (event) {
