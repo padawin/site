@@ -39,6 +39,7 @@ function (B, sky, canvas, sprites, pathFinding) {
 		y: 18,
 		w: 0,
 		h: 0,
+		subject: null,
 		/**
 		 * Convert some world coordinates to coordinates in the camera
 		 */
@@ -59,9 +60,35 @@ function (B, sky, canvas, sprites, pathFinding) {
 			};
 			return ret;
 		},
+		setSubject (subject) {
+			this.subject = subject;
+		},
 		setPosition (coordinates) {
 			this.x = coordinates.x;
 			this.y = coordinates.y;
+		},
+		update: function () {
+			if (!this.subject) {
+				return;
+			}
+
+			var cameraPosition = {x: camera.x, y: camera.y};
+
+			if (camera.w / 2 - (this.subject.x - camera.x) < 190) {
+				cameraPosition.x = this.subject.x - (camera.w / 2 - 190);
+			}
+			else if (camera.w / 2 - (camera.x - this.subject.x) < 190) {
+				cameraPosition.x = this.subject.x + (camera.w / 2 - 190);
+			}
+
+			if (camera.h / 2 - (this.subject.y - camera.y) < 100) {
+				cameraPosition.y = this.subject.y - (camera.h / 2 - 100);
+			}
+			else if (camera.h / 2 - (camera.y - this.subject.y) < 100) {
+				cameraPosition.y = this.subject.y + (camera.h / 2 - 100);
+			}
+
+			this.setPosition(cameraPosition);
 		},
 		draw: function () {
 			canvasContext.strokeStyle = 'black';
@@ -218,8 +245,10 @@ function (B, sky, canvas, sprites, pathFinding) {
 	}
 
 	Me.prototype.setCell = function (x, y) {
+		var start;
+
 		this.cell = {x: x, y: y};
-		var start = m.coordsToPixels(this.cell.x, this.cell.y);
+		start = m.coordsToPixels(this.cell.x, this.cell.y);
 		this.x = start.x;
 		this.y = start.y;
 	};
@@ -289,6 +318,7 @@ function (B, sky, canvas, sprites, pathFinding) {
 	function mainLoop () {
 		requestAnimationFrame(mainLoop);
 		me.update();
+		camera.update();
 		sky.update();
 		draw();
 	}
@@ -304,6 +334,7 @@ function (B, sky, canvas, sprites, pathFinding) {
 
 	B.Events.on('mousemove', null, function (vectorX, vectorY) {
 		camera.setPosition({x: camera.x - vectorX, y: camera.y - vectorY});
+		camera.setSubject();
 	});
 
 	B.Events.on('click', null, function (mouseX, mouseY) {
@@ -317,6 +348,7 @@ function (B, sky, canvas, sprites, pathFinding) {
 		}
 
 		me.setPath(pathFinding.astar(m, me.cell, dest));
+		camera.setSubject(me);
 	}, false);
 
 	document.addEventListener('keydown', function (event) {
@@ -341,6 +373,7 @@ function (B, sky, canvas, sprites, pathFinding) {
 
 			if (neighbour !== null) {
 				me.setCell(neighbour.x, neighbour.y);
+				camera.setSubject(me);
 			}
 		}
 	});
