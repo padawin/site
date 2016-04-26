@@ -10,7 +10,7 @@ loader.addModule('sky', 'particles', 'canvas', function (particlesModule, canvas
 	sky.loadResources = function (loaded) {
 		cloudResource = new Image();
 		cloudResource.onload = loaded;
-		cloudResource.src = 'cloud.png';
+		cloudResource.src = 'images/cloud.png';
 	}
 
 	sky.update = function () {
