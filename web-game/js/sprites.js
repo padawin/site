@@ -1,5 +1,5 @@
 loader.addModule('sprites', function () {
-	var spriteBoardUrl = 'sprite.png',
+	var spriteBoardUrl = 'images/sprite.png',
 		spriteModule = {
 			nbResources: 1,
 			spriteResource: null,
