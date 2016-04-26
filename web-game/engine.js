@@ -258,6 +258,7 @@ function (B, sky, canvas, sprites) {
 	}
 
 	function draw () {
+		sky.draw(camera);
 		m.draw(camera);
 		me.draw(camera);
 
@@ -269,7 +270,6 @@ function (B, sky, canvas, sprites) {
 	function mainLoop () {
 		requestAnimationFrame(mainLoop);
 		sky.update();
-		sky.draw(camera);
 		draw();
 	}
 
