@@ -39,6 +39,7 @@ function (B, sky, canvas, sprites, pathFinding) {
 		y: 18,
 		w: 0,
 		h: 0,
+		subject: null,
 		/**
 		 * Convert some world coordinates to coordinates in the camera
 		 */
@@ -58,6 +59,9 @@ function (B, sky, canvas, sprites, pathFinding) {
 				y: coord.y + (this.y - this.h / 2),
 			};
 			return ret;
+		},
+		setSubject (subject) {
+			this.subject = subject;
 		},
 		setPosition (coordinates) {
 			this.x = coordinates.x;
@@ -324,6 +328,7 @@ function (B, sky, canvas, sprites, pathFinding) {
 
 	B.Events.on('mousemove', null, function (vectorX, vectorY) {
 		camera.setPosition({x: camera.x - vectorX, y: camera.y - vectorY});
+		camera.setSubject();
 	});
 
 	B.Events.on('click', null, function (mouseX, mouseY) {
@@ -337,6 +342,7 @@ function (B, sky, canvas, sprites, pathFinding) {
 		}
 
 		me.setPath(pathFinding.astar(m, me.cell, dest));
+		camera.setSubject(me);
 	}, false);
 
 	document.addEventListener('keydown', function (event) {
@@ -361,6 +367,7 @@ function (B, sky, canvas, sprites, pathFinding) {
 
 			if (neighbour !== null) {
 				me.setCell(neighbour.x, neighbour.y);
+				camera.setSubject(me);
 			}
 		}
 	});
