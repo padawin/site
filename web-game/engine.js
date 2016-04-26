@@ -212,12 +212,16 @@ function (B, sky, canvas, sprites) {
 	};
 
 	function Me () {
-		this.cell = {x: 0, y: 0};
-		var start = m.coordsToPixels(this.cell.y, this.cell.y);
-		this.x = start.x;
-		this.y = start.y;
+		this.setCell(0, 0);
 		this.sprite = sprites.sprites[sprites.SPRITES_ACCESS.PLAYER];
 	}
+
+	Me.prototype.setCell = function (x, y) {
+		this.cell = {x: x, y: y};
+		var start = m.coordsToPixels(this.cell.x, this.cell.y);
+		this.x = start.x;
+		this.y = start.y;
+	};
 
 	Me.prototype.draw = function (camera) {
 		var coord = camera.adapt(this);
@@ -280,29 +284,23 @@ function (B, sky, canvas, sprites) {
 
 	B.Events.on('mousemove', null, function (vectorX, vectorY) {
 		camera.setPosition({x: camera.x - vectorX, y: camera.y - vectorY});
-
 	});
 
 	B.Events.on('click', null, function (mouseX, mouseY) {
 		var // get the coordinates in the world
 			mouseInWorld = camera.toWorldCoords({x: mouseX, y: mouseY}),
 			// convert them in the coordinates of the clicked cell
-			dest = m.pixelsToCoords(mouseInWorld.x, mouseInWorld.y),
-			// get the center of the clicked cell, this is the player's
-			// destination
-			cellCoords = m.coordsToPixels(dest.x, dest.y);
+			dest = m.pixelsToCoords(mouseInWorld.x, mouseInWorld.y);
 
 		if (m.map[dest.y] === undefined || m.map[dest.y][dest.x] === undefined || m.map[dest.y][dest.x] === null) {
 			return;
 		}
 
-		me.cell = dest;
-		me.x = cellCoords.x;
-		me.y = cellCoords.y;
+		me.setCell(dest.x, dest.y);
 	}, false);
 
 	document.addEventListener('keydown', function (event) {
-		var cellCoords, neighbour;
+		var neighbour;
 		if (~[37, 38, 39, 40].indexOf(event.keyCode)) {
 			// up
 			if (event.keyCode === 38) {
@@ -322,11 +320,7 @@ function (B, sky, canvas, sprites) {
 			}
 
 			if (neighbour !== null) {
-				me.cell.x = neighbour.x;
-				me.cell.y = neighbour.y;
-				cellCoords = m.coordsToPixels(me.cell.x, me.cell.y);
-				me.x = cellCoords.x;
-				me.y = cellCoords.y;
+				me.setCell(neighbour.x, neighbour.y);
 			}
 		}
 	});
