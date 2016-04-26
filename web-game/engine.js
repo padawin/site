@@ -1,7 +1,7 @@
 
 loader.executeModule('main',
-'B', 'sky', 'canvas', 'sprites',
-function (B, sky, canvas, sprites) {
+'B', 'sky', 'canvas', 'sprites', 'pathFinding',
+function (B, sky, canvas, sprites, pathFinding) {
 	"use strict";
 
 	var canvasContext = canvas.getContext(),
@@ -97,15 +97,39 @@ function (B, sky, canvas, sprites) {
 		};
 	};
 
-	Map.prototype.neighbourDirectionAt = function (start, direction) {
+	Map.prototype.getNeighbours = function (start) {
+		var nUp = this.neighbourAt(start, 'up'),
+			nRight = this.neighbourAt(start, 'right'),
+			nDown = this.neighbourAt(start, 'down'),
+			nLeft = this.neighbourAt(start, 'left'),
+			neighbours = [];
+
+		if (nUp) {
+			neighbours.push(nUp);
+		}
+		if (nRight) {
+			neighbours.push(nRight);
+		}
+		if (nDown) {
+			neighbours.push(nDown);
+		}
+		if (nLeft) {
+			neighbours.push(nLeft);
+		}
+
+		return neighbours;
+	};
+
+	Map.prototype.neighbourAt = function (start, direction) {
 		function neighbourAtCoord (start, directionVector) {
 			var nX = start.x + directionVector.x,
-				nY = start.y + directionVector.y;
+				nY = start.y + directionVector.y,
+				neighbour;
 
 			if (nY >= 0 && nY < that.map.length && nX >= 0 && nX < that.map[nY].length) {
 				neighbour = that.map[nY][nX];
 				if (neighbour !== null && sprites.sprites[neighbour].walkable) {
-					return neighbour;
+					return {x: nX, y: nY, value: neighbour};
 				}
 			}
 
@@ -114,24 +138,24 @@ function (B, sky, canvas, sprites) {
 
 		var startValue = this.map[start.y][start.x],
 			neighbourDirection = sprites.sprites[startValue].neighbours[direction],
-			stairSpriteNeighbours, neighbour, vectorToTopStair,
+			bottomStairVector, neighbour, vectorToTopStair, topStairneighbour,
 			that = this;
 
 		neighbour = neighbourAtCoord(start, neighbourDirection);
-		if (neighbour !== null) {
-			return neighbourDirection;
-		}
 		// special case if there is a stair where requested
-		else if (neighbour === null && direction == 'left') {
-			stairSpriteNeighbours = sprites.sprites[sprites.SPRITES_ACCESS.STAIR].neighbours;
-			vectorToTopStair = {x: -stairSpriteNeighbours.right.x, y: -stairSpriteNeighbours.right.y};
+		if (neighbour === null && direction == 'left') {
+			bottomStairVector = sprites
+				.sprites[sprites.SPRITES_ACCESS.STAIR]
+				.neighbours.right;
+			vectorToTopStair = {x: -bottomStairVector.x, y: -bottomStairVector.y};
+			topStairneighbour = neighbourAtCoord(start, vectorToTopStair);
 			// we are at the bottom of a stair, bring the player there
-			if (neighbourAtCoord(start, vectorToTopStair) == sprites.SPRITES_ACCESS.STAIR) {
-				return vectorToTopStair;
+			if (topStairneighbour && topStairneighbour.value == sprites.SPRITES_ACCESS.STAIR) {
+				neighbour = topStairneighbour;
 			}
 		}
 
-		return null;
+		return neighbour;
 	};
 
 	Map.prototype.draw = function (camera) {
@@ -188,12 +212,35 @@ function (B, sky, canvas, sprites) {
 	};
 
 	function Me () {
-		this.cell = {x: 0, y: 0};
-		var start = m.coordsToPixels(this.cell.y, this.cell.y);
-		this.x = start.x;
-		this.y = start.y;
+		this.setCell(0, 0);
+		this.path = [];
 		this.sprite = sprites.sprites[sprites.SPRITES_ACCESS.PLAYER];
 	}
+
+	Me.prototype.setCell = function (x, y) {
+		this.cell = {x: x, y: y};
+		var start = m.coordsToPixels(this.cell.x, this.cell.y);
+		this.x = start.x;
+		this.y = start.y;
+	};
+
+	Me.prototype.setPath = function (path) {
+		this.path = path;
+	};
+
+	Me.prototype.update = function () {
+		if (!this.path.length) {
+			return;
+		}
+
+		if (this.cell.x == this.path[0].x && this.cell.y == this.path[0].y) {
+			this.path.shift();
+		}
+
+		if (this.path.length) {
+			this.setCell(this.path[0].x, this.path[0].y);
+		}
+	};
 
 	Me.prototype.draw = function (camera) {
 		var coord = camera.adapt(this);
@@ -230,6 +277,7 @@ function (B, sky, canvas, sprites) {
 	}
 
 	function draw () {
+		sky.draw(camera);
 		m.draw(camera);
 		me.draw(camera);
 
@@ -240,8 +288,8 @@ function (B, sky, canvas, sprites) {
 
 	function mainLoop () {
 		requestAnimationFrame(mainLoop);
+		me.update();
 		sky.update();
-		sky.draw(camera);
 		draw();
 	}
 
@@ -256,53 +304,43 @@ function (B, sky, canvas, sprites) {
 
 	B.Events.on('mousemove', null, function (vectorX, vectorY) {
 		camera.setPosition({x: camera.x - vectorX, y: camera.y - vectorY});
-
 	});
 
 	B.Events.on('click', null, function (mouseX, mouseY) {
 		var // get the coordinates in the world
 			mouseInWorld = camera.toWorldCoords({x: mouseX, y: mouseY}),
 			// convert them in the coordinates of the clicked cell
-			dest = m.pixelsToCoords(mouseInWorld.x, mouseInWorld.y),
-			// get the center of the clicked cell, this is the player's
-			// destination
-			cellCoords = m.coordsToPixels(dest.x, dest.y);
+			dest = m.pixelsToCoords(mouseInWorld.x, mouseInWorld.y);
 
 		if (m.map[dest.y] === undefined || m.map[dest.y][dest.x] === undefined || m.map[dest.y][dest.x] === null) {
 			return;
 		}
 
-		me.cell = dest;
-		me.x = cellCoords.x;
-		me.y = cellCoords.y;
+		me.setPath(pathFinding.astar(m, me.cell, dest));
 	}, false);
 
 	document.addEventListener('keydown', function (event) {
-		var cellCoords, neighbour;
+		var neighbour;
 		if (~[37, 38, 39, 40].indexOf(event.keyCode)) {
 			// up
 			if (event.keyCode === 38) {
-				neighbour = m.neighbourDirectionAt(me.cell, 'up');
+				neighbour = m.neighbourAt(me.cell, 'up');
 			}
 			// right
 			else if (event.keyCode === 39) {
-				neighbour = m.neighbourDirectionAt(me.cell, 'right');
+				neighbour = m.neighbourAt(me.cell, 'right');
 			}
 			// down
 			else if (event.keyCode === 40) {
-				neighbour = m.neighbourDirectionAt(me.cell, 'down');
+				neighbour = m.neighbourAt(me.cell, 'down');
 			}
 			// left
 			else if (event.keyCode === 37) {
-				neighbour = m.neighbourDirectionAt(me.cell, 'left');
+				neighbour = m.neighbourAt(me.cell, 'left');
 			}
 
 			if (neighbour !== null) {
-				me.cell.x += neighbour.x;
-				me.cell.y += neighbour.y;
-				cellCoords = m.coordsToPixels(me.cell.x, me.cell.y);
-				me.x = cellCoords.x;
-				me.y = cellCoords.y;
+				me.setCell(neighbour.x, neighbour.y);
 			}
 		}
 	});
