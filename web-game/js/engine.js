@@ -74,18 +74,18 @@ function (B, sky, canvas, sprites, pathFinding) {
 
 			var cameraPosition = {x: camera.x, y: camera.y};
 
-			if (camera.w / 2 - (this.subject.x - camera.x) < 190) {
-				cameraPosition.x = this.subject.x - (camera.w / 2 - 190);
+			if (camera.w / 2 - (this.subject.x - camera.x) < 150) {
+				cameraPosition.x = this.subject.x - (camera.w / 2 - 150);
 			}
-			else if (camera.w / 2 - (camera.x - this.subject.x) < 190) {
-				cameraPosition.x = this.subject.x + (camera.w / 2 - 190);
+			else if (camera.w / 2 - (camera.x - this.subject.x) < 150) {
+				cameraPosition.x = this.subject.x + (camera.w / 2 - 150);
 			}
 
 			if (camera.h / 2 - (this.subject.y - camera.y) < 100) {
-				cameraPosition.y = this.subject.y - (camera.h / 2 - 100);
+				cameraPosition.y = this.subject.y - (camera.h / 2 - 150);
 			}
-			else if (camera.h / 2 - (camera.y - this.subject.y) < 100) {
-				cameraPosition.y = this.subject.y + (camera.h / 2 - 100);
+			else if (camera.h / 2 - (camera.y - this.subject.y) < 150) {
+				cameraPosition.y = this.subject.y + (camera.h / 2 - 150);
 			}
 
 			this.setPosition(cameraPosition);
