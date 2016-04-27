@@ -26,6 +26,10 @@ h1 a, h1 a:hover, h1 a:visited {
 	margin: 30px 150px 30px 150px;
 }
 
+.clear {
+	clear: both;
+}
+
 @media (max-width: 979px) {
 	.content {
 		margin-left: 40px;
@@ -156,45 +160,78 @@ ul {
 	border-radius: 7px;
 }
 
-
-.thumbs {
+.projects {
 	list-style: none;
 }
 
-.thumbs li {
-	display: inline-block;
-	margin: 17px;
-	position: relative;
-}
-
-.thumbs a.block {
-	outline: none;
-	text-decoration: none;
-	border: 1px #ddd solid;
-	color: #333;
-}
-
-.thumbs .block,
-.thumbs .block img {
-	display: inline-block;
+.projects > li {
 	border-radius: 7px;
+	border: 1px #ddd solid;
+	margin-bottom: 14px;
 }
 
-.thumbs .block span {
+@media (max-width: 549px) {
+	.projects > li {
+		margin: 14px;
+		position: relative;
+		display: inline-block;
+		width: 150px;
+		height: 150px;
+	}
+
+	.projects > li img {
+		border-radius: 7px;
+		position: absolute;
+		left: 0;
+		top: 0;
+	}
+
+	.projects > li h3 {
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		text-align: center;
+		background-color: #ddd;
+		border-bottom-left-radius: 7px;
+		border-bottom-right-radius: 7px;
+		width: 100%;
+	}
+
+	.projects > li section .info {
+		display: none;
+	}
+}
+
+@media (max-width: 443px) {
+	.projects {
+		text-align: center;
+	}
+}
+
+@media (min-width: 550px) {
+	.projects > li img {
+		float: left;
+		border-top-left-radius: 7px;
+		border-bottom-left-radius: 7px;
+	}
+
+	.projects section {
+		margin-left: 150px;
+		padding: 7px;
+	}
+}
+
+.projects section h3 {
+	margin: 0;
+}
+
+.projects section a {
 	font-family: "Lucida Console", Monaco, monospace;
 	font-weight: bold;
-	position: absolute;
-	display: inline-block;
-	bottom: 0px;
-	left: 0px;
-	width: 100%;
-	background-color: rgb(221, 221, 221);
-	text-align: center;
-	border-bottom-left-radius: 7px;
-	border-bottom-right-radius: 7px;
-	display: none;
+	font-size: 18px;
+	color: #555;
 }
 
-.thumbs .block:hover span {
-	display: inline;
+.projects section ul {
+	list-style: none;
 }

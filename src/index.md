@@ -30,47 +30,159 @@
 
 Most of those projects are proofs of concept, ideas, or partly finished games.
 
-<ul class="thumbs">
+<ul class="projects">
 	<li>
-		<a class="block button" href="https://github.com/rrpg/engine" target="_blank">
-			<img src="images/rrpg.png" width="160" height="160" alt="rRPG" />
-			<span>rRPG</span>
-		</a>
+		<img src="images/rrpg.png" alt="rRPG" />
+		<section>
+			<h3>
+				rRPG -
+				<a class="block button" href="https://github.com/rrpg/engine" target="_blank">
+					Github
+				</a>
+			</h3>
+			<div class="info">
+				<p>
+					Text-based role playing game relying a lot on randomly
+					generated content.
+				</p>
+				<b>Tech:</b>
+				<ul>
+					<li>Python (compatible 2.7 and 3), C, SQLite3</li>
+				</ul>
+			</div>
+		</section>
+		<div class="clear"></div>
 	</li>
 	<li>
-		<a class="block button" href="https://github.com/padawin/conqueror" target="_blank">
-			<img src="images/conqueror.png" width="160" height="160" alt="Conqueror" />
-			<span>Conqueror</span>
-		</a>
+		<img src="images/conqueror.png" alt="Conqueror" />
+		<section>
+			<h3>
+				Conqueror -
+				<a class="block button" href="https://github.com/padawin/conqueror" target="_blank">
+					Github
+				</a>
+			</h3>
+			<div class="info">
+				<p>
+					Strategy game where players must spread their pawns on a
+					maximum of space to win
+				</p>
+				<b>Tech:</b>
+				<ul>
+					<li>C</li>
+				</ul>
+			</div>
+		</section>
+		<div class="clear"></div>
 	</li>
 	<li>
-		<a class="block button" href="https://github.com/padawin/ad" target="_blank">
-			<img src="images/A-D.png" width="160" height="160" alt="AD" />
-			<span>AD</span>
-		</a>
+		<img src="images/A-D.png" alt="AD" />
+		<section>
+			<h3>
+				AD -
+				<a class="block button" href="https://github.com/padawin/ad" target="_blank">
+					Github
+				</a>
+			</h3>
+			<div class="info">
+				<p>
+					Puzzle game where the player must shift the rows and
+					columns of a grid to group the cells per color
+				</p>
+				<b>Tech:</b>
+				<ul>
+					<li>Javascript and canvas</li>
+				</ul>
+			</div>
+		</section>
+		<div class="clear"></div>
 	</li>
 	<li>
-		<a class="block button" href="https://github.com/padawin/adVenture" target="_blank">
-			<img src="images/adVenture.png" width="160" height="160" alt="adVenture" />
-			<span>adVenture</span>
-		</a>
+		<img src="images/adVenture.png" alt="adVenture" />
+		<section>
+			<h3>
+				adVenture -
+				<a class="block button" href="https://github.com/padawin/adVenture" target="_blank">
+					adVenture
+				</a>
+			</h3>
+			<div class="info">
+				<p>
+					Branched story game. At each step the player has to choose
+					an action to go to the next step.
+				</p>
+				<b>Tech:</b>
+				<ul>
+					<li>Javascript</li>
+					<li>Engine of only 160bytes minimised!</li>
+				</ul>
+			</div>
+		</section>
+		<div class="clear"></div>
 	</li>
 	<li>
-		<a class="block button" href="https://github.com/padawin/game-framework-js" target="_blank">
-			<img src="images/udemy.png" width="160" height="160" alt="Udemy course" />
-			<span>Game framework</span>
-		</a>
+		<img src="images/udemy.png" alt="Udemy course" />
+		<section>
+			<h3>
+				Game framework -
+				<a class="block button" href="https://github.com/padawin/game-framework-js" target="_blank">
+					Github
+				</a>
+			</h3>
+			<div class="info">
+				<p>
+					Framework to make some grid based games.
+				</p>
+				<b>Tech:</b>
+				<ul>
+					<li>Javascript and canvas</li>
+					<li>Contains 3 demos: pong, race and adventure</li>
+				</ul>
+			</div>
+		</section>
+		<div class="clear"></div>
 	</li>
 	<li>
-		<a class="block button" href="https://github.com/padawin/raytracing-test" target="_blank">
-			<img src="images/raytracing.png" width="160" height="160" alt="Ray tracing" />
-			<span>Ray tracing</span>
-		</a>
+		<img src="images/raytracing.png" alt="Ray tracing" />
+		<section>
+			<h3>
+				Ray tracing -
+				<a class="block button" href="https://github.com/padawin/raytracing-test" target="_blank">
+					Github
+				</a>
+			</h3>
+			<div class="info">
+				<p>
+					Demo of the implementation of a raytracing engine, with
+					lights and obstacles to create some shadows.
+				</p>
+				<b>Tech:</b>
+				<ul>
+					<li>Javascript and canvas</li>
+				</ul>
+			</div>
+		</section>
+		<div class="clear"></div>
 	</li>
 	<li>
-		<a class="block button" href="https://github.com/padawin/particles" target="_blank">
-			<img src="images/particles.png" width="160" height="160" alt="Particles" />
-			<span>Particles</span>
-		</a>
+		<img src="images/particles.png" alt="Particles" />
+		<section>
+			<h3>
+				Particles -
+				<a class="block button" href="https://github.com/padawin/particles" target="_blank">
+					Github
+				</a>
+			</h3>
+			<div class="info">
+				<p>
+					Demo of the implementation of a particles engine.
+				</p>
+				<b>Tech:</b>
+				<ul>
+					<li>Javascript and canvas</li>
+				</ul>
+			</div>
+		</section>
+		<div class="clear"></div>
 	</li>
 </ul>
