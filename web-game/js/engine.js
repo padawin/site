@@ -242,6 +242,8 @@ function (B, sky, canvas, sprites, pathFinding) {
 		this.setCell(0, 0);
 		this.path = [];
 		this.sprite = sprites.sprites[sprites.SPRITES_ACCESS.PLAYER];
+		this.maxLinearSpeed = 6;
+		this.speed = {x: 0, y: 0};
 	}
 
 	Me.prototype.setCell = function (x, y) {
