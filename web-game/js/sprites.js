@@ -5,7 +5,8 @@ loader.addModule('sprites', function () {
 			spriteResource: null,
 			SPRITES_ACCESS: {
 				STAIR: 2,
-				PLAYER: 3
+				PLAYER_LEFT: 4,
+				PLAYER_RIGHT: 3
 			},
 			sprites: [
 				// grass
@@ -20,8 +21,10 @@ loader.addModule('sprites', function () {
 				{x: 128, y: 0, w: 64, h: 36, d: 73, walkable: true,
 					neighbours: {left: {x: -1, y: 0}, up: {x: 0, y: -1}, right: {x: 2, y: 1}, down: {x: 0, y: 1}}
 				},
-				// player
-				{x: 0, y: 73, w: 64, h: 64, posInCell: {x: 32, y: 44}},
+				// player right
+				{x: 0, y: 73, w: 28, h: 56, posInCell: {x: 14, y: 52}},
+				// player left
+				{x: 28, y: 73, w: 28, h: 56, posInCell: {x: 14, y: 52}}
 			],
 			loadResources: function (loaded) {
 				spriteModule.spriteResource = new Image();
