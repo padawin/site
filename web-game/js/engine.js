@@ -270,16 +270,40 @@ function (B, sky, canvas, sprites, pathFinding) {
 	};
 
 	Me.prototype.update = function () {
+		var pointNextDest, distance, direction;
+
+		// nowhere to go
 		if (!this.path.length) {
 			return;
 		}
-
-		if (this.cell.x == this.path[0].x && this.cell.y == this.path[0].y) {
-			this.path.shift();
-		}
-
-		if (this.path.length) {
-			this.setCell(this.path[0].x, this.path[0].y);
+		else {
+			pointNextDest = m.coordsToPixels(
+				this.path[0].x, this.path[0].y
+			);
+			// if the player is at the same place as its next destination, remove the
+			// destination
+			if (this.x == pointNextDest.x && this.y == pointNextDest.y) {
+				this.setCell(this.path[0].x, this.path[0].y);
+				this.path.shift();
+			}
+			// The player has to reach its destination, update its speed so it
+			// won't go past it
+			else {
+				// get direction vector
+				direction = {
+					x: pointNextDest.x - this.x,
+					y: pointNextDest.y - this.y
+				};
+				// get remaining distance to walk
+				distance = calcDistance(
+					{x: 0, y: 0},
+					direction
+				);
+				// calculate speed
+				this.calculateSpeed(distance, direction);
+				this.x += this.speed.x;
+				this.y += this.speed.y;
+			}
 		}
 	};
 
