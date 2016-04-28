@@ -285,6 +285,7 @@ function (B, sky, canvas, sprites, pathFinding) {
 			// destination
 			if (this.x == pointNextDest.x && this.y == pointNextDest.y) {
 				this.setCell(this.path[0].x, this.path[0].y);
+				this.speed = {x: 0, y: 0};
 				this.path.shift();
 			}
 			// The player has to reach its destination, update its speed so it
