@@ -81,7 +81,7 @@ function (B, sky, canvas, sprites, pathFinding) {
 				cameraPosition.x = this.subject.x + (camera.w / 2 - 150);
 			}
 
-			if (camera.h / 2 - (this.subject.y - camera.y) < 100) {
+			if (camera.h / 2 - (this.subject.y - camera.y) < 150) {
 				cameraPosition.y = this.subject.y - (camera.h / 2 - 150);
 			}
 			else if (camera.h / 2 - (camera.y - this.subject.y) < 150) {
@@ -242,6 +242,18 @@ function (B, sky, canvas, sprites, pathFinding) {
 		this.setCell(0, 0);
 		this.path = [];
 		this.sprite = sprites.sprites[sprites.SPRITES_ACCESS.PLAYER];
+		this.maxLinearSpeed = 6;
+		this.speed = {x: 0, y: 0};
+	}
+
+	Me.prototype.calculateSpeed = function (remaining, direction) {
+		if (remaining <= this.maxLinearSpeed) {
+			this.speed = direction;
+		}
+		else {
+			this.speed.x = direction.x * this.maxLinearSpeed / remaining;
+			this.speed.y = direction.y * this.maxLinearSpeed / remaining;
+		}
 	}
 
 	Me.prototype.setCell = function (x, y) {
@@ -258,16 +270,40 @@ function (B, sky, canvas, sprites, pathFinding) {
 	};
 
 	Me.prototype.update = function () {
+		var pointNextDest, distance, direction;
+
+		// nowhere to go
 		if (!this.path.length) {
 			return;
 		}
-
-		if (this.cell.x == this.path[0].x && this.cell.y == this.path[0].y) {
-			this.path.shift();
-		}
-
-		if (this.path.length) {
-			this.setCell(this.path[0].x, this.path[0].y);
+		else {
+			pointNextDest = m.coordsToPixels(
+				this.path[0].x, this.path[0].y
+			);
+			// if the player is at the same place as its next destination, remove the
+			// destination
+			if (this.x == pointNextDest.x && this.y == pointNextDest.y) {
+				this.setCell(this.path[0].x, this.path[0].y);
+				this.path.shift();
+			}
+			// The player has to reach its destination, update its speed so it
+			// won't go past it
+			else {
+				// get direction vector
+				direction = {
+					x: pointNextDest.x - this.x,
+					y: pointNextDest.y - this.y
+				};
+				// get remaining distance to walk
+				distance = calcDistance(
+					{x: 0, y: 0},
+					direction
+				);
+				// calculate speed
+				this.calculateSpeed(distance, direction);
+				this.x += this.speed.x;
+				this.y += this.speed.y;
+			}
 		}
 	};
 
@@ -280,6 +316,10 @@ function (B, sky, canvas, sprites, pathFinding) {
 			coord.x - this.sprite.posInCell.x, coord.y - this.sprite.posInCell.y,
 			this.sprite.w, this.sprite.h
 		);
+	}
+
+	function calcDistance (p1, p2) {
+		return Math.sqrt(Math.pow(p2.x - p1.x, 2) + Math.pow(p2.y - p1.y, 2));
 	}
 
 	function loadResources (callback) {
