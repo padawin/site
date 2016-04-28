@@ -81,7 +81,7 @@ function (B, sky, canvas, sprites, pathFinding) {
 				cameraPosition.x = this.subject.x + (camera.w / 2 - 150);
 			}
 
-			if (camera.h / 2 - (this.subject.y - camera.y) < 100) {
+			if (camera.h / 2 - (this.subject.y - camera.y) < 150) {
 				cameraPosition.y = this.subject.y - (camera.h / 2 - 150);
 			}
 			else if (camera.h / 2 - (camera.y - this.subject.y) < 150) {
