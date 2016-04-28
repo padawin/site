@@ -307,6 +307,13 @@ function (B, sky, canvas, sprites, pathFinding) {
 				this.calculateSpeed(distance, direction);
 				this.x += this.speed.x;
 				this.y += this.speed.y;
+
+				if (this.speed.x > 0) {
+					this.sprite = sprites.sprites[sprites.SPRITES_ACCESS.PLAYER_RIGHT];
+				}
+				else if (this.speed.y > 0) {
+					this.sprite = sprites.sprites[sprites.SPRITES_ACCESS.PLAYER_LEFT];
+				}
 			}
 		}
 	};
