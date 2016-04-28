@@ -276,11 +276,8 @@ function (B, sky, canvas, sprites, pathFinding) {
 	Me.prototype.update = function () {
 		var pointNextDest, distance, direction;
 
-		// nowhere to go
-		if (!this.path.length) {
-			return;
-		}
-		else {
+		// somewhere to go
+		if (this.path.length) {
 			pointNextDest = m.coordsToPixels(
 				this.path[0].x, this.path[0].y
 			);
