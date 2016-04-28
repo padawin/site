@@ -412,7 +412,7 @@ function (B, sky, canvas, sprites, pathFinding) {
 			}
 
 			if (neighbour !== null) {
-				me.setCell(neighbour.x, neighbour.y);
+				me.setPath([neighbour]);
 				camera.setSubject(me);
 			}
 		}
