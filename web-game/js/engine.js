@@ -246,6 +246,16 @@ function (B, sky, canvas, sprites, pathFinding) {
 		this.speed = {x: 0, y: 0};
 	}
 
+	Me.prototype.calculateSpeed = function (remaining, direction) {
+		if (remaining <= this.maxLinearSpeed) {
+			this.speed = direction;
+		}
+		else {
+			this.speed.x = direction.x * this.maxLinearSpeed / remaining;
+			this.speed.y = direction.y * this.maxLinearSpeed / remaining;
+		}
+	}
+
 	Me.prototype.setCell = function (x, y) {
 		var start;
 
