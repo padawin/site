@@ -108,13 +108,17 @@ function (B, sky, canvas, sprites, pathFinding) {
 		this.map = m;
 	}
 
+	/**
+	* Convert a set of pixels in the map projection and returns the coordinates
+	* of the cell in the grid
+	*/
 	Map.prototype.pixelsToCoords = function (x, y) {
 		var midTileW = gridCellsDimensions.w/2,
 			midTileH = gridCellsDimensions.h/2,
-			coordX = parseInt((x*midTileH + y*midTileW - (288+midTileW)*midTileH)/1296),
-			coordY = parseInt((-x*midTileH + y*midTileW + (288+midTileW)*midTileH)/1296);
+			coordX = (x / midTileW + y / midTileH) /2 - map.length / 2,
+			coordY = (y / midTileH - x / midTileW) /2 + map.length / 2;
 
-		return {x: coordX, y: coordY};
+		return {x: 0|coordX, y: 0|coordY};
 	};
 
 	Map.prototype.coordsToPixels = function (x, y) {
