@@ -5,8 +5,8 @@ loader.addModule('sprites', function () {
 			spriteResource: null,
 			SPRITES_ACCESS: {
 				STAIR: 2,
-				PLAYER_LEFT: 4,
-				PLAYER_RIGHT: 3
+				PLAYER_RIGHT: 3,
+				PLAYER_LEFT: 4
 			},
 			sprites: [
 				// grass
