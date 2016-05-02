@@ -245,6 +245,10 @@ function (B, sky, canvas, sprites, pathFinding) {
 	function Me () {
 		this.setCell(0, 0);
 		this.path = [];
+		this.frame = 0;
+		this.maxFrame = 4;
+		this.tick = 0;
+		this.timePerFrame = 8;
 		this.sprite = sprites.sprites[sprites.SPRITES_ACCESS.PLAYER_RIGHT];
 		this.maxLinearSpeed = 2;
 		this.speed = {x: 0, y: 0};
@@ -279,12 +283,29 @@ function (B, sky, canvas, sprites, pathFinding) {
 		// nowhere to go
 		if (!this.path.length) {
 			// was moving and just arrived
+			// depending on his speed, set the rest position sprite
 			if (this.speed !== {x: 0, y: 0}) {
+				this.frame = 0;
+				if (this.speed.x > 0) {
+					this.sprite = sprites.sprites[
+						sprites.SPRITES_ACCESS.PLAYER_RIGHT
+					];
+				}
+				else if (this.speed.y > 0) {
+					this.sprite = sprites.sprites[
+						sprites.SPRITES_ACCESS.PLAYER_LEFT
+
+					];
+				}
 				this.speed = {x: 0, y: 0};
 			}
 			return;
 		}
 
+		// The player has to reach its destination, update its speed so it
+		// won't go past it
+
+		// get the coordinates of the next point to reach
 		pointNextDest = m.coordsToPixels(
 			this.path[0].x, this.path[0].y
 		);
@@ -301,15 +322,16 @@ function (B, sky, canvas, sprites, pathFinding) {
 		// calculate speed
 		this.calculateSpeed(distance, direction);
 		this.updatePosition();
+		this.updateFrame();
 
 		if (this.speed.x > 0) {
 			this.sprite = sprites.sprites[
-				sprites.SPRITES_ACCESS.PLAYER_RIGHT
+				sprites.SPRITES_ACCESS.PLAYER_MOVE_RIGHT
 			];
 		}
 		else if (this.speed.y > 0) {
 			this.sprite = sprites.sprites[
-				sprites.SPRITES_ACCESS.PLAYER_LEFT
+				sprites.SPRITES_ACCESS.PLAYER_MOVE_LEFT
 			];
 		}
 
@@ -324,14 +346,27 @@ function (B, sky, canvas, sprites, pathFinding) {
 		this.y += this.speed.y;
 	};
 
+	Me.prototype.updateFrame = function () {
+		this.tick++;
+		if (this.tick == this.timePerFrame) {
+			this.tick = 0;
+			this.frame = (this.frame + 1) % this.maxFrame;
+		}
+	};
+
 	Me.prototype.draw = function (camera) {
-		var coord = camera.adapt(this);
+		var coord = camera.adapt(this), s;
+
+		s = this.sprite;
+		if (s.animation !== undefined) {
+			s = s.animation[this.frame];
+		}
 
 		canvasContext.drawImage(sprites.spriteResource,
-			this.sprite.x, this.sprite.y,
-			this.sprite.w, this.sprite.h,
-			coord.x - this.sprite.posInCell.x, coord.y - this.sprite.posInCell.y,
-			this.sprite.w, this.sprite.h
+			s.x, s.y,
+			s.w, s.h,
+			coord.x - s.posInCell.x, coord.y - s.posInCell.y,
+			s.w, s.h
 		);
 	}
 
