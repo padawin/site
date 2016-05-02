@@ -278,6 +278,10 @@ function (B, sky, canvas, sprites, pathFinding) {
 
 		// nowhere to go
 		if (!this.path.length) {
+			// was moving and just arrived
+			if (this.speed !== {x: 0, y: 0}) {
+				this.speed = {x: 0, y: 0};
+			}
 			return;
 		}
 
@@ -311,7 +315,6 @@ function (B, sky, canvas, sprites, pathFinding) {
 
 		if (this.x == pointNextDest.x && this.y == pointNextDest.y) {
 			this.setCell(this.path[0].x, this.path[0].y);
-			this.speed = {x: 0, y: 0};
 			this.path.shift();
 		}
 	};
