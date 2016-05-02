@@ -281,36 +281,31 @@ function (B, sky, canvas, sprites, pathFinding) {
 			pointNextDest = m.coordsToPixels(
 				this.path[0].x, this.path[0].y
 			);
-			// if the player is at the same place as its next destination, remove the
-			// destination
-			if (this.x == pointNextDest.x && this.y == pointNextDest.y) {
-				this.setCell(this.path[0].x, this.path[0].y);
-				this.speed = {x: 0, y: 0};
-				this.path.shift();
-			}
-			// The player has to reach its destination, update its speed so it
-			// won't go past it
-			else {
-				// get direction vector
-				direction = {
-					x: pointNextDest.x - this.x,
-					y: pointNextDest.y - this.y
-				};
-				// get remaining distance to walk
-				distance = calcDistance(
-					{x: 0, y: 0},
-					direction
-				);
-				// calculate speed
-				this.calculateSpeed(distance, direction);
-				this.updatePosition();
-			}
+			// get direction vector
+			direction = {
+				x: pointNextDest.x - this.x,
+				y: pointNextDest.y - this.y
+			};
+			// get remaining distance to walk
+			distance = calcDistance(
+				{x: 0, y: 0},
+				direction
+			);
+			// calculate speed
+			this.calculateSpeed(distance, direction);
+			this.updatePosition();
 
 			if (this.speed.x > 0) {
 				this.sprite = sprites.sprites[sprites.SPRITES_ACCESS.PLAYER_RIGHT];
 			}
 			else if (this.speed.y > 0) {
 				this.sprite = sprites.sprites[sprites.SPRITES_ACCESS.PLAYER_LEFT];
+			}
+
+			if (this.x == pointNextDest.x && this.y == pointNextDest.y) {
+				this.setCell(this.path[0].x, this.path[0].y);
+				this.speed = {x: 0, y: 0};
+				this.path.shift();
 			}
 		}
 	};
