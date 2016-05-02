@@ -5,10 +5,11 @@ loader.addModule('sprites', function () {
 			spriteResource: null,
 			SPRITES_ACCESS: {
 				STAIR: 2,
-				PLAYER_RIGHT: 3,
-				PLAYER_LEFT: 4,
-				PLAYER_MOVE_LEFT: 5,
-				PLAYER_MOVE_RIGHT: 6
+				FLOWERS: 3,
+				PLAYER_RIGHT: 4,
+				PLAYER_LEFT: 5,
+				PLAYER_MOVE_LEFT: 6,
+				PLAYER_MOVE_RIGHT: 7
 			},
 			sprites: [
 				// grass
@@ -22,6 +23,15 @@ loader.addModule('sprites', function () {
 				// stairs
 				{x: 128, y: 0, w: 64, h: 36, d: 73, walkable: true,
 					neighbours: {left: {x: -1, y: 0}, up: {x: 0, y: -1}, right: {x: 2, y: 1}, down: {x: 0, y: 1}}
+				},
+				// flowers
+				{
+					walkable: true,
+					neighbours: {left: {x: -1, y: 0}, up: {x: 0, y: -1}, right: {x: 1, y: 0}, down: {x: 0, y: 1}},
+					animation: [
+						{x: 192, y: 0, w: 64, h: 36, d: 73},
+						{x: 256, y: 0, w: 64, h: 36, d: 73}
+					]
 				},
 				// player right
 				{x: 0, y: 73, w: 28, h: 56, posInCell: {x: 14, y: 52}},

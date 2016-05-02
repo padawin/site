@@ -14,9 +14,9 @@ function (B, sky, canvas, sprites, pathFinding) {
 			[0, n, n, 1, 1, 1, 1, 1, 1, 0],
 			[n, n, 0, 1, 0, 0, 0, 0, 0, 0],
 			[n, 0, 0, 1, 0, n, n, n, n, 0],
-			[n, 0, 0, 1, 0, n, 0, 0, n, 0],
-			[n, 0, 0, 1, 2, n, 0, 0, n, 0],
-			[n, 0, 0, 1, 0, n, 0, 0, n, 0],
+			[n, 0, 0, 1, 0, n, 3, 3, n, 0],
+			[n, 0, 0, 1, 2, n, 3, 3, n, 0],
+			[n, 0, 0, 1, 0, n, 3, 3, n, 0],
 			[n, 0, 0, 1, 0, n, n, n, n, 0],
 			[n, 0, 0, 1, 0, 0, 0, 0, 0, 0]
 		],
@@ -106,6 +106,10 @@ function (B, sky, canvas, sprites, pathFinding) {
 
 	function Map (m) {
 		this.map = m;
+		this.frame = 0;
+		this.tick = 0;
+		this.timePerFrame = 16;
+		this.maxFrame = 2;
 	}
 
 	/**
@@ -126,6 +130,14 @@ function (B, sky, canvas, sprites, pathFinding) {
 			x: (mapSize.w - (y - x) * gridCellsDimensions.w) / 2,
 			y: (x + y + 1) * gridCellsDimensions.h / 2
 		};
+	};
+
+	Map.prototype.update = function () {
+		this.tick++;
+		if (this.tick == this.timePerFrame) {
+			this.tick = 0;
+			this.frame = (this.frame + 1) % this.maxFrame;
+		}
 	};
 
 	Map.prototype.getNeighbours = function (start) {
@@ -202,6 +214,10 @@ function (B, sky, canvas, sprites, pathFinding) {
 			coord = camera.adapt(this.coordsToPixels(x, y));
 			if (this.map[y][x] !== null) {
 				spriteInfo = sprites.sprites[this.map[y][x]];
+				if (spriteInfo.animation !== undefined) {
+					spriteInfo = spriteInfo.animation[this.frame];
+				}
+
 				canvasContext.drawImage(sprites.spriteResource,
 					spriteInfo.x, spriteInfo.y,
 					spriteInfo.w, spriteInfo.d,
@@ -409,6 +425,7 @@ function (B, sky, canvas, sprites, pathFinding) {
 
 	function mainLoop () {
 		requestAnimationFrame(mainLoop);
+		m.update();
 		me.update();
 		camera.update();
 		sky.update();
