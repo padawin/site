@@ -303,8 +303,7 @@ function (B, sky, canvas, sprites, pathFinding) {
 				);
 				// calculate speed
 				this.calculateSpeed(distance, direction);
-				this.x += this.speed.x;
-				this.y += this.speed.y;
+				this.updatePosition();
 			}
 
 			if (this.speed.x > 0) {
@@ -314,6 +313,11 @@ function (B, sky, canvas, sprites, pathFinding) {
 				this.sprite = sprites.sprites[sprites.SPRITES_ACCESS.PLAYER_LEFT];
 			}
 		}
+	};
+
+	Me.prototype.updatePosition = function () {
+		this.x += this.speed.x;
+		this.y += this.speed.y;
 	};
 
 	Me.prototype.draw = function (camera) {
