@@ -9,7 +9,9 @@ loader.addModule('sprites', function () {
 				PLAYER_RIGHT: 4,
 				PLAYER_LEFT: 5,
 				PLAYER_MOVE_LEFT: 6,
-				PLAYER_MOVE_RIGHT: 7
+				PLAYER_MOVE_RIGHT: 7,
+				PLAYER_MOVE_UP_LEFT: 8,
+				PLAYER_MOVE_UP_RIGHT: 9
 			},
 			sprites: [
 				// grass
@@ -50,6 +52,20 @@ loader.addModule('sprites', function () {
 					{x: 196, y: 73, w: 16, h: 56, posInCell: {x: 8, y: 52}},
 					{x: 212, y: 73, w: 36, h: 56, posInCell: {x: 18, y: 52}},
 					{x: 248, y: 73, w: 16, h: 56, posInCell: {x: 8, y: 52}}
+				]},
+				// player move up left
+				{animation: [
+					{x: 56, y: 129, w: 36, h: 56, posInCell: {x: 18, y: 52}},
+					{x: 92, y: 129, w: 16, h: 56, posInCell: {x: 8, y: 52}},
+					{x: 108, y: 129, w: 36, h: 56, posInCell: {x: 18, y: 52}},
+					{x: 144, y: 129, w: 16, h: 56, posInCell: {x: 8, y: 52}}
+				]},
+				// player move up right
+				{animation: [
+					{x: 160, y: 129, w: 36, h: 56, posInCell: {x: 18, y: 52}},
+					{x: 196, y: 129, w: 16, h: 56, posInCell: {x: 8, y: 52}},
+					{x: 212, y: 129, w: 36, h: 56, posInCell: {x: 18, y: 52}},
+					{x: 248, y: 129, w: 16, h: 56, posInCell: {x: 8, y: 52}}
 				]}
 			],
 			loadResources: function (loaded) {

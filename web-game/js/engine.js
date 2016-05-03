@@ -354,6 +354,16 @@ function (B, sky, canvas, sprites, pathFinding) {
 				sprites.SPRITES_ACCESS.PLAYER_MOVE_LEFT
 			];
 		}
+		else if (gridSpeed.x < 0) {
+			this.sprite = sprites.sprites[
+				sprites.SPRITES_ACCESS.PLAYER_MOVE_UP_LEFT
+			];
+		}
+		else if (gridSpeed.y < 0) {
+			this.sprite = sprites.sprites[
+				sprites.SPRITES_ACCESS.PLAYER_MOVE_UP_RIGHT
+			];
+		}
 
 		if (this.x == pointNextDest.x && this.y == pointNextDest.y) {
 			this.setCell(this.path[0].x, this.path[0].y);
