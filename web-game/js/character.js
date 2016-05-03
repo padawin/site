@@ -98,9 +98,7 @@ loader.addModule('character', 'sprites', 'canvas', function (sprites, canvas) {
 		// won't go past it
 
 		// get the coordinates of the next point to reach
-		pointNextDest = map.coordsToPixels(
-			this.path[0].x, this.path[0].y
-		);
+		pointNextDest = map.coordsToPixels(this.path[0].x, this.path[0].y);
 		// get direction vector
 		direction = {
 			x: pointNextDest.x - this.x,
