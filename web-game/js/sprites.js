@@ -6,12 +6,12 @@ loader.addModule('sprites', function () {
 			SPRITES_ACCESS: {
 				STAIR: 2,
 				FLOWERS: 3,
-				PLAYER_RIGHT: 6,
-				PLAYER_LEFT: 7,
-				PLAYER_MOVE_LEFT: 8,
-				PLAYER_MOVE_RIGHT: 9,
-				PLAYER_MOVE_UP_LEFT: 10,
-				PLAYER_MOVE_UP_RIGHT: 11
+				PLAYER_RIGHT: 7,
+				PLAYER_LEFT: 8,
+				PLAYER_MOVE_LEFT: 9,
+				PLAYER_MOVE_RIGHT: 10,
+				PLAYER_MOVE_UP_LEFT: 11,
+				PLAYER_MOVE_UP_RIGHT: 12
 			},
 			sprites: [
 				// grass
@@ -40,6 +40,10 @@ loader.addModule('sprites', function () {
 						{x: 384, y: 0, w: 64, h: 36, d: 73},
 						{x: 448, y: 0, w: 64, h: 36, d: 73}
 					]
+				},
+				// sand
+				{x: 512, y: 0, w: 64, h: 36, d: 73,
+					neighbours: {left: {x: -1, y: 0}, up: {x: 0, y: -1}, right: {x: 1, y: 0}, down: {x: 0, y: 1}}
 				},
 				// wall
 				{x: 320, y: 0, w: 64, h: 36, d: 109},
