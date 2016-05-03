@@ -7,6 +7,33 @@ loader.addModule('character', 'sprites', 'canvas', function (sprites, canvas) {
 		return Math.sqrt(Math.pow(p2.x - p1.x, 2) + Math.pow(p2.y - p1.y, 2));
 	}
 
+	function _updateSpriteFromSpeed(character) {
+		var gridSpeed = {
+			x: character.path[0].x - character.cell.x,
+			y: character.path[0].y - character.cell.y,
+		};
+		if (gridSpeed.x > 0) {
+			character.sprite = sprites.sprites[
+				sprites.SPRITES_ACCESS.PLAYER_MOVE_RIGHT
+			];
+		}
+		else if (gridSpeed.y > 0) {
+			character.sprite = sprites.sprites[
+				sprites.SPRITES_ACCESS.PLAYER_MOVE_LEFT
+			];
+		}
+		else if (gridSpeed.x < 0) {
+			character.sprite = sprites.sprites[
+				sprites.SPRITES_ACCESS.PLAYER_MOVE_UP_LEFT
+			];
+		}
+		else if (gridSpeed.y < 0) {
+			character.sprite = sprites.sprites[
+				sprites.SPRITES_ACCESS.PLAYER_MOVE_UP_RIGHT
+			];
+		}
+	}
+
 	function Character (map) {
 		this.setCell(map, 0, 0);
 		this.path = [];
@@ -43,7 +70,7 @@ loader.addModule('character', 'sprites', 'canvas', function (sprites, canvas) {
 	};
 
 	Character.prototype.update = function (map) {
-		var pointNextDest, distance, direction, gridSpeed;
+		var pointNextDest, distance, direction;
 
 		// nowhere to go
 		if (!this.path.length) {
@@ -89,30 +116,7 @@ loader.addModule('character', 'sprites', 'canvas', function (sprites, canvas) {
 		this.updatePosition();
 		this.updateFrame();
 
-		gridSpeed = {
-			x: this.path[0].x - this.cell.x,
-			y: this.path[0].y - this.cell.y,
-		};
-		if (gridSpeed.x > 0) {
-			this.sprite = sprites.sprites[
-				sprites.SPRITES_ACCESS.PLAYER_MOVE_RIGHT
-			];
-		}
-		else if (gridSpeed.y > 0) {
-			this.sprite = sprites.sprites[
-				sprites.SPRITES_ACCESS.PLAYER_MOVE_LEFT
-			];
-		}
-		else if (gridSpeed.x < 0) {
-			this.sprite = sprites.sprites[
-				sprites.SPRITES_ACCESS.PLAYER_MOVE_UP_LEFT
-			];
-		}
-		else if (gridSpeed.y < 0) {
-			this.sprite = sprites.sprites[
-				sprites.SPRITES_ACCESS.PLAYER_MOVE_UP_RIGHT
-			];
-		}
+		_updateSpriteFromSpeed(this);
 
 		if (this.x == pointNextDest.x && this.y == pointNextDest.y) {
 			this.setCell(map, this.path[0].x, this.path[0].y);
