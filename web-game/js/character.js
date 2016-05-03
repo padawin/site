@@ -46,13 +46,19 @@ loader.addModule('character', 'sprites', 'canvas', function (sprites, canvas) {
 		this.speed = {x: 0, y: 0};
 	}
 
-	Character.prototype.calculateSpeed = function (remaining, destinationVector) {
-		if (remaining <= this.maxLinearSpeed) {
+	Character.prototype.calculateSpeed = function (destinationVector) {
+		// get remaining distance to walk
+		var distance = calcDistance(
+			{x: 0, y: 0},
+			destinationVector
+		);
+
+		if (distance <= this.maxLinearSpeed) {
 			this.speed = destinationVector;
 		}
 		else {
-			this.speed.x = destinationVector.x * this.maxLinearSpeed / remaining;
-			this.speed.y = destinationVector.y * this.maxLinearSpeed / remaining;
+			this.speed.x = destinationVector.x * this.maxLinearSpeed / distance;
+			this.speed.y = destinationVector.y * this.maxLinearSpeed / distance;
 		}
 	};
 
@@ -70,7 +76,7 @@ loader.addModule('character', 'sprites', 'canvas', function (sprites, canvas) {
 	};
 
 	Character.prototype.update = function (map) {
-		var pointNextDest, distance, destinationVector;
+		var pointNextDest, destinationVector;
 
 		// nowhere to go
 		if (!this.path.length) {
@@ -104,13 +110,8 @@ loader.addModule('character', 'sprites', 'canvas', function (sprites, canvas) {
 			x: pointNextDest.x - this.x,
 			y: pointNextDest.y - this.y
 		};
-		// get remaining distance to walk
-		distance = calcDistance(
-			{x: 0, y: 0},
-			direction
-		);
 		// calculate speed
-		this.calculateSpeed(distance, destinationVector);
+		this.calculateSpeed(destinationVector);
 		this.updatePosition();
 		this.updateFrame();
 
