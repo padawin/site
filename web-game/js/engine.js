@@ -1,38 +1,12 @@
 
 loader.executeModule('main',
 'B', 'sky', 'canvas', 'sprites', 'pathFinding', 'camera', 'map', 'character',
-function (B, sky, canvas, sprites, pathFinding, camera, Map, Character) {
+'level',
+function (B, sky, canvas, sprites, pathFinding, camera, Map, Character, level) {
 	"use strict";
 
 	var debug = false,
-		n = null,
-		m, me,
-		map = [
-			[0, 0, n, n, n, n, n, n, n, n],
-			[0, 2, n, 0, 0, 0, n, n, n, n],
-			[0, n, n, 1, 1, 1, 1, 1, 1, 0],
-			[n, n, 0, 1, 0, 0, 0, 0, 0, 0],
-			[n, 0, 0, 1, 0, n, n, n, n, 0],
-			[n, 0, 0, 1, 0, n, 3, 3, n, 0],
-			[n, 0, 0, 1, 2, n, 3, 3, n, 0],
-			[n, 0, 0, 1, 0, n, 3, 3, n, 0],
-			[n, 0, 0, 1, 0, n, n, n, n, 0],
-			[n, 0, 0, 1, 0, 0, 0, 0, 0, 0]
-		],
-		mapWalkables = [
-			[1, 1, 0, 0, 0, 0, 0, 0, 0, 0],
-			[1, 1, 0, 1, 1, 1, 0, 0, 0, 0],
-			[1, 0, 0, 1, 1, 1, 1, 1, 1, 1],
-			[0, 0, 1, 1, 1, 1, 1, 1, 1, 1],
-			[0, 1, 1, 1, 1, 0, 0, 0, 0, 1],
-			[0, 1, 1, 1, 1, 0, 1, 1, 0, 1],
-			[0, 1, 1, 1, 1, 0, 1, 1, 0, 1],
-			[0, 1, 1, 1, 1, 0, 1, 1, 0, 1],
-			[0, 1, 1, 1, 1, 0, 0, 0, 0, 1],
-			[0, 1, 1, 1, 1, 1, 1, 1, 1, 1]
-		],
-
-		gridCellsDimensions = {w: 64, h: 36};
+		m, me;
 
 	function loadResources (callback) {
 		// sprite + sky, will evolve
@@ -77,7 +51,11 @@ function (B, sky, canvas, sprites, pathFinding, camera, Map, Character) {
 	}
 
 	loadResources(function () {
-		m = new Map(map, mapWalkables, gridCellsDimensions);
+		m = new Map(
+			level.ground,
+			level.walkables,
+			level.gridCellsDimensions
+		);
 		me = new Character(m);
 		resize();
 		mainLoop();
