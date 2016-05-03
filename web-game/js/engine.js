@@ -20,6 +20,18 @@ function (B, sky, canvas, sprites, pathFinding) {
 			[n, 0, 0, 1, 0, n, n, n, n, 0],
 			[n, 0, 0, 1, 0, 0, 0, 0, 0, 0]
 		],
+		mapWalkables = [
+			[1, 1, 0, 0, 0, 0, 0, 0, 0, 0],
+			[1, 1, 0, 1, 1, 1, 0, 0, 0, 0],
+			[1, 0, 0, 1, 1, 1, 1, 1, 1, 1],
+			[0, 0, 1, 1, 1, 1, 1, 1, 1, 1],
+			[0, 1, 1, 1, 1, 0, 0, 0, 0, 1],
+			[0, 1, 1, 1, 1, 0, 1, 1, 0, 1],
+			[0, 1, 1, 1, 1, 0, 1, 1, 0, 1],
+			[0, 1, 1, 1, 1, 0, 1, 1, 0, 1],
+			[0, 1, 1, 1, 1, 0, 0, 0, 0, 1],
+			[0, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+		],
 		camera,
 
 		gridCellsDimensions = {w: 64, h: 36},
@@ -104,8 +116,9 @@ function (B, sky, canvas, sprites, pathFinding) {
 		}
 	};
 
-	function Map (m) {
+	function Map (m, walkables) {
 		this.map = m;
+		this.walkables = walkables;
 		this.frame = 0;
 		this.tick = 0;
 		this.timePerFrame = 16;
@@ -171,7 +184,7 @@ function (B, sky, canvas, sprites, pathFinding) {
 
 			if (nY >= 0 && nY < that.map.length && nX >= 0 && nX < that.map[nY].length) {
 				neighbour = that.map[nY][nX];
-				if (neighbour !== null && sprites.sprites[neighbour].walkable) {
+				if (neighbour !== null && that.walkables[nY][nX]) {
 					return {x: nX, y: nY, value: neighbour};
 				}
 			}
@@ -447,7 +460,7 @@ function (B, sky, canvas, sprites, pathFinding) {
 	}
 
 	loadResources(function () {
-		m = new Map(map);
+		m = new Map(map, mapWalkables);
 		me = new Me();
 		resize();
 		mainLoop();
@@ -466,7 +479,12 @@ function (B, sky, canvas, sprites, pathFinding) {
 			// convert them in the coordinates of the clicked cell
 			dest = m.pixelsToCoords(mouseInWorld.x, mouseInWorld.y);
 
-		if (m.map[dest.y] === undefined || m.map[dest.y][dest.x] === undefined || m.map[dest.y][dest.x] === null) {
+		if (
+			m.map[dest.y] === undefined ||
+			m.map[dest.y][dest.x] === undefined ||
+			m.map[dest.y][dest.x] === null ||
+			!m.walkables[dest.y][dest.x]
+		) {
 			return;
 		}
 

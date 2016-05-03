@@ -15,20 +15,19 @@ loader.addModule('sprites', function () {
 			},
 			sprites: [
 				// grass
-				{x: 0, y: 0, w: 64, h: 36, d: 73, walkable: true,
+				{x: 0, y: 0, w: 64, h: 36, d: 73,
 					neighbours: {left: {x: -1, y: 0}, up: {x: 0, y: -1}, right: {x: 1, y: 0}, down: {x: 0, y: 1}}
 				},
 				// stone
-				{x: 64, y: 0, w: 64, h: 36, d: 73, walkable: true,
+				{x: 64, y: 0, w: 64, h: 36, d: 73,
 					neighbours: {left: {x: -1, y: 0}, up: {x: 0, y: -1}, right: {x: 1, y: 0}, down: {x: 0, y: 1}}
 				},
 				// stairs
-				{x: 128, y: 0, w: 64, h: 36, d: 73, walkable: true,
+				{x: 128, y: 0, w: 64, h: 36, d: 73,
 					neighbours: {left: {x: -1, y: 0}, up: {x: 0, y: -1}, right: {x: 2, y: 1}, down: {x: 0, y: 1}}
 				},
 				// flowers
 				{
-					walkable: true,
 					neighbours: {left: {x: -1, y: 0}, up: {x: 0, y: -1}, right: {x: 1, y: 0}, down: {x: 0, y: 1}},
 					animation: [
 						{x: 192, y: 0, w: 64, h: 36, d: 73},
