@@ -1,7 +1,7 @@
 
 loader.executeModule('main',
-'B', 'sky', 'canvas', 'sprites', 'pathFinding', 'camera',
-function (B, sky, canvas, sprites, pathFinding, camera) {
+'B', 'sky', 'canvas', 'sprites', 'pathFinding', 'camera', 'map',
+function (B, sky, canvas, sprites, pathFinding, camera, Map) {
 	"use strict";
 
 	var canvasContext = canvas.getContext(),
@@ -33,171 +33,7 @@ function (B, sky, canvas, sprites, pathFinding, camera) {
 			[0, 1, 1, 1, 1, 1, 1, 1, 1, 1]
 		],
 
-		gridCellsDimensions = {w: 64, h: 36},
-		relativeTopCornerTile = {
-			x: gridCellsDimensions.w / 2,
-			y: gridCellsDimensions.h / 2
-		},
-
-		mapSize = {
-			// assumes square map
-			w: map.length * gridCellsDimensions.w,
-			h: map.length * gridCellsDimensions.h
-		};
-	function Map (m, walkables) {
-		this.map = m;
-		this.walkables = walkables;
-		this.frame = 0;
-		this.tick = 0;
-		this.timePerFrame = 16;
-		this.maxFrame = 2;
-	}
-
-	/**
-	* Convert a set of pixels in the map projection and returns the coordinates
-	* of the cell in the grid
-	*/
-	Map.prototype.pixelsToCoords = function (x, y) {
-		var midTileW = gridCellsDimensions.w/2,
-			midTileH = gridCellsDimensions.h/2,
-			coordX = (x / midTileW + y / midTileH) /2 - map.length / 2,
-			coordY = (y / midTileH - x / midTileW) /2 + map.length / 2;
-
-		return {x: 0|coordX, y: 0|coordY};
-	};
-
-	Map.prototype.coordsToPixels = function (x, y) {
-		return {
-			x: (mapSize.w - (y - x) * gridCellsDimensions.w) / 2,
-			y: (x + y + 1) * gridCellsDimensions.h / 2
-		};
-	};
-
-	Map.prototype.update = function () {
-		this.tick++;
-		if (this.tick == this.timePerFrame) {
-			this.tick = 0;
-			this.frame = (this.frame + 1) % this.maxFrame;
-		}
-	};
-
-	Map.prototype.getNeighbours = function (start) {
-		var nUp = this.neighbourAt(start, 'up'),
-			nRight = this.neighbourAt(start, 'right'),
-			nDown = this.neighbourAt(start, 'down'),
-			nLeft = this.neighbourAt(start, 'left'),
-			neighbours = [];
-
-		if (nUp) {
-			neighbours.push(nUp);
-		}
-		if (nRight) {
-			neighbours.push(nRight);
-		}
-		if (nDown) {
-			neighbours.push(nDown);
-		}
-		if (nLeft) {
-			neighbours.push(nLeft);
-		}
-
-		return neighbours;
-	};
-
-	Map.prototype.neighbourAt = function (start, direction) {
-		function neighbourAtCoord (start, directionVector) {
-			var nX = start.x + directionVector.x,
-				nY = start.y + directionVector.y,
-				neighbour;
-
-			if (nY >= 0 && nY < that.map.length && nX >= 0 && nX < that.map[nY].length) {
-				neighbour = that.map[nY][nX];
-				if (neighbour !== null && that.walkables[nY][nX]) {
-					return {x: nX, y: nY, value: neighbour};
-				}
-			}
-
-			return null;
-		}
-
-		var startValue = this.map[start.y][start.x],
-			neighbourDirection = sprites.sprites[startValue].neighbours[direction],
-			bottomStairVector, neighbour, vectorToTopStair, topStairneighbour,
-			that = this;
-
-		neighbour = neighbourAtCoord(start, neighbourDirection);
-		// special case if there is a stair where requested
-		if (neighbour === null && direction == 'left') {
-			bottomStairVector = sprites
-				.sprites[sprites.SPRITES_ACCESS.STAIR]
-				.neighbours.right;
-			vectorToTopStair = {x: -bottomStairVector.x, y: -bottomStairVector.y};
-			topStairneighbour = neighbourAtCoord(start, vectorToTopStair);
-			// we are at the bottom of a stair, bring the player there
-			if (topStairneighbour && topStairneighbour.value == sprites.SPRITES_ACCESS.STAIR) {
-				neighbour = topStairneighbour;
-			}
-		}
-
-		return neighbour;
-	};
-
-	Map.prototype.draw = function (camera) {
-		var x = 0,
-			y = 0, coord,
-			level = 0,
-			startX = 0,
-			max = this.map.length - 1,
-			spriteInfo;
-
-		while (x <= max && y <= max) {
-			// where to print the tiles
-			coord = camera.adapt(this.coordsToPixels(x, y));
-			if (this.map[y][x] !== null) {
-				spriteInfo = sprites.sprites[this.map[y][x]];
-				if (spriteInfo.animation !== undefined) {
-					spriteInfo = spriteInfo.animation[this.frame];
-				}
-
-				canvasContext.drawImage(sprites.spriteResource,
-					spriteInfo.x, spriteInfo.y,
-					spriteInfo.w, spriteInfo.d,
-					coord.x - relativeTopCornerTile.x, coord.y - relativeTopCornerTile.y,
-					spriteInfo.w, spriteInfo.d
-				);
-
-				if (debug) {
-					canvasContext.beginPath();
-					canvasContext.moveTo(coord.x - relativeTopCornerTile.x, coord.y);
-					canvasContext.lineTo(coord.x, coord.y - relativeTopCornerTile.y);
-					canvasContext.lineTo(coord.x + relativeTopCornerTile.x, coord.y);
-					canvasContext.lineTo(coord.x, coord.y + relativeTopCornerTile.y);
-					canvasContext.fillStyle = 'rgba(246, 44, 197, 0.5)';
-					canvasContext.strokeStyle = 'black';
-					canvasContext.fill();
-					canvasContext.stroke();
-				}
-			}
-
-			// end of a row
-			if (x == level) {
-				// top half of the map
-				if (level < max) {
-					level++;
-				}
-				// bottom half of the map
-				else {
-					startX++;
-				}
-				y = level;
-				x = startX;
-			}
-			else {
-				y--;
-				x++;
-			}
-		}
-	};
+		gridCellsDimensions = {w: 64, h: 36};
 
 	function Me () {
 		this.setCell(0, 0);
@@ -370,7 +206,7 @@ function (B, sky, canvas, sprites, pathFinding, camera) {
 
 	function draw () {
 		sky.draw(camera);
-		m.draw(camera);
+		m.draw(camera, debug);
 		me.draw(camera);
 
 		if (debug) {
@@ -388,7 +224,7 @@ function (B, sky, canvas, sprites, pathFinding, camera) {
 	}
 
 	loadResources(function () {
-		m = new Map(map, mapWalkables);
+		m = new Map(map, mapWalkables, gridCellsDimensions);
 		me = new Me();
 		resize();
 		mainLoop();
