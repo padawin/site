@@ -294,7 +294,7 @@ function (B, sky, canvas, sprites, pathFinding) {
 	};
 
 	Me.prototype.update = function () {
-		var pointNextDest, distance, direction;
+		var pointNextDest, distance, direction, gridSpeed;
 
 		// nowhere to go
 		if (!this.path.length) {
@@ -340,12 +340,16 @@ function (B, sky, canvas, sprites, pathFinding) {
 		this.updatePosition();
 		this.updateFrame();
 
-		if (this.speed.x > 0) {
+		gridSpeed = {
+			x: this.path[0].x - this.cell.x,
+			y: this.path[0].y - this.cell.y,
+		};
+		if (gridSpeed.x > 0) {
 			this.sprite = sprites.sprites[
 				sprites.SPRITES_ACCESS.PLAYER_MOVE_RIGHT
 			];
 		}
-		else if (this.speed.y > 0) {
+		else if (gridSpeed.y > 0) {
 			this.sprite = sprites.sprites[
 				sprites.SPRITES_ACCESS.PLAYER_MOVE_LEFT
 			];
