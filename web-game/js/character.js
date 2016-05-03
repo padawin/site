@@ -46,13 +46,13 @@ loader.addModule('character', 'sprites', 'canvas', function (sprites, canvas) {
 		this.speed = {x: 0, y: 0};
 	}
 
-	Character.prototype.calculateSpeed = function (remaining, direction) {
+	Character.prototype.calculateSpeed = function (remaining, destinationVector) {
 		if (remaining <= this.maxLinearSpeed) {
-			this.speed = direction;
+			this.speed = destinationVector;
 		}
 		else {
-			this.speed.x = direction.x * this.maxLinearSpeed / remaining;
-			this.speed.y = direction.y * this.maxLinearSpeed / remaining;
+			this.speed.x = destinationVector.x * this.maxLinearSpeed / remaining;
+			this.speed.y = destinationVector.y * this.maxLinearSpeed / remaining;
 		}
 	};
 
@@ -70,7 +70,7 @@ loader.addModule('character', 'sprites', 'canvas', function (sprites, canvas) {
 	};
 
 	Character.prototype.update = function (map) {
-		var pointNextDest, distance, direction;
+		var pointNextDest, distance, destinationVector;
 
 		// nowhere to go
 		if (!this.path.length) {
@@ -100,7 +100,7 @@ loader.addModule('character', 'sprites', 'canvas', function (sprites, canvas) {
 		// get the coordinates of the next point to reach
 		pointNextDest = map.coordsToPixels(this.path[0].x, this.path[0].y);
 		// get direction vector
-		direction = {
+		destinationVector = {
 			x: pointNextDest.x - this.x,
 			y: pointNextDest.y - this.y
 		};
@@ -110,7 +110,7 @@ loader.addModule('character', 'sprites', 'canvas', function (sprites, canvas) {
 			direction
 		);
 		// calculate speed
-		this.calculateSpeed(distance, direction);
+		this.calculateSpeed(distance, destinationVector);
 		this.updatePosition();
 		this.updateFrame();
 
