@@ -6,7 +6,10 @@ function (B, sky, canvas, sprites, pathFinding, camera, Map, Character, level) {
 	"use strict";
 
 	var debug = false,
-		m, me;
+		m, me,
+		timePreviousFrame,
+		maxFPS = 60,
+		interval = 1000 / maxFPS;
 
 	function loadResources (callback) {
 		// sprite + sky, will evolve
@@ -43,11 +46,19 @@ function (B, sky, canvas, sprites, pathFinding, camera, Map, Character, level) {
 
 	function mainLoop () {
 		requestAnimationFrame(mainLoop);
-		m.update();
-		me.update(m);
-		camera.update();
-		sky.update();
-		draw();
+		var now = Date.now(),
+			delta = now - timePreviousFrame;
+
+		// cap the refresh to a defined FPS
+		if (delta > interval) {
+			timePreviousFrame = now - (delta % interval);
+
+			m.update();
+			me.update(m);
+			camera.update();
+			sky.update();
+			draw();
+		}
 	}
 
 	loadResources(function () {
@@ -59,6 +70,7 @@ function (B, sky, canvas, sprites, pathFinding, camera, Map, Character, level) {
 		m.prerender(debug, function () {
 			me = new Character(m);
 			resize();
+			timePreviousFrame = Date.now();
 			mainLoop();
 		});
 	});
