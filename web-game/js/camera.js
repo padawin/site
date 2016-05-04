@@ -1,7 +1,10 @@
-loader.addModule('camera', function () {
+loader.addModule('camera', 'canvas', function (canvas) {
 	"use strict";
 
-	var camera = {
+	var canvasContext = canvas.getContext(),
+		camera;
+
+	camera = {
 		x: 320,
 		y: 18,
 		w: 0,
