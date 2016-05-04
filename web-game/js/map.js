@@ -22,6 +22,8 @@ loader.addModule('map', 'sprites', 'canvas', function (sprites, canvas) {
 		this.tick = 0;
 		this.timePerFrame = 16;
 		this.maxFrame = 2;
+
+		this.images = new Array(this.maxFrame);
 	}
 
 	/**
@@ -113,7 +115,13 @@ loader.addModule('map', 'sprites', 'canvas', function (sprites, canvas) {
 		return neighbour;
 	};
 
-	Map.prototype.draw = function (camera, debug) {
+	Map.prototype.prerender = function (debug, callback) {
+		var c = document.createElement('canvas'),
+			ctx = c.getContext('2d');
+
+		c.width = this.gridCellsDimensions.w * (this.map.length + 1);
+		c.height = this.gridCellsDimensions.h * (this.map.length + 1);
+
 		var x = 0,
 			y = 0, coord,
 			level = 0,
@@ -121,53 +129,77 @@ loader.addModule('map', 'sprites', 'canvas', function (sprites, canvas) {
 			max = this.map.length - 1,
 			spriteInfo;
 
-		while (x <= max && y <= max) {
-			// where to print the tiles
-			coord = camera.adapt(this.coordsToPixels(x, y));
-			if (this.map[y][x] !== null) {
-				spriteInfo = sprites.sprites[this.map[y][x]];
-				if (spriteInfo.animation !== undefined) {
-					spriteInfo = spriteInfo.animation[this.frame];
+		for (var f = 0; f < this.maxFrame; f++) {
+			this.images[f] = document.createElement('img');
+
+			x = 0;
+			y = 0;
+			level = 0;
+			startX = 0;
+
+			while (x <= max && y <= max) {
+				// where to print the tiles
+				coord = this.coordsToPixels(x, y);
+				if (this.map[y][x] !== null) {
+					spriteInfo = sprites.sprites[this.map[y][x]];
+					if (spriteInfo.animation !== undefined) {
+						spriteInfo = spriteInfo.animation[f];
+					}
+
+					ctx.drawImage(sprites.spriteResource,
+						spriteInfo.x, spriteInfo.y,
+						spriteInfo.w, spriteInfo.d,
+						coord.x - relativeTopCornerTile.x, coord.y - relativeTopCornerTile.y,
+						spriteInfo.w, spriteInfo.d
+					);
+
+					if (debug) {
+						ctx.beginPath();
+						ctx.moveTo(coord.x - relativeTopCornerTile.x, coord.y);
+						ctx.lineTo(coord.x, coord.y - relativeTopCornerTile.y);
+						ctx.lineTo(coord.x + relativeTopCornerTile.x, coord.y);
+						ctx.lineTo(coord.x, coord.y + relativeTopCornerTile.y);
+						ctx.fillStyle = 'rgba(246, 44, 197, 0.5)';
+						ctx.strokeStyle = 'black';
+						ctx.fill();
+						ctx.stroke();
+					}
 				}
 
-				canvasContext.drawImage(sprites.spriteResource,
-					spriteInfo.x, spriteInfo.y,
-					spriteInfo.w, spriteInfo.d,
-					coord.x - relativeTopCornerTile.x, coord.y - relativeTopCornerTile.y,
-					spriteInfo.w, spriteInfo.d
-				);
-
-				if (debug) {
-					canvasContext.beginPath();
-					canvasContext.moveTo(coord.x - relativeTopCornerTile.x, coord.y);
-					canvasContext.lineTo(coord.x, coord.y - relativeTopCornerTile.y);
-					canvasContext.lineTo(coord.x + relativeTopCornerTile.x, coord.y);
-					canvasContext.lineTo(coord.x, coord.y + relativeTopCornerTile.y);
-					canvasContext.fillStyle = 'rgba(246, 44, 197, 0.5)';
-					canvasContext.strokeStyle = 'black';
-					canvasContext.fill();
-					canvasContext.stroke();
+				// end of a row
+				if (x == level) {
+					// top half of the map
+					if (level < max) {
+						level++;
+					}
+					// bottom half of the map
+					else {
+						startX++;
+					}
+					y = level;
+					x = startX;
 				}
-			}
-
-			// end of a row
-			if (x == level) {
-				// top half of the map
-				if (level < max) {
-					level++;
-				}
-				// bottom half of the map
 				else {
-					startX++;
+					y--;
+					x++;
 				}
-				y = level;
-				x = startX;
 			}
-			else {
-				y--;
-				x++;
-			}
+
+			this.images[f].src = c.toDataURL('image/png').replace('image/png', "image/octet-stream");
+			this.images[f].onload = callback;
 		}
+	};
+
+	Map.prototype.draw = function (camera) {
+		var coord = camera.adapt({x: 0, y: 0}),
+			image = this.images[this.frame];
+
+		canvasContext.drawImage(image,
+			0, 0,
+			image.width, image.height,
+			coord.x, coord.y,
+			image.width, image.height
+		);
 	};
 
 	return Map;

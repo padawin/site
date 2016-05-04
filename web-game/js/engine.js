@@ -6,7 +6,15 @@ function (B, sky, canvas, sprites, pathFinding, camera, Map, Character, level) {
 	"use strict";
 
 	var debug = false,
-		m, me;
+		m, me,
+		timePreviousFrame,
+		maxFPS = 60,
+		interval = 1000 / maxFPS,
+
+		// used in debug mode
+		lastCalledTime,
+		fpsAccu,
+		fps;
 
 	function loadResources (callback) {
 		// sprite + sky, will evolve
@@ -38,16 +46,41 @@ function (B, sky, canvas, sprites, pathFinding, camera, Map, Character, level) {
 
 		if (debug) {
 			camera.draw();
+
+			canvas.getContext().font = "12px Arial";
+			canvas.getContext().fillStyle = 'black';
+			canvas.getContext().fillText(fps + " fps", 10, 20);
 		}
 	}
 
 	function mainLoop () {
 		requestAnimationFrame(mainLoop);
-		m.update();
-		me.update(m);
-		camera.update();
-		sky.update();
-		draw();
+		var now = Date.now(),
+			delta = now - timePreviousFrame;
+
+		// cap the refresh to a defined FPS
+		if (delta > interval) {
+			timePreviousFrame = now - (delta % interval);
+
+			// calculate current fps in debug mode only
+			if (debug) {
+				delta = now - lastCalledTime;
+				if (delta > 1000) {
+					lastCalledTime = now;
+					fps = fpsAccu;
+					fpsAccu = 0;
+				}
+				else {
+					fpsAccu++;
+				}
+			}
+
+			m.update();
+			me.update(m);
+			camera.update();
+			sky.update();
+			draw();
+		}
 	}
 
 	loadResources(function () {
@@ -56,9 +89,14 @@ function (B, sky, canvas, sprites, pathFinding, camera, Map, Character, level) {
 			level.walkables,
 			level.gridCellsDimensions
 		);
-		me = new Character(m);
-		resize();
-		mainLoop();
+		m.prerender(debug, function () {
+			me = new Character(m);
+			resize();
+			timePreviousFrame = Date.now();
+			lastCalledTime = Date.now();
+			fpsAccu = 0;
+			mainLoop();
+		});
 	});
 
 	B.Events.on('resize', null, resize);
