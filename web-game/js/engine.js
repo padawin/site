@@ -56,9 +56,11 @@ function (B, sky, canvas, sprites, pathFinding, camera, Map, Character, level) {
 			level.walkables,
 			level.gridCellsDimensions
 		);
-		me = new Character(m);
-		resize();
-		mainLoop();
+		m.prerender(debug, function () {
+			me = new Character(m);
+			resize();
+			mainLoop();
+		});
 	});
 
 	B.Events.on('resize', null, resize);
