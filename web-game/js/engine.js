@@ -9,7 +9,12 @@ function (B, sky, canvas, sprites, pathFinding, camera, Map, Character, level) {
 		m, me,
 		timePreviousFrame,
 		maxFPS = 60,
-		interval = 1000 / maxFPS;
+		interval = 1000 / maxFPS,
+
+		// used in debug mode
+		lastCalledTime,
+		fpsAccu,
+		fps;
 
 	function loadResources (callback) {
 		// sprite + sky, will evolve
@@ -41,6 +46,10 @@ function (B, sky, canvas, sprites, pathFinding, camera, Map, Character, level) {
 
 		if (debug) {
 			camera.draw();
+
+			canvas.getContext().font = "12px Arial";
+			canvas.getContext().fillStyle = 'black';
+			canvas.getContext().fillText(fps + " fps", 10, 20);
 		}
 	}
 
@@ -52,6 +61,19 @@ function (B, sky, canvas, sprites, pathFinding, camera, Map, Character, level) {
 		// cap the refresh to a defined FPS
 		if (delta > interval) {
 			timePreviousFrame = now - (delta % interval);
+
+			// calculate current fps in debug mode only
+			if (debug) {
+				delta = now - lastCalledTime;
+				if (delta > 1000) {
+					lastCalledTime = now;
+					fps = fpsAccu;
+					fpsAccu = 0;
+				}
+				else {
+					fpsAccu++;
+				}
+			}
 
 			m.update();
 			me.update(m);
@@ -71,6 +93,8 @@ function (B, sky, canvas, sprites, pathFinding, camera, Map, Character, level) {
 			me = new Character(m);
 			resize();
 			timePreviousFrame = Date.now();
+			lastCalledTime = Date.now();
+			fpsAccu = 0;
 			mainLoop();
 		});
 	});
