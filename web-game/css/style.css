@@ -1,7 +1,15 @@
 body, canvas {
 	margin: 0;
 	padding: 0;
+}
+
+body, button {
 	font-family: "Lucida Console", Monaco, monospace;
+}
+
+button {
+	border-radius: 7px;
+	margin: 7px;
 }
 
 .message {
