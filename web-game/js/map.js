@@ -143,7 +143,7 @@ function (sprites, canvas, ObjectClass) {
 			},
 			bottomStairVector, neighbour, topStairneighbourCoords,
 			topStairneighbour,
-			that = this;
+			that = this, object;
 
 		neighbour = neighbourAtCoord(neighbourCoords);
 		// special case if there is a stair where requested
@@ -162,7 +162,8 @@ function (sprites, canvas, ObjectClass) {
 			}
 		}
 
-		if (this.getObject(neighbourCoords)) {
+		object = this.getObject(neighbourCoords);
+		if (object && !object.canBeTaken) {
 			neighbour = null;
 		}
 
