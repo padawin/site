@@ -15,8 +15,8 @@ loader.addModule('camera', 'canvas', function (canvas) {
 		 */
 		adapt: function (coord) {
 			var ret = {
-				x: coord.x - (this.x - this.w / 2),
-				y: coord.y - (this.y - this.h / 2),
+				x: Math.round(coord.x - (this.x - this.w / 2)),
+				y: Math.round(coord.y - (this.y - this.h / 2))
 			};
 			return ret;
 		},
