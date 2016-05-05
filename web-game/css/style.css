@@ -19,6 +19,14 @@ button {
 	border-image: url(../images/message-border.png) 15 round;
 }
 
+.float-left {
+	float: left;
+}
+
+.clear {
+	clear: both;
+}
+
 #screen-size-warning {
 	display: none;
 }
@@ -45,6 +53,12 @@ button {
 	overflow-y: scroll;
 	box-sizing: border-box;
 	z-index: 15;
+}
+
+#open-inventory {
+	float: left;
+	margin: 0 0 0 7px;
+	height: 31px;
 }
 
 #inventory ul {
