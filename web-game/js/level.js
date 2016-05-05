@@ -74,8 +74,9 @@ loader.addModule('level', 'sprites', function (sprites) {
 			{x: 15, y: 6, sprite: sprites.sprites[sprites.SPRITES_ACCESS.WALL]},
 			{x: 13, y: 6, sprite: sprites.sprites[sprites.SPRITES_ACCESS.WALL]},
 			{x: 15, y: 3, sprite: sprites.sprites[sprites.SPRITES_ACCESS.SCROLL],
-				canBeTaken: true, name: 'CV', onopen: function () {
-					console.log('CV opened');
+				canBeTaken: true, name: 'CV', icon: 'images/cv.png',
+				onopen: function () {
+					window.open('http://www.ghislain-rodrigues.fr/CV-Ghislain-Rodrigues.pdf');
 				}
 			}
 		]
