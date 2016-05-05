@@ -19,5 +19,12 @@ function (B) {
 		B.on(span, 'click', action);
 	};
 
+	B.on('open-inventory', 'click', function () {
+		B.removeClass('inventory', 'hidden');
+	});
+	B.on('close-inventory', 'click', function () {
+		B.addClass('inventory', 'hidden');
+	});
+
 	return inventory;
 });
