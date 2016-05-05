@@ -3,6 +3,13 @@ body, canvas {
 	padding: 0;
 }
 
+.message {
+	border: 15px solid transparent;
+	-webkit-border-image: url(../images/message-border.png) 15 round; /* Safari 3.1-5 */
+	-o-border-image: url(../images/message-border.png) 15 round; /* Opera 11-12.1 */
+	border-image: url(../images/message-border.png) 15 round;
+}
+
 #screen-size-warning {
 	display: none;
 }
