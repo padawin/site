@@ -162,6 +162,10 @@ function (sprites, canvas, ObjectClass) {
 			}
 		}
 
+		if (this.getObject(neighbourCoords)) {
+			neighbour = null;
+		}
+
 		return neighbour;
 	};
 
