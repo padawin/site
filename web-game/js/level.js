@@ -73,7 +73,11 @@ loader.addModule('level', 'sprites', function (sprites) {
 			{x: 16, y: 6, sprite: sprites.sprites[sprites.SPRITES_ACCESS.WALL]},
 			{x: 15, y: 6, sprite: sprites.sprites[sprites.SPRITES_ACCESS.WALL]},
 			{x: 13, y: 6, sprite: sprites.sprites[sprites.SPRITES_ACCESS.WALL]},
-			{x: 15, y: 3, sprite: sprites.sprites[sprites.SPRITES_ACCESS.SCROLL]}
+			{x: 15, y: 3, sprite: sprites.sprites[sprites.SPRITES_ACCESS.SCROLL],
+				canBeTaken: true, name: 'CV', onopen: function () {
+					console.log('CV opened');
+				}
+			}
 		]
 	};
 });
