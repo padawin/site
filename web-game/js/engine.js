@@ -114,6 +114,8 @@ function (B, sky, canvas, sprites, pathFinding, camera, Map, Character, level, M
 			// convert them in the coordinates of the clicked cell
 			dest = m.pixelsToCoords(mouseInWorld.x, mouseInWorld.y);
 
+		MessageModule.hide();
+
 		if (
 			m.map[dest.y] === undefined ||
 			m.map[dest.y][dest.x] === undefined ||
@@ -126,6 +128,10 @@ function (B, sky, canvas, sprites, pathFinding, camera, Map, Character, level, M
 		me.setPath(pathFinding.astar(m, me.cell, dest));
 		camera.setSubject(me);
 	}, false);
+
+	B.Events.on('message', null, function (message) {
+		MessageModule.show(message);
+	});
 
 	document.addEventListener('keydown', function (event) {
 		var neighbour;
