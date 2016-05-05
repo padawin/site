@@ -63,9 +63,20 @@ loader.addModule('character', 'sprites', 'canvas', function (sprites, canvas) {
 	};
 
 	Character.prototype.setCell = function (map, x, y) {
-		var start;
+		var start, oldPosition;
+
+		if (this.cell) {
+			oldPosition = this.cell;
+		}
 
 		this.cell = {x: x, y: y};
+		if (oldPosition) {
+			map.moveObject(oldPosition, this.cell);
+		}
+		else {
+			map.addObject(this, this.cell);
+		}
+
 		start = map.coordsToPixels(this.cell.x, this.cell.y);
 		this.x = start.x;
 		this.y = start.y;

@@ -41,7 +41,6 @@ function (B, sky, canvas, sprites, pathFinding, camera, Map, Character, level, M
 	function draw () {
 		sky.draw(camera);
 		m.draw(camera, debug);
-		me.draw(camera);
 
 		if (debug) {
 			camera.draw();
