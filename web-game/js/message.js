@@ -10,7 +10,6 @@ loader.addModule('message',
 			messageContainer = B.$sel('#message .content')[0];
 		},
 		show: function (msg) {
-			console.log(messageContainer);
 			messageContainer.innerText = msg;
 			B.removeClass(messageElement, 'hidden');
 		},
