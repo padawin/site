@@ -18,6 +18,8 @@ loader.addModule('map', 'sprites', 'canvas', function (sprites, canvas) {
 			h: m.length * gridCellsDimensions.h
 		};
 
+		this.objects = {};
+
 		this.frame = 0;
 		this.tick = 0;
 		this.timePerFrame = 16;
@@ -25,6 +27,24 @@ loader.addModule('map', 'sprites', 'canvas', function (sprites, canvas) {
 
 		this.images = new Array(this.maxFrame);
 	}
+
+	Map.prototype.getObject = function (coords) {
+		return this.objects[coords.x + '-' + coords.y];
+	};
+
+	Map.prototype.addObject = function (object, coords) {
+		this.objects[coords.x + '-' + coords.y] = object;
+	};
+
+	Map.prototype.moveObject = function (from, to) {
+		var fromIndex = from.x + '-' + from.y,
+			toIndex = to.x + '-' + to.y;
+
+		if (fromIndex !== toIndex) {
+			this.objects[toIndex] = this.objects[fromIndex];
+			delete this.objects[fromIndex];
+		}
+	};
 
 	/**
 	* Convert a set of pixels in the map projection and returns the coordinates
@@ -192,7 +212,8 @@ loader.addModule('map', 'sprites', 'canvas', function (sprites, canvas) {
 
 	Map.prototype.draw = function (camera) {
 		var coord = camera.adapt({x: 0, y: 0}),
-			image = this.images[this.frame];
+			image = this.images[this.frame],
+			obj;
 
 		canvasContext.drawImage(image,
 			0, 0,
@@ -200,6 +221,10 @@ loader.addModule('map', 'sprites', 'canvas', function (sprites, canvas) {
 			coord.x, coord.y,
 			image.width, image.height
 		);
+
+		for (obj in this.objects) {
+			this.objects[obj].draw(camera);
+		}
 	};
 
 	return Map;
