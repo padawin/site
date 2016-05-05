@@ -71,6 +71,17 @@ button {
 	display: inline-block;
 	width: 128px;
 	height: 128px;
+	text-align: center;
+	position: relative;
+}
+
+#inventory ul li span {
+	position: absolute;
+	display: block;
+	width: 100%;
+	bottom: 0;
+	font-weight: bold;
+	cursor: pointer;
 }
 
 #inventory button {
