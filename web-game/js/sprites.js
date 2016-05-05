@@ -86,7 +86,12 @@ loader.addModule('sprites', function () {
 				// wall
 				{x: 0, y: 129, w: 64, h: 73, d: 73, posInCell: {x: 32, y: 55}},
 				// scroll
-				{x: 64, y: 129, w: 64, h: 73, d: 73, posInCell: {x: 32, y: 55}}
+				{animation: [
+					{x: 64, y: 129, w: 38, h: 73, d: 73, posInCell: {x: 32, y: 55}},
+					{x: 102, y: 129, w: 38, h: 73, d: 73, posInCell: {x: 32, y: 55}},
+					{x: 64, y: 129, w: 38, h: 73, d: 73, posInCell: {x: 32, y: 55}},
+					{x: 140, y: 129, w: 38, h: 73, d: 73, posInCell: {x: 32, y: 55}}
+				]}
 			],
 			loadResources: function (loaded) {
 				spriteModule.spriteResource = new Image();
