@@ -85,7 +85,8 @@ function (B, sky, canvas, sprites, pathFinding, camera, Map, Character, level, M
 		m = new Map(
 			level.ground,
 			level.walkables,
-			level.gridCellsDimensions
+			level.gridCellsDimensions,
+			level.objects
 		);
 		m.prerender(debug, function () {
 			me = new Character(m);

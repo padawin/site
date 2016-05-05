@@ -1,10 +1,12 @@
-loader.addModule('map', 'sprites', 'canvas', function (sprites, canvas) {
+loader.addModule('map',
+'sprites', 'canvas', 'object',
+function (sprites, canvas, ObjectClass) {
 	"use strict";
 
 	var canvasContext = canvas.getContext(),
 		relativeTopCornerTile;
 
-	function Map (m, walkables, gridCellsDimensions) {
+	function Map (m, walkables, gridCellsDimensions, objects) {
 		this.map = m;
 		this.walkables = walkables;
 		this.gridCellsDimensions = gridCellsDimensions;
@@ -19,6 +21,9 @@ loader.addModule('map', 'sprites', 'canvas', function (sprites, canvas) {
 		};
 
 		this.objects = {};
+		for (var o in objects) {
+			this.addObject(ObjectClass(objects[o]));
+		}
 
 		this.frame = 0;
 		this.tick = 0;
