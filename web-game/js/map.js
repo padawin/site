@@ -1,10 +1,12 @@
-loader.addModule('map', 'sprites', 'canvas', function (sprites, canvas) {
+loader.addModule('map',
+'sprites', 'canvas', 'object',
+function (sprites, canvas, ObjectClass) {
 	"use strict";
 
 	var canvasContext = canvas.getContext(),
 		relativeTopCornerTile;
 
-	function Map (m, walkables, gridCellsDimensions) {
+	function Map (m, walkables, gridCellsDimensions, objects) {
 		this.map = m;
 		this.walkables = walkables;
 		this.gridCellsDimensions = gridCellsDimensions;
@@ -18,6 +20,11 @@ loader.addModule('map', 'sprites', 'canvas', function (sprites, canvas) {
 			h: m.length * gridCellsDimensions.h
 		};
 
+		this.objects = {};
+		for (var o in objects) {
+			this.addObject(ObjectClass(objects[o]));
+		}
+
 		this.frame = 0;
 		this.tick = 0;
 		this.timePerFrame = 16;
@@ -25,6 +32,41 @@ loader.addModule('map', 'sprites', 'canvas', function (sprites, canvas) {
 
 		this.images = new Array(this.maxFrame);
 	}
+
+	Map.prototype.getObject = function (coords) {
+		var row = coords.x + coords.y;
+		if (!this.objects[row]) {
+			return undefined;
+		}
+
+		return this.objects[row][coords.x + '-' + coords.y];
+	};
+
+	Map.prototype.addObject = function (object, coords) {
+		if (!coords) {
+			coords = {x: object.x, y: object.y};
+		}
+
+		var row = coords.x + coords.y;
+		if (!this.objects[row]) {
+			this.objects[row] = {};
+		}
+
+		this.objects[row][coords.x + '-' + coords.y] = object;
+	};
+
+	Map.prototype.moveObject = function (from, to) {
+		if (from.x == to.x && from.y == to.y) {
+			return;
+		}
+
+		var row = from.x + from.y;
+		this.addObject(this.objects[row][from.x + '-' + from.y], to);
+		delete this.objects[row][from.x + '-' + from.y];
+		if (!this.objects[row]) {
+			delete this.objects[row];
+		}
+	};
 
 	/**
 	* Convert a set of pixels in the map projection and returns the coordinates
@@ -78,9 +120,9 @@ loader.addModule('map', 'sprites', 'canvas', function (sprites, canvas) {
 	};
 
 	Map.prototype.neighbourAt = function (start, direction) {
-		function neighbourAtCoord (start, directionVector) {
-			var nX = start.x + directionVector.x,
-				nY = start.y + directionVector.y,
+		function neighbourAtCoord (neighbourCoords) {
+			var nX = neighbourCoords.x,
+				nY = neighbourCoords.y,
 				neighbour;
 
 			if (nY >= 0 && nY < that.map.length && nX >= 0 && nX < that.map[nY].length) {
@@ -95,21 +137,34 @@ loader.addModule('map', 'sprites', 'canvas', function (sprites, canvas) {
 
 		var startValue = this.map[start.y][start.x],
 			neighbourDirection = sprites.sprites[startValue].neighbours[direction],
-			bottomStairVector, neighbour, vectorToTopStair, topStairneighbour,
-			that = this;
+			neighbourCoords = {
+				x: start.x + neighbourDirection.x,
+				y: start.y + neighbourDirection.y
+			},
+			bottomStairVector, neighbour, topStairneighbourCoords,
+			topStairneighbour,
+			that = this, object;
 
-		neighbour = neighbourAtCoord(start, neighbourDirection);
+		neighbour = neighbourAtCoord(neighbourCoords);
 		// special case if there is a stair where requested
 		if (neighbour === null && direction == 'left') {
 			bottomStairVector = sprites
 				.sprites[sprites.SPRITES_ACCESS.STAIR]
 				.neighbours.right;
-			vectorToTopStair = {x: -bottomStairVector.x, y: -bottomStairVector.y};
-			topStairneighbour = neighbourAtCoord(start, vectorToTopStair);
+			topStairneighbourCoords = {
+				x: start.x - bottomStairVector.x,
+				y: start.y - bottomStairVector.y
+			};
+			topStairneighbour = neighbourAtCoord(topStairneighbourCoords);
 			// we are at the bottom of a stair, bring the player there
 			if (topStairneighbour && topStairneighbour.value == sprites.SPRITES_ACCESS.STAIR) {
 				neighbour = topStairneighbour;
 			}
+		}
+
+		object = this.getObject(neighbourCoords);
+		if (object && !object.canBeTaken) {
+			neighbour = null;
 		}
 
 		return neighbour;
@@ -192,7 +247,8 @@ loader.addModule('map', 'sprites', 'canvas', function (sprites, canvas) {
 
 	Map.prototype.draw = function (camera) {
 		var coord = camera.adapt({x: 0, y: 0}),
-			image = this.images[this.frame];
+			image = this.images[this.frame],
+			row, obj;
 
 		canvasContext.drawImage(image,
 			0, 0,
@@ -200,6 +256,12 @@ loader.addModule('map', 'sprites', 'canvas', function (sprites, canvas) {
 			coord.x, coord.y,
 			image.width, image.height
 		);
+
+		for (row in this.objects) {
+			for (obj in this.objects[row]) {
+				this.objects[row][obj].draw(camera, this);
+			}
+		}
 	};
 
 	return Map;

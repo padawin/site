@@ -1,4 +1,6 @@
-loader.addModule('character', 'sprites', 'canvas', function (sprites, canvas) {
+loader.addModule('character',
+'sprites', 'canvas', 'inventory', 'B',
+function (sprites, canvas, inventory, B) {
 	"use strict";
 
 	var canvasContext = canvas.getContext();
@@ -63,9 +65,28 @@ loader.addModule('character', 'sprites', 'canvas', function (sprites, canvas) {
 	};
 
 	Character.prototype.setCell = function (map, x, y) {
-		var start;
+		var start, oldPosition, object;
+
+		if (this.cell) {
+			oldPosition = this.cell;
+		}
 
 		this.cell = {x: x, y: y};
+		if (oldPosition) {
+			object = map.getObject(this.cell);
+			if (object && object != this) {
+				inventory.add(object);
+				B.Events.fire(
+					'message',
+					[object.name + ' added to the inventory']
+				);
+			}
+			map.moveObject(oldPosition, this.cell);
+		}
+		else {
+			map.addObject(this, this.cell);
+		}
+
 		start = map.coordsToPixels(this.cell.x, this.cell.y);
 		this.x = start.x;
 		this.y = start.y;
