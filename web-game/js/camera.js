@@ -5,8 +5,8 @@ loader.addModule('camera', 'canvas', function (canvas) {
 		camera;
 
 	camera = {
-		x: 320,
-		y: 18,
+		x: 0,
+		y: 0,
 		w: 0,
 		h: 0,
 		subject: null,

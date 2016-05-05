@@ -91,6 +91,7 @@ function (B, sky, canvas, sprites, pathFinding, camera, Map, Character, level) {
 		);
 		m.prerender(debug, function () {
 			me = new Character(m);
+			camera.setPosition(me);
 			resize();
 			timePreviousFrame = Date.now();
 			lastCalledTime = Date.now();
