@@ -12,7 +12,8 @@ loader.addModule('sprites', function () {
 				PLAYER_MOVE_RIGHT: 9,
 				PLAYER_MOVE_UP_LEFT: 10,
 				PLAYER_MOVE_UP_RIGHT: 11,
-				WALL: 12
+				WALL: 12,
+				SCROLL: 13
 			},
 			sprites: [
 				// grass
@@ -79,7 +80,9 @@ loader.addModule('sprites', function () {
 					{x: 456, y: 73, w: 16, h: 56, posInCell: {x: 8, y: 52}}
 				]},
 				// wall
-				{x: 0, y: 129, w: 64, h: 73, d: 73, posInCell: {x: 32, y: 55}}
+				{x: 0, y: 129, w: 64, h: 73, d: 73, posInCell: {x: 32, y: 55}},
+				// scroll
+				{x: 64, y: 129, w: 64, h: 73, d: 73, posInCell: {x: 32, y: 55}}
 			],
 			loadResources: function (loaded) {
 				spriteModule.spriteResource = new Image();
