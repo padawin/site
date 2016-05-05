@@ -115,9 +115,9 @@ loader.addModule('map', 'sprites', 'canvas', function (sprites, canvas) {
 	};
 
 	Map.prototype.neighbourAt = function (start, direction) {
-		function neighbourAtCoord (start, directionVector) {
-			var nX = start.x + directionVector.x,
-				nY = start.y + directionVector.y,
+		function neighbourAtCoord (neighbourCoords) {
+			var nX = neighbourCoords.x,
+				nY = neighbourCoords.y,
 				neighbour;
 
 			if (nY >= 0 && nY < that.map.length && nX >= 0 && nX < that.map[nY].length) {
@@ -132,17 +132,25 @@ loader.addModule('map', 'sprites', 'canvas', function (sprites, canvas) {
 
 		var startValue = this.map[start.y][start.x],
 			neighbourDirection = sprites.sprites[startValue].neighbours[direction],
-			bottomStairVector, neighbour, vectorToTopStair, topStairneighbour,
+			neighbourCoords = {
+				x: start.x + neighbourDirection.x,
+				y: start.y + neighbourDirection.y
+			},
+			bottomStairVector, neighbour, topStairneighbourCoords,
+			topStairneighbour,
 			that = this;
 
-		neighbour = neighbourAtCoord(start, neighbourDirection);
+		neighbour = neighbourAtCoord(neighbourCoords);
 		// special case if there is a stair where requested
 		if (neighbour === null && direction == 'left') {
 			bottomStairVector = sprites
 				.sprites[sprites.SPRITES_ACCESS.STAIR]
 				.neighbours.right;
-			vectorToTopStair = {x: -bottomStairVector.x, y: -bottomStairVector.y};
-			topStairneighbour = neighbourAtCoord(start, vectorToTopStair);
+			topStairneighbourCoords = {
+				x: start.x - bottomStairVector.x,
+				y: start.y - bottomStairVector.y
+			};
+			topStairneighbour = neighbourAtCoord(topStairneighbourCoords);
 			// we are at the bottom of a stair, bring the player there
 			if (topStairneighbour && topStairneighbour.value == sprites.SPRITES_ACCESS.STAIR) {
 				neighbour = topStairneighbour;
