@@ -247,8 +247,7 @@ function (sprites, canvas, ObjectClass) {
 
 	Map.prototype.draw = function (camera) {
 		var coord = camera.adapt({x: 0, y: 0}),
-			image = this.images[this.frame],
-			row, obj;
+			image = this.images[this.frame];
 
 		canvasContext.drawImage(image,
 			0, 0,
@@ -256,7 +255,10 @@ function (sprites, canvas, ObjectClass) {
 			coord.x, coord.y,
 			image.width, image.height
 		);
+	};
 
+	Map.prototype.drawObjects = function (camera) {
+		var row, obj;
 		for (row in this.objects) {
 			for (obj in this.objects[row]) {
 				this.objects[row][obj].draw(camera, this);
