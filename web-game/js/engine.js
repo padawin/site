@@ -1,8 +1,7 @@
-
 loader.executeModule('main',
 'B', 'sky', 'canvas', 'sprites', 'pathFinding', 'camera', 'map', 'character',
-'level',
-function (B, sky, canvas, sprites, pathFinding, camera, Map, Character, level) {
+'level', 'message',
+function (B, sky, canvas, sprites, pathFinding, camera, Map, Character, level, MessageModule) {
 	"use strict";
 
 	var debug = false,
@@ -99,6 +98,8 @@ function (B, sky, canvas, sprites, pathFinding, camera, Map, Character, level) {
 			mainLoop();
 		});
 	});
+
+	MessageModule.init();
 
 	B.Events.on('resize', null, resize);
 
