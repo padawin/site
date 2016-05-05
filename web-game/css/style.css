@@ -15,6 +15,23 @@ body, canvas {
 	display: none;
 }
 
+#message {
+	width: 100%;
+	box-sizing: border-box;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+#message .content {
+	padding: 15px;
+	background-color: white;
+}
+
+.hidden {
+	display: none;
+}
+
 @media (orientation: landscape) and (max-width: 349px),  (orientation: landscape) and (max-height: 300px),
 	(orientation: portrait) and (max-height: 349px),  (orientation: portrait) and (max-width: 300px) {
 	#id-tag {
