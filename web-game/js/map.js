@@ -29,20 +29,37 @@ loader.addModule('map', 'sprites', 'canvas', function (sprites, canvas) {
 	}
 
 	Map.prototype.getObject = function (coords) {
-		return this.objects[coords.x + '-' + coords.y];
+		var row = coords.x + coords.y;
+		if (!this.objects[row]) {
+			return undefined;
+		}
+
+		return this.objects[row][coords.x + '-' + coords.y];
 	};
 
 	Map.prototype.addObject = function (object, coords) {
-		this.objects[coords.x + '-' + coords.y] = object;
+		if (!coords) {
+			coords = {x: object.x, y: object.y};
+		}
+
+		var row = coords.x + coords.y;
+		if (!this.objects[row]) {
+			this.objects[row] = {};
+		}
+
+		this.objects[row][coords.x + '-' + coords.y] = object;
 	};
 
 	Map.prototype.moveObject = function (from, to) {
-		var fromIndex = from.x + '-' + from.y,
-			toIndex = to.x + '-' + to.y;
+		if (from.x == to.x && from.y == to.y) {
+			return;
+		}
 
-		if (fromIndex !== toIndex) {
-			this.objects[toIndex] = this.objects[fromIndex];
-			delete this.objects[fromIndex];
+		var row = from.x + from.y;
+		this.addObject(this.objects[row][from.x + '-' + from.y], to);
+		delete this.objects[row][from.x + '-' + from.y];
+		if (!this.objects[row]) {
+			delete this.objects[row];
 		}
 	};
 
@@ -213,7 +230,7 @@ loader.addModule('map', 'sprites', 'canvas', function (sprites, canvas) {
 	Map.prototype.draw = function (camera) {
 		var coord = camera.adapt({x: 0, y: 0}),
 			image = this.images[this.frame],
-			obj;
+			row, obj;
 
 		canvasContext.drawImage(image,
 			0, 0,
@@ -222,8 +239,10 @@ loader.addModule('map', 'sprites', 'canvas', function (sprites, canvas) {
 			image.width, image.height
 		);
 
-		for (obj in this.objects) {
-			this.objects[obj].draw(camera);
+		for (row in this.objects) {
+			for (obj in this.objects[row]) {
+				this.objects[row][obj].draw(camera, this);
+			}
 		}
 	};
 
