@@ -1,7 +1,15 @@
 body, canvas {
 	margin: 0;
 	padding: 0;
+}
+
+body, button {
 	font-family: "Lucida Console", Monaco, monospace;
+}
+
+button {
+	border-radius: 7px;
+	margin: 7px;
 }
 
 .message {
@@ -9,6 +17,14 @@ body, canvas {
 	-webkit-border-image: url(../images/message-border.png) 15 round; /* Safari 3.1-5 */
 	-o-border-image: url(../images/message-border.png) 15 round; /* Opera 11-12.1 */
 	border-image: url(../images/message-border.png) 15 round;
+}
+
+.float-left {
+	float: left;
+}
+
+.clear {
+	clear: both;
 }
 
 #screen-size-warning {
@@ -23,9 +39,46 @@ body, canvas {
 	left: 0;
 }
 
-#message .content {
+.content {
 	padding: 15px;
 	background-color: white;
+}
+
+#inventory {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	max-height: 100%;
+	overflow-y: scroll;
+	box-sizing: border-box;
+	z-index: 15;
+}
+
+#open-inventory {
+	float: left;
+	margin: 0 0 0 7px;
+	height: 31px;
+}
+
+#inventory ul {
+	margin: 30px 0 0 0;
+	padding: 0;
+	list-style: none;
+}
+
+#inventory ul li {
+	display: inline-block;
+	width: 128px;
+	height: 128px;
+}
+
+#inventory button {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	height: 30px;
+	font-weight: bold;
 }
 
 .hidden {
@@ -48,6 +101,7 @@ body, canvas {
 		box-sizing: border-box;
 		background-color: white;
 		text-align: center;
+		z-index: 20;
 	}
 
 	#screen-size-warning .content {

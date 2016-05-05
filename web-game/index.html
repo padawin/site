@@ -11,8 +11,12 @@
 			<div>
 				<img src="images/ghis.png" alt="Ghis" />
 				<section id="information">
-					<span id="name">Ghislain Rodrigues</span>
-					<div id="max-health"><div></div></div>
+					<div class="float-left">
+						<span id="name">Ghislain Rodrigues</span>
+						<div id="max-health"><div></div></div>
+					</div>
+					<button id="open-inventory">Inventory</button>
+					<div class="clear"></div>
 				</section>
 			</div>
 		</div>
@@ -22,10 +26,18 @@
 				use this website.
 			</div>
 		</section>
+		<section id="inventory" class="message hidden">
+			<div class="content">
+				<button id="close-inventory">Close</button>
+				<ul id="inventory-list">
+				</ul>
+			</div>
+		</section>
 		<div id="message" class="message hidden"><div class="content"></div></div>
 		<script type="text/javascript" src="http://www.ghislain-rodrigues.fr/js/butterfly.min.js"></script>
 		<script type="text/javascript" src="js/lib/heapqueue.js"></script>
 		<script type="text/javascript" src="js/path-finding.js"></script>
+		<script type="text/javascript" src="js/inventory.js"></script>
 		<script type="text/javascript" src="js/screen-size.js"></script>
 		<script type="text/javascript" src="js/message.js"></script>
 		<script type="text/javascript" src="js/canvas.js"></script>
