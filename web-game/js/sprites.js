@@ -6,6 +6,7 @@ loader.addModule('sprites', function () {
 			SPRITES_ACCESS: {
 				STAIR: 2,
 				FLOWERS: 3,
+				WALL: 6,
 				PLAYER_RIGHT: 7,
 				PLAYER_LEFT: 8,
 				PLAYER_MOVE_LEFT: 9,
@@ -46,7 +47,7 @@ loader.addModule('sprites', function () {
 					neighbours: {left: {x: -1, y: 0}, up: {x: 0, y: -1}, right: {x: 1, y: 0}, down: {x: 0, y: 1}}
 				},
 				// wall
-				{x: 320, y: 0, w: 64, h: 36, d: 109},
+				{x: 320, y: 0, w: 64, h: 73, d: 73, posInCell: {x: 32, y: 55}},
 				// player right
 				{x: 0, y: 73, w: 28, h: 56, posInCell: {x: 14, y: 52}},
 				// player left
