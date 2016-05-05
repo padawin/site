@@ -31,9 +31,40 @@ button {
 	left: 0;
 }
 
-#message .content {
+.content {
 	padding: 15px;
 	background-color: white;
+}
+
+#inventory {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	max-height: 100%;
+	overflow-y: scroll;
+	box-sizing: border-box;
+	z-index: 15;
+}
+
+#inventory ul {
+	margin: 30px 0 0 0;
+	padding: 0;
+	list-style: none;
+}
+
+#inventory ul li {
+	display: inline-block;
+	width: 128px;
+	height: 128px;
+}
+
+#inventory button {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	height: 30px;
+	font-weight: bold;
 }
 
 .hidden {
