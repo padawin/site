@@ -13,6 +13,12 @@ loader.addModule('pathFinding', function () {
 			path = [current];
 		while (current != start) {
 			current = cameFrom[_getKey(current)];
+
+			if (!current) {
+				path = [];
+				break;
+			}
+
 			path.push(current);
 		}
 		path.reverse();
