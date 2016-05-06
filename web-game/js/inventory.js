@@ -17,7 +17,7 @@ function (B) {
 		span = B.create('span', {text: object.name}, li);
 
 		if (object.onopen) {
-			B.on(span, 'click', object.onopen);
+			B.on(li, 'click', object.onopen);
 		}
 	};
 
