@@ -13,6 +13,12 @@ loader.addModule('pathFinding', function () {
 			path = [current];
 		while (current != start) {
 			current = cameFrom[_getKey(current)];
+
+			if (!current) {
+				path = [];
+				break;
+			}
+
 			path.push(current);
 		}
 		path.reverse();
@@ -21,6 +27,10 @@ loader.addModule('pathFinding', function () {
 
 	var PathFinding = {
 		astar: function (grid, start, end) {
+			if (start.x == end.x && start.y == end.y) {
+				return [];
+			}
+
 			// @TODO @XXX Fix implementation, too slow
 			var cameFrom = {},
 				costSoFar = {},
