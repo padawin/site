@@ -27,6 +27,10 @@ loader.addModule('pathFinding', function () {
 
 	var PathFinding = {
 		astar: function (grid, start, end) {
+			if (start.x == end.x && start.y == end.y) {
+				return [];
+			}
+
 			// @TODO @XXX Fix implementation, too slow
 			var cameFrom = {},
 				costSoFar = {},
