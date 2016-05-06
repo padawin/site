@@ -91,6 +91,7 @@ function (B, sky, canvas, sprites, pathFinding, camera, Map, Character, level, M
 				level.objects
 			);
 			m.prerender(debug, function () {
+				B.removeClass('id-tag', 'hidden');
 				me = new Character(m);
 				camera.setPosition(me);
 				resize();
