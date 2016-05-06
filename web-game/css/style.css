@@ -19,6 +19,10 @@ button {
 	border-image: url(../images/message-border.png) 15 round;
 }
 
+.center {
+	text-align: center;
+}
+
 .float-left {
 	float: left;
 }
@@ -44,7 +48,7 @@ button {
 	background-color: white;
 }
 
-#inventory {
+.frame {
 	position: absolute;
 	top: 0;
 	left: 0;
