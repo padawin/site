@@ -89,6 +89,12 @@ function (B, sky, canvas, sprites, pathFinding, camera, Map, Character, level, M
 		B.on('close-inventory', 'click', function () {
 			B.addClass('inventory', 'hidden');
 		});
+		B.on('open-profile', 'click', function () {
+			B.removeClass('player-stats', 'hidden');
+		});
+		B.on('close-profile', 'click', function () {
+			B.addClass('player-stats', 'hidden');
+		});
 	}
 
 	function startGame () {
