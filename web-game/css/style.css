@@ -109,7 +109,7 @@ button {
 	font-weight: bold;
 }
 
-#inventory button {
+.frame .close-button {
 	position: absolute;
 	top: 0px;
 	right: 0px;
