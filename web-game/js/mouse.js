@@ -36,6 +36,17 @@ loader.addModule('mouse', 'B', 'canvas', function (B, canvas) {
 		mouseMove(event);
 	});
 
+	canvas.canvas.addEventListener("touchstart", function (event) {
+		var touch = event.changedTouches[0];
+		mouseMoveOldPosition = eventToCanvasCoordinates(touch);
+	}, false);
+
+	canvas.canvas.addEventListener("touchmove", function (event) {
+		event.preventDefault();
+		var touch = event.changedTouches[0];
+		mouseMove(touch);
+	}, false);
+
 	canvas.canvas.addEventListener('click', function (event) {
 		isMouseDown = false;
 
