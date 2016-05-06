@@ -35,6 +35,16 @@ button {
 	clear: both;
 }
 
+.radius-left {
+	border-top-left-radius: 14px;
+	border-bottom-left-radius: 14px;
+}
+
+.radius-right {
+	border-top-right-radius: 14px;
+	border-bottom-right-radius: 14px;
+}
+
 #screen-size-warning {
 	display: none;
 }
@@ -63,10 +73,16 @@ button {
 	z-index: 15;
 }
 
-#open-inventory {
-	float: left;
-	margin: 0 0 0 7px;
-	height: 31px;
+#menu {
+	list-style: none;
+	position: absolute;
+	right: 0;
+	top: 50px;
+}
+
+#menu li {
+	height: 50px;
+	margin-bottom: 7px;
 }
 
 #inventory ul {
@@ -183,10 +199,8 @@ button {
 	z-index: 4;
 }
 
-#id-tag section {
+#id-tag section, #menu li {
 	background-color: #0069B1;
-	border-top-right-radius: 14px;
-	border-bottom-right-radius: 14px;
 	z-index: 3;
 }
 

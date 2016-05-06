@@ -43,33 +43,38 @@
 			</div>
 		</div>
 		<canvas id="myCanvas"></canvas>
-		<div id="id-tag" class="hidden">
-			<div>
-				<img src="images/ghis.png" alt="Ghis" />
-				<section id="information">
-					<div class="float-left">
+		<div id="hud" class="hidden">
+			<ul id="menu">
+				<li class="radius-left">
+					<a id="open-inventory" href="#">
+						<img src="images/inventory.png" alt="Inventory" title="Open inventory" />
+					</a>
+				</li>
+			</ul>
+			<div id="id-tag">
+				<div>
+					<img src="images/ghis.png" alt="Ghis" />
+					<section id="information" class="radius-right">
 						<span id="name">Ghislain Rodrigues</span>
 						<div id="max-health"><div></div></div>
-					</div>
-					<button id="open-inventory">Inventory</button>
-					<div class="clear"></div>
-				</section>
+					</section>
+				</div>
 			</div>
+			<section id="screen-size-warning" class="message">
+				<div class="content">
+					Your screen has to have a resolution of at least 350x300 to
+					use this website.
+				</div>
+			</section>
+			<section id="inventory" class="message frame hidden">
+				<div class="content">
+					<button id="close-inventory">Close</button>
+					<ul id="inventory-list">
+					</ul>
+				</div>
+			</section>
+			<div id="message" class="message hidden"><div class="content"></div></div>
 		</div>
-		<section id="screen-size-warning" class="message">
-			<div class="content">
-				Your screen has to have a resolution of at least 350x300 to
-				use this website.
-			</div>
-		</section>
-		<section id="inventory" class="message frame hidden">
-			<div class="content">
-				<button id="close-inventory">Close</button>
-				<ul id="inventory-list">
-				</ul>
-			</div>
-		</section>
-		<div id="message" class="message hidden"><div class="content"></div></div>
 		<script type="text/javascript" src="http://www.ghislain-rodrigues.fr/js/butterfly.min.js"></script>
 		<script type="text/javascript" src="js/lib/heapqueue.js"></script>
 		<script type="text/javascript" src="js/path-finding.js"></script>
