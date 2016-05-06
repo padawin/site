@@ -83,6 +83,7 @@ function (B, sky, canvas, sprites, pathFinding, camera, Map, Character, level, M
 	}
 
 	function startGame () {
+		document.body.removeChild(B.$id('intro'));
 		loadResources(function () {
 			m = new Map(
 				level.ground,
@@ -165,7 +166,6 @@ function (B, sky, canvas, sprites, pathFinding, camera, Map, Character, level, M
 	}
 
 	B.on('start', 'click', function () {
-		document.body.removeChild(B.$id('intro'));
 		startGame();
 	});
 });
