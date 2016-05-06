@@ -73,10 +73,16 @@ button {
 	z-index: 15;
 }
 
-#open-inventory {
-	float: left;
-	margin: 0 0 0 7px;
-	height: 31px;
+#menu {
+	list-style: none;
+	position: absolute;
+	right: 0;
+	top: 50px;
+}
+
+#menu li {
+	height: 50px;
+	margin-bottom: 7px;
 }
 
 #inventory ul {
@@ -193,7 +199,7 @@ button {
 	z-index: 4;
 }
 
-#id-tag section {
+#id-tag section, #menu li {
 	background-color: #0069B1;
 	z-index: 3;
 }
