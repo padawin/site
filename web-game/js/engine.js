@@ -82,82 +82,89 @@ function (B, sky, canvas, sprites, pathFinding, camera, Map, Character, level, M
 		}
 	}
 
-	loadResources(function () {
-		m = new Map(
-			level.ground,
-			level.walkables,
-			level.gridCellsDimensions,
-			level.objects
-		);
-		m.prerender(debug, function () {
-			me = new Character(m);
-			camera.setPosition(me);
-			resize();
-			timePreviousFrame = Date.now();
-			lastCalledTime = Date.now();
-			fpsAccu = 0;
-			mainLoop();
+	function startGame () {
+		loadResources(function () {
+			m = new Map(
+				level.ground,
+				level.walkables,
+				level.gridCellsDimensions,
+				level.objects
+			);
+			m.prerender(debug, function () {
+				me = new Character(m);
+				camera.setPosition(me);
+				resize();
+				timePreviousFrame = Date.now();
+				lastCalledTime = Date.now();
+				fpsAccu = 0;
+				mainLoop();
+			});
 		});
-	});
 
-	MessageModule.init();
+		MessageModule.init();
 
-	B.Events.on('resize', null, resize);
+		B.Events.on('resize', null, resize);
 
-	B.Events.on('mousemove', null, function (vectorX, vectorY) {
-		camera.setPosition({x: camera.x - vectorX, y: camera.y - vectorY});
-		camera.setSubject();
-	});
+		B.Events.on('mousemove', null, function (vectorX, vectorY) {
+			camera.setPosition({x: camera.x - vectorX, y: camera.y - vectorY});
+			camera.setSubject();
+		});
 
-	B.Events.on('click', null, function (mouseX, mouseY) {
-		var // get the coordinates in the world
-			mouseInWorld = camera.toWorldCoords({x: mouseX, y: mouseY}),
-			// convert them in the coordinates of the clicked cell
-			dest = m.pixelsToCoords(mouseInWorld.x, mouseInWorld.y);
+		B.Events.on('click', null, function (mouseX, mouseY) {
+			var // get the coordinates in the world
+				mouseInWorld = camera.toWorldCoords({x: mouseX, y: mouseY}),
+				// convert them in the coordinates of the clicked cell
+				dest = m.pixelsToCoords(mouseInWorld.x, mouseInWorld.y);
 
-		MessageModule.hide();
+			MessageModule.hide();
 
-		if (
-			m.map[dest.y] === undefined ||
-			m.map[dest.y][dest.x] === undefined ||
-			m.map[dest.y][dest.x] === null ||
-			!m.walkables[dest.y][dest.x]
-		) {
-			return;
-		}
-
-		me.setPath(pathFinding.astar(m, me.cell, dest));
-		camera.setSubject(me);
-	}, false);
-
-	B.Events.on('message', null, function (message) {
-		MessageModule.show(message);
-	});
-
-	document.addEventListener('keydown', function (event) {
-		var neighbour;
-		if (~[37, 38, 39, 40].indexOf(event.keyCode)) {
-			// up
-			if (event.keyCode === 38) {
-				neighbour = m.neighbourAt(me.cell, 'up');
-			}
-			// right
-			else if (event.keyCode === 39) {
-				neighbour = m.neighbourAt(me.cell, 'right');
-			}
-			// down
-			else if (event.keyCode === 40) {
-				neighbour = m.neighbourAt(me.cell, 'down');
-			}
-			// left
-			else if (event.keyCode === 37) {
-				neighbour = m.neighbourAt(me.cell, 'left');
+			if (
+				m.map[dest.y] === undefined ||
+				m.map[dest.y][dest.x] === undefined ||
+				m.map[dest.y][dest.x] === null ||
+				!m.walkables[dest.y][dest.x]
+			) {
+				return;
 			}
 
-			if (neighbour !== null) {
-				me.setPath([neighbour]);
-				camera.setSubject(me);
+			me.setPath(pathFinding.astar(m, me.cell, dest));
+			camera.setSubject(me);
+		}, false);
+
+		B.Events.on('message', null, function (message) {
+			MessageModule.show(message);
+		});
+
+		document.addEventListener('keydown', function (event) {
+			var neighbour;
+			if (~[37, 38, 39, 40].indexOf(event.keyCode)) {
+				// up
+				if (event.keyCode === 38) {
+					neighbour = m.neighbourAt(me.cell, 'up');
+				}
+				// right
+				else if (event.keyCode === 39) {
+					neighbour = m.neighbourAt(me.cell, 'right');
+				}
+				// down
+				else if (event.keyCode === 40) {
+					neighbour = m.neighbourAt(me.cell, 'down');
+				}
+				// left
+				else if (event.keyCode === 37) {
+					neighbour = m.neighbourAt(me.cell, 'left');
+				}
+
+				if (neighbour !== null) {
+					me.setPath([neighbour]);
+					camera.setSubject(me);
+				}
 			}
-		}
+		});
+	}
+
+	B.on('start', 'click', function () {
+		document.body.removeChild(B.$id('intro'));
+		startGame();
 	});
 });
