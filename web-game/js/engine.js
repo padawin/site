@@ -82,6 +82,15 @@ function (B, sky, canvas, sprites, pathFinding, camera, Map, Character, level, M
 		}
 	}
 
+	function initMenu () {
+		B.on('open-inventory', 'click', function () {
+			B.removeClass('inventory', 'hidden');
+		});
+		B.on('close-inventory', 'click', function () {
+			B.addClass('inventory', 'hidden');
+		});
+	}
+
 	function startGame () {
 		document.body.removeChild(B.$id('intro'));
 		loadResources(function () {
@@ -93,6 +102,7 @@ function (B, sky, canvas, sprites, pathFinding, camera, Map, Character, level, M
 			);
 			m.prerender(debug, function () {
 				B.removeClass('hud', 'hidden');
+				initMenu();
 				me = new Character(m);
 				camera.setPosition(me);
 				resize();
