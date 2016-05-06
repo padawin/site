@@ -27,7 +27,7 @@ loader.addModule('mouse', 'B', 'canvas', function (B, canvas) {
 			vector = [
 				newPosition[0] - mouseMoveOldPosition[0],
 				newPosition[1] - mouseMoveOldPosition[1]
-			]
+			];
 		mouseMoveOldPosition = newPosition;
 		B.Events.fire('mousemove', vector);
 	});

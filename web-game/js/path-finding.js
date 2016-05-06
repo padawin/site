@@ -54,7 +54,7 @@ loader.addModule('pathFinding', function () {
 					newCost = costSoFar[_getKey(current)] + 1;
 					if (!(nextKey in costSoFar) || newCost < costSoFar[nextKey]) {
 						costSoFar[nextKey] = newCost;
-						next.priority = newCost + heuristic(end, neighbours[next])
+						next.priority = newCost + heuristic(end, neighbours[next]);
 						frontier.push(neighbours[next]);
 						cameFrom[nextKey] = current;
 					}
@@ -67,4 +67,3 @@ loader.addModule('pathFinding', function () {
 
 	return PathFinding;
 });
-

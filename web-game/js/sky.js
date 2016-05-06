@@ -11,7 +11,7 @@ loader.addModule('sky', 'particles', 'canvas', function (particlesModule, canvas
 		cloudResource = new Image();
 		cloudResource.onload = loaded;
 		cloudResource.src = 'images/cloud.png';
-	}
+	};
 
 	sky.update = function () {
 		var frequencyCloud = Math.random(),
@@ -27,13 +27,13 @@ loader.addModule('sky', 'particles', 'canvas', function (particlesModule, canvas
 			speed = {
 				x: Math.random() * 2, y: 0
 			};
-			life = 10000
+			life = 10000;
 			cloud = new particlesModule.Particle(
 				position,
 				speed,
 				life
 			);
-			ratio = Math.max(0.2, Math.random())
+			ratio = Math.max(0.2, Math.random());
 			cloud.displayWidth = cloudResource.width * ratio;
 			cloud.displayHeight = cloudResource.height * ratio;
 			clouds.addParticle(cloud);

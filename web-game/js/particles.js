@@ -21,7 +21,7 @@ loader.addModule('particles', function () {
 			parseInt(Math.random() * 255),
 			parseInt(Math.random() * 255)
 		];
-	}
+	};
 
 	particlesModule.Particle.prototype.update = function () {
 		if (this.state == PARTICLE_STATES.DEAD) {
@@ -43,7 +43,7 @@ loader.addModule('particles', function () {
 		this.maxSize = size;
 		this.particlesCollection = Array(size);
 		this.nbParticles = 0;
-	}
+	};
 
 	particlesModule.ParticlesManager.prototype.isFull = function () {
 		return this.nbParticles == this.maxSize;
