@@ -3,6 +3,16 @@ loader.addModule('mouse', 'B', 'canvas', function (B, canvas) {
 		isMouseMoving = false,
 		mouseMoveOldPosition;
 
+	function mouseMove (event) {
+		var newPosition = eventToCanvasCoordinates(event),
+			vector = [
+				newPosition[0] - mouseMoveOldPosition[0],
+				newPosition[1] - mouseMoveOldPosition[1]
+			];
+		mouseMoveOldPosition = newPosition;
+		B.Events.fire('mousemove', vector);
+	}
+
 	function eventToCanvasCoordinates (event) {
 		var rect = canvas.canvas.getBoundingClientRect(),
 			root = document.documentElement,
@@ -23,14 +33,19 @@ loader.addModule('mouse', 'B', 'canvas', function (B, canvas) {
 		}
 
 		isMouseMoving = true;
-		var newPosition = eventToCanvasCoordinates(event),
-			vector = [
-				newPosition[0] - mouseMoveOldPosition[0],
-				newPosition[1] - mouseMoveOldPosition[1]
-			];
-		mouseMoveOldPosition = newPosition;
-		B.Events.fire('mousemove', vector);
+		mouseMove(event);
 	});
+
+	canvas.canvas.addEventListener("touchstart", function (event) {
+		var touch = event.changedTouches[0];
+		mouseMoveOldPosition = eventToCanvasCoordinates(touch);
+	}, false);
+
+	canvas.canvas.addEventListener("touchmove", function (event) {
+		event.preventDefault();
+		var touch = event.changedTouches[0];
+		mouseMove(touch);
+	}, false);
 
 	canvas.canvas.addEventListener('click', function (event) {
 		isMouseDown = false;
