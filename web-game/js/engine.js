@@ -13,7 +13,8 @@ function (B, sky, canvas, sprites, pathFinding, camera, Map, Character, level, M
 		// used in debug mode
 		lastCalledTime,
 		fpsAccu,
-		fps;
+		fps,
+		hasFrameOpen = false;
 
 	function loadResources (callback) {
 		// sprite + sky, will evolve
@@ -84,15 +85,27 @@ function (B, sky, canvas, sprites, pathFinding, camera, Map, Character, level, M
 
 	function initMenu () {
 		B.on('open-inventory', 'click', function () {
+			if (hasFrameOpen) {
+				return;
+			}
+
+			hasFrameOpen = true;
 			B.removeClass('inventory', 'hidden');
 		});
 		B.on('close-inventory', 'click', function () {
+			hasFrameOpen = false;
 			B.addClass('inventory', 'hidden');
 		});
 		B.on('open-profile', 'click', function () {
+			if (hasFrameOpen) {
+				return;
+			}
+
+			hasFrameOpen = true;
 			B.removeClass('player-stats', 'hidden');
 		});
 		B.on('close-profile', 'click', function () {
+			hasFrameOpen = false;
 			B.addClass('player-stats', 'hidden');
 		});
 	}
@@ -124,11 +137,19 @@ function (B, sky, canvas, sprites, pathFinding, camera, Map, Character, level, M
 		B.Events.on('resize', null, resize);
 
 		B.Events.on('mousemove', null, function (vectorX, vectorY) {
+			if (hasFrameOpen) {
+				return;
+			}
+
 			camera.setPosition({x: camera.x - vectorX, y: camera.y - vectorY});
 			camera.setSubject();
 		});
 
 		B.Events.on('click', null, function (mouseX, mouseY) {
+			if (hasFrameOpen) {
+				return;
+			}
+
 			var // get the coordinates in the world
 				mouseInWorld = camera.toWorldCoords({x: mouseX, y: mouseY}),
 				// convert them in the coordinates of the clicked cell
@@ -154,6 +175,10 @@ function (B, sky, canvas, sprites, pathFinding, camera, Map, Character, level, M
 		});
 
 		document.addEventListener('keydown', function (event) {
+			if (hasFrameOpen) {
+				return;
+			}
+
 			var neighbour;
 			if (~[37, 38, 39, 40].indexOf(event.keyCode)) {
 				// up
