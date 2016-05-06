@@ -35,6 +35,16 @@ button {
 	clear: both;
 }
 
+.radius-left {
+	border-top-left-radius: 14px;
+	border-bottom-left-radius: 14px;
+}
+
+.radius-right {
+	border-top-right-radius: 14px;
+	border-bottom-right-radius: 14px;
+}
+
 #screen-size-warning {
 	display: none;
 }
@@ -185,8 +195,6 @@ button {
 
 #id-tag section {
 	background-color: #0069B1;
-	border-top-right-radius: 14px;
-	border-bottom-right-radius: 14px;
 	z-index: 3;
 }
 
