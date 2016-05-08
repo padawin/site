@@ -34,6 +34,7 @@ function (B, sky, canvas, sprites, pathFinding, camera, Map, Character, level, M
 			}
 		}
 
+		B.Events.fire('resourceloaded', [loaded, nbResources]);
 		sprites.loadResources(onLoadResource);
 		sky.loadResources(onLoadResource);
 	}
