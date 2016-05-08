@@ -122,25 +122,6 @@ function (B, sky, canvas, sprites, pathFinding, camera, Map, Character, level, M
 		loadingPadding = canvas.getWidth() / 5;
 		loadingWidth = 3 * loadingPadding;
 
-		loadResources(function () {
-			m = new Map(
-				level.ground,
-				level.walkables,
-				level.gridCellsDimensions,
-				level.objects
-			);
-			m.prerender(debug, function () {
-				B.removeClass('hud', 'hidden');
-				initMenu();
-				me = new Character(m);
-				camera.setPosition(me);
-				timePreviousFrame = Date.now();
-				lastCalledTime = Date.now();
-				fpsAccu = 0;
-				mainLoop();
-			});
-		});
-
 		MessageModule.init();
 
 		B.Events.on('resize', null, resize);
@@ -222,6 +203,25 @@ function (B, sky, canvas, sprites, pathFinding, camera, Map, Character, level, M
 					camera.setSubject(me);
 				}
 			}
+		});
+
+		loadResources(function () {
+			m = new Map(
+				level.ground,
+				level.walkables,
+				level.gridCellsDimensions,
+				level.objects
+			);
+			m.prerender(debug, function () {
+				B.removeClass('hud', 'hidden');
+				initMenu();
+				me = new Character(m);
+				camera.setPosition(me);
+				timePreviousFrame = Date.now();
+				lastCalledTime = Date.now();
+				fpsAccu = 0;
+				mainLoop();
+			});
 		});
 	}
 
