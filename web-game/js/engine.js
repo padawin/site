@@ -119,6 +119,12 @@ function (B, sky, canvas, sprites, pathFinding, camera, Map, Character, level, M
 	function startGame () {
 		document.body.removeChild(B.$id('intro'));
 
+		m = new Map(
+			level.ground,
+			level.walkables,
+			level.gridCellsDimensions,
+			level.objects
+		);
 		resize();
 		loadingPadding = canvas.getWidth() / 5;
 		loadingWidth = 3 * loadingPadding;
@@ -207,12 +213,6 @@ function (B, sky, canvas, sprites, pathFinding, camera, Map, Character, level, M
 		});
 
 		loadResources(function () {
-			m = new Map(
-				level.ground,
-				level.walkables,
-				level.gridCellsDimensions,
-				level.objects
-			);
 			m.prerender(debug, function () {
 				B.removeClass('hud', 'hidden');
 				initMenu();
