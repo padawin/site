@@ -24,5 +24,19 @@ loader.addModule('canvas', 'B', function (B) {
 		return this.canvas.height;
 	};
 
+	/**
+	 * Method to draw a rectangle
+	 */
+	canvas.drawRectangle = function (x, y, width, height, fillColor, strokeColor) {
+		if (fillColor) {
+			canvasContext.fillStyle = fillColor;
+			canvasContext.fillRect(x, y, width, height);
+		}
+		if (strokeColor) {
+			canvasContext.strokeStyle = strokeColor;
+			canvasContext.strokeRect(x, y, width, height);
+		}
+	};
+
 	return canvas;
 });
