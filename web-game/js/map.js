@@ -1,10 +1,12 @@
 loader.addModule('map',
-'sprites', 'canvas', 'object',
-function (sprites, canvas, ObjectClass) {
+'sprites', 'canvas', 'object', 'B',
+function (sprites, canvas, ObjectClass, B) {
 	"use strict";
 
 	var canvasContext = canvas.getContext(),
-		relativeTopCornerTile;
+		relativeTopCornerTile,
+		nbResources,
+		loadedResources = 0;
 
 	function Map (m, walkables, gridCellsDimensions, objects) {
 		this.map = m;
@@ -29,6 +31,8 @@ function (sprites, canvas, ObjectClass) {
 		this.tick = 0;
 		this.timePerFrame = 16;
 		this.maxFrame = 2;
+
+		nbResources = this.maxFrame;
 
 		this.images = new Array(this.maxFrame);
 	}
@@ -187,10 +191,20 @@ function (sprites, canvas, ObjectClass) {
 
 		function loaded () {
 			nbLoadedFrames++;
+			loadedResources++;
+
+			B.Events.fire(
+				'resourceloaded', [loadedResources, nbResources]
+			);
+
 			if (nbLoadedFrames == that.maxFrame) {
 				callback();
 			}
 		}
+
+		B.Events.fire(
+			'resourceloaded', [loadedResources, nbResources]
+		);
 
 		for (var f = 0; f < this.maxFrame; f++) {
 			c.width = c.width;

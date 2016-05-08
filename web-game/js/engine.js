@@ -27,12 +27,7 @@ function (B, sky, canvas, sprites, pathFinding, camera, Map, Character, level, M
 		function onLoadResource () {
 			loaded++;
 
-			GUI.progressBar(
-				loadingPadding, canvas.getHeight() / 2,
-				loadingWidth, 30,
-				loaded / nbResources,
-				loadingColor, 'white', loadingColor
-			);
+			B.Events.fire('resourceloaded', [loaded, nbResources]);
 
 			if (loaded == nbResources) {
 				callback();
@@ -126,12 +121,6 @@ function (B, sky, canvas, sprites, pathFinding, camera, Map, Character, level, M
 		resize();
 		loadingPadding = canvas.getWidth() / 5;
 		loadingWidth = 3 * loadingPadding;
-		GUI.progressBar(
-			loadingPadding, canvas.getHeight() / 2,
-			loadingWidth, 30,
-			0,
-			loadingColor, 'white', loadingColor
-		);
 
 		loadResources(function () {
 			m = new Map(
@@ -141,12 +130,6 @@ function (B, sky, canvas, sprites, pathFinding, camera, Map, Character, level, M
 				level.objects
 			);
 			m.prerender(debug, function () {
-				GUI.progressBar(
-					loadingPadding, canvas.getHeight() / 2,
-					loadingWidth, 30,
-					0,
-					loadingColor, 'white', loadingColor
-				);
 				B.removeClass('hud', 'hidden');
 				initMenu();
 				me = new Character(m);
@@ -161,6 +144,15 @@ function (B, sky, canvas, sprites, pathFinding, camera, Map, Character, level, M
 		MessageModule.init();
 
 		B.Events.on('resize', null, resize);
+
+		B.Events.on('resourceloaded', null, function (nbLoaded, nbTotal) {
+			GUI.progressBar(
+				loadingPadding, canvas.getHeight() / 2,
+				loadingWidth, 30,
+				nbLoaded / nbTotal,
+				loadingColor, 'white', loadingColor
+			);
+		});
 
 		B.Events.on('mousemove', null, function (vectorX, vectorY) {
 			if (hasFrameOpen) {
