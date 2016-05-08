@@ -10,7 +10,7 @@ loader.addModule('mouse', 'B', 'canvas', function (B, canvas) {
 				newPosition[1] - mouseMoveOldPosition[1]
 			];
 		mouseMoveOldPosition = newPosition;
-		B.Events.fire('mousemove', vector);
+		B.Events.fire('mousedrag', vector);
 	}
 
 	function eventToCanvasCoordinates (event) {

@@ -136,7 +136,7 @@ function (B, sky, canvas, sprites, pathFinding, camera, Map, Character, level, M
 			);
 		});
 
-		B.Events.on('mousemove', null, function (vectorX, vectorY) {
+		B.Events.on('mousedrag', null, function (vectorX, vectorY) {
 			if (hasFrameOpen) {
 				return;
 			}
