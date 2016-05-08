@@ -199,7 +199,8 @@ function (sprites, canvas, ObjectClass, B) {
 			loadedResources++;
 
 			B.Events.fire(
-				'resourceloaded', [loadedResources, nbResources]
+				'resourceloaded',
+				[loadedResources, nbResources]
 			);
 
 			if (nbLoadedFrames == that.maxFrame) {
@@ -208,7 +209,8 @@ function (sprites, canvas, ObjectClass, B) {
 		}
 
 		B.Events.fire(
-			'resourceloaded', [loadedResources, nbResources]
+			'resourceloaded',
+			[loadedResources, nbResources]
 		);
 
 		for (var f = 0; f < this.maxFrame; f++) {
