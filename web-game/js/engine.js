@@ -1,7 +1,7 @@
 loader.executeModule('main',
 'B', 'sky', 'canvas', 'sprites', 'pathFinding', 'camera', 'map', 'character',
-'level', 'message',
-function (B, sky, canvas, sprites, pathFinding, camera, Map, Character, level, MessageModule) {
+'level', 'message', 'GUI',
+function (B, sky, canvas, sprites, pathFinding, camera, Map, Character, level, MessageModule, GUI) {
 	"use strict";
 
 	var debug = false,
@@ -14,7 +14,10 @@ function (B, sky, canvas, sprites, pathFinding, camera, Map, Character, level, M
 		lastCalledTime,
 		fpsAccu,
 		fps,
-		hasFrameOpen = false;
+		hasFrameOpen = false,
+		loadingPadding,
+		loadingWidth,
+		loadingColor = '#0069b1';
 
 	function loadResources (callback) {
 		// sprite + sky, will evolve
@@ -23,6 +26,8 @@ function (B, sky, canvas, sprites, pathFinding, camera, Map, Character, level, M
 
 		function onLoadResource () {
 			loaded++;
+
+			B.Events.fire('resourceloaded', [loaded, nbResources]);
 
 			if (loaded == nbResources) {
 				callback();
@@ -112,6 +117,11 @@ function (B, sky, canvas, sprites, pathFinding, camera, Map, Character, level, M
 
 	function startGame () {
 		document.body.removeChild(B.$id('intro'));
+
+		resize();
+		loadingPadding = canvas.getWidth() / 5;
+		loadingWidth = 3 * loadingPadding;
+
 		loadResources(function () {
 			m = new Map(
 				level.ground,
@@ -124,7 +134,6 @@ function (B, sky, canvas, sprites, pathFinding, camera, Map, Character, level, M
 				initMenu();
 				me = new Character(m);
 				camera.setPosition(me);
-				resize();
 				timePreviousFrame = Date.now();
 				lastCalledTime = Date.now();
 				fpsAccu = 0;
@@ -135,6 +144,15 @@ function (B, sky, canvas, sprites, pathFinding, camera, Map, Character, level, M
 		MessageModule.init();
 
 		B.Events.on('resize', null, resize);
+
+		B.Events.on('resourceloaded', null, function (nbLoaded, nbTotal) {
+			GUI.progressBar(
+				loadingPadding, canvas.getHeight() / 2,
+				loadingWidth, 30,
+				nbLoaded / nbTotal,
+				loadingColor, 'white', loadingColor
+			);
+		});
 
 		B.Events.on('mousemove', null, function (vectorX, vectorY) {
 			if (hasFrameOpen) {
