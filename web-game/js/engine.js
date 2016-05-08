@@ -163,13 +163,7 @@ function (B, sky, canvas, sprites, pathFinding, camera, Map, Character, level, M
 
 			MessageModule.hide();
 
-			if (
-				!dest ||
-				m.map[dest.y] === undefined ||
-				m.map[dest.y][dest.x] === undefined ||
-				m.map[dest.y][dest.x] === null ||
-				!m.walkables[dest.y][dest.x]
-			) {
+			if (!m.isWalkableCell(dest)) {
 				return;
 			}
 

@@ -296,5 +296,13 @@ function (sprites, canvas, ObjectClass, B) {
 		}
 	};
 
+	Map.prototype.isWalkableCell = function (dest) {
+		return dest &&
+			this.map[dest.y] !== undefined &&
+			this.map[dest.y][dest.x] !== undefined &&
+			this.map[dest.y][dest.x] !== null &&
+			this.walkables[dest.y][dest.x];
+	}
+
 	return Map;
 });
