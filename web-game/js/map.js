@@ -82,7 +82,12 @@ function (sprites, canvas, ObjectClass, B) {
 			coordX = (x / midTileW + y / midTileH) /2 - this.map.length / 2,
 			coordY = (y / midTileH - x / midTileW) /2 + this.map.length / 2;
 
-		return {x: 0|coordX, y: 0|coordY};
+		if (coordX < 0 || coordY < 0) {
+			return null;
+		}
+		else {
+			return {x: 0|coordX, y: 0|coordY};
+		}
 	};
 
 	Map.prototype.coordsToPixels = function (x, y) {
