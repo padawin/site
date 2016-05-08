@@ -87,10 +87,10 @@ loader.addModule('sprites', function () {
 				{x: 0, y: 129, w: 64, h: 73, d: 73, posInCell: {x: 32, y: 55}},
 				// scroll
 				{animation: [
-					{x: 64, y: 129, w: 38, h: 73, d: 73, posInCell: {x: 32, y: 55}},
-					{x: 102, y: 129, w: 38, h: 73, d: 73, posInCell: {x: 32, y: 55}},
-					{x: 64, y: 129, w: 38, h: 73, d: 73, posInCell: {x: 32, y: 55}},
-					{x: 140, y: 129, w: 38, h: 73, d: 73, posInCell: {x: 32, y: 55}}
+					{x: 64, y: 129, w: 38, h: 73, d: 73, posInCell: {x: 19, y: 57}},
+					{x: 102, y: 129, w: 38, h: 73, d: 73, posInCell: {x: 19, y: 57}},
+					{x: 64, y: 129, w: 38, h: 73, d: 73, posInCell: {x: 19, y: 57}},
+					{x: 140, y: 129, w: 38, h: 73, d: 73, posInCell: {x: 19, y: 57}}
 				]}
 			],
 			loadResources: function (loaded) {
