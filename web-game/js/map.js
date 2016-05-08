@@ -185,6 +185,7 @@ function (sprites, canvas, ObjectClass) {
 			spriteInfo;
 
 		for (var f = 0; f < this.maxFrame; f++) {
+			c.width = c.width;
 			this.images[f] = document.createElement('img');
 
 			x = 0;
