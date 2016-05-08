@@ -109,7 +109,34 @@ button {
 	font-weight: bold;
 }
 
-#inventory button {
+#player-stats section {
+	display: inline-block;
+	width: 30%;
+	vertical-align: top;
+}
+
+@media (max-width: 869px) {
+	#player-stats section {
+		width: 49%;
+	}
+}
+
+@media (max-width: 639px) {
+	#player-stats section {
+		display: block;
+		width: auto;
+	}
+}
+
+#player-stats section  h2 {
+	margin-left: 14px;
+}
+
+#player-stats ul {
+	list-style: none;
+}
+
+.frame .close-button {
 	position: absolute;
 	top: 0px;
 	right: 0px;

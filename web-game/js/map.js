@@ -182,7 +182,15 @@ function (sprites, canvas, ObjectClass) {
 			level = 0,
 			startX = 0,
 			max = this.map.length - 1,
-			spriteInfo;
+			spriteInfo, nbLoadedFrames = 0,
+			that = this;
+
+		function loaded () {
+			nbLoadedFrames++;
+			if (nbLoadedFrames == that.maxFrame) {
+				callback();
+			}
+		}
 
 		for (var f = 0; f < this.maxFrame; f++) {
 			c.width = c.width;
@@ -242,7 +250,7 @@ function (sprites, canvas, ObjectClass) {
 			}
 
 			this.images[f].src = c.toDataURL('image/png').replace('image/png', "image/octet-stream");
-			this.images[f].onload = callback;
+			this.images[f].onload = loaded;
 		}
 	};
 
