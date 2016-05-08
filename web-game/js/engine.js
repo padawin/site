@@ -112,6 +112,9 @@ function (B, sky, canvas, sprites, pathFinding, camera, Map, Character, level, M
 
 	function startGame () {
 		document.body.removeChild(B.$id('intro'));
+
+		resize();
+
 		loadResources(function () {
 			m = new Map(
 				level.ground,
@@ -124,7 +127,6 @@ function (B, sky, canvas, sprites, pathFinding, camera, Map, Character, level, M
 				initMenu();
 				me = new Character(m);
 				camera.setPosition(me);
-				resize();
 				timePreviousFrame = Date.now();
 				lastCalledTime = Date.now();
 				fpsAccu = 0;
