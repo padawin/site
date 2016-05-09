@@ -282,7 +282,8 @@ function (sprites, canvas, ObjectClass, B) {
 
 	Map.prototype.draw = function (camera) {
 		var coord = camera.adapt({x: 0, y: 0}),
-			image = this.images[this.frame];
+			image = this.images[this.frame],
+			coordHighlight;
 
 		canvasContext.drawImage(image,
 			0, 0,
@@ -290,6 +291,33 @@ function (sprites, canvas, ObjectClass, B) {
 			coord.x, coord.y,
 			image.width, image.height
 		);
+
+		if (this.highlightedCell) {
+			coordHighlight = camera.adapt(this.highlightedCell);
+			canvasContext.beginPath();
+			canvasContext.moveTo(
+				coordHighlight.x - relativeTopCornerTile.x,
+				coordHighlight.y
+			);
+			canvasContext.lineTo(
+				coordHighlight.x,
+				coordHighlight.y - relativeTopCornerTile.y
+			);
+			canvasContext.lineTo(
+				coordHighlight.x + relativeTopCornerTile.x,
+				coordHighlight.y
+			);
+			canvasContext.lineTo(
+				coordHighlight.x,
+				coordHighlight.y + relativeTopCornerTile.y
+			);
+			canvasContext.lineTo(
+				coordHighlight.x - relativeTopCornerTile.x,
+				coordHighlight.y
+			);
+			canvasContext.strokeStyle = 'black';
+			canvasContext.stroke();
+		}
 	};
 
 	Map.prototype.drawObjects = function (camera) {
