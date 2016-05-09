@@ -3,10 +3,17 @@ loader.addModule('object',
 function (sprites, canvas) {
 	"use strict";
 
+	/**
+	 * Module to manage map objects. An object must be drawable, so if an object
+	 * is not, this module provides a default draw method.
+	 */
+
 	var ObjectClass,
 		canvasContext = canvas.getContext();
 
-
+	/**
+	 * default draw method for the map objects. Handles animated sprites.
+	 */
 	function draw (camera, map) {
 		var coord, s;
 
@@ -29,6 +36,11 @@ function (sprites, canvas) {
 		);
 	}
 
+	/**
+	 * Factory method. Takes a JS object and parasites it with the default draw
+	 * method if it has none and if the object's sprite is animated, initialises
+	 * its frame, ticks and timePerFrame (hard coded)
+	 */
 	ObjectClass = function (data) {
 		if (!data.draw) {
 			data.draw = draw;

@@ -1,6 +1,10 @@
 loader.addModule('canvas', 'B', function (B) {
 	"use strict";
 
+	/**
+	 * Module to encapsulate the canvas object
+	 */
+
 	var canvas = {},
 		canvasContext;
 

@@ -3,6 +3,11 @@ loader.addModule('inventory',
 function (B) {
 	"use strict";
 
+	/**
+	 * Module to manage the inventory, also interacts with the inventory DOM
+	 * element.
+	 */
+
 	var _content = [],
 		inventory = {};
 
