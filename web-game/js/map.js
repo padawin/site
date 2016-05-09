@@ -5,8 +5,30 @@ function (sprites, canvas, ObjectClass, B) {
 
 	var canvasContext = canvas.getContext(),
 		relativeTopCornerTile,
-		nbResources,
-		loadedResources = 0;
+		// the highlighted cell is the first resource
+		nbResources = 1,
+		loadedResources = 0,
+		highlightedCellResource;
+
+	function generateHighLightedCell (loaded) {
+		var c = document.createElement('canvas'),
+			ctx = c.getContext('2d');
+		ctx.beginPath();
+		ctx.moveTo(relativeTopCornerTile.x, 0);
+		ctx.lineTo(relativeTopCornerTile.x * 2, relativeTopCornerTile.y);
+		ctx.lineTo(
+			relativeTopCornerTile.x,
+			relativeTopCornerTile.y * 2
+		);
+		ctx.lineTo(0, relativeTopCornerTile.y);
+		ctx.lineTo(relativeTopCornerTile.x, 0);
+		ctx.strokeStyle = 'black';
+		ctx.stroke();
+
+		highlightedCellResource = document.createElement('img');
+		highlightedCellResource.src = c.toDataURL('image/png').replace('image/png', "image/octet-stream");
+		highlightedCellResource.onload = loaded;
+	}
 
 	function Map (m, walkables, gridCellsDimensions, objects) {
 		this.map = m;
@@ -32,9 +54,10 @@ function (sprites, canvas, ObjectClass, B) {
 		this.timePerFrame = 16;
 		this.maxFrame = 2;
 
-		nbResources = this.maxFrame;
+		nbResources += this.maxFrame;
 
 		this.images = new Array(this.maxFrame);
+		this.highlightedCell = null;
 	}
 
 	Map.prototype.getObject = function (coords) {
@@ -199,7 +222,8 @@ function (sprites, canvas, ObjectClass, B) {
 			loadedResources++;
 
 			B.Events.fire(
-				'resourceloaded', [loadedResources, nbResources]
+				'resourceloaded',
+				[loadedResources, nbResources]
 			);
 
 			if (nbLoadedFrames == that.maxFrame) {
@@ -208,7 +232,8 @@ function (sprites, canvas, ObjectClass, B) {
 		}
 
 		B.Events.fire(
-			'resourceloaded', [loadedResources, nbResources]
+			'resourceloaded',
+			[loadedResources, nbResources]
 		);
 
 		for (var f = 0; f < this.maxFrame; f++) {
@@ -271,11 +296,18 @@ function (sprites, canvas, ObjectClass, B) {
 			this.images[f].src = c.toDataURL('image/png').replace('image/png', "image/octet-stream");
 			this.images[f].onload = loaded;
 		}
+
+		generateHighLightedCell(loaded);
+	};
+
+	Map.prototype.highlight = function (coords) {
+		this.highlightedCell = coords && this.coordsToPixels(coords.x, coords.y);
 	};
 
 	Map.prototype.draw = function (camera) {
 		var coord = camera.adapt({x: 0, y: 0}),
-			image = this.images[this.frame];
+			image = this.images[this.frame],
+			coordHighlight;
 
 		canvasContext.drawImage(image,
 			0, 0,
@@ -283,6 +315,15 @@ function (sprites, canvas, ObjectClass, B) {
 			coord.x, coord.y,
 			image.width, image.height
 		);
+
+		if (this.highlightedCell) {
+			coordHighlight = camera.adapt(this.highlightedCell);
+
+			canvasContext.drawImage(highlightedCellResource,
+				coordHighlight.x - relativeTopCornerTile.x,
+				coordHighlight.y - relativeTopCornerTile.y
+			);
+		}
 	};
 
 	Map.prototype.drawObjects = function (camera) {
@@ -293,6 +334,14 @@ function (sprites, canvas, ObjectClass, B) {
 			}
 		}
 	};
+
+	Map.prototype.isWalkableCell = function (dest) {
+		return dest &&
+			this.map[dest.y] !== undefined &&
+			this.map[dest.y][dest.x] !== undefined &&
+			this.map[dest.y][dest.x] !== null &&
+			this.walkables[dest.y][dest.x];
+	}
 
 	return Map;
 });

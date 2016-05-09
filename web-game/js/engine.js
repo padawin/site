@@ -119,6 +119,12 @@ function (B, sky, canvas, sprites, pathFinding, camera, Map, Character, level, M
 	function startGame () {
 		document.body.removeChild(B.$id('intro'));
 
+		m = new Map(
+			level.ground,
+			level.walkables,
+			level.gridCellsDimensions,
+			level.objects
+		);
 		resize();
 		loadingPadding = canvas.getWidth() / 5;
 		loadingWidth = 3 * loadingPadding;
@@ -136,7 +142,26 @@ function (B, sky, canvas, sprites, pathFinding, camera, Map, Character, level, M
 			);
 		});
 
-		B.Events.on('mousemove', null, function (vectorX, vectorY) {
+		B.Events.on('mousemove', null, function (mouseX, mouseY) {
+			if (hasFrameOpen) {
+				return;
+			}
+
+			var // get the coordinates in the world
+				mouseInWorld = camera.toWorldCoords({x: mouseX, y: mouseY}),
+				// convert them in the coordinates of the clicked cell
+				dest = m.pixelsToCoords(mouseInWorld.x, mouseInWorld.y);
+
+
+			if (m.isWalkableCell(dest)) {
+				m.highlight(dest);
+			}
+			else {
+				m.highlight(null);
+			}
+		});
+
+		B.Events.on('mousedrag', null, function (vectorX, vectorY) {
 			if (hasFrameOpen) {
 				return;
 			}
@@ -157,13 +182,7 @@ function (B, sky, canvas, sprites, pathFinding, camera, Map, Character, level, M
 
 			MessageModule.hide();
 
-			if (
-				!dest ||
-				m.map[dest.y] === undefined ||
-				m.map[dest.y][dest.x] === undefined ||
-				m.map[dest.y][dest.x] === null ||
-				!m.walkables[dest.y][dest.x]
-			) {
+			if (!m.isWalkableCell(dest)) {
 				return;
 			}
 
@@ -207,12 +226,6 @@ function (B, sky, canvas, sprites, pathFinding, camera, Map, Character, level, M
 		});
 
 		loadResources(function () {
-			m = new Map(
-				level.ground,
-				level.walkables,
-				level.gridCellsDimensions,
-				level.objects
-			);
 			m.prerender(debug, function () {
 				B.removeClass('hud', 'hidden');
 				initMenu();
