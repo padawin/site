@@ -142,6 +142,25 @@ function (B, sky, canvas, sprites, pathFinding, camera, Map, Character, level, M
 			);
 		});
 
+		B.Events.on('mousemove', null, function (mouseX, mouseY) {
+			if (hasFrameOpen) {
+				return;
+			}
+
+			var // get the coordinates in the world
+				mouseInWorld = camera.toWorldCoords({x: mouseX, y: mouseY}),
+				// convert them in the coordinates of the clicked cell
+				dest = m.pixelsToCoords(mouseInWorld.x, mouseInWorld.y);
+
+
+			if (m.isWalkableCell(dest)) {
+				m.highlight(dest);
+			}
+			else {
+				m.highlight(null);
+			}
+		});
+
 		B.Events.on('mousedrag', null, function (vectorX, vectorY) {
 			if (hasFrameOpen) {
 				return;
