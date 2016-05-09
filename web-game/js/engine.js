@@ -111,30 +111,27 @@ function (B, sky, canvas, sprites, pathFinding, camera, Map, Character, level, M
 	 * Initialises the menu's events in the HUD
 	 */
 	function initMenu () {
-		B.on('open-inventory', 'click', function () {
-			if (hasFrameOpen) {
-				return;
-			}
+		var menuLinks = B.$sel('#menu a'),
+			closeButtons = B.$sel('.frame .close-button'),
+			l, b;
 
-			hasFrameOpen = true;
-			B.removeClass('inventory', 'hidden');
-		});
-		B.on('close-inventory', 'click', function () {
-			hasFrameOpen = false;
-			B.addClass('inventory', 'hidden');
-		});
-		B.on('open-profile', 'click', function () {
-			if (hasFrameOpen) {
-				return;
-			}
+		for (l in menuLinks) {
+			B.on(menuLinks[l], 'click', function (event) {
+				if (hasFrameOpen) {
+					return;
+				}
 
-			hasFrameOpen = true;
-			B.removeClass('player-stats', 'hidden');
-		});
-		B.on('close-profile', 'click', function () {
-			hasFrameOpen = false;
-			B.addClass('player-stats', 'hidden');
-		});
+				hasFrameOpen = true;
+				B.removeClass(this.getAttribute('rel'), 'hidden');
+			}.bind(menuLinks[l]));
+		}
+
+		for (b in closeButtons) {
+			B.on(closeButtons[b], 'click', function (event) {
+				hasFrameOpen = false;
+				B.addClass(this.getAttribute('rel'), 'hidden');
+			}.bind(closeButtons[b]));
+		}
 	}
 
 	/**

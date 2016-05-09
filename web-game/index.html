@@ -51,12 +51,12 @@
 		<div id="hud" class="hidden">
 			<ul id="menu">
 				<li class="radius-left">
-					<a id="open-profile" href="#">
+					<a id="open-profile" href="#" rel="player-stats">
 						<img src="images/profile.png" alt="Profile" title="Open profile" />
 					</a>
 				</li>
 				<li class="radius-left">
-					<a id="open-inventory" href="#">
+					<a id="open-inventory" href="#" rel="inventory">
 						<img src="images/inventory.png" alt="Inventory" title="Open inventory" />
 					</a>
 				</li>
@@ -85,14 +85,14 @@
 			</section>
 			<section id="inventory" class="message frame hidden">
 				<div class="content">
-					<button id="close-inventory" class="close-button">Close</button>
+					<button id="close-inventory" rel="inventory" class="close-button">Close</button>
 					<ul id="inventory-list">
 					</ul>
 				</div>
 			</section>
 			<section id="player-stats" class="message frame hidden">
 				<div class="content">
-					<button id="close-profile" class="close-button">Close</button>
+					<button id="close-profile" rel="player-stats" class="close-button">Close</button>
 					<section>
 						<h2>Languages</h2>
 						<ul>
