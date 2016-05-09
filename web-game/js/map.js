@@ -3,6 +3,10 @@ loader.addModule('map',
 function (sprites, canvas, ObjectClass, B) {
 	"use strict";
 
+	/**
+	 * Module to manage the game map
+	 */
+
 	var canvasContext = canvas.getContext(),
 		relativeTopCornerTile,
 		// the highlighted cell is the first resource
@@ -10,6 +14,10 @@ function (sprites, canvas, ObjectClass, B) {
 		loadedResources = 0,
 		highlightedCellResource;
 
+	/**
+	 * Method to generate the image used to highlight the cell hovered by the
+	 * mouse
+	 */
 	function generateHighLightedCell (loaded) {
 		var c = document.createElement('canvas'),
 			ctx = c.getContext('2d');
@@ -30,6 +38,9 @@ function (sprites, canvas, ObjectClass, B) {
 		highlightedCellResource.onload = loaded;
 	}
 
+	/**
+	 * Map construct. Build the level, set the objects and the frame information
+	 */
 	function Map (m, walkables, gridCellsDimensions, objects) {
 		this.map = m;
 		this.walkables = walkables;
@@ -60,15 +71,23 @@ function (sprites, canvas, ObjectClass, B) {
 		this.highlightedCell = null;
 	}
 
+	/**
+	 * returns the object being at the given coordinates. If there is no object,
+	 * null is returned
+	 */
 	Map.prototype.getObject = function (coords) {
 		var row = coords.x + coords.y;
 		if (!this.objects[row]) {
-			return undefined;
+			return null;
 		}
 
 		return this.objects[row][coords.x + '-' + coords.y];
 	};
 
+	/**
+	 * Add the given object to the given coordinates. if there already was an
+	 * item there, it will be replaced
+	 */
 	Map.prototype.addObject = function (object, coords) {
 		if (!coords) {
 			coords = {x: object.x, y: object.y};
@@ -82,6 +101,9 @@ function (sprites, canvas, ObjectClass, B) {
 		this.objects[row][coords.x + '-' + coords.y] = object;
 	};
 
+	/**
+	 * Move the Object being at the coordinates from to the coordinates to
+	 */
 	Map.prototype.moveObject = function (from, to) {
 		if (from.x == to.x && from.y == to.y) {
 			return;

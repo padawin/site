@@ -4,6 +4,10 @@ loader.executeModule('main',
 function (B, sky, canvas, sprites, pathFinding, camera, Map, Character, level, MessageModule, GUI) {
 	"use strict";
 
+	/**
+	 * Main module of the game, manage the game loop.
+	 */
+
 	var debug = false,
 		m, me,
 		timePreviousFrame,
@@ -19,6 +23,9 @@ function (B, sky, canvas, sprites, pathFinding, camera, Map, Character, level, M
 		loadingWidth,
 		loadingColor = '#0069b1';
 
+	/**
+	 * Method to load the resources needed for the game
+	 */
 	function loadResources (callback) {
 		// sprite + sky, will evolve
 		var nbResources = sprites.nbResources + sky.nbResources,
@@ -39,12 +46,19 @@ function (B, sky, canvas, sprites, pathFinding, camera, Map, Character, level, M
 		sky.loadResources(onLoadResource);
 	}
 
+	/**
+	 * Method to adapt the canvas dimensions to the screen and the camera to the
+	 * canvas
+	 */
 	function resize () {
 		canvas.resize();
 		camera.w = canvas.getWidth();
 		camera.h = canvas.getHeight();
 	}
 
+	/**
+	 * Main draw method. Draws the sky, the map and its objects
+	 */
 	function draw () {
 		sky.draw(camera);
 		m.draw(camera, debug);
@@ -59,6 +73,10 @@ function (B, sky, canvas, sprites, pathFinding, camera, Map, Character, level, M
 		}
 	}
 
+	/**
+	 * Method called at each frame of the game. Updates all the entities and
+	 * then draw them.
+	 */
 	function mainLoop () {
 		requestAnimationFrame(mainLoop);
 		var now = Date.now(),
@@ -89,6 +107,9 @@ function (B, sky, canvas, sprites, pathFinding, camera, Map, Character, level, M
 		}
 	}
 
+	/**
+	 * Initialises the menu's events in the HUD
+	 */
 	function initMenu () {
 		B.on('open-inventory', 'click', function () {
 			if (hasFrameOpen) {
@@ -116,6 +137,10 @@ function (B, sky, canvas, sprites, pathFinding, camera, Map, Character, level, M
 		});
 	}
 
+	/**
+	 * Entry point of the game. Initialises the map, plugs the event and does a
+	 * certain amount of mess. @TODO To be refactored
+	 */
 	function startGame () {
 		document.body.removeChild(B.$id('intro'));
 
@@ -131,8 +156,14 @@ function (B, sky, canvas, sprites, pathFinding, camera, Map, Character, level, M
 
 		MessageModule.init();
 
+		/**
+		 * Event fired when the window is resized
+		 */
 		B.Events.on('resize', null, resize);
 
+		/**
+		 * Event fired when a resource is loaded
+		 */
 		B.Events.on('resourceloaded', null, function (nbLoaded, nbTotal) {
 			GUI.progressBar(
 				loadingPadding, canvas.getHeight() / 2,
@@ -142,6 +173,9 @@ function (B, sky, canvas, sprites, pathFinding, camera, Map, Character, level, M
 			);
 		});
 
+		/**
+		 * Event fired when the mouse is moved
+		 */
 		B.Events.on('mousemove', null, function (mouseX, mouseY) {
 			if (hasFrameOpen) {
 				return;
@@ -161,6 +195,9 @@ function (B, sky, canvas, sprites, pathFinding, camera, Map, Character, level, M
 			}
 		});
 
+		/**
+		 * Event fired when the mouse is moved with the left button pressed
+		 */
 		B.Events.on('mousedrag', null, function (vectorX, vectorY) {
 			if (hasFrameOpen) {
 				return;
@@ -170,6 +207,9 @@ function (B, sky, canvas, sprites, pathFinding, camera, Map, Character, level, M
 			camera.setSubject();
 		});
 
+		/**
+		 * Event fired when the mouse is clicked
+		 */
 		B.Events.on('click', null, function (mouseX, mouseY) {
 			if (hasFrameOpen) {
 				return;
@@ -190,10 +230,16 @@ function (B, sky, canvas, sprites, pathFinding, camera, Map, Character, level, M
 			camera.setSubject(me);
 		}, false);
 
+		/**
+		 * Event fired when a message has to be displayed
+		 */
 		B.Events.on('message', null, function (message) {
 			MessageModule.show(message);
 		});
 
+		/**
+		 * Event fired when keyboard key is pressed
+		 */
 		document.addEventListener('keydown', function (event) {
 			if (hasFrameOpen) {
 				return;
@@ -225,6 +271,8 @@ function (B, sky, canvas, sprites, pathFinding, camera, Map, Character, level, M
 			}
 		});
 
+		// load all the resources. When they are loaded, prerender the map and
+		// then start the main loop
 		loadResources(function () {
 			m.prerender(debug, function () {
 				B.removeClass('hud', 'hidden');
@@ -239,6 +287,7 @@ function (B, sky, canvas, sprites, pathFinding, camera, Map, Character, level, M
 		});
 	}
 
+	// start the game when the start button is clicked
 	B.on('start', 'click', function () {
 		startGame();
 	});
