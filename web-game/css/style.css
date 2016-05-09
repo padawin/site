@@ -192,6 +192,26 @@ button, input[type="submit"] {
 	margin-top: 14px;
 }
 
+#player-quests ul.tabs {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	background-color: white;
+}
+
+#player-quests ul.tabs li {
+	display: inline-block;
+	width: 150px;
+	border-right: 1px #ccc solid;
+	padding: 7px;
+	text-align: center;
+	cursor: pointer;
+}
+
+#player-quests ul.tabs li:hover, #player-quests ul.tabs li.active {
+	background-color: #aaa;
+}
+
 .frame .close-button {
 	position: absolute;
 	top: 0px;

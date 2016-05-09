@@ -228,16 +228,15 @@
 				</div>
 			</section>
 			<section id="player-quests" class="message frame hidden">
+				<button id="close-quests" rel="player-quests" class="close-button">Close</button>
+				<ul class="tabs">
+					<li rel="active-quests">Active</li><li class="active" rel="completed-quests">Completed</li>
+				</ul>
 				<div class="content">
-					<button id="close-quests" rel="player-quests" class="close-button">Close</button>
-					<ul class="tabs">
-						<li><a rel="active-quests">Active</a></li>
-						<li><a rel="completed-quests">Completed</a></li>
-					</ul>
-					<div id="active-quests" class="quests-list">
+					<div id="active-quests" class="tab-content quests-list">
 						active
 					</div>
-					<div id="completed-quests" class="quests-list">
+					<div id="completed-quests" class="tab-content quests-list">
 						completed
 					</div>
 				</div>
