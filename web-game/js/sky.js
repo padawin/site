@@ -1,5 +1,11 @@
 loader.addModule('sky', 'particles', 'canvas', function (particlesModule, canvas) {
 	"use strict";
+
+	/**
+	 * Module to manage the game's sky and the clouds. The clouds are managed
+	 * as particles.
+	 */
+
 	var sky = {
 			nbResources: 1
 		},
@@ -13,6 +19,9 @@ loader.addModule('sky', 'particles', 'canvas', function (particlesModule, canvas
 		cloudResource.src = 'images/cloud.png';
 	};
 
+	/**
+	 * method to update the clouds' position and generate new clouds
+	 */
 	sky.update = function () {
 		var frequencyCloud = Math.random(),
 			cloud,

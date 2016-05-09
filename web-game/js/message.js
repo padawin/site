@@ -1,5 +1,11 @@
 loader.addModule('message',
 'B', function (B) {
+	"use strict";
+
+	/**
+	 * Module to manage messages to be displayed to the player
+	 */
+
 	var messageModule,
 		messageElement,
 		messageContainer;

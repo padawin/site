@@ -3,12 +3,23 @@ loader.addModule('character',
 function (sprites, canvas, inventory, B) {
 	"use strict";
 
+	/**
+	 * Module to manage the game's player
+	 */
+
 	var canvasContext = canvas.getContext();
 
+	/**
+	 * Method to calculate an euclidean distance between two points
+	 */
 	function calcDistance (p1, p2) {
 		return Math.sqrt(Math.pow(p2.x - p1.x, 2) + Math.pow(p2.y - p1.y, 2));
 	}
 
+	/**
+	 * Method to set the good sprite to the player depending of his speed. Used
+	 * only when the player is moving
+	 */
 	function _updateSpriteFromSpeed(character) {
 		var gridSpeed = {
 			x: character.path[0].x - character.cell.x,
@@ -36,6 +47,11 @@ function (sprites, canvas, inventory, B) {
 		}
 	}
 
+	/**
+	 * Player constructor. Sets the player at the point 0,0 of the map.
+	 * Also initialises different data in the player (path, frames and animation
+	 * information, speed)
+	 */
 	function Character (map) {
 		this.setCell(map, 0, 0);
 		this.path = [];
@@ -48,6 +64,15 @@ function (sprites, canvas, inventory, B) {
 		this.speed = {x: 0, y: 0};
 	}
 
+	/**
+	 * Calculates the player's speed from a given vector representing the
+	 * player's destination. If the destination is closer than the player's
+	 * linear speed, the player's speed is the vector itself, otherwise, the
+	 * player's speed is calculated from the player's linear speed and the
+	 * destination's vector.
+	 *
+	 * @TODO Can be private
+	 */
 	Character.prototype.calculateSpeed = function (destinationVector) {
 		// get remaining distance to walk
 		var distance = calcDistance(
@@ -64,6 +89,10 @@ function (sprites, canvas, inventory, B) {
 		}
 	};
 
+	/**
+	 * Set the player's cell in the world and updates the map's list of objects
+	 * because the player is considered as an object of the map.
+	 */
 	Character.prototype.setCell = function (map, x, y) {
 		var start, oldPosition, object;
 
@@ -87,15 +116,23 @@ function (sprites, canvas, inventory, B) {
 			map.addObject(this, this.cell);
 		}
 
+		// @TODO Obsolete with the updatePosition method?
 		start = map.coordsToPixels(this.cell.x, this.cell.y);
 		this.x = start.x;
 		this.y = start.y;
 	};
 
+	/**
+	 * Set the character's path. As soon as the character has a path, it will
+	 * start moving towards it.
+	 */
 	Character.prototype.setPath = function (path) {
 		this.path = path;
 	};
 
+	/**
+	 * Update the player's position and sprite according to his path.
+	 */
 	Character.prototype.update = function (map) {
 		var pointNextDest, destinationVector;
 
@@ -144,11 +181,20 @@ function (sprites, canvas, inventory, B) {
 		}
 	};
 
+	/**
+	 * Change the character's position according to his speed
+	 */
 	Character.prototype.updatePosition = function () {
 		this.x += this.speed.x;
 		this.y += this.speed.y;
 	};
 
+	/**
+	 * Update the character's frame from his ticks
+	 *
+	 * @TODO Create an animated behaviour for every animated elements in the
+	 *		game?
+	 */
 	Character.prototype.updateFrame = function () {
 		this.tick++;
 		if (this.tick == this.timePerFrame) {
@@ -157,6 +203,9 @@ function (sprites, canvas, inventory, B) {
 		}
 	};
 
+	/**
+	 * Draw the character in the screen depending to the camera position
+	 */
 	Character.prototype.draw = function (camera) {
 		var coord = camera.adapt(this), s;
 
