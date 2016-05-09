@@ -63,7 +63,7 @@ function (sprites, canvas, ObjectClass, B) {
 	Map.prototype.getObject = function (coords) {
 		var row = coords.x + coords.y;
 		if (!this.objects[row]) {
-			return undefined;
+			return null;
 		}
 
 		return this.objects[row][coords.x + '-' + coords.y];
