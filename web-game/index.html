@@ -79,6 +79,11 @@
 					</a>
 				</li>
 				<li class="radius-left frame-button">
+					<a id="open-quests" href="#" rel="player-quests">
+						Quests
+					</a>
+				</li>
+				<li class="radius-left frame-button">
 					<a id="open-contact" href="#" rel="contact">
 						<img src="images/contact.png" alt="Contact" title="Contact Ghislain Rodrigues" />
 					</a>
@@ -220,6 +225,21 @@
 						<textarea name="message" rows="10" required></textarea>
 						<input type="submit" value="send" />
 					</form>
+				</div>
+			</section>
+			<section id="player-quests" class="message frame hidden">
+				<div class="content">
+					<button id="close-quests" rel="player-quests" class="close-button">Close</button>
+					<ul class="tabs">
+						<li><a rel="active-quests">Active</a></li>
+						<li><a rel="completed-quests">Completed</a></li>
+					</ul>
+					<div id="active-quests" class="quests-list">
+						active
+					</div>
+					<div id="completed-quests" class="quests-list">
+						completed
+					</div>
 				</div>
 			</section>
 			<div id="message" class="message hidden"><div class="content"></div></div>
