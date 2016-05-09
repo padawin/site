@@ -28,6 +28,7 @@ loader.addModule('mouse', 'B', 'canvas', function (B, canvas) {
 	});
 
 	canvas.canvas.addEventListener('mousemove', function (event) {
+		B.Events.fire('mousemove', eventToCanvasCoordinates(event));
 		if (!isMouseDown) {
 			return;
 		}
