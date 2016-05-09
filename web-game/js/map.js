@@ -5,8 +5,30 @@ function (sprites, canvas, ObjectClass, B) {
 
 	var canvasContext = canvas.getContext(),
 		relativeTopCornerTile,
-		nbResources,
-		loadedResources = 0;
+		// the highlighted cell is the first resource
+		nbResources = 1,
+		loadedResources = 0,
+		highlightedCellResource;
+
+	function generateHighLightedCell (loaded) {
+		var c = document.createElement('canvas'),
+			ctx = c.getContext('2d');
+		ctx.beginPath();
+		ctx.moveTo(relativeTopCornerTile.x, 0);
+		ctx.lineTo(relativeTopCornerTile.x * 2, relativeTopCornerTile.y);
+		ctx.lineTo(
+			relativeTopCornerTile.x,
+			relativeTopCornerTile.y * 2
+		);
+		ctx.lineTo(0, relativeTopCornerTile.y);
+		ctx.lineTo(relativeTopCornerTile.x, 0);
+		ctx.strokeStyle = 'black';
+		ctx.stroke();
+
+		highlightedCellResource = document.createElement('img');
+		highlightedCellResource.src = c.toDataURL('image/png').replace('image/png', "image/octet-stream");
+		highlightedCellResource.onload = loaded;
+	}
 
 	function Map (m, walkables, gridCellsDimensions, objects) {
 		this.map = m;
@@ -32,7 +54,7 @@ function (sprites, canvas, ObjectClass, B) {
 		this.timePerFrame = 16;
 		this.maxFrame = 2;
 
-		nbResources = this.maxFrame;
+		nbResources += this.maxFrame;
 
 		this.images = new Array(this.maxFrame);
 		this.highlightedCell = null;
@@ -274,6 +296,8 @@ function (sprites, canvas, ObjectClass, B) {
 			this.images[f].src = c.toDataURL('image/png').replace('image/png', "image/octet-stream");
 			this.images[f].onload = loaded;
 		}
+
+		generateHighLightedCell(loaded);
 	};
 
 	Map.prototype.highlight = function (coords) {
@@ -294,29 +318,11 @@ function (sprites, canvas, ObjectClass, B) {
 
 		if (this.highlightedCell) {
 			coordHighlight = camera.adapt(this.highlightedCell);
-			canvasContext.beginPath();
-			canvasContext.moveTo(
+
+			canvasContext.drawImage(highlightedCellResource,
 				coordHighlight.x - relativeTopCornerTile.x,
-				coordHighlight.y
-			);
-			canvasContext.lineTo(
-				coordHighlight.x,
 				coordHighlight.y - relativeTopCornerTile.y
 			);
-			canvasContext.lineTo(
-				coordHighlight.x + relativeTopCornerTile.x,
-				coordHighlight.y
-			);
-			canvasContext.lineTo(
-				coordHighlight.x,
-				coordHighlight.y + relativeTopCornerTile.y
-			);
-			canvasContext.lineTo(
-				coordHighlight.x - relativeTopCornerTile.x,
-				coordHighlight.y
-			);
-			canvasContext.strokeStyle = 'black';
-			canvasContext.stroke();
 		}
 	};
 
