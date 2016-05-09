@@ -35,6 +35,7 @@ function (sprites, canvas, ObjectClass, B) {
 		nbResources = this.maxFrame;
 
 		this.images = new Array(this.maxFrame);
+		this.highlightedCell = null;
 	}
 
 	Map.prototype.getObject = function (coords) {
@@ -273,6 +274,10 @@ function (sprites, canvas, ObjectClass, B) {
 			this.images[f].src = c.toDataURL('image/png').replace('image/png', "image/octet-stream");
 			this.images[f].onload = loaded;
 		}
+	};
+
+	Map.prototype.highlight = function (coords) {
+		this.highlightedCell = coords && this.coordsToPixels(coords.x, coords.y);
 	};
 
 	Map.prototype.draw = function (camera) {
