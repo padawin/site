@@ -81,7 +81,13 @@ loader.addModule('level', 'sprites', function (sprites) {
 				onopen: function () {
 					window.open('http://www.ghislain-rodrigues.fr/CV-Ghislain-Rodrigues.pdf');
 				}
-			}
+			},
+			{x: 4, y: 7, sprite: sprites.sprites[sprites.SPRITES_ACCESS.ROCK]},
+			{x: 8, y: 6, sprite: sprites.sprites[sprites.SPRITES_ACCESS.ROCK]},
+			{x: 6, y: 13, sprite: sprites.sprites[sprites.SPRITES_ACCESS.ROCK]},
+			{x: 18, y: 13, sprite: sprites.sprites[sprites.SPRITES_ACCESS.ROCK]},
+			{x: 18, y: 7, sprite: sprites.sprites[sprites.SPRITES_ACCESS.ROCK]},
+			{x: 8, y: 17, sprite: sprites.sprites[sprites.SPRITES_ACCESS.ROCK]},
 		]
 	};
 });
