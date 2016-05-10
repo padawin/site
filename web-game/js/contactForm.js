@@ -14,7 +14,7 @@ loader.executeModule('contactForm', 'B', function (B) {
 			message: form.message.innerText
 		};
 		B.Ajax.request(
-			'http://localhost:8888/contact',
+			'/contact',
 			{
 				200: function () {
 					console.log('200');
