@@ -7,7 +7,7 @@ body, button {
 	font-family: "Lucida Console", Monaco, monospace;
 }
 
-button {
+button, input[type="submit"] {
 	border-radius: 7px;
 	margin: 7px;
 }
@@ -145,6 +145,25 @@ button {
 
 #player-stats ul {
 	list-style: none;
+}
+
+#contact form {
+	max-width: 600px;
+	margin: auto;
+}
+
+#contact form label, #contact form input[type="email"], #contact form textarea {
+	display: block;
+	width: 100%;
+}
+
+#contact form input[type="submit"] {
+	display: block;
+	margin: 0 auto;
+}
+
+#contact form label, #contact form input[type="submit"] {
+	margin-top: 14px;
 }
 
 .frame .close-button {
