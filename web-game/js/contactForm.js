@@ -18,16 +18,16 @@ loader.executeModule('contactForm', 'B', function (B) {
 			url,
 			{
 				200: function () {
-					console.log('200');
-					console.log(arguments);
+					form.reset();
+					B.Events.fire('contactsent');
 				},
-				400: function () {
-					console.log('400');
-					console.log(arguments);
+				400: function (xhr) {
+					var response = JSON.parse(xhr.response),
+						error = response.error || 'An error occured';
+					B.$id('error-form').innerHTML = error;
 				},
 				500: function () {
-					console.log('500');
-					console.log(arguments);
+					B.$id('error-form').innerHTML = 'An error occured';
 				}
 			}, null, 'POST', JSON.stringify(data)
 		);
