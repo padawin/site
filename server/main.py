@@ -10,7 +10,14 @@ from email.mime.text import MIMEText
 class MainHandler(tornado.web.RequestHandler):
 	def post(self):
 		self.set_header("Content-Type", "application/json")
-		data = tornado.escape.json_decode(self.request.body)
+
+		try:
+			data = tornado.escape.json_decode(self.request.body)
+		except ValueError:
+			self.clear()
+			self.set_status(400)
+			self.finish({"error": 'missing parameter from and message'})
+			return
 
 		if 'from' not in data.keys():
 			self.clear()
