@@ -10,6 +10,9 @@ body, button {
 button, input[type="submit"] {
 	border-radius: 7px;
 	margin: 7px;
+	border: 0;
+	font-weight: bold;
+	padding: 4px;
 }
 
 .signature {
@@ -171,7 +174,6 @@ button, input[type="submit"] {
 	top: 0px;
 	right: 0px;
 	height: 30px;
-	font-weight: bold;
 }
 
 .hidden {
