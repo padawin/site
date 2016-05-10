@@ -7,6 +7,7 @@ import smtplib
 # Import the email modules we'll need
 from email.mime.text import MIMEText
 import syslog
+from validate_email import validate_email
 
 class MainHandler(tornado.web.RequestHandler):
 	def post(self):
@@ -39,6 +40,14 @@ class MainHandler(tornado.web.RequestHandler):
 		msg['Subject'] = 'Contact from website from %s' % data["from"]
 		msg['From'] = data["from"]
 		msg['To'] = me
+
+		if not validate_email(data['from']):
+			self.clear()
+			self.set_status(400)
+			self.finish({"error": 'invalid email address'})
+			syslog.syslog(syslog.LOG_NOTICE, "mail website,invalid email address,from %s" % data["from"])
+			return
+
 
 		result = {}
 		s = smtplib.SMTP('localhost')
