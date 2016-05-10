@@ -215,7 +215,8 @@ function (B, sky, canvas, sprites, pathFinding, camera, Map, Character, level, M
 			var // get the coordinates in the world
 				mouseInWorld = camera.toWorldCoords({x: mouseX, y: mouseY}),
 				// convert them in the coordinates of the clicked cell
-				dest = m.pixelsToCoords(mouseInWorld.x, mouseInWorld.y);
+				dest = m.pixelsToCoords(mouseInWorld.x, mouseInWorld.y),
+				path;
 
 			MessageModule.hide();
 
@@ -223,8 +224,11 @@ function (B, sky, canvas, sprites, pathFinding, camera, Map, Character, level, M
 				return;
 			}
 
-			me.setPath(pathFinding.astar(m, me.cell, dest));
-			camera.setSubject(me);
+			path = pathFinding.astar(m, me.cell, dest);
+			if (path.length) {
+				me.setPath(path);
+				camera.setSubject(me);
+			}
 		}, false);
 
 		/**
