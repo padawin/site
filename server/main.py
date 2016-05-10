@@ -43,8 +43,9 @@ class MainHandler(tornado.web.RequestHandler):
 		me = "contact@ghislain-rodrigues.fr"
 
 		msg["Subject"] = "Contact from website from %s" % data["from"]
-		msg["From"] = data["from"]
+		msg["From"] = "contact@ghislain-rodrigues.fr"
 		msg["To"] = me
+		msg.add_header("reply-to", data["from"])
 
 		if not validate_email(data["from"]):
 			self.clear()
