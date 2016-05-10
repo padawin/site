@@ -115,7 +115,7 @@ function (B, sky, canvas, sprites, pathFinding, camera, Map, Character, level, M
 	 * Initialises the menu's events in the HUD
 	 */
 	function initMenu () {
-		var menuLinks = B.$sel('#menu a'),
+		var menuLinks = B.$sel('#menu li.frame-button a'),
 			closeButtons = B.$sel('.frame .close-button'),
 			l, b;
 
