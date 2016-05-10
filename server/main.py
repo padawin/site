@@ -6,6 +6,7 @@ import tornado.web
 import smtplib
 # Import the email modules we'll need
 from email.mime.text import MIMEText
+import syslog
 
 class MainHandler(tornado.web.RequestHandler):
 	def post(self):
@@ -48,18 +49,22 @@ class MainHandler(tornado.web.RequestHandler):
 			result['result'] = 'ko'
 			result['code'] = 1
 			result['reason'] = 'All recipients were refused'
+			syslog.syslog(syslog.LOG_NOTICE, "mail website,exception SMTPRecipientsRefused,from %s" % data["from"])
 		except SMTPHeloError:
 			result['result'] = 'ko'
 			result['code'] = 2
 			result['reason'] = 'server error'
+			syslog.syslog(syslog.LOG_NOTICE, "mail website,exception SMTPHeloError,from %s" % data["from"])
 		except SMTPSenderRefused:
 			result['result'] = 'ko'
 			result['code'] = 3
 			result['reason'] = 'invalid from address'
+			syslog.syslog(syslog.LOG_NOTICE, "mail website,exception SMTPSenderRefused,from %s" % data["from"])
 		except SMTPDataError:
 			result['result'] = 'ko'
 			result['code'] = 4
 			result['reason'] = 'unexpected error. good luck with that'
+			syslog.syslog(syslog.LOG_NOTICE, "mail website,exception SMTPDataError,from %s" % data["from"])
 		s.quit()
 
 		self.write(result)
