@@ -21,7 +21,8 @@ function (B, sky, canvas, sprites, pathFinding, camera, Map, Character, level, M
 		hasFrameOpen = false,
 		loadingPadding,
 		loadingWidth,
-		loadingColor = '#0069b1';
+		loadingColor = '#0069b1',
+		hoveredCell;
 
 	/**
 	 * Method to load the resources needed for the game
@@ -69,7 +70,10 @@ function (B, sky, canvas, sprites, pathFinding, camera, Map, Character, level, M
 
 			canvas.getContext().font = "12px Arial";
 			canvas.getContext().fillStyle = 'black';
-			canvas.getContext().fillText(fps + " fps", 10, 20);
+			canvas.getContext().fillText(fps + " fps\n", 10, 20);
+			if (hoveredCell) {
+				canvas.getContext().fillText("hovered: " + JSON.stringify(hoveredCell), 10, 30);
+			}
 		}
 	}
 
@@ -183,7 +187,7 @@ function (B, sky, canvas, sprites, pathFinding, camera, Map, Character, level, M
 				// convert them in the coordinates of the clicked cell
 				dest = m.pixelsToCoords(mouseInWorld.x, mouseInWorld.y);
 
-
+			hoveredCell = dest;
 			if (m.isWalkableCell(dest)) {
 				m.highlight(dest);
 			}
