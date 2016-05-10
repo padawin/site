@@ -60,6 +60,11 @@
 						<img src="images/inventory.png" alt="Inventory" title="Open inventory" />
 					</a>
 				</li>
+				<li class="radius-left">
+					<a id="open-contact" href="#" rel="contact">
+						<img src="images/contact.png" alt="Contact" title="Contact Ghislain Rodrigues" />
+					</a>
+				</li>
 				<li class="radius-left" id="twitter-container">
 					<a
 						href="https://twitter.com/intent/tweet?text=Ghislain%20Rodrigues,%20passionate%20programmer&via=padawin03&url=http://ghislain-rodrigues.fr"
@@ -186,6 +191,19 @@
 					</section>
 				</div>
 			</section>
+			<section id="contact" class="message frame hidden">
+				<div class="content">
+					<button id="close-contact" rel="contact" class="close-button">Close</button>
+					<form action="" method="post" id="contact-form">
+						<span class="error"></span>
+						<label for="contact-from">Your email address</label>
+						<input type="email" name="from" required />
+						<label for="contact-message">Message</label>
+						<textarea name="message" rows="10" required></textarea>
+						<input type="submit" value="send" />
+					</form>
+				</div>
+			</section>
 			<div id="message" class="message hidden"><div class="content"></div></div>
 		</div>
 		<script type="text/javascript" src="http://www.ghislain-rodrigues.fr/js/butterfly.min.js"></script>
@@ -206,5 +224,6 @@
 		<script type="text/javascript" src="js/particles.js"></script>
 		<script type="text/javascript" src="js/sky.js"></script>
 		<script type="text/javascript" src="js/engine.js"></script>
+		<script type="text/javascript" src="js/contactForm.js"></script>
 	</body>
 </html>

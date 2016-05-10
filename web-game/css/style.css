@@ -7,9 +7,12 @@ body, button {
 	font-family: "Lucida Console", Monaco, monospace;
 }
 
-button {
+button, input[type="submit"] {
 	border-radius: 7px;
 	margin: 7px;
+	border: 0;
+	font-weight: bold;
+	padding: 4px;
 }
 
 .signature {
@@ -147,12 +150,34 @@ button {
 	list-style: none;
 }
 
+#contact form {
+	max-width: 600px;
+	margin: auto;
+}
+
+#contact form label {
+	margin-bottom: 7px;
+}
+
+#contact form label, #contact form input[type="email"], #contact form textarea {
+	display: block;
+	width: 100%;
+}
+
+#contact form input[type="submit"] {
+	display: block;
+	margin: 0 auto;
+}
+
+#contact form label, #contact form input[type="submit"] {
+	margin-top: 14px;
+}
+
 .frame .close-button {
 	position: absolute;
 	top: 0px;
 	right: 0px;
 	height: 30px;
-	font-weight: bold;
 }
 
 .hidden {

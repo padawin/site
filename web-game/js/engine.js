@@ -243,6 +243,17 @@ function (B, sky, canvas, sprites, pathFinding, camera, Map, Character, level, M
 		});
 
 		/**
+		 * Event fired when a the contact has been submitted
+		 */
+		B.Events.on('contactsent', null, function () {
+			B.addClass('contact', 'hidden');
+			B.Events.fire(
+				'message',
+				['Your message has been successfully sent']
+			);
+		});
+
+		/**
 		 * Event fired when keyboard key is pressed
 		 */
 		document.addEventListener('keydown', function (event) {
