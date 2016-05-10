@@ -31,6 +31,11 @@ class MainHandler(tornado.web.RequestHandler):
 			self.set_status(400)
 			self.finish({"error": "missing parameter message"})
 			return
+		elif len(data["message"].strip()) == 0:
+			self.clear()
+			self.set_status(400)
+			self.finish({"error": "empty message provided"})
+			return
 
 		# Create a text/plain message
 		msg = MIMEText(data["message"])
