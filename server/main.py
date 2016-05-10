@@ -60,24 +60,20 @@ class MainHandler(tornado.web.RequestHandler):
 			s.sendmail(me, [me], msg.as_string())
 			result["result"] = "ok"
 		except SMTPRecipientsRefused:
-			result["result"] = "ko"
 			result["code"] = 1
-			result["reason"] = "All recipients were refused"
+			result["error"] = "All recipients were refused"
 			syslog.syslog(syslog.LOG_NOTICE, "mail website,exception SMTPRecipientsRefused,from %s" % data["from"])
 		except SMTPHeloError:
-			result["result"] = "ko"
 			result["code"] = 2
-			result["reason"] = "server error"
+			result["error"] = "server error"
 			syslog.syslog(syslog.LOG_NOTICE, "mail website,exception SMTPHeloError,from %s" % data["from"])
 		except SMTPSenderRefused:
-			result["result"] = "ko"
 			result["code"] = 3
-			result["reason"] = "invalid from address"
+			result["error"] = "invalid from address"
 			syslog.syslog(syslog.LOG_NOTICE, "mail website,exception SMTPSenderRefused,from %s" % data["from"])
 		except SMTPDataError:
-			result["result"] = "ko"
 			result["code"] = 4
-			result["reason"] = "unexpected error. good luck with that"
+			result["error"] = "unexpected error"
 			syslog.syslog(syslog.LOG_NOTICE, "mail website,exception SMTPDataError,from %s" % data["from"])
 		s.quit()
 
