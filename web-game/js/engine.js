@@ -247,6 +247,7 @@ function (B, sky, canvas, sprites, pathFinding, camera, Map, Character, level, M
 		 */
 		B.Events.on('contactsent', null, function () {
 			B.addClass('contact', 'hidden');
+			hasFrameOpen = false;
 			B.Events.fire(
 				'message',
 				['Your message has been successfully sent']
