@@ -28,6 +28,10 @@ loader.executeModule('contactForm', 'B', function (B) {
 				},
 				500: function () {
 					B.$id('error-form').innerHTML = 'An error occured';
+				},
+				502: function () {
+					var error = "The server seems to have some issues, but don't worry, you can still find me on linkedin (https://uk.linkedin.com/pub/ghislain-rodrigues/45/68a/322)";
+					B.$id('error-form').innerHTML = error;
 				}
 			}, null, 'POST', JSON.stringify(data)
 		);
