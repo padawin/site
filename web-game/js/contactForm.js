@@ -9,12 +9,13 @@ loader.executeModule('contactForm', 'B', function (B) {
 	B.on(form, 'submit', function (e) {
 		e.preventDefault();
 
-		var data = {
-			from: form.from.value,
-			message: form.message.innerText
-		};
+		var url = window.location.protocol + '//' + window.location.host + '/contact',
+			data = {
+				from: form.from.value,
+				message: form.message.innerText
+			};
 		B.Ajax.request(
-			'/contact',
+			url,
 			{
 				200: function () {
 					console.log('200');
