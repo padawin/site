@@ -12,7 +12,7 @@ loader.executeModule('contactForm', 'B', function (B) {
 		var url = window.location.protocol + '//' + window.location.host + '/contact',
 			data = {
 				from: form.from.value,
-				message: form.message.innerText
+				message: form.message.value
 			};
 		B.Ajax.request(
 			url,
