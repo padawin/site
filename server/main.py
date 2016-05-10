@@ -32,11 +32,30 @@ class MainHandler(tornado.web.RequestHandler):
 		msg['From'] = data["from"]
 		msg['To'] = me
 
+		result = {}
 		s = smtplib.SMTP('localhost')
-		s.sendmail(me, [me], msg.as_string())
+		try:
+			s.sendmail(me, [me], msg.as_string())
+			result['result'] = 'ok'
+		except SMTPRecipientsRefused:
+			result['result'] = 'ko'
+			result['code'] = 1
+			result['reason'] = 'All recipients were refused'
+		except SMTPHeloError:
+			result['result'] = 'ko'
+			result['code'] = 2
+			result['reason'] = 'server error'
+		except SMTPSenderRefused:
+			result['result'] = 'ko'
+			result['code'] = 3
+			result['reason'] = 'invalid from address'
+		except SMTPDataError:
+			result['result'] = 'ko'
+			result['code'] = 4
+			result['reason'] = 'unexpected error. good luck with that'
 		s.quit()
 
-		self.write({"result":"ok"})
+		self.write(result)
 
 def make_app():
 	return tornado.web.Application([
