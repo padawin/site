@@ -27,5 +27,10 @@ loader.addModule('screenSize', 'B', function (B) {
 		B.Events.fire('resize');
 	}, false);
 
+	window.addEventListener('orientationchange', function (e) {
+		updateScreenSize();
+		B.Events.fire('resize');
+	}, false);
+
 	return screenSize;
 });
