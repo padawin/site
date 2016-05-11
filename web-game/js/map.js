@@ -283,7 +283,7 @@ function (sprites, canvas, ObjectClass, B) {
 						spriteInfo.w, spriteInfo.d
 					);
 
-					if (debug) {
+					if (debug && this.isWalkableCell({x: x, y: y})) {
 						ctx.beginPath();
 						ctx.moveTo(coord.x - relativeTopCornerTile.x, coord.y);
 						ctx.lineTo(coord.x, coord.y - relativeTopCornerTile.y);
