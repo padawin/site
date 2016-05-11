@@ -328,5 +328,11 @@ function (B, sky, canvas, sprites, pathFinding, camera, Map, Character, level, M
 	// start the game when the start button is clicked
 	B.on('start', 'click', function () {
 		startGame();
+
+		(function(a,c){document.onkeyup=function(e){c=((e||self.event).keyCode-37)==[1,1,3,3,0,2,0,2,29,28][c]&&(c==9&&a()||c+1)||0;}})(function () {
+			B.addClass(canvas.canvas, 'hidden');
+			B.addClass('hud', 'hidden');
+			B.removeClass('credits', 'hidden');
+		}, 0);
 	});
 });

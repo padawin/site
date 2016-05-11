@@ -19,7 +19,7 @@ button, input[type="submit"] {
 	color: red;
 }
 
-.signature {
+#intro p.signature {
 	text-align: right;
 }
 
@@ -67,6 +67,16 @@ button, input[type="submit"] {
 .content {
 	padding: 15px;
 	background-color: white;
+}
+
+.content p {
+	text-align: justify;
+}
+
+.content div, .content p, .content h1, .content h2 {
+	max-width: 700px;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .frame {
@@ -286,4 +296,12 @@ button, input[type="submit"] {
 	width: 200px;
 	height: 10px;
 	background-color: #E60C02;
+}
+
+#credits p, #credits h2, #credits ul li {
+	text-align: center;
+}
+
+#credits ul {
+	list-style: none;
 }
