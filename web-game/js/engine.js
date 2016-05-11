@@ -270,6 +270,9 @@ function (B, sky, canvas, sprites, pathFinding, camera, Map, Character, level, M
 		 */
 		document.addEventListener('keydown', function (event) {
 			if (hasFrameOpened()) {
+				if (event.keyCode == 27) {
+					closeFrame();
+				}
 				return;
 			}
 
