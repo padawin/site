@@ -308,7 +308,8 @@ function (B, sky, canvas, sprites, pathFinding, camera, Map, Character, level, M
 			m.prerender(debug, function () {
 				B.removeClass('hud', 'hidden');
 				initMenu();
-				me = new Character(m);
+				me = new Character();
+				me.setCell(m, 0, 0);
 				camera.setPosition(me);
 				timePreviousFrame = Date.now();
 				lastCalledTime = Date.now();
