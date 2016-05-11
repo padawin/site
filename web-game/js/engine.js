@@ -309,7 +309,7 @@ function (B, sky, canvas, sprites, pathFinding, camera, Map, Character, level, M
 				B.removeClass('hud', 'hidden');
 				initMenu();
 				me = new Character();
-				me.setCell(m, 0, 0);
+				me.setCell(m, 12, 10);
 				camera.setPosition(me);
 				timePreviousFrame = Date.now();
 				lastCalledTime = Date.now();
