@@ -358,11 +358,13 @@ function (sprites, canvas, ObjectClass, B) {
 	};
 
 	Map.prototype.isWalkableCell = function (dest) {
+		var object = this.getObject(dest);
 		return dest &&
 			this.map[dest.y] !== undefined &&
 			this.map[dest.y][dest.x] !== undefined &&
 			this.map[dest.y][dest.x] !== null &&
-			this.walkables[dest.y][dest.x];
+			this.walkables[dest.y][dest.x] &&
+			(!object || object.canBeTaken);
 	}
 
 	return Map;
