@@ -91,8 +91,8 @@ loader.addModule('level', 'sprites', function (sprites) {
 			{x: 4, y: 10, sprite: sprites.sprites[sprites.SPRITES_ACCESS.TREE]},
 			{x: 10, y: 7, sprite: sprites.sprites[sprites.SPRITES_ACCESS.TREE]},
 			{x: 8, y: 3, sprite: sprites.sprites[sprites.SPRITES_ACCESS.TREE_LARGE]},
-			{x: 1, y: 4, sprite: sprites.sprites[sprites.SPRITES_ACCESS.TREE_LARGE]},
-			{x: 18, y: 9, sprite: sprites.sprites[sprites.SPRITES_ACCESS.TREE_LARGE]},
+			{x: 1, y: 3, sprite: sprites.sprites[sprites.SPRITES_ACCESS.TREE_LARGE]},
+			{x: 19, y: 12, sprite: sprites.sprites[sprites.SPRITES_ACCESS.TREE_LARGE]},
 			{x: 14, y: 1, sprite: sprites.sprites[sprites.SPRITES_ACCESS.TABLE]}
 		]
 	};

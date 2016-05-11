@@ -101,7 +101,7 @@ loader.addModule('sprites', function () {
 				// tree
 				{x: 220, y: 129, w: 58, h: 82, posInCell: {x: 30, y: 72}},
 				// tree large
-				{x: 507, y: 76, w: 69, h: 134, posInCell: {x: 30, y: 125}},
+				{x: 472, y: 76, w: 80, h: 144, posInCell: {x: 30, y: 125}},
 				// table
 				{x: 278, y: 132, w: 108, h: 78, posInCell: {x: 60, y: 50}}
 			],
