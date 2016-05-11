@@ -13,7 +13,11 @@ loader.addModule('sprites', function () {
 				PLAYER_MOVE_UP_LEFT: 11,
 				PLAYER_MOVE_UP_RIGHT: 12,
 				WALL: 13,
-				SCROLL: 14
+				SCROLL: 14,
+				ROCK: 15,
+				TREE: 16,
+				TREE_LARGE: 17,
+				TABLE: 18
 			},
 			sprites: [
 				// grass
@@ -91,7 +95,15 @@ loader.addModule('sprites', function () {
 					{x: 102, y: 129, w: 38, h: 73, d: 73, posInCell: {x: 19, y: 57}},
 					{x: 64, y: 129, w: 38, h: 73, d: 73, posInCell: {x: 19, y: 57}},
 					{x: 140, y: 129, w: 38, h: 73, d: 73, posInCell: {x: 19, y: 57}}
-				]}
+				]},
+				// rock
+				{x: 178, y: 134, w: 42, h: 26, posInCell: {x: 23, y: 18}},
+				// tree
+				{x: 220, y: 129, w: 58, h: 82, posInCell: {x: 30, y: 72}},
+				// tree large
+				{x: 507, y: 76, w: 69, h: 134, posInCell: {x: 30, y: 125}},
+				// table
+				{x: 278, y: 132, w: 108, h: 78, posInCell: {x: 60, y: 50}}
 			],
 			loadResources: function (loaded) {
 				spriteModule.spriteResource = new Image();
