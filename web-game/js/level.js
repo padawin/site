@@ -27,7 +27,7 @@ loader.addModule('level', 'sprites', function (sprites) {
 		],
 		walkables: [
 			[1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-			[1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1],
+			[1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1],
 			[0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1],
 			[0, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1],
 			[0, 1, 0, 0, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1],
@@ -88,7 +88,8 @@ loader.addModule('level', 'sprites', function (sprites) {
 			{x: 18, y: 13, sprite: sprites.sprites[sprites.SPRITES_ACCESS.ROCK]},
 			{x: 18, y: 7, sprite: sprites.sprites[sprites.SPRITES_ACCESS.ROCK]},
 			{x: 8, y: 17, sprite: sprites.sprites[sprites.SPRITES_ACCESS.ROCK]},
-			{x: 4, y: 10, sprite: sprites.sprites[sprites.SPRITES_ACCESS.TREE]}
+			{x: 4, y: 10, sprite: sprites.sprites[sprites.SPRITES_ACCESS.TREE]},
+			{x: 14, y: 1, sprite: sprites.sprites[sprites.SPRITES_ACCESS.TABLE]}
 		]
 	};
 });
