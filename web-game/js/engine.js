@@ -18,7 +18,7 @@ function (B, sky, canvas, sprites, pathFinding, camera, Map, Character, level, M
 		lastCalledTime,
 		fpsAccu,
 		fps,
-		hasFrameOpen = false,
+		openedFrame = null,
 		loadingPadding,
 		loadingWidth,
 		loadingColor = '#0069b1',
@@ -111,6 +111,26 @@ function (B, sky, canvas, sprites, pathFinding, camera, Map, Character, level, M
 		}
 	}
 
+	function openFrame (id) {
+		if (openedFrame) {
+			return;
+		}
+
+		openedFrame = B.$id(id);
+		B.removeClass(openedFrame, 'hidden');
+	}
+
+	function closeFrame () {
+		if (openedFrame) {
+			B.addClass(openedFrame, 'hidden');
+			openedFrame = null;
+		}
+	}
+
+	function hasFrameOpened () {
+		return openedFrame;
+	}
+
 	/**
 	 * Initialises the menu's events in the HUD
 	 */
@@ -121,20 +141,12 @@ function (B, sky, canvas, sprites, pathFinding, camera, Map, Character, level, M
 
 		for (l in menuLinks) {
 			B.on(menuLinks[l], 'click', function (event) {
-				if (hasFrameOpen) {
-					return;
-				}
-
-				hasFrameOpen = true;
-				B.removeClass(this.getAttribute('rel'), 'hidden');
+				openFrame(this.getAttribute('rel'));
 			}.bind(menuLinks[l]));
 		}
 
 		for (b in closeButtons) {
-			B.on(closeButtons[b], 'click', function (event) {
-				hasFrameOpen = false;
-				B.addClass(this.getAttribute('rel'), 'hidden');
-			}.bind(closeButtons[b]));
+			B.on(closeButtons[b], 'click', closeFrame);
 		}
 	}
 
@@ -178,7 +190,7 @@ function (B, sky, canvas, sprites, pathFinding, camera, Map, Character, level, M
 		 * Event fired when the mouse is moved
 		 */
 		B.Events.on('mousemove', null, function (mouseX, mouseY) {
-			if (hasFrameOpen) {
+			if (hasFrameOpened()) {
 				return;
 			}
 
@@ -200,7 +212,7 @@ function (B, sky, canvas, sprites, pathFinding, camera, Map, Character, level, M
 		 * Event fired when the mouse is moved with the left button pressed
 		 */
 		B.Events.on('mousedrag', null, function (vectorX, vectorY) {
-			if (hasFrameOpen) {
+			if (hasFrameOpened()) {
 				return;
 			}
 
@@ -212,7 +224,7 @@ function (B, sky, canvas, sprites, pathFinding, camera, Map, Character, level, M
 		 * Event fired when the mouse is clicked
 		 */
 		B.Events.on('click', null, function (mouseX, mouseY) {
-			if (hasFrameOpen) {
+			if (hasFrameOpened()) {
 				return;
 			}
 
@@ -246,8 +258,7 @@ function (B, sky, canvas, sprites, pathFinding, camera, Map, Character, level, M
 		 * Event fired when a the contact has been submitted
 		 */
 		B.Events.on('contactsent', null, function () {
-			B.addClass('contact', 'hidden');
-			hasFrameOpen = false;
+			closeFrame();
 			B.Events.fire(
 				'message',
 				['Your message has been successfully sent']
@@ -258,7 +269,7 @@ function (B, sky, canvas, sprites, pathFinding, camera, Map, Character, level, M
 		 * Event fired when keyboard key is pressed
 		 */
 		document.addEventListener('keydown', function (event) {
-			if (hasFrameOpen) {
+			if (hasFrameOpened()) {
 				return;
 			}
 
