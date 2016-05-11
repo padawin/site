@@ -131,61 +131,7 @@ function (B, sky, canvas, sprites, pathFinding, camera, Map, Character, level, M
 		return openedFrame;
 	}
 
-	/**
-	 * Initialises the menu's events in the HUD
-	 */
-	function initMenu () {
-		var menuLinks = B.$sel('#menu li.frame-button a'),
-			closeButtons = B.$sel('.frame .close-button'),
-			l, b;
-
-		for (l in menuLinks) {
-			B.on(menuLinks[l], 'click', function (event) {
-				openFrame(this.getAttribute('rel'));
-			}.bind(menuLinks[l]));
-		}
-
-		for (b in closeButtons) {
-			B.on(closeButtons[b], 'click', closeFrame);
-		}
-	}
-
-	/**
-	 * Entry point of the game. Initialises the map, plugs the event and does a
-	 * certain amount of mess. @TODO To be refactored
-	 */
-	function startGame () {
-		document.body.removeChild(B.$id('intro'));
-
-		m = new Map(
-			level.ground,
-			level.walkables,
-			level.gridCellsDimensions,
-			level.objects
-		);
-		resize();
-		loadingPadding = canvas.getWidth() / 5;
-		loadingWidth = 3 * loadingPadding;
-
-		MessageModule.init();
-
-		/**
-		 * Event fired when the window is resized
-		 */
-		B.Events.on('resize', null, resize);
-
-		/**
-		 * Event fired when a resource is loaded
-		 */
-		B.Events.on('resourceloaded', null, function (nbLoaded, nbTotal) {
-			GUI.progressBar(
-				loadingPadding, canvas.getHeight() / 2,
-				loadingWidth, 30,
-				nbLoaded / nbTotal,
-				loadingColor, 'white', loadingColor
-			);
-		});
-
+	function initEvents () {
 		/**
 		 * Event fired when the mouse is moved
 		 */
@@ -301,6 +247,62 @@ function (B, sky, canvas, sprites, pathFinding, camera, Map, Character, level, M
 				}
 			}
 		});
+	}
+
+	/**
+	 * Initialises the menu's events in the HUD
+	 */
+	function initMenu () {
+		var menuLinks = B.$sel('#menu li.frame-button a'),
+			closeButtons = B.$sel('.frame .close-button'),
+			l, b;
+
+		for (l in menuLinks) {
+			B.on(menuLinks[l], 'click', function (event) {
+				openFrame(this.getAttribute('rel'));
+			}.bind(menuLinks[l]));
+		}
+
+		for (b in closeButtons) {
+			B.on(closeButtons[b], 'click', closeFrame);
+		}
+	}
+
+	/**
+	 * Entry point of the game. Initialises the map, plugs the event and does a
+	 * certain amount of mess. @TODO To be refactored
+	 */
+	function startGame () {
+		document.body.removeChild(B.$id('intro'));
+
+		m = new Map(
+			level.ground,
+			level.walkables,
+			level.gridCellsDimensions,
+			level.objects
+		);
+		resize();
+		loadingPadding = canvas.getWidth() / 5;
+		loadingWidth = 3 * loadingPadding;
+
+		MessageModule.init();
+
+		/**
+		 * Event fired when the window is resized
+		 */
+		B.Events.on('resize', null, resize);
+
+		/**
+		 * Event fired when a resource is loaded
+		 */
+		B.Events.on('resourceloaded', null, function (nbLoaded, nbTotal) {
+			GUI.progressBar(
+				loadingPadding, canvas.getHeight() / 2,
+				loadingWidth, 30,
+				nbLoaded / nbTotal,
+				loadingColor, 'white', loadingColor
+			);
+		});
 
 		// load all the resources. When they are loaded, prerender the map and
 		// then start the main loop
@@ -311,9 +313,13 @@ function (B, sky, canvas, sprites, pathFinding, camera, Map, Character, level, M
 				me = new Character();
 				me.setCell(m, 12, 10);
 				camera.setPosition(me);
+
+				initEvents();
+
 				timePreviousFrame = Date.now();
 				lastCalledTime = Date.now();
 				fpsAccu = 0;
+
 				mainLoop();
 			});
 		});
