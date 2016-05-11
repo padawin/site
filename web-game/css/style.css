@@ -80,6 +80,11 @@ button, input[type="submit"] {
 	z-index: 15;
 }
 
+#start {
+	font-size: 18px;
+	cursor: pointer;
+}
+
 #menu {
 	list-style: none;
 	position: absolute;
