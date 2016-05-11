@@ -1,14 +1,12 @@
 loader.addModule('particles', function () {
 	"use strict";
 
-	var particlesModule = {};
-
-	const PARTICLE_STATES = {
-		DEAD: 0,
-		ALIVE: 1
-	};
-
-	const PARTICLES_NUMBER = 1000;
+	var particlesModule = {},
+		PARTICLE_STATES = {
+			DEAD: 0,
+			ALIVE: 1
+		},
+		PARTICLES_NUMBER = 1000;
 
 	particlesModule.Particle = function (position, speed, maxLife) {
 		this.maxLife = maxLife;
