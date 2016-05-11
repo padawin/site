@@ -52,8 +52,7 @@ function (sprites, canvas, inventory, B) {
 	 * Also initialises different data in the player (path, frames and animation
 	 * information, speed)
 	 */
-	function Character (map) {
-		this.setCell(map, 0, 0);
+	function Character () {
 		this.path = [];
 		this.frame = 0;
 		this.maxFrame = 4;
