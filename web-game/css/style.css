@@ -212,6 +212,28 @@ button, input[type="submit"] {
 	background-color: #aaa;
 }
 
+#player-quests .quest h3 {
+	cursor: pointer;
+}
+
+#player-quests .quest .content {
+	display: none;
+}
+
+#player-quests .quest.active .content {
+	display: block;
+}
+
+#player-quests .quest:not(.active) .open,
+#player-quests .quest.active .closed {
+	display: none;
+}
+
+#player-quests .quest:not(.active) .closed,
+#player-quests .quest.active .open {
+	display: inline;
+}
+
 .frame .close-button {
 	position: absolute;
 	top: 0px;
