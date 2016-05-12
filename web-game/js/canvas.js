@@ -15,9 +15,9 @@ loader.addModule('canvas', 'B', function (B) {
 		return canvasContext;
 	};
 
-	canvas.resize = function () {
-		this.canvas.width = window.innerWidth;
-		this.canvas.height = window.innerHeight;
+	canvas.resize = function (dimensions) {
+		this.canvas.width = dimensions.w;
+		this.canvas.height = dimensions.h;
 	};
 
 	canvas.getWidth = function () {

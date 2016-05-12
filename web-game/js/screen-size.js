@@ -15,8 +15,8 @@ loader.addModule('screenSize', 'B', function (B) {
 
 	function updateScreenSize () {
 		screenSizeValues = {
-			x: Math.max(document.documentElement.clientWidth, window.innerWidth || 0),
-			y: Math.max(document.documentElement.clientHeight, window.innerHeight || 0)
+			w: screen.width,
+			h: screen.height
 		};
 	}
 
@@ -24,12 +24,7 @@ loader.addModule('screenSize', 'B', function (B) {
 
 	window.addEventListener('resize', function (e) {
 		updateScreenSize();
-		B.Events.fire('resize');
-	}, false);
-
-	window.addEventListener('orientationchange', function (e) {
-		updateScreenSize();
-		B.Events.fire('resize');
+		B.Events.fire('resize', [screenSizeValues]);
 	}, false);
 
 	return screenSize;
