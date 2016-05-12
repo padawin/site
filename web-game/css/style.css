@@ -73,10 +73,6 @@ button, input[type="submit"] {
 	background-color: white;
 }
 
-.content p {
-	text-align: justify;
-}
-
 .content div, .content p, .content h1, .content h2 {
 	max-width: 700px;
 	margin-left: auto;
