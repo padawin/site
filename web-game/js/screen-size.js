@@ -15,8 +15,8 @@ loader.addModule('screenSize', 'B', function (B) {
 
 	function updateScreenSize () {
 		screenSizeValues = {
-			w: screen.width,
-			h: screen.height
+			w: Math.max(document.documentElement.clientWidth, window.innerWidth || 0),
+			h: Math.max(document.documentElement.clientHeight, window.innerHeight || 0)
 		};
 	}
 
