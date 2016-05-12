@@ -276,6 +276,7 @@ function (B, sky, canvas, sprites, pathFinding, camera, Map, Character, level, M
 		document.body.removeChild(B.$id('intro'));
 
 		GUI.tabs();
+		GUI.collapsable();
 
 		m = new Map(
 			level.ground,

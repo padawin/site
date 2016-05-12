@@ -60,6 +60,21 @@ function (Canvas, B) {
 					}
 				}.bind(tabContents[t]));
 			}
+		},
+
+		collapsable: function () {
+			var questTitles = B.$sel('.quest h3'), t;
+			for (t = 0; t < questTitles.length; t++) {
+				console.log(questTitles[t]);
+				B.on(questTitles[t], 'click', function () {
+					if (B.hasClass(this.parentNode, 'active')) {
+						B.removeClass(this.parentNode, 'active');
+					}
+					else {
+						B.addClass(this.parentNode, 'active');
+					}
+				}.bind(questTitles[t]));
+			}
 		}
 	};
 
