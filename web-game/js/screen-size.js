@@ -24,7 +24,7 @@ loader.addModule('screenSize', 'B', function (B) {
 
 	window.addEventListener('resize', function (e) {
 		updateScreenSize();
-		B.Events.fire('resize');
+		B.Events.fire('resize', [screenSizeValues]);
 	}, false);
 
 	return screenSize;

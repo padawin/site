@@ -1,7 +1,7 @@
 loader.executeModule('main',
 'B', 'sky', 'canvas', 'sprites', 'pathFinding', 'camera', 'map', 'character',
-'level', 'message', 'GUI',
-function (B, sky, canvas, sprites, pathFinding, camera, Map, Character, level, MessageModule, GUI) {
+'level', 'message', 'GUI', 'screenSize',
+function (B, sky, canvas, sprites, pathFinding, camera, Map, Character, level, MessageModule, GUI, screenSize) {
 	"use strict";
 
 	/**
@@ -51,8 +51,8 @@ function (B, sky, canvas, sprites, pathFinding, camera, Map, Character, level, M
 	 * Method to adapt the canvas dimensions to the screen and the camera to the
 	 * canvas
 	 */
-	function resize () {
-		canvas.resize();
+	function resize (dimensions) {
+		canvas.resize(dimensions);
 		camera.w = canvas.getWidth();
 		camera.h = canvas.getHeight();
 	}
@@ -281,7 +281,8 @@ function (B, sky, canvas, sprites, pathFinding, camera, Map, Character, level, M
 			level.gridCellsDimensions,
 			level.objects
 		);
-		resize();
+		resize(screenSize.get());
+
 		loadingPadding = canvas.getWidth() / 5;
 		loadingWidth = 3 * loadingPadding;
 
