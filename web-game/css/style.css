@@ -200,20 +200,30 @@ button, input[type="submit"] {
 	list-style: none;
 	margin: 0;
 	padding: 0;
-	background-color: white;
+	background-color: #ccc;
 }
 
 #player-quests ul.tabs li {
 	display: inline-block;
-	width: 150px;
+	width: 164px;
+	height: 44px;
+	box-sizing: border-box;
 	border-right: 1px #ccc solid;
 	padding: 7px;
 	text-align: center;
+	background-color: #ccc;
 	cursor: pointer;
 }
 
+@media (max-width: 425px) {
+	#player-quests ul.tabs li {
+		margin-top: 44px;
+		width: 50%;
+	}
+}
+
 #player-quests ul.tabs li:hover, #player-quests ul.tabs li.active {
-	background-color: #aaa;
+	background-color: #fff;
 }
 
 #player-quests .quest h3 {
@@ -253,6 +263,7 @@ button, input[type="submit"] {
 	top: 0px;
 	right: 0px;
 	height: 30px;
+	width: 60px;
 }
 
 .hidden {
