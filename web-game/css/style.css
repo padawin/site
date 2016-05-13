@@ -310,7 +310,7 @@ button, input[type="submit"] {
 	(orientation: portrait) and (min-height: 350px) and (max-height: 700px), (orientation: portrait) and (min-width: 301px) and (max-width: 450px), {
 	#id-tag {
 		left: 5px;
-		bottom: 15px;
+		bottom: 5px;
 	}
 
 	#id-tag img {
