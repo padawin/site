@@ -3,7 +3,11 @@ body, canvas {
 	padding: 0;
 }
 
-body, button {
+body {
+	font-family: "Lato",sans-serif;
+}
+
+h1, h2, h3, button, #name {
 	font-family: "Lucida Console", Monaco, monospace;
 }
 
@@ -13,6 +17,10 @@ button, input[type="submit"] {
 	border: 0;
 	font-weight: bold;
 	padding: 4px;
+}
+
+.block {
+	display: block;
 }
 
 .error {
@@ -67,10 +75,6 @@ button, input[type="submit"] {
 .content {
 	padding: 15px;
 	background-color: white;
-}
-
-.content p {
-	text-align: justify;
 }
 
 .content div, .content p, .content h1, .content h2 {
@@ -192,11 +196,74 @@ button, input[type="submit"] {
 	margin-top: 14px;
 }
 
+#player-quests ul.tabs {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	background-color: #ccc;
+}
+
+#player-quests ul.tabs li {
+	display: inline-block;
+	width: 164px;
+	height: 44px;
+	box-sizing: border-box;
+	border-right: 1px #ccc solid;
+	padding: 7px;
+	text-align: center;
+	background-color: #ccc;
+	cursor: pointer;
+}
+
+@media (max-width: 425px) {
+	#player-quests ul.tabs li {
+		margin-top: 44px;
+		width: 50%;
+	}
+}
+
+#player-quests ul.tabs li:hover, #player-quests ul.tabs li.active {
+	background-color: #fff;
+}
+
+#player-quests .quest h3 {
+	cursor: pointer;
+}
+
+#player-quests .quest img {
+	float: right;
+}
+
+@media (max-width: 519px) {
+	#player-quests .quest img {
+		display: none;
+	}
+}
+
+#player-quests .quest .content {
+	display: none;
+}
+
+#player-quests .quest.active .content {
+	display: block;
+}
+
+#player-quests .quest:not(.active) .open,
+#player-quests .quest.active .closed {
+	display: none;
+}
+
+#player-quests .quest:not(.active) .closed,
+#player-quests .quest.active .open {
+	display: inline;
+}
+
 .frame .close-button {
 	position: absolute;
 	top: 0px;
 	right: 0px;
 	height: 30px;
+	width: 60px;
 }
 
 .hidden {

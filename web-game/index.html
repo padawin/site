@@ -28,16 +28,16 @@
 					This is my website, realised in the shape of a game. Once you
 					will click on the start button, you will be able to move your
 					character around (using either your mouse, or the
-					direction arrows on your keyboard), go grab my CV,
+					direction arrows on your keyboard), go <b>grab my CV</b>,
 					have a look at it in your inventory.
 				</p>
 				<p>
 					You will also be able to have a look at some more information
-					about me such as my experience as a quest journal or my skills
-					represented as the character's stats.
+					about me such as my experience as a <b>quest journal</b> or
+					my skills represented as the <b>character's stats</b>.
 				</p>
 				<p>
-					Please enjoy your visit and feel free to drop me a message!
+					Please enjoy your visit and feel free to <b>drop me a message!</b>
 				</p>
 				<p class="signature">
 					Ghislain Rodrigues, the Programmer of Albion
@@ -76,6 +76,11 @@
 				<li class="radius-left frame-button">
 					<a id="open-inventory" href="#" rel="inventory">
 						<img src="images/inventory.png" alt="Inventory" title="Open inventory" />
+					</a>
+				</li>
+				<li class="radius-left frame-button">
+					<a id="open-quests" href="#" rel="player-quests">
+						<img src="images/journal.png" alt="Journal" title="See quest log" />
 					</a>
 				</li>
 				<li class="radius-left frame-button">
@@ -220,6 +225,417 @@
 						<textarea name="message" rows="10" required></textarea>
 						<input type="submit" value="send" />
 					</form>
+				</div>
+			</section>
+			<section id="player-quests" class="message frame hidden">
+				<button id="close-quests" rel="player-quests" class="close-button">Close</button>
+				<ul class="tabs">
+					<li class="active" rel="job-quests">Jobs</li><li rel="personal-quests">Personal quests</li>
+				</ul>
+				<div class="content">
+					<div id="job-quests" class="tab-content quests-list">
+						<section class="quest active">
+							<h3>
+								<span class="open">&#9650;</span>
+								<span class="closed">&#9660;</span>
+								Developer at Quidco, London, UK
+							</h3>
+							<div class="content">
+								<p class="date">January 2016 - Present</p>
+								<b>Quest Objectives:</b>
+								<p>Participating to the development and release of the website https://www.shoop.fr.</p>
+								<p>Increased the quality of the internationalisation of the website.</p>
+								<p>Introduced the front end team to some advanced features of Git.</p>
+								<b>Quest experience:</b>
+								<ul>
+									<li>Javascript (Angular, NodeJS)</li>
+									<li>AWS</li>
+									<li>Git</li>
+								</ul>
+							</div>
+						</section>
+						<section class="quest">
+							<h3>
+								<span class="open">&#9650;</span>
+								<span class="closed">&#9660;</span>
+								Front end Developer at Symplectic Ltd, London, UK
+							</h3>
+							<div class="content">
+								<p class="date">January 2015 - December 2015</p>
+								<b>Quest Objectives:</b>
+								<p>
+									Maintaining and evolution of the software
+									Elements, "[...] a software system used by
+									research institutions to collect,understand
+									and showcase their scholarly activities." -
+									http://symplectic.co.uk/
+									products/elements/.
+								</p>
+								<p>
+									Implementation of the UI of features such as
+									a tool to ease the OA policy compliance for
+									the institutions.
+								</p>
+								<p>Migrate Mootools code to jQuery.</p>
+								<b>Quest experience:</b>
+								<ul>
+									<li>JavaScript (jQuery, AngularJS)</li>
+									<li>XSLT</li>
+									<li>d3.js</li>
+									<li>Git</li>
+								</ul>
+							</div>
+						</section>
+						<section class="quest">
+							<h3>
+								<span class="open">&#9650;</span>
+								<span class="closed">&#9660;</span>
+								Developer at Webgains Ltd, London, UK
+							</h3>
+							<div class="content">
+								<p class="date">August 2013 - December 2014</p>
+								<b>Quest Objectives:</b>
+								<p>
+									Development of new features and migration of
+									the old platform to Zend Framework.
+								</p>
+								<p>
+									Development of Javascript driven features on
+									the product, such as a feed reader using
+									sockets, an activity dashboard using D3.
+								</p>
+								<p>
+									Tutoring the development team in Git in
+									order to migrate away from SVN.
+								</p>
+								<b>Quest experience:</b>
+								<ul>
+									<li>PHP5 (Zend Framework)</li>
+									<li>MySql</li>
+									<li>Linux (Debian, CentOS)</li>
+									<li>Redis</li>
+									<li>MongoDB</li>
+									<li>RabbitMQ</li>
+									<li>Git</li>
+									<li>ElasticSearch</li>
+									<li>Node.js</li>
+									<li>Socket.io</li>
+									<li>Memcached</li>
+									<li>Jenkins</li>
+									<li>RESTful webservices</li>.
+								</ul>
+							</div>
+						</section>
+						<section class="quest">
+							<h3>
+								<span class="open">&#9650;</span>
+								<span class="closed">&#9660;</span>
+								Lead Developer at Elma/Maximiles (Now Bilendi), Paris, France
+							</h3>
+							<div class="content">
+								<p class="date">October 2012 - July 2013</p>
+								<b>Quest Objectives:</b>
+								<p>
+									Review the work of the other developers.
+								</p>
+								<p>
+									Update the testing, staging and production
+									environments.
+								</p>
+								<p>
+									In charge of projects composed of RESTFul
+									webservices, file integrations, back and
+									front end.
+								</p>
+								<b>Quest experience:</b>
+								<ul>
+									<li>Linux (Debian based)</li>
+									<li>PHP 5.2 - PHP 5.4 (Zend Framework)</li>
+									<li>Javascript (Mootools, Prototype, JQuery)</li>
+									<li>SVN/Git</li>
+									<li>Python</li>
+									<li>Perl</li>
+									<li>Bash</li>
+								</ul>
+							</div>
+						</section>
+						<section class="quest">
+							<h3>
+								<span class="open">&#9650;</span>
+								<span class="closed">&#9660;</span>
+								Developer at Elma/Maximiles (Now Bilendi), Paris, France
+							</h3>
+							<div class="content">
+								<p class="date">October 2009 - October 2012</p>
+								<b>Quest Objectives:</b>
+								<p>
+									Maintaining existing projects and creation of new ones.
+								</p>
+								<p>
+									Maintaining the group's main site
+									(http://maximiles.com, internationalised
+									using gettext, in 4 languages).
+								</p>
+								<p>
+									Work with the web design team to implement
+									the dynamic pages from static templates.
+								</p>
+								<p>
+									Formalisation of a process on Git to
+									recreate testing branches faster and safer,
+									and another one to commit the work of the
+									webdesign team.
+								</p>
+								<p>
+									Notable developments:
+									<ul>
+										<li>
+											Development of a tool to manage
+											thousands of keywords using HTML5
+											and AJAX for SEO purposes,
+										</li>
+										<li>
+											Standardisation of the multiple
+											subscription entry points of
+											Maximiles.
+										</li>
+									</ul>
+								</p>
+							</div>
+						</section>
+						<section class="quest">
+							<h3>
+								<span class="open">&#9650;</span>
+								<span class="closed">&#9660;</span>
+								IT Lessons (Charity work), Jarrier, France
+							</h3>
+							<div class="content">
+								<p class="date">September 2008 - June 2009</p>
+								<b>Quest Objectives:</b>
+								<p>
+									Those lessons included:
+									<ul>
+										<li>Basic computer skills</li>
+										<li>
+											How to use software such as
+											LibreOffice, a web browser, GIMP
+										</li>
+										<li>
+											The people who attended to the
+											lessons were all novices in IT and
+											of all ages
+										</li>
+									</ul>
+								</p>
+								<b>Quest experience:</b>
+								<ul>
+									<li>
+										Education and communication with people
+										not familiar with computer
+									</li>
+								</ul>
+							</div>
+						</section>
+					</div>
+					<div id="personal-quests" class="tab-content quests-list">
+						<section class="quest">
+							<h3>
+								<span class="open">&#9650;</span>
+								<span class="closed">&#9660;</span>
+								This website
+							</h3>
+							<div class="content">
+								<img src="http://ghislain-rodrigues.fr/images/website.png" alt="Website" />
+								<a class="block button" href="https://github.com/padawin/site" target="_blank">
+									Source
+								</a>
+								<b>Quest details:</b>
+								<p>
+									Portfolio made as a playable game.
+								</p>
+								<p>
+									Created as an original idea of medium
+									for a portfolio.
+								</p>
+								<b>Quest experience:</b>
+								<ul>
+									<li>Javascript and canvas</li>
+									<li>Path finding</li>
+									<li>Isometric calculations</li>
+									<li>Pixel art visuals</li>
+								</ul>
+							</div>
+						</section>
+
+						<section class="quest">
+							<h3>
+								<span class="open">&#9650;</span>
+								<span class="closed">&#9660;</span>
+								rRPG
+							</h3>
+							<div class="content">
+								<img src="http://ghislain-rodrigues.fr/images/rrpg.png" width="160" height="160" alt="rRPG" />
+								<a class="block button" href="https://github.com/rrpg/engine" target="_blank">
+									Source
+								</a>
+								<b>Quest Objectives:</b>
+								<p>
+									Text-based Rogue-like Role Playing Game (rRPG).
+								</p>
+								<p>
+									The system is built arround a commands
+									system (talk, walk, take...).
+								</p>
+								<b>Quest details:</b>
+								<ul>
+									<li>Python</li>
+									<li>C</li>
+									<li>SQLite</li>
+									<li>Randomly generated content</li>
+								</ul>
+							</div>
+						</section>
+						<section class="quest">
+							<h3>
+								<span class="open">&#9650;</span>
+								<span class="closed">&#9660;</span>
+								Conqueror
+							</h3>
+							<div class="content">
+								<img src="http://ghislain-rodrigues.fr/images/conqueror.png" alt="Conqueror" />
+								<a class="block button" href="https://github.com/padawin/conqueror" target="_blank">
+									Source
+								</a>
+								<b>Quest details:</b>
+								<p>
+									Strategy game where players must spread their pawns on a
+									maximum of space to win
+								</p>
+								<p>
+									Improvements:
+									<ul>
+										<li>Create an AI</li>
+										<li>Add some graphics</li>
+									</ul>
+								</p>
+								<b>Quest experience:</b>
+								<ul>
+									<li>C</li>
+									<li>Graphs</li>
+								</ul>
+							</div>
+						</section>
+						<section class="quest">
+							<h3>
+								<span class="open">&#9650;</span>
+								<span class="closed">&#9660;</span>
+								AD
+							</h3>
+							<div class="content">
+								<img src="http://ghislain-rodrigues.fr/images/A-D.png" alt="AD" />
+								<a class="block button" href="https://github.com/padawin/ad" target="_blank">
+									Source
+								</a>
+								<b>Quest details:</b>
+								<p>
+									Puzzle game where the player must shift the rows and
+									columns of a grid to group the cells per color
+								</p>
+								<b>Quest experience:</b>
+								<ul>
+									<li>Javascript and canvas</li>
+								</ul>
+							</div>
+						</section>
+						<section class="quest">
+							<h3>
+								<span class="open">&#9650;</span>
+								<span class="closed">&#9660;</span>
+								adVenture
+							</h3>
+							<div class="content">
+								<img src="http://ghislain-rodrigues.fr/images/adVenture.png" alt="adVenture" />
+								<a class="block button" href="https://github.com/padawin/adVenture" target="_blank">
+									Source
+								</a>
+								<b>Quest details:</b>
+								<p>
+									Branched story game. At each step the player has to choose
+									an action to go to the next step.
+								</p>
+								<b>Quest experience:</b>
+								<ul>
+									<li>Javascript</li>
+									<li>Engine of only 160bytes minimised!</li>
+								</ul>
+							</div>
+						</section>
+						<section class="quest">
+							<h3>
+								<span class="open">&#9650;</span>
+								<span class="closed">&#9660;</span>
+								Game framework
+							</h3>
+							<div class="content">
+								<img src="http://ghislain-rodrigues.fr/images/udemy.png" alt="Udemy course" />
+								<a class="block button" href="https://github.com/padawin/game-framework-js" target="_blank">
+									Source
+								</a>
+								<b>Quest details:</b>
+								<p>
+									Framework to make some grid based games.
+								</p>
+								<b>Quest experience:</b>
+								<ul>
+									<li>Javascript and canvas</li>
+									<li>Contains 3 demos: pong, race and adventure</li>
+								</ul>
+							</div>
+						</section>
+						<section class="quest">
+							<h3>
+								<span class="open">&#9650;</span>
+								<span class="closed">&#9660;</span>
+								Ray tracing
+							</h3>
+							<div class="content">
+								<img src="http://ghislain-rodrigues.fr/images/raytracing.png" alt="Ray tracing" />
+								<a class="block button" href="https://github.com/padawin/raytracing-test" target="_blank">
+									Source
+								</a>
+								<b>Quest details:</b>
+								<p>
+									Demo of the implementation of a raytracing engine, with
+									lights and obstacles to create some shadows.
+								</p>
+								<b>Quest experience:</b>
+								<ul>
+									<li>Javascript and canvas</li>
+								</ul>
+							</div>
+						</section>
+						<section class="quest">
+							<h3>
+								<span class="open">&#9650;</span>
+								<span class="closed">&#9660;</span>
+								Particles
+							</h3>
+							<div class="content">
+								<img src="http://ghislain-rodrigues.fr/images/particles.png" alt="Particles" />
+								<a class="block button" href="https://github.com/padawin/particles" target="_blank">
+									Source
+								</a>
+								<b>Quest details:</b>
+								<p>
+									Demo of the implementation of a particles engine.
+								</p>
+								<b>Quest experience:</b>
+								<ul>
+									<li>Javascript and canvas</li>
+								</ul>
+							</div>
+						</section>
+					</div>
 				</div>
 			</section>
 			<div id="message" class="message hidden"><div class="content"></div></div>

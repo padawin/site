@@ -275,6 +275,9 @@ function (B, sky, canvas, sprites, pathFinding, camera, Map, Character, level, M
 	function startGame () {
 		document.body.removeChild(B.$id('intro'));
 
+		GUI.tabs();
+		GUI.collapsable();
+
 		m = new Map(
 			level.ground,
 			level.walkables,

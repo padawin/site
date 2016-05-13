@@ -2,8 +2,8 @@
  * Module to providing visual elements (such as loading bar)
  */
 loader.addModule('GUI',
-'canvas',
-function (Canvas) {
+'canvas', 'B',
+function (Canvas, B) {
 	"use strict";
 
 	var GUI = {
@@ -29,6 +29,50 @@ function (Canvas) {
 				Canvas.drawRectangle(
 					x, y, w * progress, h, colorLoaded, colorLoaded
 				);
+			}
+		},
+
+		// Dirty
+		tabs: function () {
+			var tabContents = B.$sel('.tabs li'), t;
+			for (t = 0; t < tabContents.length; t++) {
+				if (!B.hasClass(tabContents[t], 'active')) {
+					B.addClass(tabContents[t].getAttribute('rel'), 'hidden');
+				}
+
+				B.on(tabContents[t], 'click', function () {
+					var c, tabContainer;
+
+					B.removeClass(
+						this.parentNode.querySelectorAll('.active')[0],
+						'active'
+					);
+					B.addClass(this, 'active');
+
+					tabContainer = B.$id(this.getAttribute('rel')).parentNode;
+					for (c = 0; c < tabContainer.children.length; c++) {
+						if (tabContainer.children[c].id == this.getAttribute('rel')) {
+							B.removeClass(tabContainer.children[c], 'hidden');
+						}
+						else {
+							B.addClass(tabContainer.children[c], 'hidden');
+						}
+					}
+				}.bind(tabContents[t]));
+			}
+		},
+
+		collapsable: function () {
+			var questTitles = B.$sel('.quest h3'), t;
+			for (t = 0; t < questTitles.length; t++) {
+				B.on(questTitles[t], 'click', function () {
+					if (B.hasClass(this.parentNode, 'active')) {
+						B.removeClass(this.parentNode, 'active');
+					}
+					else {
+						B.addClass(this.parentNode, 'active');
+					}
+				}.bind(questTitles[t]));
 			}
 		}
 	};
