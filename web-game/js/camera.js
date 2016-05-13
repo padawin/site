@@ -64,18 +64,18 @@ loader.addModule('camera', 'canvas', function (canvas) {
 
 			var cameraPosition = {x: camera.x, y: camera.y};
 
-			if (camera.w / 2 - (this.subject.x - camera.x) < 150) {
-				cameraPosition.x = this.subject.x - (camera.w / 2 - 150);
+			if (camera.w / 2 - (this.subject.x - camera.x) < 135) {
+				cameraPosition.x = this.subject.x - (camera.w / 2 - 135);
 			}
-			else if (camera.w / 2 - (camera.x - this.subject.x) < 150) {
-				cameraPosition.x = this.subject.x + (camera.w / 2 - 150);
+			else if (camera.w / 2 - (camera.x - this.subject.x) < 135) {
+				cameraPosition.x = this.subject.x + (camera.w / 2 - 135);
 			}
 
-			if (camera.h / 2 - (this.subject.y - camera.y) < 150) {
-				cameraPosition.y = this.subject.y - (camera.h / 2 - 150);
+			if (camera.h / 2 - (this.subject.y - camera.y) < 135) {
+				cameraPosition.y = this.subject.y - (camera.h / 2 - 135);
 			}
-			else if (camera.h / 2 - (camera.y - this.subject.y) < 150) {
-				cameraPosition.y = this.subject.y + (camera.h / 2 - 150);
+			else if (camera.h / 2 - (camera.y - this.subject.y) < 135) {
+				cameraPosition.y = this.subject.y + (camera.h / 2 - 135);
 			}
 
 			this.setPosition(cameraPosition);
