@@ -19,6 +19,10 @@ button, input[type="submit"] {
 	padding: 4px;
 }
 
+.block {
+	display: block;
+}
+
 .error {
 	color: red;
 }
