@@ -220,6 +220,16 @@ button, input[type="submit"] {
 	cursor: pointer;
 }
 
+#player-quests .quest img {
+	float: right;
+}
+
+@media (max-width: 519px) {
+	#player-quests .quest img {
+		display: none;
+	}
+}
+
 #player-quests .quest .content {
 	display: none;
 }
