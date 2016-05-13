@@ -71,8 +71,9 @@ function (B, sky, canvas, sprites, pathFinding, camera, Map, Character, level, M
 			canvas.getContext().font = "12px Arial";
 			canvas.getContext().fillStyle = 'black';
 			canvas.getContext().fillText(fps + " fps\n", 10, 20);
+			canvas.getContext().fillText("screen size: " + JSON.stringify(screenSize.get()), 10, 30);
 			if (hoveredCell) {
-				canvas.getContext().fillText("hovered: " + JSON.stringify(hoveredCell), 10, 30);
+				canvas.getContext().fillText("hovered: " + JSON.stringify(hoveredCell), 10, 40);
 			}
 		}
 	}
