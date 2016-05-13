@@ -239,7 +239,12 @@ button, input[type="submit"] {
 }
 
 #player-quests .quest h3 {
+	font-weight: normal;
 	cursor: pointer;
+}
+
+#player-quests .quest h3 .position {
+	font-weight: bold;
 }
 
 #player-quests .quest img {
