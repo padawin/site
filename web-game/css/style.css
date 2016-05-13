@@ -243,16 +243,20 @@ button, input[type="submit"] {
 	cursor: pointer;
 }
 
-#player-quests .quest h3:before {
-	content: '▼';
+#player-quests .quest h3 .position:before {
+	content: '▼ ';
 }
 
-#player-quests .quest.active h3:before {
-	content: '▲';
+#player-quests .quest.active h3 .position:before {
+	content: '▲ ';
 }
 
 #player-quests .quest h3 .position {
 	font-weight: bold;
+}
+
+#player-quests .quest h3 .location {
+	margin-left: 22px;
 }
 
 #player-quests .quest img {
