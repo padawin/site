@@ -1,6 +1,6 @@
 loader.addModule('map',
 'sprites', 'canvas', 'object', 'B',
-function (sprites, canvas, ObjectClass, B) {
+function (sprites, canvas, objectClass, B) {
 	"use strict";
 
 	/**
@@ -57,7 +57,7 @@ function (sprites, canvas, ObjectClass, B) {
 
 		this.objects = {};
 		for (var o in objects) {
-			this.addObject(ObjectClass(objects[o]));
+			this.addObject(objectClass(objects[o]));
 		}
 
 		this.frame = 0;
@@ -368,7 +368,7 @@ function (sprites, canvas, ObjectClass, B) {
 			this.map[dest.y][dest.x] !== null &&
 			this.walkables[dest.y][dest.x] &&
 			(!object || object.canBeTaken);
-	}
+	};
 
 	return Map;
 });

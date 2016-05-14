@@ -35,44 +35,51 @@ function (Canvas, B) {
 		// Dirty
 		tabs: function () {
 			var tabContents = B.$sel('.tabs li'), t;
-			for (t = 0; t < tabContents.length; t++) {
-				if (!B.hasClass(tabContents[t], 'active')) {
-					B.addClass(tabContents[t].getAttribute('rel'), 'hidden');
-				}
-
-				B.on(tabContents[t], 'click', function () {
+			function click (element) {
+				return function () {
 					var c, tabContainer;
 
 					B.removeClass(
-						this.parentNode.querySelectorAll('.active')[0],
+						element.parentNode.querySelectorAll('.active')[0],
 						'active'
 					);
-					B.addClass(this, 'active');
+					B.addClass(element, 'active');
 
-					tabContainer = B.$id(this.getAttribute('rel')).parentNode;
+					tabContainer = B.$id(element.getAttribute('rel')).parentNode;
 					for (c = 0; c < tabContainer.children.length; c++) {
-						if (tabContainer.children[c].id == this.getAttribute('rel')) {
+						if (tabContainer.children[c].id == element.getAttribute('rel')) {
 							B.removeClass(tabContainer.children[c], 'hidden');
 						}
 						else {
 							B.addClass(tabContainer.children[c], 'hidden');
 						}
 					}
-				}.bind(tabContents[t]));
+				};
+			}
+
+			for (t = 0; t < tabContents.length; t++) {
+				if (!B.hasClass(tabContents[t], 'active')) {
+					B.addClass(tabContents[t].getAttribute('rel'), 'hidden');
+				}
+
+				B.on(tabContents[t], 'click', click(tabContents[t]));
 			}
 		},
 
 		collapsable: function () {
 			var questTitles = B.$sel('.quest h3'), t;
-			for (t = 0; t < questTitles.length; t++) {
-				B.on(questTitles[t], 'click', function () {
-					if (B.hasClass(this.parentNode, 'active')) {
-						B.removeClass(this.parentNode, 'active');
+			function click (element) {
+				return function () {
+					if (B.hasClass(element.parentNode, 'active')) {
+						B.removeClass(element.parentNode, 'active');
 					}
 					else {
-						B.addClass(this.parentNode, 'active');
+						B.addClass(element.parentNode, 'active');
 					}
-				}.bind(questTitles[t]));
+				};
+			}
+			for (t = 0; t < questTitles.length; t++) {
+				B.on(questTitles[t], 'click', click(questTitles[t]));
 			}
 		}
 	};

@@ -43,10 +43,10 @@ loader.addModule('camera', 'canvas', function (canvas) {
 			};
 			return ret;
 		},
-		setSubject (subject) {
+		setSubject: function (subject) {
 			this.subject = subject;
 		},
-		setPosition (coordinates) {
+		setPosition: function (coordinates) {
 			this.x = coordinates.x;
 			this.y = coordinates.y;
 		},

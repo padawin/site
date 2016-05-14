@@ -39,7 +39,7 @@ loader.addModule('particles', function () {
 
 	particlesModule.ParticlesManager = function (size) {
 		this.maxSize = size;
-		this.particlesCollection = Array(size);
+		this.particlesCollection = new Array(size);
 		this.nbParticles = 0;
 	};
 
