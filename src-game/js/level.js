@@ -82,12 +82,12 @@ loader.addModule('level', 'sprites', function (sprites) {
 					window.open('http://www.ghislain-rodrigues.fr/CV-Ghislain-Rodrigues.pdf');
 				}
 			},
-			{x: 4, y: 7, sprite: sprites.sprites[sprites.SPRITES_ACCESS.ROCK]},
-			{x: 8, y: 6, sprite: sprites.sprites[sprites.SPRITES_ACCESS.ROCK]},
-			{x: 6, y: 13, sprite: sprites.sprites[sprites.SPRITES_ACCESS.ROCK]},
-			{x: 18, y: 13, sprite: sprites.sprites[sprites.SPRITES_ACCESS.ROCK]},
+			{x: 3, y: 11, sprite: sprites.sprites[sprites.SPRITES_ACCESS.ROCK]},
+			{x: 20, y: 14, sprite: sprites.sprites[sprites.SPRITES_ACCESS.ROCK]},
 			{x: 18, y: 7, sprite: sprites.sprites[sprites.SPRITES_ACCESS.ROCK]},
-			{x: 8, y: 17, sprite: sprites.sprites[sprites.SPRITES_ACCESS.ROCK]},
+			{x: 11, y: 15, sprite: sprites.sprites[sprites.SPRITES_ACCESS.SMALL_ROCK]},
+			{x: 13, y: 10, sprite: sprites.sprites[sprites.SPRITES_ACCESS.SMALL_ROCK]},
+			{x: 2, y: 5, sprite: sprites.sprites[sprites.SPRITES_ACCESS.SMALL_ROCK]},
 			{x: 4, y: 10, sprite: sprites.sprites[sprites.SPRITES_ACCESS.TREE]},
 			{x: 10, y: 7, sprite: sprites.sprites[sprites.SPRITES_ACCESS.TREE]},
 			{x: 8, y: 3, sprite: sprites.sprites[sprites.SPRITES_ACCESS.TREE_LARGE]},
