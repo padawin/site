@@ -11,3 +11,5 @@ do
 	cat src/header.inc.html "$DESTTMP" src/footer.inc.html > "$DEST"
 	rm "$DESTTMP"
 done
+
+cp src/index.html web/index.html
