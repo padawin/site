@@ -93,7 +93,12 @@ loader.addModule('level', 'sprites', function (sprites) {
 			{x: 8, y: 3, sprite: sprites.sprites[sprites.SPRITES_ACCESS.TREE_LARGE]},
 			{x: 1, y: 3, sprite: sprites.sprites[sprites.SPRITES_ACCESS.TREE_LARGE]},
 			{x: 19, y: 12, sprite: sprites.sprites[sprites.SPRITES_ACCESS.TREE_LARGE]},
-			{x: 14, y: 1, sprite: sprites.sprites[sprites.SPRITES_ACCESS.TABLE]}
+			{x: 14, y: 1, sprite: sprites.sprites[sprites.SPRITES_ACCESS.TABLE]},
+			{x: 4, y: 12, sprite: sprites.sprites[sprites.SPRITES_ACCESS.CAMERA],
+				canBeTaken: true, name: 'Camera', icon: 'images/camera.png',
+				onopen: function () {
+					window.open('http://travels.ghislain-rodrigues.fr/');
+				}}
 		]
 	};
 });

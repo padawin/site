@@ -18,7 +18,8 @@ loader.addModule('sprites', function () {
 				SMALL_ROCK: 18,
 				TREE: 19,
 				TREE_LARGE: 20,
-				TABLE: 21
+				TABLE: 21,
+				CAMERA: 22
 			},
 			sprites: [
 				// grass
@@ -114,7 +115,14 @@ loader.addModule('sprites', function () {
 				// tree large
 				{x: 472, y: 76, w: 79, h: 144, posInCell: {x: 30, y: 125}},
 				// table
-				{x: 278, y: 132, w: 108, h: 78, posInCell: {x: 60, y: 50}}
+				{x: 278, y: 132, w: 108, h: 78, posInCell: {x: 60, y: 50}},
+				// camera
+				{animation: [
+					{x: 551, y: 73, w: 42, h: 42, posInCell: {x: 20, y: 30}},
+					{x: 593, y: 73, w: 42, h: 44, posInCell: {x: 20, y: 32}},
+					{x: 551, y: 73, w: 42, h: 42, posInCell: {x: 20, y: 30}},
+					{x: 635, y: 73, w: 42, h: 40, posInCell: {x: 20, y: 28}}
+				]}
 			],
 			loadResources: function (loaded) {
 				spriteModule.spriteResource = new Image();
