@@ -1,4 +1,4 @@
-all: html css images
+all: html css images js-game css-game images-game
 
 html:
 	./bin/generate.sh
@@ -10,3 +10,14 @@ css:
 images:
 	mkdir -p web/images
 	cp src/images/* web/images/
+
+js-game:
+	./bin/minify-js.sh
+
+css-game:
+	mkdir -p web-game/css
+	cp src-game/css/* web-game/css/
+
+images-game:
+	mkdir -p web-game/images
+	cp src-game/images/* web-game/images/
