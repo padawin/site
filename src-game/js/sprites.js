@@ -6,18 +6,19 @@ loader.addModule('sprites', function () {
 			SPRITES_ACCESS: {
 				STAIR: 2,
 				FLOWERS: 3,
-				PLAYER_RIGHT: 7,
-				PLAYER_LEFT: 8,
-				PLAYER_MOVE_LEFT: 9,
-				PLAYER_MOVE_RIGHT: 10,
-				PLAYER_MOVE_UP_LEFT: 11,
-				PLAYER_MOVE_UP_RIGHT: 12,
-				WALL: 13,
-				SCROLL: 14,
-				ROCK: 15,
-				TREE: 16,
-				TREE_LARGE: 17,
-				TABLE: 18
+				PLAYER_RIGHT: 9,
+				PLAYER_LEFT: 10,
+				PLAYER_MOVE_LEFT: 11,
+				PLAYER_MOVE_RIGHT: 12,
+				PLAYER_MOVE_UP_LEFT: 13,
+				PLAYER_MOVE_UP_RIGHT: 14,
+				WALL: 15,
+				SCROLL: 16,
+				ROCK: 17,
+				SMALL_ROCK: 18,
+				TREE: 19,
+				TREE_LARGE: 20,
+				TABLE: 21
 			},
 			sprites: [
 				// grass
@@ -53,6 +54,14 @@ loader.addModule('sprites', function () {
 				},
 				// sand
 				{x: 512, y: 0, w: 64, h: 36, d: 73,
+					neighbours: {left: {x: -1, y: 0}, up: {x: 0, y: -1}, right: {x: 1, y: 0}, down: {x: 0, y: 1}}
+				},
+				// grass shadow
+				{x: 576, y: 0, w: 64, h: 36, d: 73,
+					neighbours: {left: {x: -1, y: 0}, up: {x: 0, y: -1}, right: {x: 1, y: 0}, down: {x: 0, y: 1}}
+				},
+				// grass shadow corner
+				{x: 640, y: 0, w: 64, h: 36, d: 73,
 					neighbours: {left: {x: -1, y: 0}, up: {x: 0, y: -1}, right: {x: 1, y: 0}, down: {x: 0, y: 1}}
 				},
 				// player right
@@ -98,10 +107,12 @@ loader.addModule('sprites', function () {
 				]},
 				// rock
 				{x: 178, y: 134, w: 42, h: 26, posInCell: {x: 23, y: 18}},
+				// small rock
+				{x: 166, y: 196, w: 54, h: 21, posInCell: {x: 26, y: 12}},
 				// tree
 				{x: 220, y: 129, w: 58, h: 82, posInCell: {x: 30, y: 72}},
 				// tree large
-				{x: 472, y: 76, w: 80, h: 144, posInCell: {x: 30, y: 125}},
+				{x: 472, y: 76, w: 79, h: 144, posInCell: {x: 30, y: 125}},
 				// table
 				{x: 278, y: 132, w: 108, h: 78, posInCell: {x: 60, y: 50}}
 			],
