@@ -242,7 +242,7 @@ button, input[type="submit"] {
 
 @media (max-width: 425px) {
 	#player-quests ul.tabs li {
-		margin-top: 44px;
+		margin: 0 !important;
 		width: 50%;
 	}
 }

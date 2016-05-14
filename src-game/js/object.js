@@ -12,38 +12,36 @@ function (sprites, canvas) {
 		canvasContext = canvas.getContext();
 
 	/**
-	 * default draw method for the map objects. Handles animated sprites.
-	 */
-	function draw (camera, map) {
-		var coord, s;
-
-		coord = camera.adapt(map.coordsToPixels(this.x, this.y));
-		s = this.sprite;
-		if (s.animation !== undefined) {
-			this.tick++;
-			if (this.tick == this.timePerFrame) {
-				this.tick = 0;
-				this.frame = (this.frame + 1) % s.animation.length;
-			}
-			s = s.animation[this.frame];
-		}
-
-		canvasContext.drawImage(sprites.spriteResource,
-			s.x, s.y,
-			s.w, s.h,
-			coord.x - s.posInCell.x, coord.y - s.posInCell.y,
-			s.w, s.h
-		);
-	}
-
-	/**
 	 * Factory method. Takes a JS object and parasites it with the default draw
 	 * method if it has none and if the object's sprite is animated, initialises
 	 * its frame, ticks and timePerFrame (hard coded)
 	 */
 	ObjectClass = function (data) {
 		if (!data.draw) {
-			data.draw = draw;
+			/**
+			 * default draw method for the map objects. Handles animated sprites.
+			 */
+			data.draw = function (camera, map) {
+				var coord, s;
+
+				coord = camera.adapt(map.coordsToPixels(data.x, data.y));
+				s = data.sprite;
+				if (s.animation !== undefined) {
+					data.tick++;
+					if (data.tick == data.timePerFrame) {
+						data.tick = 0;
+						data.frame = (data.frame + 1) % s.animation.length;
+					}
+					s = s.animation[data.frame];
+				}
+
+				canvasContext.drawImage(sprites.spriteResource,
+					s.x, s.y,
+					s.w, s.h,
+					coord.x - s.posInCell.x, coord.y - s.posInCell.y,
+					s.w, s.h
+				);
+			};
 		}
 
 		if (data.sprite.animation) {

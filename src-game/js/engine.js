@@ -258,10 +258,14 @@ function (B, sky, canvas, sprites, pathFinding, camera, Map, Character, level, M
 			closeButtons = B.$sel('.frame .close-button'),
 			l, b;
 
-		for (l in menuLinks) {
-			B.on(menuLinks[l], 'click', function (event) {
-				openFrame(this.getAttribute('rel'));
-			}.bind(menuLinks[l]));
+		function click (element) {
+			return function () {
+				openFrame(element.getAttribute('rel'));
+			};
+		}
+
+		for (l = 0; l < menuLinks.length; l++) {
+			B.on(menuLinks[l], 'click', click(menuLinks[l]));
 		}
 
 		for (b in closeButtons) {
@@ -334,7 +338,7 @@ function (B, sky, canvas, sprites, pathFinding, camera, Map, Character, level, M
 	B.on('start', 'click', function () {
 		startGame();
 
-		(function(a,c){document.onkeyup=function(e){c=((e||self.event).keyCode-37)==[1,1,3,3,0,2,0,2,29,28][c]&&(c==9&&a()||c+1)||0;}})(function () {
+		(function(a,c){document.onkeyup=function(e){c=((e||self.event).keyCode-37)==[1,1,3,3,0,2,0,2,29,28][c]&&(c==9&&a()||c+1)||0;};})(function () {
 			B.addClass(canvas.canvas, 'hidden');
 			B.addClass('hud', 'hidden');
 			B.removeClass('credits', 'hidden');
