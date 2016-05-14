@@ -98,7 +98,14 @@ loader.addModule('level', 'sprites', function (sprites) {
 				canBeTaken: true, name: 'Camera', icon: 'images/camera.png',
 				onopen: function () {
 					window.open('http://travels.ghislain-rodrigues.fr/');
-				}}
+				}
+			},
+			{x: 17, y: 17, sprite: sprites.sprites[sprites.SPRITES_ACCESS.OCTOCAT],
+				canBeTaken: true, name: 'Octocat', icon: 'images/Octocat.png',
+				onopen: function () {
+					window.open('https://github.com/padawin/');
+				}
+			},
 		]
 	};
 });
