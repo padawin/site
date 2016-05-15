@@ -36,27 +36,20 @@ Most of those projects are proofs of concept, ideas, or partly finished games.
 		<section>
 			<h3>
 				My website -
-				<a class="block button" href="https://github.com/padawin/site" target="_blank">
-					Github
-				</a> -
+				<a class="block button" href="https://github.com/padawin/site" target="_blank">Github</a> -
 				<a class="block button" href="http://ghislain-rodrigues.fr/game" target="_blank">
 					URL
 				</a>
 			</h3>
 			<div class="info">
 				<p>
-					Portfolio made as a playable game.
-				</p>
-				<p>
+					Portfolio made as a playable game.</ br>
 					Created as an original idea of medium
 					for a portfolio.
 				</p>
 				<b>Tech:</b>
 				<ul>
-					<li>Javascript and canvas</li>
-					<li>Path finding</li>
-					<li>Isometric calculations</li>
-					<li>Pixel art visuals</li>
+					<li>Javascript and canvas, Path finding, Isometric calculations, Pixel art visuals</li>
 				</ul>
 			</div>
 		</section>
