@@ -35,7 +35,7 @@ Most of those projects are proofs of concept, ideas, or partly finished games.
 		<img src="images/website.png" alt="Website" />
 		<section>
 			<h3>
-				My website -
+				My interactive portfolio -
 				<a class="block button" href="https://github.com/padawin/site" target="_blank">Github</a> -
 				<a class="block button" href="http://ghislain-rodrigues.fr/game" target="_blank">
 					URL
@@ -43,9 +43,7 @@ Most of those projects are proofs of concept, ideas, or partly finished games.
 			</h3>
 			<div class="info">
 				<p>
-					Portfolio made as a playable game.</ br>
-					Created as an original idea of medium
-					for a portfolio.
+					Created as an original idea of medium for a portfolio.
 				</p>
 				<b>Tech:</b>
 				<ul>
