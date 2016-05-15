@@ -42,12 +42,12 @@ Most of those projects are proofs of concept, ideas, or partly finished games.
 				</a>
 			</h3>
 			<div class="info">
-				<p>
-					Created as an original idea of medium for a portfolio.
-				</p>
+				<p></p>
 				<b>Tech:</b>
 				<ul>
-					<li>Javascript and canvas, Path finding, Isometric calculations, Pixel art visuals</li>
+					<li>Javascript and canvas</li>
+					<li>Path finding</li>
+					<li>Isometric calculations</li>
 				</ul>
 			</div>
 		</section>
