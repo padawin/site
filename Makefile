@@ -11,8 +11,11 @@ images:
 	mkdir -p web/images
 	cp -r src/images/* web/images/
 
+js-game-min:
+	./bin/minify-js.sh deploy
+
 js-game:
-	./bin/minify-js.sh
+	./bin/minify-js.sh deploy
 
 css-game:
 	mkdir -p web-game/css
