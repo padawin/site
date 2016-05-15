@@ -9,7 +9,7 @@ css:
 
 images:
 	mkdir -p web/images
-	cp src/images/* web/images/
+	cp -r src/images/* web/images/
 
 js-game:
 	./bin/minify-js.sh
