@@ -110,3 +110,15 @@ body > div a span {
 		position: static;
 	}
 }
+
+@media (min-height: 768px) {
+	#game {
+		background-size: auto 100%;
+	}
+}
+
+@media (min-height: 1080px) {
+	#website {
+		background-size: auto 100%;
+	}
+}
