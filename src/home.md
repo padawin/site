@@ -38,6 +38,9 @@ Most of those projects are proofs of concept, ideas, or partly finished games.
 				My website -
 				<a class="block button" href="https://github.com/padawin/site" target="_blank">
 					Github
+				</a> -
+				<a class="block button" href="http://ghislain-rodrigues.fr/game" target="_blank">
+					URL
 				</a>
 			</h3>
 			<div class="info">
