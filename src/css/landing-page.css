@@ -112,13 +112,7 @@ body > div a span {
 }
 
 @media (min-height: 768px) {
-	#game {
-		background-size: auto 100%;
-	}
-}
-
-@media (min-height: 1080px) {
-	#website {
+	#website, #game {
 		background-size: auto 100%;
 	}
 }
