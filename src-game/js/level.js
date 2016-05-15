@@ -95,13 +95,13 @@ loader.addModule('level', 'sprites', function (sprites) {
 			{x: 19, y: 12, sprite: sprites.sprites[sprites.SPRITES_ACCESS.TREE_LARGE]},
 			{x: 14, y: 1, sprite: sprites.sprites[sprites.SPRITES_ACCESS.TABLE]},
 			{x: 4, y: 12, sprite: sprites.sprites[sprites.SPRITES_ACCESS.CAMERA],
-				canBeTaken: true, name: 'Camera', icon: 'images/camera.png',
+				canBeTaken: true, name: 'My pictures', icon: 'images/camera.png',
 				onopen: function () {
 					window.open('http://travels.ghislain-rodrigues.fr/');
 				}
 			},
 			{x: 17, y: 17, sprite: sprites.sprites[sprites.SPRITES_ACCESS.OCTOCAT],
-				canBeTaken: true, name: 'Octocat', icon: 'images/Octocat.png',
+				canBeTaken: true, name: 'Github', icon: 'images/Octocat.png',
 				onopen: function () {
 					window.open('https://github.com/padawin/');
 				}
