@@ -67,65 +67,65 @@ loader.addModule('sprites', function () {
 					neighbours: {left: {x: -1, y: 0}, up: {x: 0, y: -1}, right: {x: 1, y: 0}, down: {x: 0, y: 1}}
 				},
 				// player right
-				{x: 0, y: 73, w: 28, h: 56, posInCell: {x: 14, y: 52}},
+				{x: 0, y: 73, w: 28, h: 60, posInCell: {x: 14, y: 52}},
 				// player left
-				{x: 28, y: 73, w: 28, h: 56, posInCell: {x: 14, y: 52}},
+				{x: 28, y: 73, w: 28, h: 60, posInCell: {x: 14, y: 52}},
 				// player move left
 				{animation: [
-					{x: 56, y: 73, w: 36, h: 56, posInCell: {x: 18, y: 52}},
-					{x: 92, y: 73, w: 16, h: 56, posInCell: {x: 8, y: 52}},
-					{x: 108, y: 73, w: 36, h: 56, posInCell: {x: 18, y: 52}},
-					{x: 144, y: 73, w: 16, h: 56, posInCell: {x: 8, y: 52}}
+					{x: 56, y: 73, w: 36, h: 60, posInCell: {x: 18, y: 52}},
+					{x: 92, y: 73, w: 20, h: 60, posInCell: {x: 8, y: 52}},
+					{x: 112, y: 73, w: 36, h: 60, posInCell: {x: 18, y: 52}},
+					{x: 148, y: 73, w: 20, h: 60, posInCell: {x: 8, y: 52}}
 				]},
 				// player move right
 				{animation: [
-					{x: 160, y: 73, w: 36, h: 56, posInCell: {x: 18, y: 52}},
-					{x: 196, y: 73, w: 16, h: 56, posInCell: {x: 8, y: 52}},
-					{x: 212, y: 73, w: 36, h: 56, posInCell: {x: 18, y: 52}},
-					{x: 248, y: 73, w: 16, h: 56, posInCell: {x: 8, y: 52}}
+					{x: 168, y: 73, w: 36, h: 60, posInCell: {x: 18, y: 52}},
+					{x: 204, y: 73, w: 20, h: 60, posInCell: {x: 8, y: 52}},
+					{x: 224, y: 73, w: 36, h: 60, posInCell: {x: 18, y: 52}},
+					{x: 260, y: 73, w: 20, h: 60, posInCell: {x: 8, y: 52}}
 				]},
 				// player move up left
 				{animation: [
-					{x: 264, y: 73, w: 36, h: 56, posInCell: {x: 18, y: 52}},
-					{x: 300, y: 73, w: 16, h: 56, posInCell: {x: 8, y: 52}},
-					{x: 316, y: 73, w: 36, h: 56, posInCell: {x: 18, y: 52}},
-					{x: 352, y: 73, w: 16, h: 56, posInCell: {x: 8, y: 52}}
+					{x: 280, y: 73, w: 36, h: 60, posInCell: {x: 18, y: 52}},
+					{x: 316, y: 73, w: 20, h: 60, posInCell: {x: 8, y: 52}},
+					{x: 336, y: 73, w: 36, h: 60, posInCell: {x: 18, y: 52}},
+					{x: 372, y: 73, w: 20, h: 60, posInCell: {x: 8, y: 52}}
 				]},
 				// player move up right
 				{animation: [
-					{x: 368, y: 73, w: 36, h: 56, posInCell: {x: 18, y: 52}},
-					{x: 404, y: 73, w: 16, h: 56, posInCell: {x: 8, y: 52}},
-					{x: 420, y: 73, w: 36, h: 56, posInCell: {x: 18, y: 52}},
-					{x: 456, y: 73, w: 16, h: 56, posInCell: {x: 8, y: 52}}
+					{x: 392, y: 73, w: 36, h: 60, posInCell: {x: 18, y: 52}},
+					{x: 428, y: 73, w: 20, h: 60, posInCell: {x: 8, y: 52}},
+					{x: 448, y: 73, w: 36, h: 60, posInCell: {x: 18, y: 52}},
+					{x: 484, y: 73, w: 20, h: 60, posInCell: {x: 8, y: 52}}
 				]},
 				// wall
-				{x: 0, y: 129, w: 64, h: 73, d: 73, posInCell: {x: 32, y: 55}},
+				{x: 0, y: 133, w: 64, h: 73, d: 73, posInCell: {x: 32, y: 55}},
 				// scroll
 				{animation: [
-					{x: 64, y: 129, w: 38, h: 73, d: 73, posInCell: {x: 19, y: 57}},
-					{x: 102, y: 129, w: 38, h: 73, d: 73, posInCell: {x: 19, y: 57}},
-					{x: 64, y: 129, w: 38, h: 73, d: 73, posInCell: {x: 19, y: 57}},
-					{x: 140, y: 129, w: 38, h: 73, d: 73, posInCell: {x: 19, y: 57}}
+					{x: 64, y: 133, w: 38, h: 73, d: 73, posInCell: {x: 19, y: 57}},
+					{x: 102, y: 133, w: 38, h: 73, d: 73, posInCell: {x: 19, y: 57}},
+					{x: 64, y: 133, w: 38, h: 73, d: 73, posInCell: {x: 19, y: 57}},
+					{x: 140, y: 133, w: 38, h: 73, d: 73, posInCell: {x: 19, y: 57}}
 				]},
 				// rock
-				{x: 178, y: 134, w: 42, h: 26, posInCell: {x: 23, y: 18}},
+				{x: 178, y: 138, w: 42, h: 26, posInCell: {x: 23, y: 18}},
 				// small rock
-				{x: 166, y: 196, w: 54, h: 21, posInCell: {x: 26, y: 12}},
+				{x: 166, y: 200, w: 54, h: 21, posInCell: {x: 26, y: 12}},
 				// tree
-				{x: 220, y: 129, w: 58, h: 82, posInCell: {x: 30, y: 72}},
+				{x: 220, y: 133, w: 58, h: 82, posInCell: {x: 30, y: 72}},
 				// tree large
-				{x: 472, y: 76, w: 79, h: 144, posInCell: {x: 30, y: 125}},
+				{x: 504, y: 76, w: 79, h: 144, posInCell: {x: 30, y: 125}},
 				// table
-				{x: 278, y: 132, w: 108, h: 78, posInCell: {x: 60, y: 50}},
+				{x: 278, y: 136, w: 108, h: 78, posInCell: {x: 60, y: 50}},
 				// camera
 				{animation: [
-					{x: 551, y: 73, w: 42, h: 42, posInCell: {x: 20, y: 30}},
-					{x: 593, y: 73, w: 42, h: 44, posInCell: {x: 20, y: 32}},
-					{x: 551, y: 73, w: 42, h: 42, posInCell: {x: 20, y: 30}},
-					{x: 635, y: 73, w: 42, h: 40, posInCell: {x: 20, y: 28}}
+					{x: 583, y: 73, w: 42, h: 42, posInCell: {x: 20, y: 30}},
+					{x: 583, y: 115, w: 42, h: 44, posInCell: {x: 20, y: 32}},
+					{x: 583, y: 73, w: 42, h: 42, posInCell: {x: 20, y: 30}},
+					{x: 583, y: 159, w: 42, h: 40, posInCell: {x: 20, y: 28}}
 				]},
 				// Octocat
-				{x: 386, y: 131, w: 76, h: 66, posInCell: {x: 38, y: 58}}
+				{x: 386, y: 135, w: 76, h: 66, posInCell: {x: 38, y: 58}}
 			],
 			loadResources: function (loaded) {
 				spriteModule.spriteResource = new Image();
