@@ -12,7 +12,7 @@ images:
 	cp -r src/images/* web/images/
 
 js-game-min:
-	./bin/minify-js.sh deploy
+	./bin/minify-js.sh make
 
 js-game:
 	./bin/minify-js.sh deploy
