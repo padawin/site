@@ -37,7 +37,7 @@ Most of those projects are proofs of concept, ideas, or partly finished games.
 			<h3>
 				My interactive portfolio -
 				<a class="block button" href="https://github.com/padawin/site" target="_blank">Github</a> -
-				<a class="block button" href="http://ghislain-rodrigues.fr/game" target="_blank">
+				<a class="block button" href="http://ghislain-rodrigues.fr/interactive" target="_blank">
 					URL
 				</a>
 			</h3>
