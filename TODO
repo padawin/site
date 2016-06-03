@@ -1,0 +1,20 @@
+Git
+	bisect
+	workflow to describe
+	A history of Commits
+	The secret about branches, or why keeping merged branches is useless
+
+Game programming
+	grid in games
+	implement a camera and display the view depending on the camera
+	particle system
+	animating sprites
+	path finding
+	optimisations: prerendering images
+	loading resources
+	delaunay triangulation
+
+To Work On
+	Shadow areas
+	path finding using polygons
+	fix game path finding
