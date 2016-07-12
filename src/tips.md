@@ -19,4 +19,5 @@
 	<li><a href="./articles/format-json-output.html">Format json output</a></li>
 	<li><a href="./articles/a-way-to-write-a-method-in-a-class.html">A way to write a method in a class</a></li>
 	<li><a href="./articles/search-and-replace.html">Search and replace</a></li>
+	<li><a href="./articles/virtualenvs-explained.html">Virtualenvs explained</a></li>
 </ul>
