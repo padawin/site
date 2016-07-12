@@ -9,7 +9,7 @@ per environment.
 
 ### Different solutions
 
-If you are using python3, it provides the package venv ([https://docs.python.org/3/library/venv.html#module-venv])
+If you are using python3, it provides the package [venv](https://docs.python.org/3/library/venv.html#module-venv)
 
 Otherwise, it is possible to use the package from pip ```virtualenv```
 
