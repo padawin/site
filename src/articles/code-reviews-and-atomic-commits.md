@@ -21,9 +21,9 @@ The review is split in 2 parts, a read of the code commits per commits, then
 a global read of the changes in the branch.
 
 When you read a story (like a novel), it is the action of going through it step
-by step which makes you understanding it. If the story is described as the list
-of the locations with their state before and after the story, you will have no
-clue about what happened. Reviewing a code is the same.
+by step which makes you understand it. If the story is described as just how a
+location is before and after some events, you will have to spend some time
+figuring out what the events were. Reviewing a code is the same.
 
 First, read the commit logs in the *chronological* order:
 
@@ -106,8 +106,8 @@ Instead, the commits should look like:
 	#5 "Comments added"
 	[Different comments added in the code base]
 
-With those commits, the reviewer has to be careful about the 4 and 5 mostly (eg
-only the logical changes). The other commits must of course be reviewed but
+With those commits, the reviewer has to be careful about the 4th and 5th mostly
+(eg only the logical changes). The other commits must of course be reviewed but
 their review can be fast:
 
 <ul>
