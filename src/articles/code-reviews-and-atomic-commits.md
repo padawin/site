@@ -118,8 +118,9 @@ their review can be fast:
 		code is correct, so you don't have to worry about it.
 	</li>
 	<li>
-		For variable renamed, anything "changed", the reviewer should expect changes
-		having pairs of removed/added like:
+		For renamed variables, anything <b>changed</b>, <b>renamed</b>,
+		<b>replaced</b>, the reviewer should expect changes having pairs of
+		removed/added like:
 <pre><code>
  // Some unchanged code here
 -int s;
