@@ -21,4 +21,5 @@
 	<li><a href="./articles/search-and-replace.html">Search and replace</a></li>
 	<li><a href="./articles/virtualenvs-explained.html">Virtualenvs explained</a></li>
 	<li><a href="./articles/code-reviews-and-atomic-commits.html">Code reviews and atomic commits</a></li>
+	<li><a href="./articles/retrieve-back-lost-stash.html">Retrieve back lost stash</a></li>
 </ul>
