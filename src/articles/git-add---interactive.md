@@ -1,3 +1,5 @@
+<b>Published: November 2015</b>
+
 ## git add --interactive or how to make awesome commits
 
 In git you can, for a commit, add only parts of a file. For that you'll need to use the &ndash;interactive option :

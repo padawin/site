@@ -1,3 +1,5 @@
+<b>Published: May 2014</b>
+
 ## Search and relace
 
 ### Search and Replace in one or multiple files

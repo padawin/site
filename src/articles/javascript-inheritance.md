@@ -1,3 +1,5 @@
+<b>Published: May 2014</b>
+
 ## Javascript inheritance
 
 How to implement a basic inheritance system in Javascript.

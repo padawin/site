@@ -1,3 +1,5 @@
+<b>Published: May 2014</b>
+
 ## Get the used memory in a program in python
 
 	import resource

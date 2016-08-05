@@ -1,3 +1,5 @@
+<b>Published: 1st March 2014</b>
+
 ## SQL group query
 
 ### Context

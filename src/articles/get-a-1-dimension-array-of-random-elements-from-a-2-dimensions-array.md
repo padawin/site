@@ -1,3 +1,5 @@
+<b>Published: June 2014</b>
+
 ## Get a 1 dimension array of random elements picked from a 2 dimension array
 
 	window.random = function(rows, nbToReturn) {

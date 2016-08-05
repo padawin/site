@@ -1,3 +1,5 @@
+<b>Published: 20th July 2016</b>
+
 ## Code reviews and atomic commits
 
 Reviewing code is crucial to create an application of quality. However, it

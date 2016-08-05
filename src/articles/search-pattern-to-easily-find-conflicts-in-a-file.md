@@ -1,3 +1,5 @@
+<b>Published: 1st March 2014</b>
+
 ## Search pattern to easily find a conflict in a file
 
 When, during a merge, a rebase, a stash apply/pop, a conflict occurs, browsing

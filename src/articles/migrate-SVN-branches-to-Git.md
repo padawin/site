@@ -1,3 +1,5 @@
+<b>Published: December 2014</b>
+
 ## Migrate SVN branches to Git
 
 ### Context

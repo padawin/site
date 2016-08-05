@@ -1,3 +1,5 @@
+<b>Published: 1st March 2014</b>
+
 ## Session share with tmux
 
 The following commands allow two or more people to use a same Tmux instance.

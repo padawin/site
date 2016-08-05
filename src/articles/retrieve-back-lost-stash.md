@@ -1,3 +1,5 @@
+<b>Published: 4th August 2014</b>
+
 ## Retrieve back a lost stash
 
 I just ran by mistake

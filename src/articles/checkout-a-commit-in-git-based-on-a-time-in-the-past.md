@@ -1,3 +1,5 @@
+<b>Published: November 2015</b>
+
 ## checkout a commit in git based on a time in the past
 
 	git checkout HEAD@{'1 month ago'}

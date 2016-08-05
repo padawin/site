@@ -1,3 +1,5 @@
+<b>Published: 1st March 2014</b>
+
 ## Of HTML semantic...
 
 - &lt;a&gt; tags are links, with them, the users go somewhere.

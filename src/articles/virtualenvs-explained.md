@@ -1,3 +1,5 @@
+<b>Published: 12th July 2016</b>
+
 ## Virtualenv explained
 
 In python, a virtualenv is a way to isolate a project technical environment
