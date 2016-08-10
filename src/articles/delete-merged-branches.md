@@ -22,16 +22,16 @@ To delete a remote branch, run:
 	git push origin :branchName
 
 The colon is what triggers the deletion, more information about it in the
-official doc of git push (```man git-push```), in the section about the
-<refspec> option.
+official doc of git push (```man git-push```), in the options section about the
+<refspec> argument.
 
 ### Delete multiple branches
 
-When deleting branches, as many branches can be passed (ed ```git branch -d
-branch1 branch2 branch3``` and ```git push origin :branch1 :branch2 :branch3```)
+When deleting branches, any number of branches can be passed (eg ```git branch
+-d branch1 branch2 branch3``` and ```git push origin :branch1 :branch2 :branch3```)
 but if you have a lot, it can be a hassle. So let's script all that.
 
-First, we need the branches merged branches:
+First, we need the merged branches:
 
 	git branch --merged
 
