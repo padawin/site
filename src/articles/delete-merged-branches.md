@@ -64,3 +64,17 @@ It then needs to be fed to the delete command:
 
 	# remote branches
 	git push origin $(git branch -r --merged | egrep -v '(master)' | sed -e 's#origin/# :#g')
+
+### Forget about deleted branches
+
+When someone deletes a remote branch, the other clones of the project don''t see
+them as deleted. To stop keeping track of the deleted branches, run:
+
+	git fetch -p origin
+
+or
+
+	git remote update -p
+
+The -p option stands for prune and in my opinion should always be used, for the
+sake of your clone''s tidiness.
