@@ -65,12 +65,7 @@ Most of those projects are proofs of concept, ideas, or partly finished games.
 			<div class="info">
 				<p>
 					Color puzzle game where the player has to fill the grid by
-					changing the colors of the cells.
-				</p>
-				<p>
-					Clone of an existing game.
-				</p>
-				<p>
+					changing the colors of the cells. Clone of an existing game.
 					Also contains a timed mode and a multiplayer mode.
 				</p>
 				<b>Tech:</b>
