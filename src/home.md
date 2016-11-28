@@ -125,7 +125,7 @@ Most of those projects are proofs of concept, ideas, or partly finished games.
 			<h3>
 				adVenture -
 				<a class="block button" href="https://github.com/padawin/adVenture" target="_blank">
-					adVenture
+					Github
 				</a>
 			</h3>
 			<div class="info">
