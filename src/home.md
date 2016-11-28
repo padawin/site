@@ -164,6 +164,11 @@ Most of those projects are proofs of concept, ideas, or partly finished games.
 		</section>
 		<div class="clear"></div>
 	</li>
+</ul>
+
+### Demos and experiments
+
+<ul class="projects">
 	<li>
 		<img src="images/raytracing.png" alt="Ray tracing" />
 		<section>
