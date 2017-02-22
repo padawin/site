@@ -54,6 +54,29 @@ Most of those projects are proofs of concept, ideas, or partly finished games.
 		<div class="clear"></div>
 	</li>
 	<li>
+		<img src="images/floodit.png" alt="Floodit" />
+		<section>
+			<h3>
+				Flood it -
+				<a class="block button" href="https://github.com/padawin/floodit-clone" target="_blank">
+					Github
+				</a>
+			</h3>
+			<div class="info">
+				<p>
+					Color puzzle game where the player has to fill the grid by
+					changing the colors of the cells. Clone of an existing game.
+					Also contains a timed mode and a multiplayer mode.
+				</p>
+				<b>Tech:</b>
+				<ul>
+					<li>C, SDL2</li>
+				</ul>
+			</div>
+		</section>
+		<div class="clear"></div>
+	</li>
+	<li>
 		<img src="images/rrpg.png" alt="rRPG" />
 		<section>
 			<h3>
