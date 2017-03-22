@@ -8,7 +8,7 @@ NAME="server-site"
 BASEDIR=$(dirname $0)
 PIDFILE=/var/run/$NAME.pid
 #This is the command to be run, give the full pathname
-DAEMON=$(readlink -f $BASEDIR)/main.py
+DAEMON=$(dirname $(readlink -f $0 ))/main.py
 DAEMON_OPTS="8000"
 
 export PATH="${PATH:+$PATH:}/usr/sbin:/sbin"
