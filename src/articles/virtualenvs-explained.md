@@ -35,12 +35,12 @@ When creating a virtualenv, the system's default python version will be used in
 it. If a virtualenv needs another version of python, it can be specified with
 the -p option when creating the virtualenv:
 
-	mkvirtualenv <ENVNAME> -p /path/to/python
+	virtualenv <ENVNAME> -p /path/to/python
 
 or for example (to explicitely use python2, which needs to be installed on the
 machine):
 
-	mkvirtualenv <ENVNAME> -p `which python2`
+	virtualenv <ENVNAME> -p `which python2`
 
 ### Using a virtualenv
 
@@ -80,7 +80,7 @@ A wrapper has been created to simplify those steps: virtualenv-wrapper
 
 virtualenv-wrapper can be installed using pip:
 
-	pip install virtualenv-wrapper
+	pip install virtualenvwrapper
 
 Then the following line has to be added in the user's .bashrc:
 
