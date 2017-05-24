@@ -68,3 +68,9 @@ properly this time. Or you can type:
 which will expand to:
 
 	git status
+
+Another situation I use a lot is when I need to create a directory and then cd
+in it, it is possible to do:
+
+	mkdir path/to/the/new/directory
+	cd !$
