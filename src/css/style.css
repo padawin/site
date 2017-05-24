@@ -236,3 +236,18 @@ ul {
 .projects section ul {
 	list-style: none;
 }
+
+code {
+	background-color: #ddd;
+	padding: 7px;
+}
+
+pre {
+	background-color: #ddd;
+	margin: 0;
+	padding: 7px;
+}
+
+pre code {
+	padding: 0px;
+}
