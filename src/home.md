@@ -81,18 +81,18 @@ Most of those projects are proofs of concept, ideas, or partly finished games.
 		<section>
 			<h3>
 				rRPG -
-				<a class="block button" href="https://github.com/rrpg/engine" target="_blank">
+				<a class="block button" href="https://github.com/rrpg/engine-sdl2" target="_blank">
 					Github
 				</a>
 			</h3>
 			<div class="info">
 				<p>
-					Text-based role playing game relying a lot on randomly
-					generated content.
+					Rogue like game, currently being developed.
+					Conceived for the <a href="http://www.gcw-zero.com/">GCW-Zero</a> console.
 				</p>
 				<b>Tech:</b>
 				<ul>
-					<li>Python (compatible 2.7 and 3), C, SQLite3</li>
+					<li>C++, SDL2</li>
 				</ul>
 			</div>
 		</section>
