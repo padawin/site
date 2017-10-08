@@ -20,7 +20,8 @@ loader.addModule('sprites', function () {
 				TREE_LARGE: 20,
 				TABLE: 21,
 				CAMERA: 22,
-				OCTOCAT: 23
+				OCTOCAT: 23,
+				FLOODIT: 24
 			},
 			sprites: [
 				// grass
@@ -125,7 +126,9 @@ loader.addModule('sprites', function () {
 					{x: 583, y: 159, w: 42, h: 40, posInCell: {x: 20, y: 28}}
 				]},
 				// Octocat
-				{x: 386, y: 135, w: 76, h: 66, posInCell: {x: 38, y: 58}}
+				{x: 386, y: 135, w: 76, h: 66, posInCell: {x: 38, y: 58}},
+				// Floodit
+				{x: 626, y: 73, w: 42, h: 84, posInCell: {x: 22, y: 58}}
 			],
 			loadResources: function (loaded) {
 				spriteModule.spriteResource = new Image();
