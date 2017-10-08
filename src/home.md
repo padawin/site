@@ -28,8 +28,6 @@
 
 ## Game programming related
 
-Most of those projects are proofs of concept, ideas, or partly finished games.
-
 <ul class="projects">
 	<li>
 		<img src="images/website.png" alt="Website" />
