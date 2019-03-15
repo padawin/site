@@ -10,6 +10,7 @@
 	<li><a href="./articles/search-pattern-to-easily-find-conflicts-in-a-file.html">Search pattern to easily find conflicts in a file</a></li>
 	<li><a href="./articles/code-reviews-and-atomic-commits.html">Code reviews and atomic commits</a></li>
 	<li><a href="./articles/retrieve-back-lost-stash.html">Retrieve back lost stash</a></li>
+	<li><a href="./articles/delete-merged-branches.html">Delete merged branches</a></li>
 </ul>
 
 ### Vim
