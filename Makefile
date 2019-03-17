@@ -1,7 +1,10 @@
-all: html css images js-game css-game images-game
+all: html js css images js-game css-game images-game
 
 html:
 	./bin/generate.sh
+
+js:
+	cp -r src/js/ web
 
 css:
 	mkdir -p web/css
