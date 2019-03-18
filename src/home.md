@@ -1,16 +1,11 @@
 <ul class="links">
 	<li>
-		<a class="block button" href="./about.html" title="About me">
-			<img src="images/about.png" alt="About me" />
-		</a>
-	</li>
-	<li>
 		<a class="block button" href="tips.html" title="Different code articles">
 			<img src="images/code.png" alt="Different code articles" />
 		</a>
 	</li>
 	<li>
-		<a class="block button" href="http://ghislain-rodrigues.fr/CV-Ghislain-Rodrigues.pdf" target="_blank" title="Download CV">
+		<a class="block button" href="https://ghislain-rodrigues.fr/CV-Ghislain-Rodrigues.pdf" target="_blank" title="Download CV">
 			<img src="images/CV.png" alt="Download CV" />
 		</a>
 	</li>
@@ -26,211 +21,40 @@
 	</li>
 </ul>
 
-## Game programming related
+## About me
 
-<ul class="projects">
-	<li>
-		<img src="images/website.png" alt="Website" />
-		<section>
-			<h3>
-				My interactive portfolio -
-				<a class="block button" href="https://github.com/padawin/site" target="_blank">Github</a> -
-				<a class="block button" href="http://ghislain-rodrigues.fr/interactive" target="_blank">
-					URL
-				</a>
-			</h3>
-			<div class="info">
-				<p></p>
-				<b>Tech:</b>
-				<ul>
-					<li>Javascript and canvas</li>
-					<li>Path finding</li>
-					<li>Isometric calculations</li>
-				</ul>
-			</div>
-		</section>
-		<div class="clear"></div>
-	</li>
-	<li>
-		<img src="images/floodit.png" alt="Floodit" />
-		<section>
-			<h3>
-				Flood it -
-				<a class="block button" href="https://github.com/padawin/floodit-clone" target="_blank">
-					Github
-				</a>
-			</h3>
-			<div class="info">
-				<p>
-					Color puzzle game where the player has to fill the grid by
-					changing the colors of the cells. Clone of an existing game.
-					Also contains a timed mode and a multiplayer mode.
-				</p>
-				<b>Tech:</b>
-				<ul>
-					<li>C, SDL2</li>
-				</ul>
-			</div>
-		</section>
-		<div class="clear"></div>
-	</li>
-	<li>
-		<img src="images/rrpg.png" alt="rRPG" />
-		<section>
-			<h3>
-				rRPG -
-				<a class="block button" href="https://github.com/rrpg/engine-sdl2" target="_blank">
-					Github
-				</a>
-			</h3>
-			<div class="info">
-				<p>
-					Rogue like game, currently being developed.
-					Conceived for the <a href="http://www.gcw-zero.com/">GCW-Zero</a> console.
-				</p>
-				<b>Tech:</b>
-				<ul>
-					<li>C++, SDL2</li>
-				</ul>
-			</div>
-		</section>
-		<div class="clear"></div>
-	</li>
-	<li>
-		<img src="images/conqueror.png" alt="Conqueror" />
-		<section>
-			<h3>
-				Conqueror -
-				<a class="block button" href="https://github.com/padawin/conqueror" target="_blank">
-					Github
-				</a>
-			</h3>
-			<div class="info">
-				<p>
-					Strategy game where players must spread their pawns on a
-					maximum of space to win
-				</p>
-				<b>Tech:</b>
-				<ul>
-					<li>C</li>
-				</ul>
-			</div>
-		</section>
-		<div class="clear"></div>
-	</li>
-	<li>
-		<img src="images/A-D.png" alt="AD" />
-		<section>
-			<h3>
-				AD -
-				<a class="block button" href="https://github.com/padawin/ad" target="_blank">
-					Github
-				</a>
-			</h3>
-			<div class="info">
-				<p>
-					Puzzle game where the player must shift the rows and
-					columns of a grid to group the cells per color
-				</p>
-				<b>Tech:</b>
-				<ul>
-					<li>Javascript and canvas</li>
-				</ul>
-			</div>
-		</section>
-		<div class="clear"></div>
-	</li>
-	<li>
-		<img src="images/adVenture.png" alt="adVenture" />
-		<section>
-			<h3>
-				adVenture -
-				<a class="block button" href="https://github.com/padawin/adVenture" target="_blank">
-					Github
-				</a>
-			</h3>
-			<div class="info">
-				<p>
-					Branched story game. At each step the player has to choose
-					an action to go to the next step.
-				</p>
-				<b>Tech:</b>
-				<ul>
-					<li>Javascript</li>
-					<li>Engine of only 160bytes minimised!</li>
-				</ul>
-			</div>
-		</section>
-		<div class="clear"></div>
-	</li>
-	<li>
-		<img src="images/udemy.png" alt="Udemy course" />
-		<section>
-			<h3>
-				Game framework -
-				<a class="block button" href="https://github.com/padawin/game-framework-js" target="_blank">
-					Github
-				</a>
-			</h3>
-			<div class="info">
-				<p>
-					Framework to make some grid based games.
-				</p>
-				<b>Tech:</b>
-				<ul>
-					<li>Javascript and canvas</li>
-					<li>Contains 3 demos: pong, race and adventure</li>
-				</ul>
-			</div>
-		</section>
-		<div class="clear"></div>
-	</li>
-</ul>
+<p>
+My name is Ghislain Rodrigues, software engineer currently based in London, UK.
+I love to code, as part of my job as well as a hobby. When I don't code, I like
+to <a target="_blank" href="http://travels.ghislain-rodrigues.fr">travel and take photos</a>,
+read, build Lego, meet up with friends and cook.
+</p>
 
-### Demos and experiments
+<p>
+I like things well done, sharing what I know with people around me. I consider
+myself enthusiastic, curious, and always looking for new knowledge.
+</p>
 
-<ul class="projects">
-	<li>
-		<img src="images/raytracing.png" alt="Ray tracing" />
-		<section>
-			<h3>
-				Ray tracing -
-				<a class="block button" href="https://github.com/padawin/raytracing-test" target="_blank">
-					Github
-				</a>
-			</h3>
-			<div class="info">
-				<p>
-					Demo of the implementation of a raytracing engine, with
-					lights and obstacles to create some shadows.
-				</p>
-				<b>Tech:</b>
-				<ul>
-					<li>Javascript and canvas</li>
-				</ul>
-			</div>
-		</section>
-		<div class="clear"></div>
-	</li>
-	<li>
-		<img src="images/particles.png" alt="Particles" />
-		<section>
-			<h3>
-				Particles -
-				<a class="block button" href="https://github.com/padawin/particles" target="_blank">
-					Github
-				</a>
-			</h3>
-			<div class="info">
-				<p>
-					Demo of the implementation of a particles engine.
-				</p>
-				<b>Tech:</b>
-				<ul>
-					<li>Javascript and canvas</li>
-				</ul>
-			</div>
-		</section>
-		<div class="clear"></div>
-	</li>
-</ul>
+<p>
+I am very interested in Game programming, created a <a target="_blank"
+href="https://github.com/padawin/floodit-clone">small game</a> (clone of the
+Floodit game) in C for the <a target="_blank"
+href="http://www.gcw-zero.com/">GCW-Zero</a> console. I also have different
+ongoing projects (most of them accessible on Github).
+</p>
+
+<p>
+For me, sharing information is invaluable and I am always happy to share what
+I know and learn from people. At work, I regularly give workshops on advanced
+features of Git, or about various programming topics. You can find my slides
+<a target="_blank" href="http://slides.com/ghislainrodrigues-1">here</a>.
+</p>
+
+<p>
+Have a look around, at my
+<a href="https://ghislain-rodrigues.fr/CV-Ghislain-Rodrigues.pdf" target="_blank">CV</a>,
+<a href="https://github.com/padawin" target="_blank">Github profile</a>
+and
+<a href="https://ghislain-rodrigues.fr/interactive" target="_blank">interactive
+website</a>, and feel free to <a href="./contact.html">contact me</a>.
+<p>
