@@ -251,3 +251,26 @@ pre {
 pre code {
 	padding: 0px;
 }
+
+#contact form {
+	max-width: 600px;
+	margin: auto;
+}
+
+#contact form label {
+	margin-bottom: 7px;
+}
+
+#contact form label, #contact form input[type="email"], #contact form textarea {
+	display: block;
+	width: 100%;
+}
+
+#contact form input[type="submit"] {
+	display: block;
+	margin: 0 auto;
+}
+
+#contact form label, #contact form input[type="submit"] {
+	margin-top: 14px;
+}
