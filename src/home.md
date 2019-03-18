@@ -44,6 +44,10 @@ ongoing projects (most of them accessible on Github).
 </p>
 
 <p>
+In 2018/2019, I followed an online course on Unity and created 4 <a href="./unity.html">2D games</a>.
+</p>
+
+<p>
 For me, sharing information is invaluable and I am always happy to share what
 I know and learn from people. At work, I regularly give workshops on advanced
 features of Git, or about various programming topics. You can find my slides
