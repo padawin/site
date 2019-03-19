@@ -38,6 +38,6 @@ Galaga clone, with waves of enemies, old school music and 2 bosses.
 2D side action game with 3 levels, many tough enemies and epic bosses.
 
 <ul>
-	<li><a href="https://github.com/padawin/udemy-unity-space-shooter" target="_blank">Source</a></li>
-	<li><a href="https://www.ghislain-rodrigues.fr/course-unity-space-shooter" target="_blank">Play it</a></li>
+	<li><a href="https://github.com/padawin/udemy-unity-tilevania" target="_blank">Source</a></li>
+	<li><a href="https://www.ghislain-rodrigues.fr/course-unity-tilevania" target="_blank">Play it</a></li>
 </ul>
