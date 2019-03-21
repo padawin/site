@@ -11,6 +11,7 @@
 	<li><a href="./articles/code-reviews-and-atomic-commits.html">Code reviews and atomic commits</a></li>
 	<li><a href="./articles/retrieve-back-lost-stash.html">Retrieve back lost stash</a></li>
 	<li><a href="./articles/delete-merged-branches.html">Delete merged branches</a></li>
+	<li><a href="./articles/git-hooks-template.html">Hook template</a></li>
 </ul>
 
 ### Vim
