@@ -20,6 +20,7 @@
 	<li><a href="./articles/manual-in-vim.html">Manual in Vim</a></li>
 	<li><a href="./articles/quick-search.html">Quick search</a></li>
 	<li><a href="./articles/search-and-replace.html">Search and replace</a></li>
+	<li><a href="./articles/vim-tags-completion.html">ctags completion</a></li>
 </ul>
 
 ### Misc
