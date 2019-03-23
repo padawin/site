@@ -39,5 +39,5 @@ Galaga clone, with waves of enemies, old school music and 2 bosses.
 
 <ul>
 	<li><a href="https://github.com/padawin/udemy-unity-tilevania" target="_blank">Source</a></li>
-	<li><a href="https://www.ghislain-rodrigues.fr/course-unity-tilevania" target="_blank">Play it</a></li>
 </ul>
+<iframe src="https://itch.io/embed/394981" width="552" height="167" frameborder="0"></iframe>
