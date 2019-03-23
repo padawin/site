@@ -1,7 +1,8 @@
 ## Git hooks templates
 
-Hooks in Git are scripts executed at specific moments (eg. Before or after
-committing). A complete explanation about how them can be found by running:
+Hooks in Git are scripts executed at specific moments (e.g. before or after
+committing). A complete explanation about how to use them can be found by
+running:
 
 	git help hooks
 
