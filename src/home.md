@@ -26,7 +26,7 @@
 <p>
 My name is Ghislain Rodrigues, software engineer currently based in London, UK.
 I love to code, as part of my job as well as a hobby. When I don't code, I like
-to <a target="_blank" href="http://travels.ghislain-rodrigues.fr">travel and take photos</a>,
+to <a target="_blank" href="https://travels.ghislain-rodrigues.fr">travel and take photos</a>,
 read, build Lego, meet up with friends and cook.
 </p>
 

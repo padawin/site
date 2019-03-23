@@ -122,7 +122,7 @@ loader.addModule('level', 'sprites', function (sprites) {
 			{x: 4, y: 12, sprite: sprites.sprites[sprites.SPRITES_ACCESS.CAMERA],
 				canBeTaken: true, name: 'My pictures', icon: 'images/camera.png',
 				onopen: function () {
-					window.open('http://travels.ghislain-rodrigues.fr/');
+					window.open('https://travels.ghislain-rodrigues.fr/');
 				}
 			},
 			{x: 17, y: 17, sprite: sprites.sprites[sprites.SPRITES_ACCESS.OCTOCAT],
