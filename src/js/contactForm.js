@@ -19,7 +19,7 @@ loader.executeModule('contactForm', 'B', function (B) {
 			{
 				200: function () {
 					form.reset();
-					B.Events.fire('contactsent');
+					B.$id('error-form').innerHTML = 'Your message has been sent!';
 				},
 				400: function (xhr) {
 					var response = JSON.parse(xhr.response),
