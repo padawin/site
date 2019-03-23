@@ -12,6 +12,7 @@
 	<li><a href="./articles/retrieve-back-lost-stash.html">Retrieve back lost stash</a></li>
 	<li><a href="./articles/delete-merged-branches.html">Delete merged branches</a></li>
 	<li><a href="./articles/git-hooks-template.html">Hook template</a></li>
+	<li><a href="./articles/git-merge-in-parent-sh.html">git-merge-in-parent.sh</a></li>
 </ul>
 
 ### Vim
