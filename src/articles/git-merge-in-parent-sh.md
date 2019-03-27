@@ -1,7 +1,8 @@
 ## git-merge-in-parent.sh
 
-[This script](https://github.com/padawin/home_conf/blob/master/.self/bin/git-merge-in-parent.sh) is a shortcut to merge a branch in another (typically a feature
-branch in a master branch once the feature is finished.
+[This script](https://github.com/padawin/home_conf/blob/master/.self/bin/git-merge-in-parent.sh)
+is a shortcut to merge a branch in another (typically a feature branch in a
+master branch once the feature is finished).
 
 It can be used from the branch to merge as:
 
