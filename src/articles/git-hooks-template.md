@@ -24,8 +24,8 @@ directory:
 
 	git config --global init.templatedir /path/to/template/directory/
 
-Then if you create a new repository (git init) or clone an existing one, it will
-contain the hooks you defined in your template.
+Then if you create a new repository (```git init```) or clone an existing one,
+it will contain the hooks you defined in your template.
 
 If you want to apply your template in already existing clones, run
 
@@ -33,6 +33,6 @@ If you want to apply your template in already existing clones, run
 
 at the root of the repository.
 
-More information are available in Git's manual:
+More information is available in Git's manual:
 
 	git init --help
