@@ -20,7 +20,6 @@
 <ul class="tips">
 	<li><a href="./articles/manual-in-vim.html">Manual in Vim</a></li>
 	<li><a href="./articles/quick-search.html">Quick search</a></li>
-	<li><a href="./articles/search-and-replace.html">Search and replace</a></li>
 	<li><a href="./articles/vim-tags-support.html">ctags support</a></li>
 </ul>
 
@@ -35,4 +34,5 @@
 	<li><a href="./articles/a-way-to-write-a-method-in-a-class.html">A way to write a method in a class</a></li>
 	<li><a href="./articles/virtualenvs-explained.html">Virtualenvs explained</a></li>
 	<li><a href="./articles/bash-events.html">Bash events</a></li>
+	<li><a href="./articles/search-and-replace.html">Search and replace</a></li>
 </ul>
