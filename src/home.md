@@ -31,8 +31,9 @@ read, build Lego, meet up with friends and cook.
 </p>
 
 <p>
-I like things well done, sharing what I know with people around me. I consider
-myself enthusiastic, curious, and always looking for new knowledge.
+I like things well done, sharing what I know with people around me. People
+around me say that I am an enthusiastic, curious person, who always looks for
+new knowledge.
 </p>
 
 <p>
