@@ -44,7 +44,7 @@ file), so let's add an exit if `git status` fails:
 	 	--languages=python,php,c,c++
 	 mv "$dir/$$.tags" "$dir/tags"
 
-Then all the hooks need to be renamed to call this new script, as a global
+Then all the hooks need to be updated to call this new script, as a global
 command. They will then look as follow (in my case, I renamed the script as
 ```ctags-gen```):
 
