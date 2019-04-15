@@ -27,6 +27,23 @@ listed in ```$PATH``` (and renamed, to not shadow the needed original
 
 	sudo mv ~/.git_template/hooks/ctags /usr/local/bin/ctags-gen
 
+Then, make sure that the script does not do anything in case it is called out of
+a Git repository (you don't want Vim to scream about it when you write a random
+file), so let's add an exit if `git status` fails:
+
+	 #!/bin/sh
+	 set -e
+
+	+git status > /dev/null 2>&1 || exit
+
+	 PATH="/usr/local/bin:$PATH"
+	 dir="`git rev-parse --git-dir`"
+	 trap 'rm -f "$dir/$$.tags"' EXIT
+	 git ls-files | \
+	 	ctags --tag-relative -L - -f"$dir/$$.tags" \
+	 	--languages=python,php,c,c++
+	 mv "$dir/$$.tags" "$dir/tags"
+
 Then all the hooks need to be renamed to call this new script, as a global
 command. They will then look as follow (in my case, I renamed the script as
 ```ctags-gen```):
