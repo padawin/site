@@ -11,6 +11,5 @@
 	</form>
 </div>
 
-<script type="text/javascript" src="https://www.ghislain-rodrigues.fr/js/butterfly.min.js"></script>
 <script type="text/javascript" src="/js/butterfly.min.js"></script>
 <script type="text/javascript" src="js/contactForm.js"></script>
