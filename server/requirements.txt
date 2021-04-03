@@ -1,0 +1,2 @@
+tornado==6.1
+validate_email==1.3
