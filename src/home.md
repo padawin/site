@@ -24,10 +24,11 @@
 ## About me
 
 <p>
-My name is Ghislain Rodrigues, software engineer currently based in London, UK.
+My name is Ghislain Rodrigues, software engineer currently based in Berlin, Germany.
 I love to code, as part of my job as well as a hobby. When I don't code, I like
 to <a target="_blank" href="https://travels.ghislain-rodrigues.fr">travel and take photos</a>,
-read, build Lego, meet up with friends and cook.
+<a target="_blank" href="https://recipes.ghislain-rodrigues.fr">cook</a>,
+read, build Lego, meet up with friends.
 </p>
 
 <p>
@@ -40,7 +41,9 @@ new knowledge.
 I am very interested in Game programming, created a <a target="_blank"
 href="https://github.com/padawin/floodit-clone">small game</a> (clone of the
 Floodit game) in C for the <a target="_blank"
-href="http://www.gcw-zero.com/">GCW-Zero</a> console. I also have different
+href="http://www.gcw-zero.com/">GCW-Zero</a> console and a <a target="_blank"
+href="https://github.com/padawin/MineSweeper-VR">3D Minesweeper game in
+VR</a>. I also have different
 ongoing projects (most of them accessible on Github).
 </p>
 
