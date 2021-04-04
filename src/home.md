@@ -64,5 +64,5 @@ Have a look around, at my
 <a href="https://github.com/padawin" target="_blank">Github profile</a>
 and
 <a href="https://ghislain-rodrigues.fr/interactive" target="_blank">interactive
-website</a>, and feel free to <a href="./contact.html">contact me</a>.
+website</a>, and feel free to <a href="./contact-me.html">contact me</a>.
 <p>
