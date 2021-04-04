@@ -6,41 +6,41 @@ then
 	touch src-game/js/game.min.js
 	echo "" > src-game/js/game.min.js
 	echo src-game/js/lib/heapqueue.js
-	yui-compressor src-game/js/lib/heapqueue.js >> src-game/js/game.min.js
+	yuicompressor src-game/js/lib/heapqueue.js >> src-game/js/game.min.js
 	echo src-game/js/path-finding.js
-	yui-compressor src-game/js/path-finding.js >> src-game/js/game.min.js
+	yuicompressor src-game/js/path-finding.js >> src-game/js/game.min.js
 	echo src-game/js/inventory.js
-	yui-compressor src-game/js/inventory.js >> src-game/js/game.min.js
+	yuicompressor src-game/js/inventory.js >> src-game/js/game.min.js
 	echo src-game/js/screen-size.js
-	yui-compressor src-game/js/screen-size.js >> src-game/js/game.min.js
-	echo web-game/js/message.js
-	yui-compressor src-game/js/message.js >> src-game/js/game.min.js
-	echo web-game/js/canvas.js
-	yui-compressor src-game/js/canvas.js >> src-game/js/game.min.js
-	echo web-game/js/GUI.js
-	yui-compressor src-game/js/GUI.js >> src-game/js/game.min.js
-	echo web-game/js/sprites.js
-	yui-compressor src-game/js/sprites.js >> src-game/js/game.min.js
-	echo web-game/js/level.js
-	yui-compressor src-game/js/level.js >> src-game/js/game.min.js
-	echo web-game/js/camera.js
-	yui-compressor src-game/js/camera.js >> src-game/js/game.min.js
-	echo web-game/js/character.js
-	yui-compressor src-game/js/character.js >> src-game/js/game.min.js
-	echo web-game/js/object.js
-	yui-compressor src-game/js/object.js >> src-game/js/game.min.js
-	echo web-game/js/map.js
-	yui-compressor src-game/js/map.js >> src-game/js/game.min.js
-	echo web-game/js/mouse.js
-	yui-compressor src-game/js/mouse.js >> src-game/js/game.min.js
-	echo web-game/js/particles.js
-	yui-compressor src-game/js/particles.js >> src-game/js/game.min.js
-	echo web-game/js/sky.js
-	yui-compressor src-game/js/sky.js >> src-game/js/game.min.js
-	echo web-game/js/engine.js
-	yui-compressor src-game/js/engine.js >> src-game/js/game.min.js
-	echo web-game/js/contactForm.js
-	yui-compressor src-game/js/contactForm.js >> src-game/js/game.min.js
+	yuicompressor src-game/js/screen-size.js >> src-game/js/game.min.js
+	echo src-game/js/message.js
+	yuicompressor src-game/js/message.js >> src-game/js/game.min.js
+	echo src-game/js/canvas.js
+	yuicompressor src-game/js/canvas.js >> src-game/js/game.min.js
+	echo src-game/js/GUI.js
+	yuicompressor src-game/js/GUI.js >> src-game/js/game.min.js
+	echo src-game/js/sprites.js
+	yuicompressor src-game/js/sprites.js >> src-game/js/game.min.js
+	echo src-game/js/level.js
+	yuicompressor src-game/js/level.js >> src-game/js/game.min.js
+	echo src-game/js/camera.js
+	yuicompressor src-game/js/camera.js >> src-game/js/game.min.js
+	echo src-game/js/character.js
+	yuicompressor src-game/js/character.js >> src-game/js/game.min.js
+	echo src-game/js/object.js
+	yuicompressor src-game/js/object.js >> src-game/js/game.min.js
+	echo src-game/js/map.js
+	yuicompressor src-game/js/map.js >> src-game/js/game.min.js
+	echo src-game/js/mouse.js
+	yuicompressor src-game/js/mouse.js >> src-game/js/game.min.js
+	echo src-game/js/particles.js
+	yuicompressor src-game/js/particles.js >> src-game/js/game.min.js
+	echo src-game/js/sky.js
+	yuicompressor src-game/js/sky.js >> src-game/js/game.min.js
+	echo src-game/js/engine.js
+	yuicompressor src-game/js/engine.js >> src-game/js/game.min.js
+	echo src-game/js/contactForm.js
+	yuicompressor src-game/js/contactForm.js >> src-game/js/game.min.js
 	exit 0
 fi
 
