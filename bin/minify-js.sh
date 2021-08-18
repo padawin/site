@@ -39,8 +39,6 @@ then
 	yuicompressor src-game/js/sky.js >> src-game/js/game.min.js
 	echo src-game/js/engine.js
 	yuicompressor src-game/js/engine.js >> src-game/js/game.min.js
-	echo src-game/js/contactForm.js
-	yuicompressor src-game/js/contactForm.js >> src-game/js/game.min.js
 	exit 0
 fi
 
