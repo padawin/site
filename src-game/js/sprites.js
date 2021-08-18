@@ -21,7 +21,8 @@ loader.addModule('sprites', function () {
 				TABLE: 21,
 				CAMERA: 22,
 				OCTOCAT: 23,
-				FLOODIT: 24
+				FLOODIT: 24,
+				ROGUE_CARD: 25
 			},
 			sprites: [
 				// grass
@@ -128,7 +129,9 @@ loader.addModule('sprites', function () {
 				// Octocat
 				{x: 386, y: 135, w: 76, h: 66, posInCell: {x: 38, y: 58}},
 				// Floodit
-				{x: 626, y: 73, w: 42, h: 84, posInCell: {x: 22, y: 58}}
+				{x: 626, y: 73, w: 42, h: 74, posInCell: {x: 22, y: 58}},
+				// RogueCard
+				{x: 627, y: 147, w: 37, h: 69, posInCell: {x: 22, y: 58}},
 			],
 			loadResources: function (loaded) {
 				spriteModule.spriteResource = new Image();

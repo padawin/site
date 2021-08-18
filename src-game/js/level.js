@@ -137,10 +137,16 @@ loader.addModule('level', 'sprites', function (sprites) {
 			{x: 28, y: 6, sprite: sprites.sprites[sprites.SPRITES_ACCESS.WALL]},
 			{x: 25, y: 8, sprite: sprites.sprites[sprites.SPRITES_ACCESS.TREE]},
 			{x: 32, y: 5, sprite: sprites.sprites[sprites.SPRITES_ACCESS.TREE_LARGE]},
-			{x: 25, y: 3, sprite: sprites.sprites[sprites.SPRITES_ACCESS.FLOODIT],
+			{x: 25, y: 6, sprite: sprites.sprites[sprites.SPRITES_ACCESS.FLOODIT],
 				canBeTaken: true, name: 'Floodit', icon: 'images/floodit.png',
 				onopen: function () {
 					window.open('https://github.com/padawin/floodit-clone');
+				}
+			},
+			{x: 25, y: 0, sprite: sprites.sprites[sprites.SPRITES_ACCESS.ROGUE_CARD],
+				canBeTaken: true, name: 'Rogue Card', icon: 'images/rogue-card.png',
+				onopen: function () {
+					window.open('https://github.com/padawin/RogueCard');
 				}
 			},
 		]
