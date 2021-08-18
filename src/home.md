@@ -26,9 +26,12 @@
 <p>
 My name is Ghislain Rodrigues, software engineer currently based in Berlin, Germany.
 I love to code, as part of my job as well as a hobby. When I don't code, I like
-to <a target="_blank" href="https://travels.ghislain-rodrigues.fr">travel and take photos</a>,
-<a target="_blank" href="https://recipes.ghislain-rodrigues.fr">cook</a>,
-read, build Lego, meet up with friends.
+(among other things) to:
+<ul>
+	<li><a target="_blank" href="https://travels.ghislain-rodrigues.fr">travel and take photos</a></li>
+	<li><a target="_blank" href="https://recipes.ghislain-rodrigues.fr">cook</a></li>
+	<li><a target="_blank" href="https://www.goodreads.com/user/show/29497268-ghislain">read</a></li>
+</ul>
 </p>
 
 <p>
