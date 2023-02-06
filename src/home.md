@@ -30,7 +30,7 @@ I love to code, as part of my job as well as a hobby. When I don't code, I like
 <ul>
 	<li><a target="_blank" href="https://travels.ghislain-rodrigues.fr">travel and take photos</a></li>
 	<li><a target="_blank" href="https://recipes.ghislain-rodrigues.fr">cook</a></li>
-	<li><a target="_blank" href="https://www.goodreads.com/user/show/29497268-ghislain">read</a></li>
+	<li><a target="_blank" href="https://www.librarything.com/catalog/padawin_ghis/yourlibrary">read</a></li>
 </ul>
 </p>
 

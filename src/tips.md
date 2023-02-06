@@ -26,13 +26,6 @@
 ### Misc
 
 <ul class="tips">
-	<li><a href="./articles/double-ssh-tunnel.html">Double ssh tunnel</a></li>
-	<li><a href="./articles/get-the-used-memory-in-a-program.html">Get the used memory in a program</a></li>
 	<li><a href="./articles/create-a-file-in-a-non-existing-folder.html">Create a file in a non existing folder</a></li>
-	<li><a href="./articles/session-share-with-tmux.html">Session share with tmux</a></li>
-	<li><a href="./articles/format-json-output.html">Format json output</a></li>
 	<li><a href="./articles/a-way-to-write-a-method-in-a-class.html">A way to write a method in a class</a></li>
-	<li><a href="./articles/virtualenvs-explained.html">Virtualenvs explained</a></li>
-	<li><a href="./articles/bash-events.html">Bash events</a></li>
-	<li><a href="./articles/search-and-replace.html">Search and replace</a></li>
 </ul>
