@@ -3,19 +3,48 @@ body {
 	background-color: #FCFCFC;
 }
 
-h1 {
+header {
 	padding: 10px;
 	height: 80px;
 	background-color: #252525;
 	margin: 0;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	font-size: 24pt;
-	text-align: center;
 }
 
-h1 a, h1 a:hover, h1 a:visited {
+header > div {
+	max-width: 899px;
+	margin: 0 auto;
+}
+
+header h1 {
+	float: left;
+}
+
+header ul {
+	float: right;
+	margin: 0 30px 0 0;
+	padding: 0px;
+	height: 80px;
+	line-height: 80px;
+	text-align: center;
+	font-weight: bold;
+}
+
+
+header li {
+	display: inline-block;
+	margin: 0 7px;
+}
+
+header a[target="_blank"]::after {
+	content: url(/images/external-link.svg);
+	color: white;
+	display: inline-block;
+	margin-left: 0.25em;
+	width: 1em;
+	height: 1em;
+}
+
+header a, header a:hover, header a:visited {
 	color: #FCFCFC;
 	text-decoration: none;
 }
@@ -23,8 +52,10 @@ h1 a, h1 a:hover, h1 a:visited {
 .content {
 	padding: 0;
 	color: #222;
-	font-family: Georgia;
-	margin: 30px 150px 30px 150px;
+	font-family: Helvetica, Arial, sans-serif;
+	max-width: 899px;
+	margin: 30px auto;
+	line-height: 1.8em;
 }
 
 .clear {
@@ -32,13 +63,31 @@ h1 a, h1 a:hover, h1 a:visited {
 }
 
 @media (max-width: 979px) {
+	header {
+		text-align:	center;
+		height: auto;
+	}
+
+	header h1 {
+		float: none;
+	}
+
+	header ul {
+		float: none;
+		height: auto;
+	}
+
+	header ul, header li {
+		line-height: 0;
+	}
+
 	.content {
 		margin-left: 40px;
 		margin-right: 40px;
 	}
 }
 
-h1, h2 {
+header, h2 {
 	font-family: "Lucida Console", Monaco, monospace;
 }
 
@@ -48,9 +97,6 @@ pre {
 
 p {
 	text-align: justify;
-}
-
-ul {
 }
 
 .tips {

@@ -1,4 +1,8 @@
-all: html js css images js-game-min js-game css-game images-game
+all: site game
+
+site: html css images
+
+game: js-game-min js-game css-game images-game
 
 html:
 	./bin/generate.sh
