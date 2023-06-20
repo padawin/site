@@ -1,6 +1,102 @@
 ## Quotes
 
 <blockquote>
+If [men] dared to love us, in patriarchal culture they would cease to be real
+"men"
+</blockquote>
+
+The will to change, bell hooks
+
+<hr />
+
+<blockquote>
+The truth we do not tell is that men are longing for love.
+</blockquote>
+
+The will to change, bell hooks
+
+<hr />
+
+<blockquote>
+There is one emotion that patriarchy values when expressed by men; that emotion
+is anger. Real men get mad. And their mad-ness,  no matter how violent or
+violating, is deemed natural — a positive expression of patriarchal masculinity.
+</blockquote>
+
+The will to change, bell hooks
+
+<hr />
+
+<blockquote>
+In a loving relationship, abuse is unacceptable. You should not have to tolerate
+any abuse to be loved.
+</blockquote>
+
+The will to change, bell hooks
+
+<hr />
+
+<blockquote>
+Ultimately the menu will choose against violence, against death, do so because
+they want to live fully and well, because they want to know love. These are men
+who are true heroes, the men whose lives we need to know about, honour, and
+remember.
+</blockquote>
+
+The will to change, bell hooks
+
+<hr />
+
+<blockquote>
+I look at these long rows of words, the tombstones of my thoughts, and I do not
+know whether I have killed them, or given them life.
+</blockquote>
+
+Death and the Dervish, Meša Selimović
+
+<hr />
+
+<blockquote>
+The river resembles me: sometimes turbulent and foaming, more often calm and
+inaudible. I was sorry when the dammed it up below the tekke and diverted it
+inro a trench to make it obedient and useful, so it would run through a mill
+wheel. And I was happy when it swelled, destroyed the dam, and flowed free. I
+knew all the while that only tamed waters can mill wheat.
+</blockquote>
+
+Death and the Dervish, Meša Selimović
+
+<hr />
+
+<blockquote>
+Her story was of no interest to me. for I knew the end as soon as I heard the
+beginning, and I was not moved at all by her compimnt. since it was insincere.
+</blockquote>
+
+Death and the Dervish, Meša Selimović
+
+<hr />
+
+<blockquote>
+Bur this young man was not a suitable interlocuror. People in fact talk most
+often for their own sake, and with a need to hear the echo of their words.
+</blockquote>
+
+Death and the Dervish, Meša Selimović
+
+<hr />
+
+<blockquote>
+We wanted the same thing from one another, each placing his faith in the
+strength of the other, both of us powerless, and that was the saddest part of
+this pointless encounter.
+</blockquote>
+
+Death and the Dervish, Meša Selimović
+
+<hr />
+
+<blockquote>
 See, Artyom, you obviously come from a station where the clock works and you all
 look at it in awe, comparing the time on your wrist watch to the red numbers
 above the tunnel entrance. For you, time is the same for everyone, just like
