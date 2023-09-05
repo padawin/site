@@ -37,7 +37,7 @@ The will to change, bell hooks
 <hr />
 
 <blockquote>
-Ultimately the menu will choose against violence, against death, do so because
+Ultimately the men who will choose against violence, against death, do so because
 they want to live fully and well, because they want to know love. These are men
 who are true heroes, the men whose lives we need to know about, honour, and
 remember.
@@ -70,7 +70,7 @@ Death and the Dervish, Meša Selimović
 
 <blockquote>
 Her story was of no interest to me. for I knew the end as soon as I heard the
-beginning, and I was not moved at all by her compimnt. since it was insincere.
+beginning, and I was not moved at all by her compliment since it was insincere.
 </blockquote>
 
 Death and the Dervish, Meša Selimović
@@ -78,7 +78,7 @@ Death and the Dervish, Meša Selimović
 <hr />
 
 <blockquote>
-Bur this young man was not a suitable interlocuror. People in fact talk most
+But this young man was not a suitable interlocutor. People in fact talk most
 often for their own sake, and with a need to hear the echo of their words.
 </blockquote>
 
@@ -95,6 +95,46 @@ this pointless encounter.
 Death and the Dervish, Meša Selimović
 
 <hr />
+
+<blockquote>
+"Calm down."<br />
+"Why?"<br />
+"You've got a strange look on your face."<br />
+"Is it sad?"<br />
+"I wish it were sad."<br />
+"A few moments ago, in the graveyard, I waited in vain for something to give me a sign when I came to Harun's grave."<br />
+"You ask too much of yourself. It's enough that you grieve."
+</blockquote>
+
+Death and the Dervish
+
+<hr/>
+
+<blockquote>
+He believed that there were not only victories and defeats in life, that there was also breathing, and watching, and listening, and words, and love, and friendship, and ordinary life, which depends greatly on us and no one else.
+</blockquote>
+
+Death and the Dervish
+
+<hr/>
+
+<blockquote>
+It was as if that name bathed me in light. The time I had spent without him had worn me out. That day, then, at once—I needed him more than ever.
+</blockquote>
+
+Death and the Dervish
+
+<hr/>
+
+<blockquote>
+"It would be better if you never needed anyone's protection."<br />
+"He's right. It would be better if I don't ever need anyone protection. I should be my own shield. It's not right for me to burden a friend with troubles that I create myself. If you can't swim, you shouldn't jump in the water hoping someone will pull you out."<br />
+"But that someone wouldn't be a friend of they didn't do it. You understand friendship as freedom; I understand it as obligation. My friend is the same as I. If I protect them, I protect myself."<br />
+</blockquote>
+
+Death and the Dervish
+
+<hr/>
 
 <blockquote>
 See, Artyom, you obviously come from a station where the clock works and you all
@@ -243,46 +283,6 @@ Live all you can; it’s a mistake not to. It doesn’t so much matter what you 
 </blockquote>
 
 The Ambassadors, by Henry James
-
-<hr/>
-
-<blockquote>
-"Calm down."<br />
-"Why?"<br />
-"You've got a strange look on your face."<br />
-"Is it sad?"<br />
-"I wish it were sad."<br />
-"A few moments ago, in the graveyard, I waited in vain for something to give me a sign when I came to Harun's grave."<br />
-"You ask too much of yourself. It's enough that you grieve."
-</blockquote>
-
-Death and the Dervish
-
-<hr/>
-
-<blockquote>
-He believed that there were not only victories and defeats in life, that there was also breathing, and watching, and listening, and words, and love, and friendship, and ordinary life, which depends greatly on us and no one else.
-</blockquote>
-
-Death and the Dervish
-
-<hr/>
-
-<blockquote>
-It was as if that name bathed me in light. The time I had spent without him had worn me out. That day, then, at once—I needed him more than ever.
-</blockquote>
-
-Death and the Dervish
-
-<hr/>
-
-<blockquote>
-"It would be better if you never needed anyone's protection."<br />
-"He's right. It would be better if I don't ever need anyone protection. I should be my own shield. It's not right for me to burden a friend with troubles that I create myself. If you can't swim, you shouldn't jump in the water hoping someone will pull you out."<br />
-"But that someone wouldn't be a friend of they didn't do it. You understand friendship as freedom; I understand it as obligation. My friend is the same as I. If I protect them, I protect myself."<br />
-</blockquote>
-
-Death and the Dervish
 
 <hr/>
 
