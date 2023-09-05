@@ -243,3 +243,157 @@ Live all you can; it’s a mistake not to. It doesn’t so much matter what you 
 </blockquote>
 
 The Ambassadors, by Henry James
+
+<hr/>
+
+<blockquote>
+"Calm down."<br />
+"Why?"<br />
+"You've got a strange look on your face."<br />
+"Is it sad?"<br />
+"I wish it were sad."<br />
+"A few moments ago, in the graveyard, I waited in vain for something to give me a sign when I came to Harun's grave."<br />
+"You ask too much of yourself. It's enough that you grieve."
+</blockquote>
+
+Death and the Dervish
+
+<hr/>
+
+<blockquote>
+He believed that there were not only victories and defeats in life, that there was also breathing, and watching, and listening, and words, and love, and friendship, and ordinary life, which depends greatly on us and no one else.
+</blockquote>
+
+Death and the Dervish
+
+<hr/>
+
+<blockquote>
+It was as if that name bathed me in light. The time I had spent without him had worn me out. That day, then, at once—I needed him more than ever.
+</blockquote>
+
+Death and the Dervish
+
+<hr/>
+
+<blockquote>
+"It would be better if you never needed anyone's protection."<br />
+"He's right. It would be better if I don't ever need anyone protection. I should be my own shield. It's not right for me to burden a friend with troubles that I create myself. If you can't swim, you shouldn't jump in the water hoping someone will pull you out."<br />
+"But that someone wouldn't be a friend of they didn't do it. You understand friendship as freedom; I understand it as obligation. My friend is the same as I. If I protect them, I protect myself."<br />
+</blockquote>
+
+Death and the Dervish
+
+<hr/>
+
+<blockquote>
+On ne peut pas être sûr si la question n'a pas été posée,
+Et si on la pose<br />
+C'est bien qu'on est loin d'être sûr<br />
+C'est certain
+</blockquote>
+
+Mon Grand, Ugo R.
+
+<hr/>
+
+<blockquote>
+Mais cette fois c'était sûr. J'étais quelqu'un. Enfin depuis le<br />
+premier jour on est quelqu'un. Enfin, depuis le premier<br />
+jour on nait quelqu'un. C'est qu'après, faut encore<br />
+le devenir
+</blockquote>
+
+Mon Grand, Ugo R.
+
+<hr/>
+
+<blockquote>
+Je voulais<br />
+Je voulais vous dire<br />
+Je voulais vous dire Messie<br />
+<br />
+Que je ne vous suivrai pas.<br />
+<br />
+(Puis la brebis partie Jeune et trottant<br />
+Elle aussi<br />
+<br />
+Pour son printemps.)
+</blockquote>
+
+Apocryphe de la vierge brebis, Ugo R.
+
+<hr/>
+
+<blockquote>
+"But where to hide the evidence?" Monkey wondered. "Judging by the terrible
+smell, I suspect behind that for over there is a Bureau of Rice Reincarnation.
+Stash the real statues in there, would you?"
+</blockquote>
+
+Monkey King, Wu Cheng'en
+
+<hr/>
+
+<blockquote>
+Who could know if Felix would ever have friends? Friendship, companionship: it
+so often defied logic, so often eluded the deserving, so often settled itself on
+the odd, the bad, the peculiar, the damaged.
+</blockquote>
+
+A little life, Hanya Yanagihara
+
+<hr/>
+
+<blockquote>
+None of them really wanted to listen to someone else's story anyway; they only
+wanted to tell their own.
+</blockquote>
+
+A little life, Hanya Yanagihara
+
+<hr/>
+
+<blockquote>
+"You looked really, really nice. You're a great looking kid; I hope someone's
+told you that before." And then, before he could protest, "acceptance, Jude".
+</blockquote>
+
+A little life, Hanya Yanagihara
+
+<hr/>
+
+<blockquote>
+"If I were a different kind of person, I might say that this whole incident is a
+metaphor for life in general: things get broken, and sometimes they get
+repaired, and in most cases, you realize that no matter what gets damaged, life
+rearranges itself to compensate for your loss, sometimes wonderfully."
+</blockquote>
+
+A little life, Hanya Yanagihara
+
+<hr/>
+
+<blockquote>
+"You won't understand what I mean now, but someday you will: the only trick of
+friendship, I think, is to find people who are better than you are — not
+smarter, not cooler, but kinder, and more generous, and more forgiving — and
+then to appreciate them for what they can teach you, and to try to listen to
+them when they tell you something about yourself, no matter how bad — or good —
+it might me, and to trust them, which is the hardest thing of all. But the best
+as well."
+</blockquote>
+
+A little life, Hanya Yanagihara
+
+<hr/>
+
+<blockquote>
+He imagines people on the street looking up from their phones and into each
+other's eyes — <i>Hello, how are you? Why are you so sad? How can we do
+better?</i>
+</blockquote>
+
+How high we go in the dark, Sequoia Nagamatsu
+
+<hr/>
