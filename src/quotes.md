@@ -1,6 +1,35 @@
 ## Quotes
 
 <blockquote>
+We know little about the original Divinities, but we know even less of their
+children, who were often too unimportant to record, except perhaps for this one
+child, who was too important to put to paper.
+</blockquote>
+
+The City of Miracles, Robert Jackson Bennett
+
+<hr />
+
+<blockquote>
+"One should not seek ugliness in this world. There is no lack of it. You will
+find it soon enough, or it will find you."
+</blockquote>
+
+The City of Miracles, Robert Jackson Bennett
+
+<hr />
+
+<blockquote>
+"What puzzles the dead are," says Taty. She looks away into the wilderness.
+"They take so much of themselves with them, you're not even sure who you're
+mourning."
+</blockquote>
+
+The City of Miracles, Robert Jackson Bennett
+
+<hr />
+
+<blockquote>
 If [men] dared to love us, in patriarchal culture they would cease to be real
 "men"
 </blockquote>
