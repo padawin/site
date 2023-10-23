@@ -1,12 +1,12 @@
 ## Quotes
 
+### The City of Miracles, Robert Jackson Bennett
+
 <blockquote>
 We know little about the original Divinities, but we know even less of their
 children, who were often too unimportant to record, except perhaps for this one
 child, who was too important to put to paper.
 </blockquote>
-
-The City of Miracles, Robert Jackson Bennett
 
 <hr />
 
@@ -14,8 +14,6 @@ The City of Miracles, Robert Jackson Bennett
 "One should not seek ugliness in this world. There is no lack of it. You will
 find it soon enough, or it will find you."
 </blockquote>
-
-The City of Miracles, Robert Jackson Bennett
 
 <hr />
 
@@ -25,24 +23,20 @@ The City of Miracles, Robert Jackson Bennett
 mourning."
 </blockquote>
 
-The City of Miracles, Robert Jackson Bennett
-
 <hr />
+
+### The will to change, bell hooks
 
 <blockquote>
 If [men] dared to love us, in patriarchal culture they would cease to be real
 "men"
 </blockquote>
 
-The will to change, bell hooks
-
 <hr />
 
 <blockquote>
 The truth we do not tell is that men are longing for love.
 </blockquote>
-
-The will to change, bell hooks
 
 <hr />
 
@@ -52,16 +46,12 @@ is anger. Real men get mad. And their mad-ness,  no matter how violent or
 violating, is deemed natural — a positive expression of patriarchal masculinity.
 </blockquote>
 
-The will to change, bell hooks
-
 <hr />
 
 <blockquote>
 In a loving relationship, abuse is unacceptable. You should not have to tolerate
 any abuse to be loved.
 </blockquote>
-
-The will to change, bell hooks
 
 <hr />
 
@@ -72,16 +62,14 @@ who are true heroes, the men whose lives we need to know about, honour, and
 remember.
 </blockquote>
 
-The will to change, bell hooks
-
 <hr />
+
+### Death and the Dervish, Meša Selimović
 
 <blockquote>
 I look at these long rows of words, the tombstones of my thoughts, and I do not
 know whether I have killed them, or given them life.
 </blockquote>
-
-Death and the Dervish, Meša Selimović
 
 <hr />
 
@@ -93,16 +81,12 @@ wheel. And I was happy when it swelled, destroyed the dam, and flowed free. I
 knew all the while that only tamed waters can mill wheat.
 </blockquote>
 
-Death and the Dervish, Meša Selimović
-
 <hr />
 
 <blockquote>
 Her story was of no interest to me. for I knew the end as soon as I heard the
 beginning, and I was not moved at all by her compliment since it was insincere.
 </blockquote>
-
-Death and the Dervish, Meša Selimović
 
 <hr />
 
@@ -111,8 +95,6 @@ But this young man was not a suitable interlocutor. People in fact talk most
 often for their own sake, and with a need to hear the echo of their words.
 </blockquote>
 
-Death and the Dervish, Meša Selimović
-
 <hr />
 
 <blockquote>
@@ -120,8 +102,6 @@ We wanted the same thing from one another, each placing his faith in the
 strength of the other, both of us powerless, and that was the saddest part of
 this pointless encounter.
 </blockquote>
-
-Death and the Dervish, Meša Selimović
 
 <hr />
 
@@ -135,23 +115,17 @@ Death and the Dervish, Meša Selimović
 "You ask too much of yourself. It's enough that you grieve."
 </blockquote>
 
-Death and the Dervish
-
 <hr/>
 
 <blockquote>
 He believed that there were not only victories and defeats in life, that there was also breathing, and watching, and listening, and words, and love, and friendship, and ordinary life, which depends greatly on us and no one else.
 </blockquote>
 
-Death and the Dervish
-
 <hr/>
 
 <blockquote>
 It was as if that name bathed me in light. The time I had spent without him had worn me out. That day, then, at once—I needed him more than ever.
 </blockquote>
-
-Death and the Dervish
 
 <hr/>
 
@@ -161,9 +135,9 @@ Death and the Dervish
 "But that someone wouldn't be a friend of they didn't do it. You understand friendship as freedom; I understand it as obligation. My friend is the same as I. If I protect them, I protect myself."<br />
 </blockquote>
 
-Death and the Dervish
-
 <hr/>
+
+### Metro 2033, by Dmitry Glukhovsky
 
 <blockquote>
 See, Artyom, you obviously come from a station where the clock works and you all
@@ -202,9 +176,9 @@ time in this station, except perhaps one and it's very strange: now it is the
 four hundred and nineteenth day and I'm counting backwards.
 </blockquote>
 
-Metro 2033, by Dmitry Glukhovsky
-
 <hr />
+
+### The Wanderer's Hávamál, Translated by Jackson Crawford
 
 <blockquote>
 He needs water,
@@ -215,9 +189,9 @@ and if he can get it,
 a chance to listen and be listen to.
 </blockquote>
 
-The Wanderer's Hávamál, Translated by Jackson Crawford
-
 <hr />
+
+### Earthsea - The Four Books, by Ursula Le Guin
 
 <blockquote>
 Try to choose carefully, Arren, when the great choices must be made. When I was
@@ -228,15 +202,11 @@ Then very seldom do you come upon a space, a time like this, between act and
 act, when you may stop and simply be. Or wonder who, after all, you are
 </blockquote>
 
-Earthsea - The Four Books, by Ursula Le Guin
-
 <hr />
 
 <blockquote>
 If you don't speak, what can I do but leave you?
 </blockquote>
-
-Earthsea - The Four Books, by Ursula Le Guin
 
 <hr />
 
@@ -245,8 +215,6 @@ It’s none of their business, where you are, or who you are, or what you
 choose to do or not to do! If they come prying they can leave curious.
 </blockquote>
 
-Earthsea - The Four Books, by Ursula Le Guin
-
 <hr />
 
 <blockquote>
@@ -254,9 +222,9 @@ Earthsea - The Four Books, by Ursula Le Guin
 - It’s the only justification for obedience, Ged observed.
 </blockquote>
 
-Earthsea - The Four Books, by Ursula Le Guin
-
 <hr/>
+
+### Tomorrow, and Tomorrow, and Tomorrow, by Gabrielle Zevin
 
 <blockquote>
 - She's my best friend, Sam said.<br/>
@@ -266,8 +234,6 @@ I'm asking this—is it romantic? Or has it ever been romantic?<br/>
 romance. It's friendship.
 </blockquote>
 
-Tomorrow, and Tomorrow, and Tomorrow, by Gabrielle Zevin
-
 <hr/>
 
 <blockquote>
@@ -275,16 +241,12 @@ It was never worth worrying about someone you didn't love. And it wasn't love if
 you didn't worry.
 </blockquote>
 
-Tomorrow, and Tomorrow, and Tomorrow, by Gabrielle Zevin
-
 <hr/>
 
 <blockquote>
 Sam's doctor said to him, "The good news is that the pain is in your head."
 <i>But I am in my head</i>, Sam thought.
 </blockquote>
-
-Tomorrow, and Tomorrow, and Tomorrow, by Gabrielle Zevin
 
 <hr/>
 
@@ -295,25 +257,23 @@ his brain and delete the bad code. Unfortunately, the human brain is very bit as
 closed a system as a Mac.
 </blockquote>
 
-Tomorrow, and Tomorrow, and Tomorrow, by Gabrielle Zevin
-
 <hr/>
 
 <blockquote>
 A programmer is a diviner of possible outcomes, and a seer of unseen worlds.
 </blockquote>
 
-Tomorrow, and Tomorrow, and Tomorrow, by Gabrielle Zevin
-
 <hr/>
+
+### The Ambassadors, by Henry James
 
 <blockquote>
 Live all you can; it’s a mistake not to. It doesn’t so much matter what you do in particular, so long as you have your life. If you haven’t had that what have you had? What one loses one loses; make no mistake about that. [...] Still, one has the illusion of freedom; therefore don’t be, like me, without the memory of that illusion. I was either, at the right time, too stupid or too intelligent to have it; I don’t quite know which. Of course at present I’m a case of reaction against the mistake; and the voice of reaction should, no doubt, always be taken with an allowance. But that doesn’t affect the point that the right time is now yours. The right time is any time that one is still so lucky as to have. You’ve plenty; that’s the great thing; you’re, as I say, damn you, so happily and hatefully young. Don’t at any rate miss things out of stupidity. Of course I don’t take you for a fool, or I shouldn’t be addressing you thus awfully. Do what you like so long as you don’t make my mistake. For it was a mistake. Live!
 </blockquote>
 
-The Ambassadors, by Henry James
-
 <hr/>
+
+### Mon Grand, Ugo R.
 
 <blockquote>
 On ne peut pas être sûr si la question n'a pas été posée,
@@ -321,8 +281,6 @@ Et si on la pose<br />
 C'est bien qu'on est loin d'être sûr<br />
 C'est certain
 </blockquote>
-
-Mon Grand, Ugo R.
 
 <hr/>
 
@@ -333,9 +291,9 @@ jour on nait quelqu'un. C'est qu'après, faut encore<br />
 le devenir
 </blockquote>
 
-Mon Grand, Ugo R.
-
 <hr/>
+
+### Apocryphe de la vierge brebis, Ugo R.
 
 <blockquote>
 Je voulais<br />
@@ -350,9 +308,9 @@ Elle aussi<br />
 Pour son printemps.)
 </blockquote>
 
-Apocryphe de la vierge brebis, Ugo R.
-
 <hr/>
+
+### Monkey King, Wu Cheng'en
 
 <blockquote>
 "But where to hide the evidence?" Monkey wondered. "Judging by the terrible
@@ -360,17 +318,15 @@ smell, I suspect behind that for over there is a Bureau of Rice Reincarnation.
 Stash the real statues in there, would you?"
 </blockquote>
 
-Monkey King, Wu Cheng'en
-
 <hr/>
+
+### A little life, Hanya Yanagihara
 
 <blockquote>
 Who could know if Felix would ever have friends? Friendship, companionship: it
 so often defied logic, so often eluded the deserving, so often settled itself on
 the odd, the bad, the peculiar, the damaged.
 </blockquote>
-
-A little life, Hanya Yanagihara
 
 <hr/>
 
@@ -379,16 +335,12 @@ None of them really wanted to listen to someone else's story anyway; they only
 wanted to tell their own.
 </blockquote>
 
-A little life, Hanya Yanagihara
-
 <hr/>
 
 <blockquote>
 "You looked really, really nice. You're a great looking kid; I hope someone's
 told you that before." And then, before he could protest, "acceptance, Jude".
 </blockquote>
-
-A little life, Hanya Yanagihara
 
 <hr/>
 
@@ -398,8 +350,6 @@ metaphor for life in general: things get broken, and sometimes they get
 repaired, and in most cases, you realize that no matter what gets damaged, life
 rearranges itself to compensate for your loss, sometimes wonderfully."
 </blockquote>
-
-A little life, Hanya Yanagihara
 
 <hr/>
 
@@ -413,16 +363,14 @@ it might me, and to trust them, which is the hardest thing of all. But the best
 as well."
 </blockquote>
 
-A little life, Hanya Yanagihara
-
 <hr/>
+
+### How high we go in the dark, Sequoia Nagamatsu
 
 <blockquote>
 He imagines people on the street looking up from their phones and into each
 other's eyes — <i>Hello, how are you? Why are you so sad? How can we do
 better?</i>
 </blockquote>
-
-How high we go in the dark, Sequoia Nagamatsu
 
 <hr/>

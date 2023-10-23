@@ -320,3 +320,7 @@ pre code {
 #contact form label, #contact form input[type="submit"] {
 	margin-top: 14px;
 }
+
+hr {
+	color: #ccc;
+}
